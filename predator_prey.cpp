@@ -1,57 +1,46 @@
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 #include <SDL2/SDL_render.h>
-#include <string>
-#include <SDL2/SDL.h>
+#include <SDL2/SDL_video.h>
 #include <iostream>
-
-
-
-
+#include <string>
 
 int main() {
-	const int height = 400;
-	const int width = 400;
+  const int height = 400;
+  const int width = 400;
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		return 1;
-		std::cout << "init failed" << "\n";
-	}
+  SDL_Window *w;
 
-	SDL_Window *w = SDL_CreateWindow("test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
+  SDL_Point window_position = {SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED};
 
-	if (w == nullptr) {
-		std::cout << "window error";
-		return 1;
-	};
+  SDL_Point window_size = {600, 600};
 
-	SDL_Renderer * r = SDL_CreateRenderer(w,0,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+  SDL_Point mouse_pos;
+  SDL_Init(SDL_INIT_VIDEO);
 
-	int x = width /2;
-	int y = height /2;
+  w = SDL_CreateWindow("test", window_position.x, window_position.y,
+                       window_size.x, window_size.y, SDL_WINDOW_OPENGL);
+  int x, y;
+  SDL_Renderer *r = SDL_CreateRenderer(w, -1, SDL_RENDERER_PRESENTVSYNC);
 
-	bool quit = false;
-	SDL_Event event;
+  SDL_SetRenderDrawColor(r, 0xff, 0xff, 0xff, 0xff);
 
-	while (!quit) {
+  bool quit = false;
+  SDL_Event e;
+  while (!quit) {
+    while (SDL_PollEvent(&e) > 0) {
 
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				quit = true;
-			}
-		}
-		
-		SDL_RenderClear(r);
-		SDL_SetRenderDrawColor(r, 0xFF, 0xFF, 0xFF, 0xFF);
-		SDL_RenderDrawPoint(r, x, y);
-		SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xFF);
-		SDL_RenderPresent(r);
+			switch(e.type) {
+												case SDL_QUIT:
+													quit = true;
+                          break;
+			};
 
-	}
+      SDL_RenderClear(r);
 
+      SDL_RenderDrawPoint(r, x, y);
 
-	SDL_DestroyWindow(w);
-	SDL_DestroyRenderer(r);
-	SDL_Quit();
-
+      SDL_RenderPresent(r);
+    };
+  };
 }
-
