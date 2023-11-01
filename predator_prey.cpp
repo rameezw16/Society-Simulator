@@ -23,9 +23,15 @@ int main() {
   int x, y;
   SDL_Renderer *r = SDL_CreateRenderer(w, -1, SDL_RENDERER_PRESENTVSYNC);
 
-  SDL_SetRenderDrawColor(r, 0xff, 0xff, 0xff, 0xff);
+  SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
 
-  bool quit = false;
+	SDL_Rect rect;
+	rect.x = 100;
+	rect.y = 100;
+	rect.w = 100;
+	rect.h = 100;
+
+	bool quit = false;
   SDL_Event e;
   while (!quit) {
     while (SDL_PollEvent(&e) > 0) {
@@ -37,6 +43,11 @@ int main() {
 			};
 
       SDL_RenderClear(r);
+
+			SDL_SetRenderDrawColor(r, 0xff, 0x00, 0x00, 0xff);
+			SDL_RenderFillRect(r,&rect);
+			SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
+
 
       SDL_RenderDrawPoint(r, x, y);
 
