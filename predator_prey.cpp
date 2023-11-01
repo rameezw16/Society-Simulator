@@ -41,6 +41,7 @@ int main() {
 													quit = true;
                           break;
 			};
+		};
 
       SDL_RenderClear(r);
 
@@ -48,10 +49,8 @@ int main() {
 			SDL_RenderFillRect(r,&rect);
 			SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
 
-
-      SDL_RenderDrawPoint(r, x, y);
+			rect.x += 10;
 
       SDL_RenderPresent(r);
-    };
   };
 }
