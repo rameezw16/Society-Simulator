@@ -77,8 +77,6 @@ public: //are public just for testing at the moment
 			this->rect.y += s;
 			break;
 		};
-
-
 	};
 };
 
@@ -101,13 +99,6 @@ SDL_Window *w;
   SDL_Renderer *r = SDL_CreateRenderer(w, -1, SDL_RENDERER_PRESENTVSYNC);
 
   SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
-
-	Charecter predator1(r, 100, 100, 10, 10, 150);
-	Charecter predator2(r, 200, 200, 10, 10, 150);
-	Charecter predator3(r, 150, 100, 30, 30, 40);
-	Charecter predator4(r, 200, 200, 10, 10, 90);
-	Charecter predator5(r, 100, 201, 10, 10, 40);
-	Charecter predator6(r, 200, 300, 10, 10, 90);
 
 	std::vector<Charecter> predators;
 		int xpos;
@@ -148,12 +139,17 @@ SDL_Window *w;
 				predators[i].randomWalk();
 			};
 
-			if (predator1.isInRange(predator2)) {
-				predator1.moveInDirection(predator2);
-				predator2.health -= 1;
+			for (int i = 0; i < num; i++) {
+				for (int j = 0; j < num; j++) {
+					if (predators[i].isInRange(predators[j])) {
+						predators[i].moveInDirection(predators[j]);
+						predators[j].health -=100;
+					}
+				}
 			};
 
 
       SDL_RenderPresent(r);
+			SDL_Delay(10);
   };
 };
