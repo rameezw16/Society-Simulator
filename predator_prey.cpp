@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <random>
 
 
 
@@ -52,6 +53,17 @@ public: //are public just for testing at the moment
 		this->rect.x += temp.x;
 		this->rect.y += temp.y;
 	};
+
+	void randomWalk() {
+		int rad = 10;
+		int angle = rand() % 360;
+		float s = rad * std::cos(angle);
+
+		this->rect.x += s;
+		this->rect.y += s;
+
+
+	};
 };
 
 
@@ -76,6 +88,11 @@ SDL_Window *w;
 
 	Charecter predator1(r, 100, 100, 10, 10, 150);
 	Charecter predator2(r, 200, 200, 10, 10, 150);
+	Charecter predator3(r, 150, 100, 30, 30, 40);
+	Charecter predator4(r, 200, 200, 10, 10, 90);
+	Charecter predator5(r, 100, 201, 10, 10, 40);
+	Charecter predator6(r, 200, 300, 10, 10, 90);
+
 	bool quit = false;
   SDL_Event e;
   while (!quit) {
@@ -91,6 +108,20 @@ SDL_Window *w;
       SDL_RenderClear(r);
 			predator1.display();
 			predator2.display();
+			predator3.display();
+			predator4.display();
+			predator5.display();
+			predator6.display();
+
+
+
+
+			predator1.randomWalk();
+			predator2.randomWalk();
+			predator3.randomWalk();
+			predator4.randomWalk();
+			predator5.randomWalk();
+			predator6.randomWalk();
 
 			if (predator1.isInRange(predator2)) {
 				predator1.moveInDirection(predator2);
