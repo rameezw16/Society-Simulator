@@ -4,6 +4,47 @@
 #include <SDL2/SDL_video.h>
 #include <iostream>
 #include <string>
+#include <math.h>
+
+
+
+class Charecter {
+
+public: //are public just for testing at the moment
+	int health = 100;
+	int radius;
+	bool predator;
+	bool prey;
+
+	SDL_Renderer * r;
+	SDL_Rect rect;
+
+	Charecter(SDL_Renderer * r, int x, int y, int w, int h, int radius) : r(r), radius(radius) {
+		this->rect.x = x;
+		this->rect.y = y;
+		this->rect.w = w;
+		this->rect.h = h;
+	};
+
+	void display() {
+			SDL_SetRenderDrawColor(r, 0xff, 0x00, 0x00, 0xff);
+			SDL_RenderFillRect(r,&rect);
+			SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
+	};
+
+	bool isInRange(Charecter &other) { //checks whether the other is in range of this character
+
+		int d1 = this->rect.x - other.rect.x;
+		int d2 = this->rect.y - other.rect.y;
+
+
+		if (std::sqrt(d1 * d1 + d2 * d2) < this->radius) {
+			return true;
+		};
+		return false;
+	};
+};
+
 
 int main() {
   const int height = 400;
@@ -25,12 +66,8 @@ int main() {
 
   SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
 
-	SDL_Rect rect;
-	rect.x = 100;
-	rect.y = 100;
-	rect.w = 100;
-	rect.h = 100;
-
+	Charecter predator1(r, 100, 100, 10, 10, 30);
+	Charecter predator2(r, 200, 200, 10, 10, 30);
 	bool quit = false;
   SDL_Event e;
   while (!quit) {
@@ -44,12 +81,9 @@ int main() {
 		};
 
       SDL_RenderClear(r);
+			predator1.display();
+			predator2.display();
 
-			SDL_SetRenderDrawColor(r, 0xff, 0x00, 0x00, 0xff);
-			SDL_RenderFillRect(r,&rect);
-			SDL_SetRenderDrawColor(r, 0x00, 0x00, 0x00, 0xff);
-
-			rect.x += 10;
 
       SDL_RenderPresent(r);
   };
