@@ -6,6 +6,7 @@
 #include <string>
 #include <math.h>
 #include <random>
+#include <vector>
 
 
 
@@ -55,12 +56,27 @@ public: //are public just for testing at the moment
 	};
 
 	void randomWalk() {
-		int rad = 10;
-		int angle = rand() % 360;
-		float s = rad * std::cos(angle);
 
-		this->rect.x += s;
-		this->rect.y += s;
+		int choice = rand() % 3;
+		int s = 5;
+		switch (choice) {
+		case 0 :
+			this->rect.x += s;
+			this->rect.y += 0;
+			break;
+		case 1:
+			this->rect.x -= s;
+			this->rect.y += 0;
+			break;
+		case 2:
+			this->rect.x += 0;
+			this->rect.y += s;
+			break;
+		case 3:
+			this->rect.x += 0;
+			this->rect.y += s;
+			break;
+		};
 
 
 	};
@@ -93,6 +109,23 @@ SDL_Window *w;
 	Charecter predator5(r, 100, 201, 10, 10, 40);
 	Charecter predator6(r, 200, 300, 10, 10, 90);
 
+	std::vector<Charecter> predators;
+		int xpos;
+		int ypos;
+		int pWidth;
+		int pHeight;
+		int radius;
+		int num = 5; 
+
+	for(int i = 0; i < num; i++) {
+		xpos = rand() % width;
+		ypos = rand() % height;
+		pWidth = rand() % 40;
+		pHeight = pWidth;
+		Charecter temp{r, xpos,ypos,pWidth,pHeight,radius};
+		predators.push_back(temp);
+	};
+
 	bool quit = false;
   SDL_Event e;
   while (!quit) {
@@ -106,22 +139,14 @@ SDL_Window *w;
 		};
 
       SDL_RenderClear(r);
-			predator1.display();
-			predator2.display();
-			predator3.display();
-			predator4.display();
-			predator5.display();
-			predator6.display();
 
+			for (int i = 0; i < num; i++) {
+				predators[i].display();
+			};
 
-
-
-			predator1.randomWalk();
-			predator2.randomWalk();
-			predator3.randomWalk();
-			predator4.randomWalk();
-			predator5.randomWalk();
-			predator6.randomWalk();
+			for (int i = 0; i < num; i++) {
+				predators[i].randomWalk();
+			};
 
 			if (predator1.isInRange(predator2)) {
 				predator1.moveInDirection(predator2);
