@@ -8,6 +8,10 @@
 #include <string>
 #include <vector>
 
+
+// We can also add A* to pathfind to home?
+// Myth generator
+
 class Charecter {
 
 public: // are public just for testing at the moment
@@ -18,6 +22,9 @@ public: // are public just for testing at the moment
 
   SDL_Renderer *r;
   SDL_Rect rect;
+
+	Charecter() = default;
+	~Charecter() = default;
 
   Charecter *target = this;
 
@@ -51,7 +58,7 @@ public: // are public just for testing at the moment
   };
 
   void moveToTarget() {
-    int factor = 20;
+    int factor = 200;
 		if (this->target == nullptr) return;
     SDL_Point temp{(this->target->rect.x - this->rect.x) / factor,
                    (this->target->rect.y - this->rect.x) / factor}; // turn this into float tuple
@@ -123,6 +130,7 @@ int main() {
     ypos = rand() % height;
     pWidth = rand() % 40;
     pHeight = pWidth;
+		radius = rand() % 20;
     Charecter *temp = new Charecter{r, xpos, ypos, pWidth, pHeight, radius};
     predators.push_back(temp);
   };
