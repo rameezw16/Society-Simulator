@@ -1,1 +1,3 @@
-Roe created with health: 59 wealth: 78 happiness: 71
+Roe created with id: 1 health: 85 wealth: 39 happiness: 60
+Towards Joe has Respect: -12 Professionalism: 47 Love: 8
+Towards Boe has Respect: 16 Professionalism: 80 Love: 77
