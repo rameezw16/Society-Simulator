@@ -1,0 +1,1 @@
+Boe created with health: 61 wealth: 49 happiness: 20
