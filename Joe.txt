@@ -1,3 +1,3 @@
-Joe created with id: 0 health: 32 wealth: 47 happiness: 20
-Towards Roe has Respect: 15 Professionalism: 0 Love: -33
-Towards Boe has Respect: 0 Professionalism: -80 Love: 98
+Joe created with id: 0 health: 84 wealth: 40 happiness: 61
+Towards Roe has Respect: 3 Professionalism: 71 Love: -1
+Towards Boe has Respect: 12 Professionalism: -38 Love: 8
