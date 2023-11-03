@@ -26,7 +26,7 @@ class Entity // Person with id, name, stats, personality and relations - info up
 
         Entity(std::string name)
         {
-            // randomise traits and personality
+            // randomise stats and personality
             this->id = count;
             count++;
             this->name = name;
@@ -39,21 +39,25 @@ class Entity // Person with id, name, stats, personality and relations - info up
             this->personalityTraits[3] = (mt()%5 - 2) * (this->wealth/10 + this->health/10 + this->happiness/10);
             this->personalityTraits[4] = mt()%30 - (this->happiness/10);
 
+            // Add details to file
             std::ofstream entityFile;
             entityFile.open(name+".txt");
             entityFile << this->name << " created with id: " << this->id << " health: " << this->health << ", wealth: " << this->wealth << ", happiness: " << this->happiness << "\n";
             entityFile << "and personality: Extroversion -> " << this->personalityTraits[0] << ", Agreeableness -> " << this->personalityTraits[1] << ", Openness -> " << this->personalityTraits[2] << ", Conscientiousness -> " << this->personalityTraits[3] << ", Neuroticism -> " << this->personalityTraits[4] << std::endl;
             entityFile.close();
 
+
+            // Randomise relationships at the start  (both ways)
             for (Entity* x : Entities)
             {
-                this->initialise_Relation(x);
+                this->initialise_Relation(x); 
                 x->initialise_Relation(this);
             }
         }
 
         void initialise_Relation(Entity* other)
         {
+            // Randomise based off others stats
             printf("Initialising %s -> %s\n", this->name.c_str(), other->name.c_str());
             int respect, professionalism, love;
             respect = (int) (other->wealth*(mt()%5 - 2) + other->happiness*(mt()%5 - 3)) / 5; // inner ranges from -200 - 300 -> 200 + 100
@@ -69,7 +73,7 @@ class Entity // Person with id, name, stats, personality and relations - info up
             entityFile.close();
         }
 
-        void newDay(int x)
+        void newDay(int x) // Mention start of new day in text file
         {
             std::ofstream entityFile;
             entityFile.open(this->name+".txt", std::ios::app);
@@ -77,7 +81,7 @@ class Entity // Person with id, name, stats, personality and relations - info up
             entityFile.close();
         }
 
-        ~Entity()
+        ~Entity() // Record final state of stats and relations
         {
             std::ofstream entityFile;
             entityFile.open(name+".txt", std::ios::app);
@@ -90,18 +94,18 @@ class Entity // Person with id, name, stats, personality and relations - info up
         }
 };
 
-class Interaction
+class Interaction // Abstract Base class for many types of interactions
 {
     public:
         virtual void interact(Entity& p1) = 0;
 };
 
-class SocialInteraction : public Interaction
+class SocialInteraction : public Interaction // 3 types of social interaction
 {
     public:
-        void interact(Entity& p1)
+        void interact(Entity& p1) // 1 interaction called at random
         {
-            int choice = mt()%1;
+            int choice = mt()%1; // currently only talk implemented
             switch (choice)
             {
                 case 0:
@@ -118,12 +122,13 @@ class SocialInteraction : public Interaction
 
             }
         }
-        void Talk(Entity& p1)
+
+        void Talk(Entity& p1) // Talk to other entity (called on each day) - updates love and happiness for both involved entities
         {
             int c = mt() % (p1.totalLove);
             int curLove = 0;
             int other_id = 1;
-            for (auto x : p1.relationShips)
+            for (auto x : p1.relationShips) // randomiser, increases likelihood of taking to those more loved
             {
                 curLove += x.second[2];
                 other_id = x.first;
@@ -153,22 +158,24 @@ class SocialInteraction : public Interaction
             p2File << p2.name << " has happiness: " << p2.happiness << " and loves " << p1.name << " " << y << " units more"   << "\n";
             p2File.close();
         }
-        void Hurt(Entity& p1)
+
+        void Hurt(Entity& p1) // need to implement
         {
             return;
         }
-        void Help(Entity& p1)
+
+        void Help(Entity& p1) // need to implement
         {
             return;
         }
 };
 
-int Entity::count = 0;
+int Entity::count = 0; // static variable storing count of Entities
 
 
 int main()
 {
-    // for (int i = 0; i < 10; i++) std::cout << mt() << std::endl;
+    // Generate random entities
     Entities.push_back(new Entity("Joe"));
     Entities.push_back(new Entity("Roe"));
     Entities.push_back(new Entity("Boe"));
@@ -179,7 +186,7 @@ int main()
 
     Interaction* act = new SocialInteraction();
 
-    for (int i = 1; i < 10; i++)
+    for (int i = 1; i < 10; i++) // Carry out random interactions by each entity each day
     {
         for (Entity* x : Entities)
         {
@@ -191,9 +198,7 @@ int main()
         }
     }
 
-    for (Entity* x : Entities) delete x;
-    // Entities a = Entities("Joe");
-    // Entities b = Entities("Roe");
-    // Entities c = Entities("Boe");
+    for (Entity* x : Entities) delete x; // Clear entities
+    
     return 0;
 }

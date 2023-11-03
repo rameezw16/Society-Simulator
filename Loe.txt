@@ -1,42 +1,42 @@
-Loe created with id: 4 health: 73, wealth: 69, happiness: 62
-and personality: Extroversion -> 32, Agreeableness -> 50, Openness -> 19, Conscientiousness -> 0, Neuroticism -> 11
-Towards Joe has Respect: 6, Professionalism: 16, Love: -24
-Towards Roe has Respect: -83, Professionalism: 0, Love: -73
-Towards Boe has Respect: -47, Professionalism: 55, Love: -53
-Towards Soe has Respect: 21, Professionalism: -44, Love: 49
-Towards Yoe has Respect: -4, Professionalism: 0, Love: 61
-Towards Zoe has Respect: 41, Professionalism: 72, Love: -73
+Loe created with id: 4 health: 58, wealth: 33, happiness: 56
+and personality: Extroversion -> 22, Agreeableness -> 10, Openness -> 18, Conscientiousness -> 13, Neuroticism -> 9
+Towards Joe has Respect: 0, Professionalism: -53, Love: -13
+Towards Roe has Respect: 17, Professionalism: -73, Love: 83
+Towards Boe has Respect: -16, Professionalism: 20, Love: 7
+Towards Soe has Respect: 37, Professionalism: -58, Love: -35
+Towards Yoe has Respect: -22, Professionalism: -27, Love: -22
+Towards Zoe has Respect: -14, Professionalism: 25, Love: 35
 Day 1
-Loe talked to Joe
-Loe has happiness: 64 and loves Joe 1 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 1 units more
 Day 2
-Loe talked to Zoe
-Loe has happiness: 64 and loves Zoe 2 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe -2 units more
 Day 3
-Loe talked to Joe
-Loe has happiness: 64 and loves Joe 6 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 0 units more
 Day 4
-Loe talked to Joe
-Loe has happiness: 64 and loves Joe -4 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe -3 units more
 Day 5
-Loe talked to Zoe
-Loe has happiness: 64 and loves Zoe 5 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 0 units more
 Day 6
-Loe talked to Joe
-Loe has happiness: 66 and loves Joe 4 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 2 units more
 Day 7
-Loe talked to Joe
-Loe has happiness: 66 and loves Joe -2 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 0 units more
 Day 8
-Loe talked to Zoe
-Loe has happiness: 68 and loves Zoe -4 units more
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe 2 units more
 Day 9
-Loe talked to Zoe
-Loe has happiness: 70 and loves Zoe 3 units more
-Loe (id: 4) ended with 4 health: 73, wealth: 69, happiness: 70
-For Joe ended with Respect: 6, Professionalism: 16, Love: -19
-For Roe ended with Respect: -83, Professionalism: 0, Love: -73
-For Boe ended with Respect: -47, Professionalism: 55, Love: -53
-For Soe ended with Respect: 21, Professionalism: -44, Love: 49
-For Yoe ended with Respect: -4, Professionalism: 0, Love: 61
-For Zoe ended with Respect: 41, Professionalism: 72, Love: -67
+Loe talked to Roe
+Loe has happiness: 56 and loves Roe -4 units more
+Loe (id: 4) ended with 4 health: 58, wealth: 33, happiness: 56
+For Joe ended with Respect: 0, Professionalism: -53, Love: -13
+For Roe ended with Respect: 17, Professionalism: -73, Love: 79
+For Boe ended with Respect: -16, Professionalism: 20, Love: 7
+For Soe ended with Respect: 37, Professionalism: -58, Love: -35
+For Yoe ended with Respect: -22, Professionalism: -27, Love: -22
+For Zoe ended with Respect: -14, Professionalism: 25, Love: 35
