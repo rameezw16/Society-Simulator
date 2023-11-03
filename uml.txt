@@ -1,0 +1,167 @@
+@startuml
+Entity -left-> Object
+Item -right-> Object
+Terrain -up-> Object
+Grid o-- Object : aggregation 
+Entity *-- State : contains
+Entity *-- Personality : contains 
+Object *-- Sprite : contains
+
+page 2x2
+skinparam groupInheritence 2
+
+Leader -up-> Entity
+Peasant -up-> Entity
+House -up-> Item
+Sword -up-> Item
+Water -up-> Item
+Ocean -up-> Terrain
+Horse -up-> Entity
+Dog -up-> Entity
+together {
+class House
+class Sword
+}
+Land -> Terrain
+Plant -> Item
+
+class Land {
+grow_plants() : void
+}
+
+class Plant {
+-int nutritional_value
+}
+
+class Ocean { 
++drown(Entity a) : void
+}
+
+class Leader{
++influence() : void
++psychotic_break() : void
++public_good() : void
+}
+
+class Peasant{
++move() : void
++build_house(Terrain* spot) : void
++burn_house(Terrain* spot) : void
++work() : void
++reproduce(Entity a) : void
++eat() : void
+}
+
+class Horse {
++move() : void
++reproduce(Entity a) : void
++eat() : void
++rampage() : void
+}
+
+class Dog {
++bite() : void
+}
+
+class House{
++enter() : void
++exit() : void
++destroy() : void
++decay() : void
+}
+
+class Sword {
++injure(Entity victim) : void
+}
+
+class Water {
++rejuvinate(Entity drinker) : void
++spill(Terrain * t) : void
+}
+
+class Sprite {
+-image
+-display() : void
++set_sprite(image) : void
+}
+
+class Grid {
+-vector<vector<Object*>> objects
+-SDL_Renderer r
+-SDL_Window w
+
++step_grid()
++show_friendship_graph()
++show_region(SDL_Point p1, SDL_Point p2)
++show_influences()
++show_default_screen()
++followObject(&Object)
+}
+
+
+class State {
+-int Health
+-int Wealth
+-Terrain* home
+-vector<Entity*> Friends
+-vector<Entity*> Enemies
++set_health(int i)
++get_health() : int
++set_wealth(int i)
++get_wealth() : int
++set_terrain(Terrain* t) : void 
++get_terrain() : Terrain*
++set_enemies(vector<Entity*> enemies)
++get_enemies() : vector<Entity*>
++set_friends(vector<Entity*> friends)
++get_friends() : vector<Entity*>
+}
+
+
+class Personality {
+-int openness;
+-int conscientiousness;
+-int agreeableness;
+-int neuroticism;
+-int extraversion;
+
++set_personality(int openness, int conscientiousness, int agreeableness, int neuroticism, int extraversion)
+-get_openness() : int
+-get_conscientiousness() : int
+-get_agreeableness() : int
+-get_neuroticism() : int
+-get_extraversion() : int
+}
+
+abstract class Object {
+-Sprite
+-vector<string> 
++influence() : void
++step() : void
++display() : void
++get_interactions(object) : vector<std::string>
++interact(string) : void
++interact() : void
+}
+
+
+abstract class Entity { 
+-Personality
+-State
++set_personality(Personality p)
++set_state(State s)
++get_personality() : Personality
++get_state() : State
+}
+
+abstract class Item {
+
+}
+
+abstract class Terrain {
+-int status
+-int natural_status
++set_status(int status) : void
++get_status() : int
+}
+@enduml
