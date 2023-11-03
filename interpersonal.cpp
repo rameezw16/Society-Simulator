@@ -11,7 +11,7 @@ class Entity;
 std::vector<Entity*> Entities;
 
 
-class Entity
+class Entity // Person with id, name, stats, personality and relations - info updated in file
 {
     // private:
 
@@ -26,6 +26,7 @@ class Entity
 
         Entity(std::string name)
         {
+            // randomise traits and personality
             this->id = count;
             count++;
             this->name = name;
@@ -33,10 +34,15 @@ class Entity
             this->wealth = 30 + (mt() % 60);
             this->happiness = 20 + 0.2*(health*(mt()%4) + wealth*(mt()%4)); // max val is 20 + 0.2*(180 + 180) = 20 + 0.2*360 = 20 + 72 = 92
             this->personalityTraits[0] = mt()%50 + (this->health/10);
+            this->personalityTraits[1] = mt()%60 - (this->wealth/10);
+            this->personalityTraits[2] = mt()%20 + (this->happiness/10);
+            this->personalityTraits[3] = (mt()%5 - 2) * (this->wealth/10 + this->health/10 + this->happiness/10);
+            this->personalityTraits[4] = mt()%30 - (this->happiness/10);
 
             std::ofstream entityFile;
             entityFile.open(name+".txt");
             entityFile << this->name << " created with id: " << this->id << " health: " << this->health << ", wealth: " << this->wealth << ", happiness: " << this->happiness << "\n";
+            entityFile << "and personality: Extroversion -> " << this->personalityTraits[0] << ", Agreeableness -> " << this->personalityTraits[1] << ", Openness -> " << this->personalityTraits[2] << ", Conscientiousness -> " << this->personalityTraits[3] << ", Neuroticism -> " << this->personalityTraits[4] << std::endl;
             entityFile.close();
 
             for (Entity* x : Entities)
