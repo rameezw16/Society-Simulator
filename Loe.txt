@@ -1,0 +1,41 @@
+Loe created with id: 4 health: 60, wealth: 83, happiness: 81
+Towards Joe has Respect: -3, Professionalism: 0, Love: 15
+Towards Roe has Respect: 22, Professionalism: -37, Love: -78
+Towards Boe has Respect: -29, Professionalism: 0, Love: 54
+Towards Soe has Respect: -1, Professionalism: -51, Love: 29
+Towards Yoe has Respect: -37, Professionalism: 0, Love: -36
+Towards Zoe has Respect: 6, Professionalism: -32, Love: -13
+Day 1
+Loe talked to Zoe
+Loe has happiness: 84 and loves Zoe 1 units more
+Day 2
+Loe talked to Joe
+Loe has happiness: 85 and loves Joe 5 units more
+Day 3
+Loe talked to Zoe
+Loe has happiness: 85 and loves Zoe 5 units more
+Day 4
+Loe talked to Zoe
+Loe has happiness: 85 and loves Zoe 5 units more
+Day 5
+Loe talked to Joe
+Loe has happiness: 85 and loves Joe -2 units more
+Day 6
+Loe talked to Zoe
+Loe has happiness: 85 and loves Zoe -3 units more
+Day 7
+Loe talked to Zoe
+Loe has happiness: 85 and loves Zoe 6 units more
+Day 8
+Loe talked to Joe
+Loe has happiness: 86 and loves Joe 3 units more
+Day 9
+Loe talked to Zoe
+Loe has happiness: 87 and loves Zoe -1 units more
+Loe (id: 4) ended with 4 health: 60, wealth: 83, happiness: 87
+For Joe ended with Respect: -3, Professionalism: 0, Love: 21
+For Roe ended with Respect: 22, Professionalism: -37, Love: -78
+For Boe ended with Respect: -29, Professionalism: 0, Love: 54
+For Soe ended with Respect: -1, Professionalism: -51, Love: 29
+For Yoe ended with Respect: -37, Professionalism: 0, Love: -36
+For Zoe ended with Respect: 6, Professionalism: -32, Love: 0

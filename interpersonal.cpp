@@ -166,6 +166,10 @@ int main()
     Entities.push_back(new Entity("Joe"));
     Entities.push_back(new Entity("Roe"));
     Entities.push_back(new Entity("Boe"));
+    Entities.push_back(new Entity("Soe"));
+    Entities.push_back(new Entity("Loe"));
+    Entities.push_back(new Entity("Yoe"));
+    Entities.push_back(new Entity("Zoe"));
 
     Interaction* act = new SocialInteraction();
 

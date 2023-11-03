@@ -1,51 +1,63 @@
-Roe created with id: 1 health: 35, wealth: 75, happiness: 72
-Towards Joe has Respect: 9, Professionalism: 0, Love: 19
-Towards Boe has Respect: -24, Professionalism: 0, Love: -30
+Roe created with id: 1 health: 50, wealth: 75, happiness: 20
+Towards Joe has Respect: -26, Professionalism: 47, Love: 67
+Towards Boe has Respect: 0, Professionalism: 0, Love: -51
+Towards Soe has Respect: -22, Professionalism: -25, Love: -4
+Towards Loe has Respect: 17, Professionalism: -83, Love: 0
+Towards Yoe has Respect: 23, Professionalism: 69, Love: -18
+Towards Zoe has Respect: -6, Professionalism: 16, Love: 13
 Day 1
+Joe talked to Roe
+Roe has happiness: 22 and loves Joe 3 units more
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe -2 units more
+Roe has happiness: 22 and loves Joe 4 units more
+Boe talked to Roe
+Roe has happiness: 22 and loves Boe -4 units more
 Day 2
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe 5 units more
+Roe has happiness: 22 and loves Joe -3 units more
 Boe talked to Roe
-Roe has happiness: 72 and loves Boe 0 units more
+Roe has happiness: 24 and loves Boe -2 units more
 Day 3
-Roe talked to Boe
-Roe has happiness: 72 and loves Boe -4 units more
-Day 4
-Roe talked to Boe
-Roe has happiness: 72 and loves Boe 6 units more
+Roe talked to Joe
+Roe has happiness: 24 and loves Joe 5 units more
 Boe talked to Roe
-Roe has happiness: 72 and loves Boe 4 units more
+Roe has happiness: 26 and loves Boe 5 units more
+Day 4
+Roe talked to Joe
+Roe has happiness: 28 and loves Joe -4 units more
 Day 5
 Joe talked to Roe
-Roe has happiness: 72 and loves Joe 3 units more
+Roe has happiness: 30 and loves Joe 6 units more
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe 5 units more
+Roe has happiness: 32 and loves Joe 5 units more
 Boe talked to Roe
-Roe has happiness: 72 and loves Boe -3 units more
+Roe has happiness: 32 and loves Boe 3 units more
 Day 6
-Joe talked to Roe
-Roe has happiness: 72 and loves Joe -4 units more
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe 2 units more
+Roe has happiness: 34 and loves Joe 3 units more
 Boe talked to Roe
-Roe has happiness: 72 and loves Boe 0 units more
+Roe has happiness: 34 and loves Boe 1 units more
 Day 7
 Joe talked to Roe
-Roe has happiness: 72 and loves Joe 3 units more
+Roe has happiness: 34 and loves Joe -1 units more
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe -4 units more
+Roe has happiness: 36 and loves Joe 2 units more
+Boe talked to Roe
+Roe has happiness: 36 and loves Boe -1 units more
 Day 8
 Roe talked to Joe
-Roe has happiness: 72 and loves Joe 1 units more
-Day 9
-Joe talked to Roe
-Roe has happiness: 72 and loves Joe 4 units more
-Roe talked to Joe
-Roe has happiness: 72 and loves Joe 1 units more
+Roe has happiness: 36 and loves Joe -4 units more
 Boe talked to Roe
-Roe has happiness: 72 and loves Boe -2 units more
-Roe (id: 1) ended with 1 health: 35, wealth: 75, happiness: 72
-For Joe ended with Respect: 9, Professionalism: 0, Love: 33
-For Boe ended with Respect: -24, Professionalism: 0, Love: -29
+Roe has happiness: 36 and loves Boe -4 units more
+Day 9
+Roe talked to Joe
+Roe has happiness: 36 and loves Joe 1 units more
+Boe talked to Roe
+Roe has happiness: 38 and loves Boe -4 units more
+Roe (id: 1) ended with 1 health: 50, wealth: 75, happiness: 38
+For Joe ended with Respect: -26, Professionalism: 47, Love: 84
+For Boe ended with Respect: 0, Professionalism: 0, Love: -57
+For Soe ended with Respect: -22, Professionalism: -25, Love: -4
+For Loe ended with Respect: 17, Professionalism: -83, Love: 0
+For Yoe ended with Respect: 23, Professionalism: 69, Love: -18
+For Zoe ended with Respect: -6, Professionalism: 16, Love: 13
