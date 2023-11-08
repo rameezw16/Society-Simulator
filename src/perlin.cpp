@@ -1,15 +1,14 @@
 #include "../include/perlin.h"
 #include <random>
 
-
-
 Perlin::Perlin(unsigned int seed) {
 	permutation.resize(256);
 	std::iota(permutation.begin(),permutation.end(),0); //fill 0 to 255
 	this->seed = seed;
 	this->mt.seed(this->seed); //reseed seed
 	std::shuffle(permutation.begin(), permutation.end(),this->mt);
-	permutation.insert(permutation.end(), permutation.begin(), permutation.end());
+	//permutation.insert(permutation.end(), permutation.begin(), permutation.end());
+	this->seed = seed;
 };
 
 int Perlin::block_noise(const int x, const int y) const {
