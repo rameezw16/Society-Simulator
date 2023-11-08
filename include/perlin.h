@@ -18,7 +18,8 @@ class Perlin {
 	Perlin(unsigned int seed = 1985); //seed perlin noise
 
 	//get noise value
-	double perlin_2d(const double x, const double y, const double freq, const double depth) const; //try to step through time
+
+	void add_octave(Uint32* Pixels, const int win_width, const int win_height, const double freq, const double depth) const;
 
  private:
 	std::vector<int> permutation;
@@ -26,6 +27,8 @@ class Perlin {
 	double lerp(const double x, const double y, const double m) const ;
 	double smooth_lerp(const double x, const double y, double m) const;
 	double noise_2d(const double x, const double y) const;
+	double perlin_2d(const double x, const double y, const double freq, const double depth) const; //try to step through time
+
 	
 	
 	std::mt19937 mt{}; //mersenne twister
