@@ -2,7 +2,8 @@
 Entity -left-> Object
 Item -right-> Object
 Terrain -up-> Object
-Grid o-- Object : aggregation 
+Entity -- Terrain : is influenced by
+Grid o-- Object : m..1 
 Entity *-- State : contains
 Entity *-- Personality : contains 
 Object *-- Sprite : contains
