@@ -1,6 +1,28 @@
 #include "../include/perlin.h"
 #include <random>
 
+Perlin Perlin::set_window(SDL_Window* win) {
+	this->window = win;
+	return *this;
+};
+
+Perlin Perlin::set_renderer(SDL_Renderer* renderer) {
+	this->renderer = renderer;
+	return *this;
+};
+
+Perlin Perlin::set_texture(SDL_Texture* texture) {
+	this->texture = texture;
+	return *this;
+};
+
+Perlin Perlin::set_grid(Uint32* Pixels) {
+	this->Pixels = Pixels;
+	return *this;
+};
+
+
+
 Perlin::Perlin(unsigned int seed) {
 	permutation.resize(256);
 	std::iota(permutation.begin(),permutation.end(),0); //fill 0 to 255
@@ -66,7 +88,24 @@ double Perlin::perlin_2d(const double x, const double y, const double freq, cons
 	return fin/div;
 };
 
-
+void Perlin::add_octave(const double freq, const double depth) const {
+	int win_height, win_width;
+	SDL_GetWindowSize(window,&win_height,&win_width);
+	int xOrg = 100;
+	int yOrg = xOrg;
+	const int scale = 10;
+	SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+	for (int y = 0; y < win_height; y++) {
+		for (int x = 0; x < win_width; x++) {
+			float xCoord = xOrg + x / ((float)win_width) * scale; // coarseness
+			float yCoord = yOrg + y / ((float)win_height) * scale;
+			float perlin = perlin_2d(yCoord, xCoord, freq, depth);
+			Uint8 color = 255 * perlin;
+			Pixels[y * win_width + x] += perlin;
+					SDL_MapRGBA(pixFormat, color, color, color, 255); // grayscale
+		};
+	};
+};
 
 
 

@@ -1,6 +1,4 @@
 #include "../include/perlin.h"
-#include <iostream>
-#include <cstring>
 
 int main(int argc, char** argv) { //takes in seed as cli argument
 	unsigned int seed = (argc-1) ? std::stoi(argv[1]) : 1985;
@@ -16,29 +14,22 @@ int main(int argc, char** argv) { //takes in seed as cli argument
 			SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
 												SDL_TEXTUREACCESS_STATIC, win_width, win_height);
 
-	SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
-	int xOrg = 100000;
-	int yOrg = xOrg;
+	const float freq = 0.9f;
+	const int depth = 5;
 
-	float freq = 0.9f;
-	int depth = 5;
-	int scale = 10;
+	Uint32 Pixels[600 * 600] {};
 
-	Uint32 Pixels[win_width * win_height];
 
-	for (int y = 0; y < win_height; y++) {
-		for (int x = 0; x < win_width; x++) {
-			float xCoord = xOrg + x / ((float)win_width) * scale; // coarseness
-			float yCoord = yOrg + y / ((float)win_height) * scale;
-			float perlin = perlin_gen.perlin_2d(yCoord, xCoord, freq, depth);
-			Uint8 color = 255 * perlin;
-			Pixels[y * win_width + x] =
-					SDL_MapRGBA(pixFormat, color, color, color, 255); // grayscale
-		};
-	};
 
 	SDL_UpdateTexture(texture, NULL, Pixels, sizeof(Uint32) * win_width);
+
+	perlin_gen.set_renderer(renderer);
+	perlin_gen.set_window(win);
+	perlin_gen.set_texture(texture);
+	perlin_gen.set_grid(Pixels);
+
+	perlin_gen.add_octave(Pixels, 0.9f, depth);
 
 	while (true) {
 		SDL_Event e;
@@ -51,9 +42,11 @@ int main(int argc, char** argv) { //takes in seed as cli argument
 		SDL_RenderClear(renderer);
 		SDL_Rect rect{0, 0, win_width, win_height}; // create bounding box
 
+
 		SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
 		SDL_RenderPresent(renderer);
 	};
+
 	SDL_DestroyTexture(texture);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(win);
