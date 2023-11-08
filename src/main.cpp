@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cstring>
 
-int main(int argc, char** argv) {
-	unsigned int seed = std::stoi(argv[1]);
+int main(int argc, char** argv) { //takes in seed as cli argument
+	unsigned int seed = (argc-1) ? std::stoi(argv[1]) : 1985;
 	Perlin perlin_gen(seed);
 	const int win_height = 600;
 	const int win_width = 600;
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 	int xOrg = 100000;
 	int yOrg = xOrg;
 
-	float freq = 0.7f;
+	float freq = 0.9f;
 	int depth = 5;
 	int scale = 10;
 
