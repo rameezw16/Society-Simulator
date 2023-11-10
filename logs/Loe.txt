@@ -1,0 +1,361 @@
+Loe created with id: 4 health: 32, wealth: 79, happiness: 64
+and personality: Extroversion -> 17, Agreeableness -> 0, Openness -> 12, Conscientiousness -> 32, Neuroticism -> 20
+Towards Joe has Respect: -49, Professionalism: 0, Love: 53
+Towards Roe has Respect: 6, Professionalism: -51, Love: 6
+Towards Boe has Respect: 0, Professionalism: -34, Love: 47
+Towards Soe has Respect: -2, Professionalism: 0, Love: -28
+Towards Yoe has Respect: -44, Professionalism: 27, Love: -3
+Towards Zoe has Respect: -8, Professionalism: -52, Love: 60
+Day 1
+Loe talked to Boe
+Loe has happiness: 67 and loves Boe 4 units more
+Day 2
+Loe talked to Joe
+Loe has happiness: 69 and loves Joe 3 units more
+Day 3
+Loe talked to Joe
+Loe has happiness: 72 and loves Joe 3 units more
+Day 4
+Loe talked to Boe
+Loe has happiness: 74 and loves Boe 1 units more
+Day 5
+Loe talked to Zoe
+Loe has happiness: 77 and loves Zoe -3 units more
+Day 6
+Loe talked to Joe
+Loe has happiness: 80 and loves Joe 6 units more
+Day 7
+Loe talked to Joe
+Loe has happiness: 82 and loves Joe 6 units more
+Day 8
+Loe talked to Boe
+Loe has happiness: 83 and loves Boe 3 units more
+Day 9
+Loe talked to Boe
+Loe has happiness: 85 and loves Boe 1 units more
+Day 10
+Loe talked to Joe
+Loe has happiness: 87 and loves Joe 6 units more
+Day 11
+Loe talked to Joe
+Loe has happiness: 87 and loves Joe 3 units more
+Day 12
+Loe talked to Joe
+Loe has happiness: 88 and loves Joe -4 units more
+Day 13
+Loe talked to Joe
+Loe has happiness: 88 and loves Joe 3 units more
+Day 14
+Loe talked to Boe
+Loe has happiness: 88 and loves Boe -2 units more
+Day 15
+Loe talked to Joe
+Loe has happiness: 91 and loves Joe -2 units more
+Day 16
+Loe talked to Boe
+Loe has happiness: 93 and loves Boe 0 units more
+Day 17
+Loe talked to Joe
+Loe has happiness: 94 and loves Joe -1 units more
+Day 18
+Loe talked to Joe
+Loe has happiness: 97 and loves Joe 5 units more
+Day 19
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 20
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 21
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 2 units more
+Day 22
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -4 units more
+Day 23
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 24
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 5 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 6 units more
+Day 25
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -3 units more
+Day 26
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -4 units more
+Day 27
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 6 units more
+Day 28
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 6 units more
+Day 29
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -2 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 4 units more
+Day 30
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 31
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 6 units more
+Day 32
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 6 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 2 units more
+Day 33
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -3 units more
+Day 34
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 4 units more
+Day 35
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 5 units more
+Day 36
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 1 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 3 units more
+Day 37
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 38
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 6 units more
+Day 39
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 40
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 1 units more
+Day 41
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 3 units more
+Day 42
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -4 units more
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 2 units more
+Day 43
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -1 units more
+Day 44
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 0 units more
+Day 45
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 6 units more
+Day 46
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -4 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 3 units more
+Day 47
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -2 units more
+Day 48
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -2 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -3 units more
+Day 49
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 6 units more
+Day 50
+Loe talked to Roe
+Loe has happiness: 100 and loves Roe -2 units more
+Day 51
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 1 units more
+Day 52
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 53
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 54
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 4 units more
+Day 55
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 1 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 0 units more
+Day 56
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -1 units more
+Day 57
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 2 units more
+Day 58
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -3 units more
+Day 59
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -4 units more
+Day 60
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -4 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -4 units more
+Day 61
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 4 units more
+Day 62
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 5 units more
+Day 63
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -3 units more
+Day 64
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -3 units more
+Day 65
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -3 units more
+Day 66
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -1 units more
+Day 67
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 68
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 6 units more
+Day 69
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 5 units more
+Day 70
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -2 units more
+Day 71
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 1 units more
+Day 72
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 3 units more
+Day 73
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 6 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -2 units more
+Day 74
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -3 units more
+Day 75
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -2 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 1 units more
+Day 76
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -2 units more
+Day 77
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 1 units more
+Day 78
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 3 units more
+Day 79
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 3 units more
+Day 80
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 5 units more
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 2 units more
+Day 81
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 5 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 1 units more
+Day 82
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 5 units more
+Day 83
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 84
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -2 units more
+Day 85
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 2 units more
+Day 86
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 0 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe -2 units more
+Day 87
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -4 units more
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 6 units more
+Day 88
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 4 units more
+Day 89
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 90
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe 4 units more
+Day 91
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 92
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -3 units more
+Day 93
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -3 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 94
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 0 units more
+Day 95
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe 1 units more
+Day 96
+Loe talked to Roe
+Loe has happiness: 100 and loves Roe 4 units more
+Day 97
+Loe talked to Zoe
+Loe has happiness: 100 and loves Zoe -2 units more
+Day 98
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe 1 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -4 units more
+Day 99
+Loe talked to Boe
+Loe has happiness: 100 and loves Boe 0 units more
+Day 100
+Joe talked to Loe
+Loe has happiness: 100 and loves Joe -3 units more
+Loe talked to Joe
+Loe has happiness: 100 and loves Joe -4 units more
+Loe (id: 4) ended with 4 health: 32, wealth: 79, happiness: 100
+For Joe ended with Respect: -49, Professionalism: 0, Love: 85
+For Roe ended with Respect: 6, Professionalism: -51, Love: 8
+For Boe ended with Respect: 0, Professionalism: -34, Love: 100
+For Soe ended with Respect: -2, Professionalism: 0, Love: -28
+For Yoe ended with Respect: -44, Professionalism: 27, Love: -3
+For Zoe ended with Respect: -8, Professionalism: -52, Love: 81

@@ -1,0 +1,351 @@
+Soe created with id: 3 health: 37, wealth: 89, happiness: 63
+and personality: Extroversion -> 24, Agreeableness -> -6, Openness -> 23, Conscientiousness -> 17, Neuroticism -> -4
+Towards Joe has Respect: 0, Professionalism: -50, Love: -4
+Towards Roe has Respect: -4, Professionalism: -51, Love: -41
+Towards Boe has Respect: -2, Professionalism: 34, Love: 6
+Towards Loe has Respect: -15, Professionalism: -39, Love: 14
+Towards Yoe has Respect: -11, Professionalism: 0, Love: 28
+Towards Zoe has Respect: -15, Professionalism: 26, Love: 43
+Day 1
+Soe talked to Zoe
+Soe has happiness: 63 and loves Zoe 1 units more
+Day 2
+Soe talked to Zoe
+Soe has happiness: 65 and loves Zoe 4 units more
+Day 3
+Soe talked to Zoe
+Soe has happiness: 67 and loves Zoe 5 units more
+Day 4
+Soe talked to Zoe
+Soe has happiness: 69 and loves Zoe -3 units more
+Day 5
+Soe talked to Zoe
+Soe has happiness: 71 and loves Zoe 3 units more
+Day 6
+Soe talked to Zoe
+Soe has happiness: 71 and loves Zoe 4 units more
+Day 7
+Soe talked to Zoe
+Soe has happiness: 73 and loves Zoe -3 units more
+Day 8
+Soe talked to Zoe
+Soe has happiness: 75 and loves Zoe 1 units more
+Day 9
+Soe talked to Zoe
+Soe has happiness: 77 and loves Zoe -4 units more
+Day 10
+Soe talked to Zoe
+Soe has happiness: 79 and loves Zoe 3 units more
+Day 11
+Soe talked to Yoe
+Soe has happiness: 81 and loves Yoe 3 units more
+Day 12
+Soe talked to Zoe
+Soe has happiness: 83 and loves Zoe 3 units more
+Day 13
+Soe talked to Yoe
+Soe has happiness: 83 and loves Yoe 5 units more
+Day 14
+Soe talked to Zoe
+Soe has happiness: 83 and loves Zoe 4 units more
+Day 15
+Soe talked to Yoe
+Soe has happiness: 85 and loves Yoe 0 units more
+Day 16
+Soe talked to Zoe
+Soe has happiness: 87 and loves Zoe -1 units more
+Day 17
+Soe talked to Zoe
+Soe has happiness: 87 and loves Zoe -4 units more
+Day 18
+Soe talked to Zoe
+Soe has happiness: 87 and loves Zoe 5 units more
+Day 19
+Soe talked to Zoe
+Soe has happiness: 87 and loves Zoe 5 units more
+Day 20
+Soe talked to Zoe
+Soe has happiness: 87 and loves Zoe 2 units more
+Day 21
+Soe talked to Yoe
+Soe has happiness: 89 and loves Yoe 6 units more
+Day 22
+Soe talked to Zoe
+Soe has happiness: 91 and loves Zoe -3 units more
+Day 23
+Soe talked to Yoe
+Soe has happiness: 93 and loves Yoe 0 units more
+Day 24
+Soe talked to Zoe
+Soe has happiness: 95 and loves Zoe -2 units more
+Day 25
+Soe talked to Zoe
+Soe has happiness: 97 and loves Zoe 3 units more
+Day 26
+Soe talked to Zoe
+Soe has happiness: 99 and loves Zoe 6 units more
+Day 27
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -3 units more
+Day 28
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 29
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -3 units more
+Day 30
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 5 units more
+Day 31
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 6 units more
+Day 32
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 4 units more
+Day 33
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 5 units more
+Day 34
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 1 units more
+Day 35
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 6 units more
+Day 36
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 5 units more
+Day 37
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 2 units more
+Day 38
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -4 units more
+Day 39
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 4 units more
+Day 40
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 41
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 4 units more
+Day 42
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 43
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -3 units more
+Day 44
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 3 units more
+Day 45
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 46
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 5 units more
+Day 47
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 48
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 49
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 50
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 51
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -3 units more
+Day 52
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -1 units more
+Day 53
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 3 units more
+Day 54
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -2 units more
+Day 55
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -1 units more
+Day 56
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -1 units more
+Day 57
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 3 units more
+Day 58
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 59
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 60
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 61
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -2 units more
+Day 62
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 2 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 6 units more
+Zoe talked to Soe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 63
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -1 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 4 units more
+Day 64
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 65
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -2 units more
+Day 66
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 2 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 4 units more
+Zoe talked to Soe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 67
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -4 units more
+Day 68
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 4 units more
+Day 69
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -1 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 4 units more
+Day 70
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 1 units more
+Day 71
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 3 units more
+Zoe talked to Soe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 72
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 5 units more
+Day 73
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 74
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -2 units more
+Day 75
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -2 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 2 units more
+Day 76
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -1 units more
+Day 77
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 78
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Day 79
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -3 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe -3 units more
+Day 80
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -1 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 1 units more
+Day 81
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 1 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 2 units more
+Day 82
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 6 units more
+Day 83
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Zoe talked to Soe
+Soe has happiness: 100 and loves Zoe -3 units more
+Day 84
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -4 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe -4 units more
+Day 85
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 6 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 1 units more
+Day 86
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -2 units more
+Day 87
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 6 units more
+Day 88
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -1 units more
+Day 89
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 2 units more
+Day 90
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 2 units more
+Day 91
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -4 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 2 units more
+Day 92
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 5 units more
+Day 93
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 4 units more
+Day 94
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 0 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 2 units more
+Day 95
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe 3 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 2 units more
+Day 96
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 3 units more
+Day 97
+Soe talked to Yoe
+Soe has happiness: 100 and loves Yoe -2 units more
+Day 98
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 1 units more
+Day 99
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe -4 units more
+Yoe talked to Soe
+Soe has happiness: 100 and loves Yoe 6 units more
+Day 100
+Soe talked to Zoe
+Soe has happiness: 100 and loves Zoe 3 units more
+Soe (id: 3) ended with 3 health: 37, wealth: 89, happiness: 100
+For Joe ended with Respect: 0, Professionalism: -50, Love: -4
+For Roe ended with Respect: -4, Professionalism: -51, Love: -41
+For Boe ended with Respect: -2, Professionalism: 34, Love: 6
+For Loe ended with Respect: -15, Professionalism: -39, Love: 14
+For Yoe ended with Respect: -11, Professionalism: 0, Love: 99
+For Zoe ended with Respect: -15, Professionalism: 26, Love: 99

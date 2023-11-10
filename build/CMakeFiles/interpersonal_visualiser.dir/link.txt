@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/interpersonal_visualiser.dir/interpersonal_visualiser.cpp.o -o interpersonal_visualiser  -lSDL2 -lSDL2_ttf 
