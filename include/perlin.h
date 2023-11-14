@@ -10,7 +10,6 @@ struct vector2 {
 	float x, y;
 };
 
-
 //This is adapted from https://en.wikipedia.org/wiki/Perlin_noise
 class Perlin {
  public:
@@ -18,7 +17,6 @@ class Perlin {
 	Perlin(unsigned int seed = 1985); //seed perlin noise
 
 	//get noise value
-
 	void add_octave(Uint32* Pixels, const int win_width, const int win_height, const double freq, const double depth) const;
 
  private:
@@ -29,8 +27,6 @@ class Perlin {
 	double noise_2d(const double x, const double y) const;
 	double perlin_2d(const double x, const double y, const double freq, const double depth) const; //try to step through time
 
-	
-	
 	std::mt19937 mt{}; //mersenne twister
 	int seed;
 

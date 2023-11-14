@@ -1,6 +1,7 @@
 #include "../include/perlin.h"
 #include <random>
 
+
 Perlin::Perlin(unsigned int seed) {
   permutation.resize(256);
   std::iota(permutation.begin(), permutation.end(), 0); // fill 0 to 255
@@ -74,14 +75,11 @@ double Perlin::perlin_2d(const double x, const double y, const double freq,
 
 SDL_Color pickColor(double value) {
   SDL_Color arrColors[] = {
-      SDL_Color{40, 40, 40, 255},  // black
-      SDL_Color{41, 54, 111, 255}, // dark blue
-      SDL_Color{59, 93, 201, 255},   SDL_Color{64, 166, 245, 255},
       SDL_Color{114, 239, 247, 255}, // light blue
+			SDL_Color{144, 238, 144, 255}, //green
       SDL_Color{148, 175, 194},      // light grey
-      SDL_Color{86, 108, 134}        // dark greySDL_Color{40,40,40,255},
   };
-  int temp = (int)(value * 16) % 7; // a little bit of magic here
+  int temp = (int)(value * 10) % 3; // a little bit of magic here
 
   return arrColors[temp];
 };
