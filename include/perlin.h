@@ -6,9 +6,9 @@
 #include <math.h>
 #include <SDL2/SDL.h>
 
-struct vector2 {
-	float x, y;
-};
+#define SIZE_X 600
+#define SIZE_Y 600
+
 
 //This is adapted from https://en.wikipedia.org/wiki/Perlin_noise
 class Perlin {
@@ -17,7 +17,10 @@ class Perlin {
 	Perlin(unsigned int seed = 1985); //seed perlin noise
 
 	//get noise value
-	void add_octave(Uint32* Pixels, const int win_width, const int win_height, const double freq, const double depth) const;
+	void add_octave(const double freq, const double depth);
+	double get_noise(const int x, const int y);
+
+	void display(Uint32* Pixels);
 
  private:
 	std::vector<int> permutation;
@@ -30,4 +33,6 @@ class Perlin {
 	std::mt19937 mt{}; //mersenne twister
 	int seed;
 
+	float total_noise[SIZE_X][SIZE_Y] {};
+	int num_octaves {};
 };

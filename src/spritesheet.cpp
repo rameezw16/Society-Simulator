@@ -1,5 +1,4 @@
 #include "../include/spritesheet.hpp"
-
 Spritesheet::Spritesheet(char const* path, SDL_Renderer* renderer) {
 	this->texture = IMG_LoadTexture(renderer,path);
 	this->renderer = renderer;
@@ -15,6 +14,7 @@ Spritesheet::~Spritesheet() { SDL_DestroyTexture(texture); };
 
 void Spritesheet::draw_sprite(const int x, const int y, SDL_Rect* position, SDL_Texture* texture) {
 	//get coords in pixels		
+
 	clip.x = x * 10; 
 	clip.y = y * 10;
 
