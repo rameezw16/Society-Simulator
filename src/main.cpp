@@ -56,12 +56,9 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     SDL_Rect rect{0, 0, win_width, win_height}; // create bounding box
 
 		SDL_Rect position;
-		position.x = 100;
-		position.y = 100;
-		position.w = 100;
-		position.h = 100;
 
-		bit_bonanza.draw_sprite(3,&position,texture);
+		position.w = 10;
+		position.h = 10;
 
     //SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
     SDL_RenderPresent(renderer);

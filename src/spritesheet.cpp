@@ -13,20 +13,19 @@ Spritesheet::Spritesheet(char const* path, SDL_Renderer* renderer) {
 
 Spritesheet::~Spritesheet() { SDL_DestroyTexture(texture); };
 
-void Spritesheet::draw_sprite(const int n,  SDL_Rect* position, SDL_Texture* texture) {
-	//get coords on grid
-	int x = n % height; //only need offset post wrapping
-	int y = n / width; //need to know how many times is wrapped
-
+void Spritesheet::draw_sprite(const int x, const int y, SDL_Rect* position, SDL_Texture* texture) {
 	//get coords in pixels		
-	clip.x = x * height; 
-	clip.y = y * width;
+	clip.x = x * 10; 
+	clip.y = y * 10;
 
 	std::cout << x << " " << y << "\n";
-	std::cout << height << " " << width << "\n";
+	std::cout << width << " " << height << "\n";
 	std::cout << clip.x << " " << clip.y << "\n";
 	std::cout << "\n";
 
-	SDL_RenderCopy(renderer, this->texture, NULL, NULL);
+	clip.w = 10;
+	clip.h = 10;
+
+	SDL_RenderCopy(renderer, this->texture, &clip, position);
 };
 												 
