@@ -1,7 +1,10 @@
-#include "../include/entity.h"
-#include "../include/perlin.h"
+//#include "../include/entity.h"
+//#include "../include/perlin.h"
+#include "../include/grid.h"
 #include <cstring>
 #include <iostream>
+#define SIZE_X 600
+#define SIZE_Y 600
 
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
@@ -18,25 +21,17 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
-  Uint32 Pixels[SIZE_X * SIZE_Y]{};
-  // compartmentalize this
 
-  perlin_gen.add_octave(0.1f, 5);
-  perlin_gen.add_octave(0.3f, 5);
-  perlin_gen.add_octave(0.9f, 5);
 
-  perlin_gen.display(Pixels);
-
-  SDL_UpdateTexture(texture, NULL, Pixels, sizeof(Uint32) * SIZE_X);
-  Spritesheet bit_bonanza{"/home/hak/hw/oopProj/resources/"
+  Spritesheet* spritesheet = new Spritesheet{"/home/hak/hw/oopProj/resources/"
                           "Bountiful-Bits-10x10-v-3.1/Colored/Full.png",
                           renderer};
+	
 
-	Building fortress {22,1,3,3,4,4};
-	Water test{13,19,0,0}; //coords still off a little
-	Dirt dirt_test{0,0,0,0}; 
+	Grid game_grid{win,renderer,texture,spritesheet,13};
 
-  while (true) {
+	SDL_Rect rect{0, 0, SIZE_X, SIZE_Y}; // create bounding box
+	while (true) {
 
     SDL_Event e;
     if (SDL_WaitEvent(&e)) {
@@ -45,26 +40,13 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     };
 
     SDL_RenderClear(renderer);
-    SDL_Rect rect{0, 0, SIZE_X, SIZE_Y}; // create bounding box
-    //SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
 
-		/*
-    SDL_Rect position;
-
-    position.w = 100;
-    position.h = 100;
-    bit_bonanza.draw_sprite(22, 2, &position, texture);
-    bit_bonanza.draw_sprite(10, 10, &position, texture);
-		*/
-
-		//fortress.draw(&bit_bonanza,texture);
-		dirt_test.draw(&bit_bonanza,texture);
-
-		//SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
+		game_grid.draw_grid();
 
 		SDL_RenderPresent(renderer);
   };
 
+	delete spritesheet;
   SDL_DestroyTexture(texture);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(win);

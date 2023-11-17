@@ -1,6 +1,8 @@
 #pragma once
 #include<SDL2/SDL.h>
 #include "./spritesheet.hpp"
+#define SIZE_OCCUPIED 10
+
 class Entity {
  public:
 	Entity(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
@@ -43,6 +45,12 @@ class Dirt : public Terrain { //making a class so we can extend functionality la
 public:
 	Dirt(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
 	~Dirt();
+};
+
+class Wall : public Terrain {
+public:
+	Wall(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+	~Wall();
 };
 
 

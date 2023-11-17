@@ -21,6 +21,7 @@ void Spritesheet::draw_sprite(const int x, const int y, SDL_Rect* position, SDL_
 	clip.w = 10;
 	clip.h = 10;
 
+	//SDL_RenderClear(renderer);
 	SDL_RenderCopy(renderer, this->texture, &clip, position);
 	//SDL_RenderPresent(renderer);
 };

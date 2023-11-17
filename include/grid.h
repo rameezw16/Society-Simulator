@@ -2,20 +2,14 @@
 #include "./entity.h" //spritesheet is included here already
 #include "./perlin.h"
 #include <SDL2/SDL.h>
-#define SIZE_X 600
-#define SIZE_Y 600
 
 // We will now make a grid of entities, this contains a spritesheet
 
 class Grid {
 public:
   Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture,
-       Spritesheet *spritesheet)
-      : window(window), renderer(renderer), texture(texture),
-        spritesheet(spritesheet) {
-
-    randomly_generate();
-  };
+       Spritesheet* spritesheet, unsigned int seed = 1985);
+	~Grid();
 
   void randomly_generate();
 
@@ -26,6 +20,8 @@ private:
   SDL_Renderer *renderer;
   SDL_Texture *texture;
   Spritesheet *spritesheet;
+	Perlin perlin_gen;
 
+	Terrain* terrain[60][60]; //grid of terrain pointers, aggregation
   Entity **entity_grid;
 };
