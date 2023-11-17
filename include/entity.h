@@ -1,14 +1,14 @@
 #pragma once
 #include<SDL2/SDL.h>
 #include "./spritesheet.hpp"
-
-
 class Entity {
  public:
 	Entity(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+	virtual ~Entity();
 
-	virtual void set_position(const int pos_x, const int pos_y);
+	void set_position(const int pos_x, const int pos_y); //set top left corner of the sprite
 	virtual void draw(Spritesheet* sp, SDL_Texture* texture) = 0;
+
 
  protected:
 	int pos_x;
@@ -21,7 +21,9 @@ class Entity {
 class Terrain : public Entity {
 public:
 	Terrain(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+	virtual ~Terrain();
 protected:
+	//Randomly generate these guys
 	float temp; 
 	float humidity;
 	float evil;
@@ -31,9 +33,9 @@ protected:
 class Building : public Terrain {
 public:
 	Building(const int spritesheet_pos_x, const int spritesheet_pos_y, const int size_x, const int size_y, const int pos_x, const int pos_y);
+	~Building();
 
 	void draw(Spritesheet* sp, SDL_Texture* texture) override;
-	void set_position(const int pos_x, const int pos_y) override;
 
 private:
 	int size_x, size_y;

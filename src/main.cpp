@@ -1,5 +1,5 @@
+#include "../include/entity.h"
 #include "../include/perlin.h"
-#include "../include/spritesheet.hpp"
 #include <cstring>
 #include <iostream>
 
@@ -32,25 +32,32 @@ int main(int argc, char **argv) { // takes in seed as cli argument
                           "Bountiful-Bits-10x10-v-3.1/Colored/Full.png",
                           renderer};
 
+	Building fortress {22,1,3,3,4,4};
+
   while (true) {
 
     SDL_Event e;
-    if (SDL_WaitEvent(&e)) {if (e.type == SDL_QUIT) break;};
+    if (SDL_WaitEvent(&e)) {
+      if (e.type == SDL_QUIT)
+        break;
+    };
 
     SDL_RenderClear(renderer);
     SDL_Rect rect{0, 0, SIZE_X, SIZE_Y}; // create bounding box
-    SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
+    //SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
 
     SDL_Rect position;
 
     position.w = 100;
     position.h = 100;
-    bit_bonanza.draw_sprite(11, 1, &position, texture);
-    bit_bonanza.draw_sprite(10, 10, &position, texture);
+    //bit_bonanza.draw_sprite(22, 2, &position, texture);
+    //bit_bonanza.draw_sprite(10, 10, &position, texture);
 
-    SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
+		fortress.draw(&bit_bonanza,texture);
 
-    SDL_RenderPresent(renderer);
+		//SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
+
+		SDL_RenderPresent(renderer);
   };
 
   SDL_DestroyTexture(texture);
