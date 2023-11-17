@@ -22,13 +22,29 @@ class Terrain : public Entity {
 public:
 	Terrain(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
 	virtual ~Terrain();
+	void draw(Spritesheet* sp, SDL_Texture* texture) override;
 protected:
 	//Randomly generate these guys
 	float temp; 
 	float humidity;
 	float evil;
 	float fauna;
+
+	bool walkable;
 };
+
+class Water : public Terrain { //making a class so we can extend functionality later
+public:
+	Water(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+	~Water();
+};
+
+class Dirt : public Terrain { //making a class so we can extend functionality later
+public:
+	Dirt(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+	~Dirt();
+};
+
 
 class Building : public Terrain {
 public:
