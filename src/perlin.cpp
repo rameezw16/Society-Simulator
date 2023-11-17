@@ -1,8 +1,7 @@
 #include "../include/perlin.h"
 #include <random>
 
-
-Perlin::Perlin(unsigned int seed)  {
+Perlin::Perlin(unsigned int seed) {
   permutation.resize(256);
   std::iota(permutation.begin(), permutation.end(), 0); // fill 0 to 255
   this->seed = seed;
@@ -73,7 +72,7 @@ double Perlin::perlin_2d(const double x, const double y, const double freq,
 SDL_Color pickColor(double value) {
   SDL_Color arrColors[] = {
       SDL_Color{114, 239, 247, 255}, // light blue
-			SDL_Color{144, 238, 144, 255}, //green
+      SDL_Color{144, 238, 144, 255}, // green
       SDL_Color{148, 175, 194},      // light grey
   };
   int temp = (int)(value * 10) % 3; // a little bit of magic here
@@ -85,9 +84,9 @@ void Perlin::add_octave(const double freq, const double depth) {
   int xOrg = 100000;
   int yOrg = xOrg;
   int scale = 10;
-	num_octaves++;
+  num_octaves++;
 
- SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+  SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
   for (int y = 0; y < SIZE_X; y++) {
     for (int x = 0; x < SIZE_Y; x++) {
       float xCoord = xOrg + x / ((float)SIZE_X) * scale; // coarseness
@@ -96,27 +95,27 @@ void Perlin::add_octave(const double freq, const double depth) {
       this->total_noise[x][y] += perlin; // grayscale
     };
   };
-
 };
 
 double Perlin::get_noise(const int x, const int y) {
   return (this->total_noise[x][y] / num_octaves);
 }
 
-void Perlin::display(Uint32* Pixels) {
+void Perlin::display(Uint32 *Pixels) {
   int xOrg = 100000;
   int yOrg = xOrg;
   int scale = 10;
-	SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
-	for (int y = 0; y < SIZE_X; y++) {
-		for (int x = 0; x < SIZE_Y; x++) {
-			//float xCoord = xOrg + x / ((float)SIZE_X) * scale; // coarseness
-			//float yCoord = yOrg + y / ((float)SIZE_Y) * scale;
-			float perlin = this->get_noise(x, y);
-			SDL_Color color = pickColor(perlin);
-      Pixels[y * SIZE_X + x] = SDL_MapRGBA(pixFormat, color.r, color.g, color.b, 255); // grayscale
-		};
-	};
+  SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+  for (int y = 0; y < SIZE_X; y++) {
+    for (int x = 0; x < SIZE_Y; x++) {
+      // float xCoord = xOrg + x / ((float)SIZE_X) * scale; // coarseness
+      // float yCoord = yOrg + y / ((float)SIZE_Y) * scale;
+      float perlin = this->get_noise(x, y);
+      SDL_Color color = pickColor(perlin);
+      Pixels[y * SIZE_X + x] =
+          SDL_MapRGBA(pixFormat, color.r, color.g, color.b, 255); // grayscale
+    };
+  };
 };
 
 // SDL_MapRGBA(pixFormat, color, color, color, 255); // grayscale

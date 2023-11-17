@@ -1,0 +1,45 @@
+#pragma once
+#include<SDL2/SDL.h>
+#include "./spritesheet.hpp"
+
+
+class Entity {
+ public:
+	Entity(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+
+	virtual void set_position(const int pos_x, const int pos_y);
+	virtual void draw(Spritesheet* sp, SDL_Texture* texture) = 0;
+
+ protected:
+	int pos_x;
+	int pos_y;
+	int spritesheet_pos_x;
+	int spritesheet_pos_y;
+};
+
+
+class Terrain : public Entity {
+public:
+	Terrain(const int spritesheet_pos_x, const int spritesheet_pos_y, const int pos_x, const int pos_y);
+protected:
+	float temp; 
+	float humidity;
+	float evil;
+	float fauna;
+};
+
+class Building : public Terrain {
+public:
+	Building(const int spritesheet_pos_x, const int spritesheet_pos_y, const int size_x, const int size_y, const int pos_x, const int pos_y);
+
+	void draw(Spritesheet* sp, SDL_Texture* texture) override;
+	void set_position(const int pos_x, const int pos_y) override;
+
+private:
+	int size_x, size_y;
+};
+
+
+
+
+
