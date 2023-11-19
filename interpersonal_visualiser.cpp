@@ -151,17 +151,22 @@ int main()
 		int cooldown = 0;
 		while (quit == false) 
 		{
+			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+			SDL_RenderClear(renderer);
+			interact();
+			drawNodes();
 			while (SDL_PollEvent (&e))
 			{
 				if (e.type == SDL_QUIT) quit = true;
-				else if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
-				{
-					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-					SDL_RenderClear(renderer);
-					interact();
-					drawNodes();
-				}
+				// else if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+				// {
+			// if (cooldown)
+			// {
+				// cooldown = 0;
+				// continue;
 			}
+				// }
+			// }
 		}
 	}
 	close();
