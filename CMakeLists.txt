@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 project(interpersonal_visualiser)
 
 # Set the source file
-set(SOURCE_FILES interpersonal_visualiser.cpp)
+set(SOURCE_FILES *.cpp)
 # set(SOURCE_FILES *.cpp)
 
 # Add the executable
