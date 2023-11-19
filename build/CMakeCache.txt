@@ -227,6 +227,15 @@ interpersonal_visualiser_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 interpersonal_visualiser_SOURCE_DIR:STATIC=/home/musab/Documents/OOP Project/peopleSim
 
+//Value Computed by CMake
+simulator_BINARY_DIR:STATIC=/home/musab/Documents/OOP Project/peopleSim/build
+
+//Value Computed by CMake
+simulator_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+simulator_SOURCE_DIR:STATIC=/home/musab/Documents/OOP Project/peopleSim
+
 
 ########################
 # INTERNAL cache entries
