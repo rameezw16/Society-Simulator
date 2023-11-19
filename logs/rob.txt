@@ -1,0 +1,2 @@
+rob created with id: 1, age: 8, health: 28, wealth: 58, happiness: 18
+and personality traits:  Openness: 29, Conscientiousness: 23, Extrovertedness: 17, Agreeableness: 27, Neuroticism: 28
