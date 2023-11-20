@@ -1,2 +1,4 @@
-rob created with id: 1, age: 25, health: 59, wealth: 51, happiness: 38
-and personality traits:  Openness: 39, Conscientiousness: 62, Extrovertedness: 31, Agreeableness: 20, Neuroticism: 27
+rob created with id: 1, age: 27, health: 68, wealth: 70, happiness: 62
+and personality traits:  Openness: 27, Conscientiousness: 65, Extrovertedness: 54, Agreeableness: 22, Neuroticism: 19
+Towards bob has Love: 34, Respect: 21
+Towards job has Love: 27, Respect: 20
