@@ -1,7 +1,7 @@
 #pragma once
-#include "Relationship.h"
-#include "Stats.h"
-#include "Traits.h"
+#include "Relationship.hpp"
+#include "Stats.hpp"
+#include "Traits.hpp"
 
 #include <random>
 #include <vector>
@@ -19,6 +19,7 @@ class Agent
         Stats* aStats;
 
         Agent(std::string name, std::mt19937& mt);
+        ~Agent();
 
     private:
         Traits* aTraits;
