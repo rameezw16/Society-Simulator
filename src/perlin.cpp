@@ -1,28 +1,6 @@
 #include "../include/perlin.h"
 #include <random>
 
-Perlin Perlin::set_window(SDL_Window* win) {
-	this->window = win;
-	return *this;
-};
-
-Perlin Perlin::set_renderer(SDL_Renderer* renderer) {
-	this->renderer = renderer;
-	return *this;
-};
-
-Perlin Perlin::set_texture(SDL_Texture* texture) {
-	this->texture = texture;
-	return *this;
-};
-
-Perlin Perlin::set_grid(Uint32* Pixels) {
-	this->Pixels = Pixels;
-	return *this;
-};
-
-
-
 Perlin::Perlin(unsigned int seed) {
   permutation.resize(256);
   std::iota(permutation.begin(), permutation.end(), 0); // fill 0 to 255
