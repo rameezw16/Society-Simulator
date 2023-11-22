@@ -1,26 +1,31 @@
+#pragma once
+#include "entity.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-
 class Spritesheet {
 public:
-	Spritesheet(char const* path, SDL_Renderer* renderer);
-	~Spritesheet();
+  Spritesheet(char const *path);
+  ~Spritesheet();
 
-	void draw_sprite(const int x, const int y, SDL_Rect* position, SDL_Texture* texture); //draw the nth sprite, will use an enum to make this easier
+  //just make this guy take in an entity type
+  void draw_sprite(Entity entity, const int x, const int y); // draw the nth sprite, will use an
+										  // enum to make this easier
+
+  void present();
+
+
 
 
 private:
-	SDL_Rect clip;
-	SDL_Texture *texture;
-	SDL_Renderer *renderer;
-	
-	int height;
-	int width;
+  SDL_Rect clip;
+  SDL_Window *window;
+  SDL_Texture *spritesheet_texture_1;
+  SDL_Texture *spritesheet_texture_2;
+  SDL_Texture *texture;
+  SDL_Renderer *renderer;
 
+  int height;
+  int width;
 };
-
-
-
-
