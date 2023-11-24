@@ -3,6 +3,7 @@
 #include "./features/wall.h"
 #include "./features/grass.h"
 #include "./terrain/water.h"
+#include <typeinfo>
 #include <random>
 #include <set>
 #include <iostream>

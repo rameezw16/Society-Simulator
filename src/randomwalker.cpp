@@ -43,8 +43,7 @@ void Random_Walker::creative_walk_walls(int x, int y,
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-	Entity *feature_to_be_added = (*feature)[this->x][this->y];
-    (*feature)[this->x][this->y] = new Wall{this->x, this->y};
+    if ((*feature)[this->x][this->y])(*feature)[this->x][this->y] = new Wall{this->x, this->y};
     std::cout << "made new class";
   };
 };
@@ -58,7 +57,7 @@ void Random_Walker::creative_walk_fauna(int x, int y,
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-	Entity *feature_to_be_added = (*feature)[this->x][this->y];
+	//if (strcmp(typeid((*feature)[this->x][this->y]).name(), "Water")) return;
     (*feature)[this->x][this->y] = new Grass{this->x, this->y};
     std::cout << "made new class";
   };
