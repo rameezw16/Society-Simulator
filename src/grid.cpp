@@ -22,8 +22,10 @@ Grid::~Grid() {
 	};
   };
 };
+
 // internal representation
 void Grid::randomly_generate() {
+
   for (int i = 0; i < 60; i++) {
 	for (int j = 0; j < 60; j++) {
 	  double noise = perlin_gen.get_noise(i * 10, j * 10);
@@ -52,16 +54,10 @@ void Grid::randomly_generate() {
 	  };
     };
   };
+
   //do random walk and break features
-
-
-  unsigned int seed = (unsigned int)(perlin_gen.get_noise(10,10) * 10);
-  Random_Walker rw1 {30,30,60, seed};
+  Random_Walker rw1 {30,30,60, 10};
   rw1.destructive_walk(&feature,100);
-
-  Random_Walker rw2 {30,30,60, seed * 3};
-  rw2.destructive_walk(&feature,100);
-
 
 };
 
