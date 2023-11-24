@@ -43,4 +43,14 @@ void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
   SDL_RenderCopy(renderer, spritesheet_texture_1, &clip, &position);
 };
 
+void Drawer::draw_grid(Grid *grid) {
+  for (int i = 0; i < 60; i++) {
+	for (int j = 0; j < 60; j++) {
+	  draw_sprite(grid->terrain[i][j], i * 10, j * 10);
+	  //draw_sprite(grid->character[i][j], i, j);
+	  //draw_sprite(grid->feature[i][j], i, j);
+	}
+  }
+}
+
 void Drawer::present() {SDL_RenderPresent(renderer);};

@@ -1,5 +1,6 @@
 #pragma once
 #include "entity.h"
+#include "grid.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
@@ -10,12 +11,14 @@ public:
   ~Drawer();
 
   //just make this guy take in an entity type
-  void draw_sprite(Entity* entity, const int x, const int y); // draw the nth sprite, will use an
-										  // enum to make this easier
+
+  void draw_grid(Grid* grid);
+
 
   void present();
 
 private:
+  void draw_sprite(Entity* entity, const int x, const int y); // draw the nth sprite, will use an
   SDL_Rect clip;
   SDL_Window *window;
   SDL_Texture *spritesheet_texture_1; //these are terrain and features

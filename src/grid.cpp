@@ -1,7 +1,7 @@
 #include "../include/grid.h"
 // 60 is the internal grid representation
 
-Grid::Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture, unsigned int seed)
+Grid::Grid(unsigned int seed)
 	: perlin_gen(seed), temperature(seed),
 	  humidity(seed), evil(seed) {
   perlin_gen.add_octave(0.3, 5);

@@ -19,7 +19,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 	  new Drawer{"/home/hak/hw/oopProj/resources/"
 					  "Bountiful-Bits-10x10-v-3.1/Colored/Full.png"};
 
-  // Grid game_grid{win,renderer,texture,drawer,seed};
+  Grid game_grid {seed};
 
 
   Entity* entity = new Dirt {10,10};
@@ -32,7 +32,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 	  if (e.type == SDL_QUIT)
 		break;
 	};
-	drawer->draw_sprite(entity, 10, 10);
+	drawer->draw_grid(&game_grid);
 	drawer->present();
   };
 

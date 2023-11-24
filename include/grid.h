@@ -11,10 +11,18 @@
 
 class Grid {
 public:
-  Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture, unsigned int seed = 1985);
+  Grid(unsigned int seed = 1985);
   ~Grid();
 
+  
+
   void randomly_generate();
+
+  //making this public just for testing
+
+  Terrain *terrain[60][60]; // grid of terrain pointers, aggregation
+  Feature *feature[60][60]; // grid of features built on terrain
+  Entity *character[60][60];   // grid of entities located on terrain
 
 private:
   Perlin perlin_gen;
@@ -23,7 +31,5 @@ private:
   Perlin humidity;
   Perlin evil;
 
-  Terrain *terrain[60][60]; // grid of terrain pointers, aggregation
-  Feature *feature[60][60]; // grid of features built on terrain
-  Entity *entity[60][60];   // grid of entities located on terrain
+  const int gridsize = 60;
 };
