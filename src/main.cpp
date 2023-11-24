@@ -15,13 +15,12 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   // SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
-  Spritesheet *spritesheet =
-	  new Spritesheet{"/home/hak/hw/oopProj/resources/"
+  Drawer *drawer =
+	  new Drawer{"/home/hak/hw/oopProj/resources/"
 					  "Bountiful-Bits-10x10-v-3.1/Colored/Full.png"};
 
-  // Grid game_grid{win,renderer,texture,spritesheet,seed};
+  // Grid game_grid{win,renderer,texture,drawer,seed};
 
-  Dirt a {10,10};
 
   Entity* entity = new Dirt {10,10};
 
@@ -33,10 +32,9 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 	  if (e.type == SDL_QUIT)
 		break;
 	};
-
-	spritesheet->draw_sprite(entity, 10, 10);
-	spritesheet->present();
+	drawer->draw_sprite(entity, 10, 10);
+	drawer->present();
   };
 
-  delete spritesheet;
+  delete drawer;
 }

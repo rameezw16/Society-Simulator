@@ -13,7 +13,6 @@ public:
 
   void set_position(const int pos_x,
 					const int pos_y); // set top left corner of the sprite
-  // virtual void draw(Spritesheet* sp, SDL_Texture* texture) = 0;
 
   void set_sprite(const int spritesheet_pos_x,
 				  const int spritesheet_pos_y);

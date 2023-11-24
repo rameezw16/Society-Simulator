@@ -7,6 +7,6 @@ public:
 
 	virtual ~Terrain();
 
-	//void draw(Spritesheet* sp, SDL_Texture* texture) override;
+	//void draw(Drawer* sp, SDL_Texture* texture) override;
 };
 

@@ -4,10 +4,10 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-class Spritesheet {
+class Drawer {
 public:
-  Spritesheet(char const *path);
-  ~Spritesheet();
+  Drawer(char const *path);
+  ~Drawer();
 
   //just make this guy take in an entity type
   void draw_sprite(Entity* entity, const int x, const int y); // draw the nth sprite, will use an

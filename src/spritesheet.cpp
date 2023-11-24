@@ -1,5 +1,5 @@
 #include "../include/spritesheet.hpp"
-Spritesheet::Spritesheet(char const *path) {
+Drawer::Drawer(char const *path) {
   this->width = 600;
   this->height = 600;
 
@@ -19,13 +19,13 @@ Spritesheet::Spritesheet(char const *path) {
   clip.h = 10; // spritesheet_image->h / row;
 };
 
-Spritesheet::~Spritesheet() {
+Drawer::~Drawer() {
   SDL_DestroyRenderer(renderer);
   SDL_DestroyTexture(texture);
   SDL_DestroyWindow(window);
 };
 
-void Spritesheet::draw_sprite(Entity* entity, const int x, const int y) {
+void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
   // get coords in pixels
 
   clip.x = entity->get_spritesheet_pos_x() * 10;
@@ -43,4 +43,4 @@ void Spritesheet::draw_sprite(Entity* entity, const int x, const int y) {
   SDL_RenderCopy(renderer, spritesheet_texture_1, &clip, &position);
 };
 
-void Spritesheet::present() {SDL_RenderPresent(renderer);};
+void Drawer::present() {SDL_RenderPresent(renderer);};

@@ -27,7 +27,7 @@ Building::Building(
       size_x(size_x), size_y(size_y){};
 Building::~Building() = default;
 
-void Building::draw(Spritesheet *sp, SDL_Texture *texture) {
+void Building::draw(Drawer *sp, SDL_Texture *texture) {
   SDL_Rect pos{pos_x, pos_y, SIZE_OCCUPIED, SIZE_OCCUPIED};
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
