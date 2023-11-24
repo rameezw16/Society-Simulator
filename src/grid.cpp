@@ -1,10 +1,8 @@
 #include "../include/grid.h"
 // 60 is the internal grid representation
 
-Grid::Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture,
-		   Spritesheet *spritesheet, unsigned int seed)
-	: window(window), renderer(renderer), texture(texture),
-	  spritesheet(spritesheet), perlin_gen(seed), temperature(seed),
+Grid::Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture, unsigned int seed)
+	: perlin_gen(seed), temperature(seed),
 	  humidity(seed), evil(seed) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
@@ -38,20 +36,9 @@ void Grid::randomly_generate() {
 		terrain[i][j] = new Dirt{i, j};
 		break;
 	  case 2:
-		terrain[i][j] = new Grass{i, j}; //this needs to go back to wall. 
+		terrain[i][j] = new Dirt{i, j}; //this needs to go back to wall. 
 		break;
 	  }
 	};
-  };
-};
-
-void Grid::draw_grid() {
-  // SDL_RenderPresent(this->renderer);
-
-  for (int i = 0; i < 60; i++) {
-	for (int j = 0; j < 60; j++) {
-	  terrain[i][j]->draw(spritesheet, texture);
-	  // SDL_RenderPresent(this->renderer);
-    };
   };
 };

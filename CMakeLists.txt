@@ -4,8 +4,8 @@ project(simulator)
 set(CMAKE_BUILD_TYPE Debug)
 
 
-file(GLOB SRC_FILES src/*.cpp)
-file(GLOB HEADERS include/*.h include/*.hpp)
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
+file(GLOB_RECURSE HEADERS include/*.h include/*.hpp)
 file(GLOB INCLUDE include)
 
 add_library(implementation ${SRC_FILES} ${HEADERS})

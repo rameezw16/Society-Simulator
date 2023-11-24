@@ -1,21 +1,19 @@
-#include "../include/feature.h"
+#include "../include/features/feature.h"
 
 	//add interactions
 Feature::Feature(const int pos_x, const int pos_y, const int spritesheet_pos_x, const int spritesheet_pos_y)
 	: Terrain( pos_x, pos_y, spritesheet_pos_x, spritesheet_pos_y){};
 
-void Feature::draw(Spritesheet *sp, SDL_Texture *texture) {
-	SDL_Rect pos{pos_x * SIZE_OCCUPIED, pos_y * SIZE_OCCUPIED, SIZE_OCCUPIED,
-							 SIZE_OCCUPIED}; // blowing it up 10x
-	sp->draw_sprite(spritesheet_pos_x, spritesheet_pos_y, &pos, texture);
-};
 
-//Feature::~Feature() = default;
+Feature::~Feature() = default;
+void Feature::interact_randomly() {};
 
+/*
 Grass::Grass(const int pos_x, const int pos_y, const int spritesheet_pos_x,
 						 const int spritesheet_pos_y)
 	: Feature(pos_x, pos_y, spritesheet_pos_x, spritesheet_pos_y){};
 Grass::~Grass() = default;
+*/
 
 
 

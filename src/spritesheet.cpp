@@ -19,13 +19,17 @@ Spritesheet::Spritesheet(char const *path) {
   clip.h = 10; // spritesheet_image->h / row;
 };
 
-Spritesheet::~Spritesheet() { SDL_DestroyTexture(texture); };
+Spritesheet::~Spritesheet() {
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyTexture(texture);
+  SDL_DestroyWindow(window);
+};
 
-void Spritesheet::draw_sprite(Entity entity, const int x, const int y) {
+void Spritesheet::draw_sprite(Entity* entity, const int x, const int y) {
   // get coords in pixels
 
-  clip.x = entity.get_spritesheet_pos_x() * 10;
-  clip.y = entity.get_spritesheet_pos_y() * 10;
+  clip.x = entity->get_spritesheet_pos_x() * 10;
+  clip.y = entity->get_spritesheet_pos_y() * 10;
 
   clip.w = 10;
   clip.h = 10;
@@ -36,7 +40,7 @@ void Spritesheet::draw_sprite(Entity entity, const int x, const int y) {
   position.w = 10;
   position.h = 10;
 
-  SDL_RenderCopy(renderer, texture, &clip, &position);
+  SDL_RenderCopy(renderer, spritesheet_texture_1, &clip, &position);
 };
 
 void Spritesheet::present() {SDL_RenderPresent(renderer);};

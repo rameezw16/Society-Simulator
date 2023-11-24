@@ -1,8 +1,9 @@
-//#include "../include/entity.h"
-#include "../include/terrain.h"
-//#include "../include/perlin.h"
-//#include "../include/grid.h"
+// #include "../include/entity.h"
+// #include "../include/perlin.h"
+// #include "../include/grid.h"
 #include "../include/spritesheet.hpp"
+#include "../include/terrain/dirt.h"
+#include "../include/entity.h"
 #include <cstring>
 #include <iostream>
 #define SIZE_X 600
@@ -10,9 +11,9 @@
 
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
-  //Perlin perlin_gen(seed);
+  // Perlin perlin_gen(seed);
 
-  //SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+  // SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
   Spritesheet *spritesheet =
 	  new Spritesheet{"/home/hak/hw/oopProj/resources/"
@@ -20,23 +21,22 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   // Grid game_grid{win,renderer,texture,spritesheet,seed};
 
-  Dirt a {}
+  Dirt a {10,10};
 
-  SDL_Rect rect{0, 0, SIZE_X, SIZE_Y}; // create bounding box
+  Entity* entity = new Dirt {10,10};
+
+
   while (true) {
 
-    SDL_Event e;
-    if (SDL_WaitEvent(&e)) {
-      if (e.type == SDL_QUIT)
-        break;
-    };
-	spritesheet.draw
+	SDL_Event e;
+	if (SDL_WaitEvent(&e)) {
+	  if (e.type == SDL_QUIT)
+		break;
+	};
 
+	spritesheet->draw_sprite(entity, 10, 10);
+	spritesheet->present();
   };
 
-	delete spritesheet;
-  SDL_DestroyTexture(texture);
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(win);
-  SDL_Quit();
+  delete spritesheet;
 }

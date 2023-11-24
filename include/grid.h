@@ -1,27 +1,22 @@
 #pragma once
-#include "./feature.h"
+#include "./features/feature.h"
 #include "./perlin.h"
-#include "./terrain.h"
+#include "./terrain/terrain.h"
+#include "./terrain/water.h"
+#include "./terrain/dirt.h"
+#include "./features/grass.h"
 #include <SDL2/SDL.h>
 
 // We will now make a grid of entities, this contains a spritesheet
 
 class Grid {
 public:
-  Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture,
-       Spritesheet *spritesheet, unsigned int seed = 1985);
+  Grid(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *texture, unsigned int seed = 1985);
   ~Grid();
 
   void randomly_generate();
 
-  void draw_grid();
-
 private:
-  SDL_Window *window;
-  SDL_Renderer *renderer;
-  SDL_Texture *texture;
-  Spritesheet *spritesheet;
-
   Perlin perlin_gen;
 
   Perlin temperature;
