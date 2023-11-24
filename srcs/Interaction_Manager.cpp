@@ -449,7 +449,7 @@ void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& oc
         totalLove += 1 + possible_mates[i].first;
     }
 
-    std::cout << "choice: " << totalLove << std::endl;
+    // std::cout << "choice: " << totalLove << std::endl;
     int choice = mt() % totalLove;
     int i = 0;
     while (choice > 1 + possible_mates[i].first)

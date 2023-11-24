@@ -20,6 +20,7 @@ void clearDirectory(const std::string& path) {
     }
 }
 
+// to do: tune variables. reduce reproduction attempts
 int main()
 {
     clearDirectory("../logs");
@@ -31,13 +32,8 @@ int main()
 
     Interaction_Manager* Int_Manager = Interaction_Manager::getInstance();
     for (int i = 0; i < 50; i++)
-        Int_Manager->cycle_year();
-    // Int_Manager->interact(tmp1);
+        Int_Manager->cycle_year(); // 1 year = 365 days = 365 * 3 interaction cycles
 
-    // for (std::pair<int, Agent*> i : Agent::AgentList)
-    // {
-    //     printf("%i : %s\n", i.first, i.second->name.c_str());
-    // }
     std::vector<Agent*> agents;
     for (std::pair<int, Agent*> agent : Agent::AgentList)
         agents.push_back(agent.second);
