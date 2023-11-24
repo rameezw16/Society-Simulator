@@ -1,4 +1,4 @@
-job created with id: 2, age: 10, health: 77, wealth: 37, happiness: 47
-and personality traits:  Openness: 42, Conscientiousness: 51, Extrovertedness: 39, Agreeableness: 51, Neuroticism: 18
-Towards bob has Love: 53, Respect: 30
-Towards rob has Love: 39, Respect: 35
+job created with id: 2, gender: male, age: 30, health: 57, wealth: 75, happiness: 69
+and personality traits:  Openness: 48, Conscientiousness: 62, Extrovertedness: 38, Agreeableness: 29, Neuroticism: 23
+Towards bob has Love: 37, Respect: 20
+Towards rob has Love: 28, Respect: 20

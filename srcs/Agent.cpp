@@ -15,7 +15,7 @@ Agent::Agent(std::string name, std::mt19937& mt)
     // Add details to file
     std::ofstream agentFile;
     agentFile.open("../logs/"+this->name+".txt");
-    agentFile << this->name << " created with id: " << this->id << ", age: " << this->aStats->age << ", health: " << this->aStats->health << ", wealth: " << this->aStats->wealth << ", happiness: " << this->aStats->happiness << "\n";
+    agentFile << this->name << " created with id: " << this->id << ", gender: " << ((this->aStats->gender) ? "male" : "female") << ", age: " << this->aStats->age << ", health: " << this->aStats->health << ", wealth: " << this->aStats->wealth << ", happiness: " << this->aStats->happiness << "\n";
     agentFile << "and personality traits:  Openness: " << this->aTraits->openness << ", Conscientiousness: " << this->aTraits->conscientiousness << ", Extrovertedness: " << this->aTraits->extrovertedness << ", Agreeableness: " << this->aTraits->agreeableness << ", Neuroticism: " << this->aTraits->neuroticism << std::endl;
     agentFile.close();
     
@@ -91,3 +91,7 @@ Agent::~Agent()
     AgentList.erase(this->id);
     for (std::pair<int, Agent*> i : AgentList)  RelationshipMap[i.second->id].erase(this->id);
 }
+
+int Agent::count = 0;
+std::map<int, Agent*> Agent::AgentList;
+std::map<int, std::map<int, Relationship>> Agent::RelationshipMap;

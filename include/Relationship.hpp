@@ -9,7 +9,7 @@ class Relationship
     public:
         int love;
         int respect;
-        // int professionalism;
+        // int professionalism; (not required)
 
         Relationship(int l = 0, int r = 0);
 
