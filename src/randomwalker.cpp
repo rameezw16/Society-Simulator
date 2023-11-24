@@ -1,14 +1,10 @@
 #include "../include/randomwalker.h"
 
-Random_Walker::Random_Walker(int x, int y, int limit, unsigned int seed)
-    : x(x), y(y), limit(limit), perlin_gen(seed) {
-  perlin_gen.add_octave(1.0,5);
-};
+Random_Walker::Random_Walker(int x, int y, int limit, unsigned int seed) : x(x), y(y), limit(limit), seed(seed) {srand(seed);};
 
 void Random_Walker::random_walk() {
-  //No particular reason why x,y and y,x are switched, just for better randomness, I guess
-  int x_dir = 1; //(int)(perlin_gen.get_noise(x,y) * 10) % 2; // there are four directions we can go in
-  int y_dir = 1; //(int)(perlin_gen.get_noise(x,y) * 10) % 2;
+  int x_dir = rand() % 2; // there are four directions we can go in
+  int y_dir = rand() % 2;
 
   int proposed_x = x + x_dir - 1;
   int proposed_y = y + y_dir - 1;

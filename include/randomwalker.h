@@ -1,6 +1,5 @@
 #pragma once
 #include "./features/feature.h"
-#include "perlin.h"
 #include <random>
 #include <set>
 #include <iostream>
@@ -19,7 +18,6 @@ private:
   int x, y; //position
   std::set<int> set_x;
   std::set<int> set_y;
-  Perlin perlin_gen;
   
   int limit;
   unsigned int seed;
