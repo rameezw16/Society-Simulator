@@ -46,9 +46,14 @@ void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
 void Drawer::draw_grid(Grid *grid) {
   for (int i = 0; i < 60; i++) {
 	for (int j = 0; j < 60; j++) {
-	  draw_sprite(grid->terrain[i][j], i * 10, j * 10);
-	  //draw_sprite(grid->character[i][j], i, j);
-	  //draw_sprite(grid->feature[i][j], i, j);
+	  Terrain* terrain = grid->terrain[i][j];
+	  Feature* feature = grid->feature[i][j]; 
+	  int draw_pos_x = i * 10;
+	  int draw_pos_y = j * 10;
+	  //Character* character = grid->character[i][j]; 
+	  if (terrain) draw_sprite(terrain, draw_pos_x, draw_pos_y);
+	  if (feature) draw_sprite(feature, draw_pos_x, draw_pos_y);
+	  //if (character) draw_sprite(character, i, j);
 	}
   }
 }

@@ -30,15 +30,24 @@ void Grid::randomly_generate() {
 	  switch (selection) {
 	  case 0:
 		terrain[i][j] = new Water{i, j};
+		feature[i][j] = nullptr;
+		character[i][j] = nullptr;
 		break;
 	  case 1:
-		terrain[i][j] = new Wall{i, j};
+		terrain[i][j] = new Dirt{i, j};
+		feature[i][j] = new Wall{i, j};
+		character[i][j] = nullptr;
 		break;
 	  case 2:
-		terrain[i][j] = new Grass{i, j}; 
+		terrain[i][j] = new Dirt{i, j}; 
+		feature[i][j] = new Grass{i, j}; 
+		character[i][j] = nullptr;
 		break;
 	  case 3:
 		terrain[i][j] = new Dirt{i, j};
+		feature[i][j] = nullptr; 
+		character[i][j] = nullptr;
+
 		break;
 	  };
 		  
