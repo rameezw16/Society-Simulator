@@ -28,8 +28,6 @@ public:
 private:
   Perlin perlin_gen;
 
-  Random_Walker random_walker;
-
   Perlin temperature;
   Perlin humidity;
   Perlin evil;

@@ -1,6 +1,7 @@
 #pragma once
 #include "./features/feature.h"
 #include "./features/wall.h"
+#include "./features/grass.h"
 #include <random>
 #include <set>
 #include <iostream>
@@ -9,18 +10,16 @@
 
 class Random_Walker {
 public:
-  Random_Walker(int x, int y, int limit, unsigned int seed);
+  Random_Walker(int limit, unsigned int seed);
   void random_walk();
-  void destructive_walk(Feature* (*feature)[60][60], int iterations); //2d array of pointers to entities 
-  void creative_walk_walls(Feature* (*feature)[60][60], int iterations); //2d array of pointers to entities 
-  int get_x();
-  int get_y();
+  void destructive_walk(int x, int y, Feature* (*feature)[60][60], int iterations); //2d array of pointers to entities 
+  void creative_walk_walls(int x, int y, Feature* (*feature)[60][60], int iterations); //2d array of pointers to entities 
+  void creative_walk_fauna(int x, int y, Feature* (*feature)[60][60], int iterations); //2d array of pointers to entities 
 
 private:
-  int x, y; //position
-  std::set<int> set_x;
-  std::set<int> set_y;
-  
+  int x{30};
+  int y{30}; // position
+
   int limit;
   unsigned int seed;
 };

@@ -3,14 +3,9 @@
 // 60 is the internal grid representation
 
 Grid::Grid(unsigned int seed)
-	: perlin_gen(seed), temperature(seed), humidity(seed), evil(seed), random_walker(30,30,60,seed) {
+	: perlin_gen(seed) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
-
-  // I want highly varying temperatures and humidities
-  temperature.add_octave(1.0, 5);
-  humidity.add_octave(1.0, 9);
-  evil.add_octave(0.5, 3);
 
   randomly_generate();
 };
@@ -50,14 +45,26 @@ void Grid::randomly_generate() {
   };
   //do random walk and break features
 
-  const int total_iters = 500;
+  const int total_iters = 250;
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10,10) * 10);
-  Random_Walker rw1 {30,30, 60, seed};
-  Random_Walker rw2 {30,30, 60, seed * 3};
-  Random_Walker rw3 {30,30, 60, seed * 6};
-  Random_Walker rw4 {30,30, 60, seed * 3 + 9};
-  Random_Walker rw5 {30,30, 60, seed * 3 % 2};
+
+  Random_Walker random_walker {60, seed};
+
+  random_walker.creative_walk_walls(30,30,&feature,500);
+  random_walker.creative_walk_fauna(30,30,&feature,500);
+
+  random_walker.creative_walk_walls(0,0,&feature,total_iters);
+  //random_walker.creative_walk_walls(60,0,&feature,total_iters);
+  random_walker.creative_walk_walls(0,60,&feature,total_iters);
+  //random_walker.creative_walk_walls(60,60,&feature,total_iters);
+
+
+  //random_walker.creative_walk_fauna(0,0,&feature,total_iters);
+  random_walker.creative_walk_fauna(60,0,&feature,total_iters);
+  random_walker.creative_walk_fauna(0,60,&feature,total_iters);
+  random_walker.creative_walk_fauna(60,60,&feature,total_iters);
+
 
   //rw1.destructive_walk(&feature,total_iters);
   //rw2.destructive_walk(&feature,total_iters);
@@ -65,7 +72,6 @@ void Grid::randomly_generate() {
   //rw4.destructive_walk(&feature,total_iters);
   //rw5.destructive_walk(&feature,total_iters);
 
-  rw5.creative_walk_walls(&feature,total_iters);
 
 
 
