@@ -11,7 +11,20 @@ Agent::Agent(std::mt19937& mt, std::string name, int posX, int posY)
     if (name.length())
         this->name = name;
     else
-        this->name = fname_list[mt()%fname_list.size()] + " " + lname_list[mt()%lname_list.size()];
+    {
+        std::string name;
+        bool match = true;
+        while (match)
+        {
+            match = false;
+            name = fname_list[mt()%fname_list.size()] + " " + lname_list[mt()%lname_list.size()];
+            for (std::pair<int, Agent*> agent : Agent::AgentList)
+            {
+                match |= (name == agent.second->name);
+            }
+        }
+        this->name = name;
+    }
 
     if (posX != -1)
         this->posX = posX;
@@ -94,8 +107,8 @@ void Agent::new_day(int year, int day)
 
 void Agent::grow()
 {
-    this->aStats->health -= 5;
     this->aStats->age++;
+    this->aStats->health -= (this->aStats->age)/10;
 }
 
 void Agent::display_agent_list()
@@ -164,8 +177,9 @@ Agent::~Agent()
 int Agent::count = 0;
 std::map<int, Agent*> Agent::AgentList;
 std::map<int, std::map<int, Relationship>> Agent::RelationshipMap;
-std::vector<std::string> Agent::fname_list = {"John", "Anna", "Mark", "Emma", "Paul", "Laura", "Alex", "Grace"};
-std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Taylor", "Jones", "Miller", "Davis", "Garcia"};
+std::vector<std::string> Agent::fname_list = {"John", "Anna", "Mark", "Emma", "Paul", "Laura", "Alex", "Grace", "Michael", "Olivia", "William", "Ava", "Daniel", "Sophia", "Matthew", "Ella", "James", "Lily", "Christopher", "Mia", "Andrew", "Chloe", "David", "Emily", "Benjamin", "Abigail", "Nicholas", "Hannah", "Joseph", "Samantha", "Ethan", "Victoria", "Christopher", "Evelyn", "Daniel", "Natalie", "Elijah", "Madison", "Gabriel", "Avery", "Nathan", "Scarlett", "Logan", "Grace", "Brandon", "Lillian", "Tyler", "Addison"};
+std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Taylor", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Williams", "Moore", "Jackson", "Lee", "Perez", "Young", "Allen", "Hall", "Tran", "Wright", "Scott", "Nguyen", "Mitchell", "Evans", "Carter", "Turner", "Parker", "Collins", "Edwards", "Stewart", "Flores", "Morales", "Morris", "Murphy", "Rivera", "Cook", "Fisher", "Richardson", "Simmons", "Russell", "Bryant", "Alexander", "Tucker", "Porter", "Graham"};
+
 
 int Agent::GRID_WIDTH = 60;
 int Agent::GRID_HEIGHT = 60;

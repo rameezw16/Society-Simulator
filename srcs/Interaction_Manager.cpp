@@ -192,23 +192,23 @@ void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occup
     
     int total_anti_love_respect {0};
     for (int i = 0; i < sz; i++)
-        total_anti_love_respect += 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+        total_anti_love_respect += 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
 
     int choice = mt() % total_anti_love_respect;
     int i = 0;
-    int cur_anti_love_respect = 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+    int cur_anti_love_respect = 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
     while (choice > cur_anti_love_respect)
     {
         choice -= cur_anti_love_respect;
         i++;
-        cur_anti_love_respect = 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+        cur_anti_love_respect = 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
     }
 
     Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
 
     // modify happiness, reduce love and respect
     int modifier = (1 + mt() % 3); // 1 - 3
-    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + 3*modifier, 100);
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + 2*modifier, 100);
     otherAgent->aStats->happiness = std::max(otherAgent->aStats->happiness - 3*modifier, 0);
 
     Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love - modifier, 0);
@@ -264,8 +264,8 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
 
     // modify wealth, respect
     int modifier = (1 + mt() % 3); // 1 - 3
-    thisAgent->aStats->wealth = std::min(thisAgent->aStats->wealth + 3*modifier, 100);
-    otherAgent->aStats->wealth = std::min(otherAgent->aStats->wealth + 3*modifier, 100);
+    thisAgent->aStats->wealth = std::min(thisAgent->aStats->wealth + 2*modifier, 100);
+    otherAgent->aStats->wealth = std::min(otherAgent->aStats->wealth + 2*modifier, 100);
 
     Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect = std::min(Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect + modifier, 100);
     Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect = std::min(Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect + modifier, 100);
@@ -298,21 +298,22 @@ void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupie
     
     int total_anti_love_respect {0};
     for (int i = 0; i < sz; i++)
-        total_anti_love_respect += 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+        total_anti_love_respect += 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
 
     int choice = mt() % total_anti_love_respect;
     int i = 0;
-    while (choice > 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect))
+    while (choice > 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect))
     {
-        choice -= 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+        choice -= 201 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+        i++;
     }
 
     Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
 
     // modify happiness, reduce love, respect + health of other
     int modifier = (1 + mt() % 3); // 1 - 4
-    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
-    otherAgent->aStats->happiness = std::max(otherAgent->aStats->happiness - modifier, 0);
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + 3*modifier, 100);
+    otherAgent->aStats->happiness = std::max(otherAgent->aStats->happiness - 3*modifier, 0);
 
     Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love - modifier, 0);
     Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::max(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love - modifier, 0);
@@ -345,21 +346,117 @@ void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupi
 }
 void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
-    std::ofstream agentFile;
-    agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
-    agentFile << "Tried to reproduce" << std::endl;
-    agentFile.close();
+    std::cout << "reproduce attempt\n";
+
+    // make a list of 5 closest unoccupied agents of opposite gender double random dice roll
+    int sz = 0;
+    std::vector<std::pair<int, int>> possible_mates; // love, id
+    for (int i = 0; i < nearby_unoccupied_agents.size() && sz < 5; i++)
+    {
+        if (Agent::AgentList[nearby_unoccupied_agents[i].second]->aStats->gender ^ thisAgent->aStats->gender)
+        {
+            possible_mates.push_back({Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love, nearby_unoccupied_agents[i].second});
+            sz++;
+        }
+    }
+
+    if (!possible_mates.size())
+    {
+        std::cout << "reproduce failed\n";
+        std::ofstream agentFile;
+        agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+        agentFile << "Reproduction failed - no mate." << std::endl;
+        agentFile.close();
+        return;
+    }
+
+    int totalLove {0};
+    for (int i = 0; i < sz; i++)
+    {
+        totalLove += 1 + possible_mates[i].first;
+    }
+
+    std::cout << "choice: " << totalLove << std::endl;
+    int choice = mt() % totalLove;
+    int i = 0;
+    while (choice > 1 + possible_mates[i].first)
+    {
+        choice -= 1 + possible_mates[i].first;
+        i++;
+    }
+
+    Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+
+    int otherLove = Agent::RelationshipMap[otherAgent->id][thisAgent->id].love;
+    // std::cout << "issue here" << std::endl;
+    if (thisAgent->aStats->age > 30 && otherAgent->aStats->age > 30 && abs(thisAgent->aStats->age - otherAgent->aStats->age) < 30 && (mt() % 50 > 101 - otherLove))
+    {
+        Agent* child = new Agent(mt);
+        int modifier = 5 + mt() % 10;
+        thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
+        otherAgent->aStats->happiness = std::min(otherAgent->aStats->happiness + modifier, 100);
+
+        thisAgent->aStats->health = std::min(thisAgent->aStats->health + modifier/3, 100);
+        otherAgent->aStats->health = std::min(otherAgent->aStats->health + modifier/3, 100);
+
+        thisAgent->aStats->wealth = std::max(thisAgent->aStats->wealth - modifier, 0);
+        otherAgent->aStats->wealth = std::max(otherAgent->aStats->wealth - modifier, 0);
+
+        Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::min(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love + modifier, 100);
+        Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::min(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love + modifier, 100);
+
+
+        int newPosX = (thisAgent->posX + otherAgent->posX)/2;
+        int newPosY = (thisAgent->posY + otherAgent->posY)/2;
+
+        thisAgent->posX = newPosX;
+        thisAgent->posY = newPosY;
+        
+        otherAgent->posX = newPosX;
+        otherAgent->posY = newPosY;  
+            
+        std::ofstream agentFile;
+        agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+        agentFile << "Birthed " << child->name << " with " << otherAgent->name << std::endl;
+        agentFile.close();
+
+        agentFile.open("../logs/"+otherAgent->name+".txt", std::ios::app);
+        agentFile << "Birthed " << child->name << " with " << thisAgent->name << std::endl;
+        agentFile.close();
+
+        std::cout << "successfully reproduced\n";      
+    }
+    else
+    {
+        int modifier = 3 + mt() % 5;
+        Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love - modifier, 0);
+
+        std::ofstream agentFile;
+        agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+        agentFile << "Rejected by " << otherAgent->name << std::endl;
+        agentFile.close();
+
+        agentFile.open("../logs/"+otherAgent->name+".txt", std::ios::app);
+        agentFile << "Rejected " << thisAgent->name << std::endl;
+        agentFile.close();
+
+        std::cout << "rejected\n";      
+    }
 }
+
 void Interaction_Manager::interact_idle(Agent* thisAgent)
 {
     std::ofstream agentFile;
-    int modifier = mt() %  5;
+    int modifier = mt() % 6;
     if (modifier == 0)
     {
-        thisAgent->aStats->health--;
         thisAgent->aStats->wealth--;
         thisAgent->aStats->happiness--;
     }
+    modifier = mt() % 20;
+    if (modifier == 0)
+        thisAgent->aStats->health++;
+
     thisAgent->posX += (mt() % 11) - 5;
     thisAgent->posY += (mt() % 11) - 5;
     thisAgent->posX = std::max(thisAgent->posX, 0);
