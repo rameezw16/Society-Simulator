@@ -31,6 +31,8 @@ class Agent
 
         void new_day(int year, int day);
 
+        void grow();
+
         void display_agent_list();
         void display_relation_map();
 
@@ -42,8 +44,8 @@ class Agent
         Traits* aTraits;
         Relationship relationSum {0, 0};
 
-        int GRID_WIDTH {60};
-        int GRID_HEIGHT {60};
+        static int GRID_WIDTH;
+        static int GRID_HEIGHT;
 
     friend class Interaction_Manager;
 };

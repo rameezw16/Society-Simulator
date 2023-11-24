@@ -16,12 +16,12 @@ Agent::Agent(std::mt19937& mt, std::string name, int posX, int posY)
     if (posX != -1)
         this->posX = posX;
     else
-        this->posX = mt() % GRID_WIDTH;
+        this->posX = mt() % Agent::GRID_WIDTH;
 
     if (posY != -1)
         this->posY = posY;
     else
-        this->posY = mt() % GRID_HEIGHT;
+        this->posY = mt() % Agent::GRID_HEIGHT;
 
     this->aStats = new Stats(mt); // constructor has initialisation formulas
     this->aTraits = new Traits(mt, this->aStats); // constructor has initialisation formulas
@@ -92,6 +92,12 @@ void Agent::new_day(int year, int day)
     agentFile.close();
 }
 
+void Agent::grow()
+{
+    this->aStats->health -= 5;
+    this->aStats->age++;
+}
+
 void Agent::display_agent_list()
 {
     for (std::pair<int, Agent*> i : AgentList)
@@ -160,3 +166,6 @@ std::map<int, Agent*> Agent::AgentList;
 std::map<int, std::map<int, Relationship>> Agent::RelationshipMap;
 std::vector<std::string> Agent::fname_list = {"John", "Anna", "Mark", "Emma", "Paul", "Laura", "Alex", "Grace"};
 std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Taylor", "Jones", "Miller", "Davis", "Garcia"};
+
+int Agent::GRID_WIDTH = 60;
+int Agent::GRID_HEIGHT = 60;

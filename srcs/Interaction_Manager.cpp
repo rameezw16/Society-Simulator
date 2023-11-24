@@ -13,6 +13,22 @@ Interaction_Manager* Interaction_Manager::getInstance()
 void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
 {
     // std::cout << thisAgent->id << std::endl;
+    std::vector<std::pair<int, int>> nearby_unoccupied_agents;// manhattan distance
+    for (std::pair<int, Agent*> agent : Agent::AgentList)
+    {
+        if (!occupied.count(agent.first))
+        {
+            nearby_unoccupied_agents.push_back({abs(thisAgent->posX - agent.second->posX) +  abs(thisAgent->posY - agent.second->posY), agent.first});
+        }
+    }
+    
+    if (!nearby_unoccupied_agents.size()) // no agents to interact with
+    {
+        this->interact_idle(thisAgent);
+        return;
+    }
+
+    sort(nearby_unoccupied_agents.begin(), nearby_unoccupied_agents.end());
 
     std::vector<int> choice_probability 
     {
@@ -31,18 +47,19 @@ void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
     int choice = (this->mt() % 100);
     // talk, insult, work with, hurt, party, reproduce
     if (choice < choice_probability_prefix[0])
-        this->interact_talk(thisAgent, occupied);
+        this->interact_talk(thisAgent, occupied, nearby_unoccupied_agents);
     else if (choice < choice_probability_prefix[1])
-        this->interact_insult(thisAgent, occupied);
+        this->interact_insult(thisAgent, occupied, nearby_unoccupied_agents);
     else if (choice < choice_probability_prefix[2])
-        this->interact_work(thisAgent, occupied);
+        this->interact_work(thisAgent, occupied, nearby_unoccupied_agents);
     else if (choice < choice_probability_prefix[3])
-        this->interact_hurt(thisAgent, occupied);
+        this->interact_hurt(thisAgent, occupied, nearby_unoccupied_agents);
     else if (choice < choice_probability_prefix[4])
-        this->interact_party(thisAgent, occupied);
+        this->interact_party(thisAgent, occupied, nearby_unoccupied_agents);
     else if (choice < choice_probability_prefix[5])
-        this->interact_reproduce(thisAgent, occupied);
-    // else
+        this->interact_reproduce(thisAgent, occupied, nearby_unoccupied_agents);
+    else
+        this->interact_idle(thisAgent);
         // std::cout << thisAgent->id << " idled" << std::endl;
     return;
 }
@@ -94,6 +111,9 @@ void Interaction_Manager::cycle_year()
 {
     for (int i = 0; i < 365; i++)
         this->cycle_day();
+
+    for (std::pair<int, Agent*> agent : Agent::AgentList)
+        agent.second->grow();
 }
 
 Interaction_Manager::Interaction_Manager()
@@ -106,8 +126,38 @@ Interaction_Manager::Interaction_Manager()
 
 Interaction_Manager* Interaction_Manager::instance {nullptr};
 
-void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
+    // make a list of 5 closest unoccupied people and choose randomly based off distance
+    int sz = std::max((int) nearby_unoccupied_agents.size(), 5);
+    int totalDist {0};
+    for (int i = 0; i < sz; i++)
+        totalDist += nearby_unoccupied_agents[i].first;
+
+    int totalChoice {0};
+    for (int i = 0; i < sz; i++)
+        totalChoice += totalDist/nearby_unoccupied_agents[i].first;
+
+    int choice = mt() % totalChoice;
+    int i = 0;
+    while (choice > totalDist/nearby_unoccupied_agents[i].first)
+    {
+        choice -= totalDist/nearby_unoccupied_agents[i].first;
+    }
+
+    Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+
+    int loveSum = Agent::RelationshipMap[thisAgent->id][otherAgent->id].love + Agent::RelationshipMap[otherAgent->id][thisAgent->id].love;
+    int agreeabilitySum = thisAgent->aTraits->agreeableness + otherAgent->aTraits->agreeableness;
+    int opennessSum = thisAgent->aTraits->openness + otherAgent->aTraits->openness;
+    int positivity = (mt() % 20) + (loveSum + agreeabilitySum)/4;
+    int intimacy = ;
+    // consider total distance and total love
+
+
+
+
+
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Tried to talk" << std::endl;
@@ -115,7 +165,7 @@ void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupie
     agentFile.close();
 }
 
-void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
@@ -123,7 +173,7 @@ void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occup
     thisAgent->aStats->health -= 20;
     agentFile.close();
 }
-void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
@@ -131,24 +181,40 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
     thisAgent->aStats->wealth -= 20;
     agentFile.close();
 }
-void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Tried to hurt" << std::endl;
     agentFile.close();
 }
-void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Tried to party" << std::endl;
     agentFile.close();
 }
-void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& occupied)
+void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Tried to reproduce" << std::endl;
+    agentFile.close();
+}
+void Interaction_Manager::interact_idle(Agent* thisAgent)
+{
+    std::ofstream agentFile;
+    thisAgent->aStats->health--;
+    thisAgent->aStats->wealth--;
+    thisAgent->aStats->happiness--;
+    thisAgent->posX += (mt() % 11) - 5;
+    thisAgent->posY += (mt() % 11) - 5;
+    thisAgent->posX = std::max(thisAgent->posX, 0);
+    thisAgent->posX = std::min(thisAgent->posX, Agent::GRID_WIDTH);
+    thisAgent->posY = std::max(thisAgent->posY, 0);
+    thisAgent->posY = std::min(thisAgent->posY, Agent::GRID_HEIGHT);
+    agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+    agentFile << "Idled" << std::endl;
     agentFile.close();
 }

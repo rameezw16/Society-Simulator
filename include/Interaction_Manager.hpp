@@ -18,12 +18,13 @@ class Interaction_Manager
 
     private:
         // Interaction forms
-        void interact_talk(Agent* thisAgent, std::set<int>& occupied);
-        void interact_insult(Agent* thisAgent, std::set<int>& occupied);
-        void interact_work(Agent* thisAgent, std::set<int>& occupied);
-        void interact_hurt(Agent* thisAgent, std::set<int>& occupied);
-        void interact_party(Agent* thisAgent, std::set<int>& occupied);
-        void interact_reproduce(Agent* thisAgent, std::set<int>& occupied);
+        void interact_talk(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_insult(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_work(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_hurt(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_party(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_reproduce(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
+        void interact_idle(Agent* thisAgent);
 
 
         // Singleton
