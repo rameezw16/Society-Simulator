@@ -6,6 +6,7 @@
 #include "./terrain/dirt.h"
 #include "./features/grass.h"
 #include "./features/wall.h"
+#include "./randomwalker.h"
 #include <SDL2/SDL.h>
 
 // We will now make a grid of entities, this contains a spritesheet
@@ -15,9 +16,8 @@ public:
   Grid(unsigned int seed = 1985);
   ~Grid();
 
-  
-
   void randomly_generate();
+  void random_walk(int x, int y);
 
   //making this public just for testing
 
@@ -27,6 +27,8 @@ public:
 
 private:
   Perlin perlin_gen;
+
+  Random_Walker random_walker;
 
   Perlin temperature;
   Perlin humidity;

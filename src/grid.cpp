@@ -1,8 +1,9 @@
 #include "../include/grid.h"
+#include <iostream>
 // 60 is the internal grid representation
 
 Grid::Grid(unsigned int seed)
-	: perlin_gen(seed), temperature(seed), humidity(seed), evil(seed) {
+	: perlin_gen(seed), temperature(seed), humidity(seed), evil(seed), random_walker(30,30,60,seed) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
 
@@ -47,10 +48,29 @@ void Grid::randomly_generate() {
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr; 
 		character[i][j] = nullptr;
-
 		break;
 	  };
-		  
     };
   };
+  //do random walk and break features
+
+
+  unsigned int seed = (unsigned int)(perlin_gen.get_noise(10,10) * 10);
+  Random_Walker rw1 {30,30,60, seed};
+  rw1.destructive_walk(&feature,100);
+
+  Random_Walker rw2 {30,30,60, seed * 3};
+  rw2.destructive_walk(&feature,100);
+
+
 };
+
+
+
+
+
+
+
+
+
+
