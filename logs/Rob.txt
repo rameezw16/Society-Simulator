@@ -1,34 +1,12 @@
-Rob created at (33, 24) with id: 0, gender: male, age: 20, health: 45, wealth: 71, happiness: 51
-and personality traits:  Openness: 43, Conscientiousness: 57, Extrovertedness: 33, Agreeableness: 31, Neuroticism: 33
-Towards Bob has Love: 31, Respect: 20
-Towards Job has Love: 32, Respect: 23
+Rob created at (33, 24) with id: 0, gender: female, age: 8, health: 63, wealth: 34, happiness: 44
+and personality traits:  Openness: 37, Conscientiousness: 37, Extrovertedness: 47, Agreeableness: 47, Neuroticism: 17
+Towards Bob has Love: 46, Respect: 37
+Towards Job has Love: 50, Respect: 25
 Year: 1, Day: 1
-Tried to reproduce
-Year: 1, Day: 2
-Year: 1, Day: 3
-Tried to talk
-Tried to insult
-Year: 1, Day: 4
-Year: 1, Day: 5
-Tried to insult
-Tried to hurt
-Tried to hurt
-Year: 1, Day: 6
-Tried to reproduce
-Year: 1, Day: 7
-Year: 1, Day: 8
-Year: 1, Day: 9
-Year: 1, Day: 10
 Tried to party
-Year: 1, Day: 11
+Idled
 Tried to work
-Year: 1, Day: 12
-Year: 1, Day: 13
-Tried to party
-Tried to party
-Year: 1, Day: 14
-Tried to talk
-Year: 1, Day: 15
-Year: 1, Day: 16
-Tried to talk
-Died due to depression
+Year: 1, Day: 2
+Idled
+Tried to work
+Died due to poverty

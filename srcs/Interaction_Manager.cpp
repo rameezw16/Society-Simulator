@@ -18,7 +18,8 @@ void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
     {
         if (!occupied.count(agent.first))
         {
-            nearby_unoccupied_agents.push_back({abs(thisAgent->posX - agent.second->posX) +  abs(thisAgent->posY - agent.second->posY), agent.first});
+            // printf("This Agent: %i, Other: %i\n", thisAgent->id, agent.first);
+            nearby_unoccupied_agents.push_back({abs(thisAgent->posX - agent.second->posX) +  abs(thisAgent->posY - agent.second->posY), agent.first}); // 1 added to keep distance non-zero
         }
     }
     
@@ -128,16 +129,21 @@ Interaction_Manager* Interaction_Manager::instance {nullptr};
 
 void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
+    std::cout << "talk\n";
     // make a list of 5 closest unoccupied people and choose randomly based off distance
-    int sz = std::max((int) nearby_unoccupied_agents.size(), 5);
+    int sz = std::min((int) nearby_unoccupied_agents.size(), 5);
     int totalDist {0};
     for (int i = 0; i < sz; i++)
         totalDist += nearby_unoccupied_agents[i].first;
 
     int totalChoice {0};
     for (int i = 0; i < sz; i++)
+    {
+        // std::cout << "divide by: " << nearby_unoccupied_agents[i].first << std::endl; 
         totalChoice += totalDist/nearby_unoccupied_agents[i].first;
+    }
 
+    // std::cout << "choice: " << totalChoice << std::endl;
     int choice = mt() % totalChoice;
     int i = 0;
     while (choice > totalDist/nearby_unoccupied_agents[i].first)
@@ -146,35 +152,88 @@ void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupie
     }
 
     Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+    
 
-    int loveSum = Agent::RelationshipMap[thisAgent->id][otherAgent->id].love + Agent::RelationshipMap[otherAgent->id][thisAgent->id].love;
-    int agreeabilitySum = thisAgent->aTraits->agreeableness + otherAgent->aTraits->agreeableness;
-    int opennessSum = thisAgent->aTraits->openness + otherAgent->aTraits->openness;
-    int positivity = (mt() % 20) + (loveSum + agreeabilitySum)/4;
-    int intimacy = ;
-    // consider total distance and total love
+    // increase happiness and love
+    int modifier = (1 + mt() % 3); // 1 - 4
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
+    otherAgent->aStats->happiness = std::min(otherAgent->aStats->happiness + modifier, 100);
 
+    Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::min(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love + modifier, 100);
+    Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::min(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love + modifier, 100);
 
+    int newPosX = (thisAgent->posX + otherAgent->posX)/2;
+    int newPosY = (thisAgent->posY + otherAgent->posY)/2;
 
-
+    thisAgent->posX = newPosX;
+    thisAgent->posY = newPosY;
+    
+    otherAgent->posX = newPosX;
+    otherAgent->posY = newPosY;
 
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
-    agentFile << "Tried to talk" << std::endl;
-    thisAgent->aStats->happiness -= 20;
+    agentFile << "Talked to " << otherAgent->name << std::endl;
     agentFile.close();
+
+    agentFile.open("../logs/"+otherAgent->name+".txt", std::ios::app);
+    agentFile << "Talked to " << thisAgent->name << std::endl;
+    agentFile.close();
+
+    std::cout << "talk completed\n";
 }
 
 void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
+    std::cout << "insult\n";
+    // make a list of 10 closest unoccupied people and choose randomly based off least love + respect
+    int sz = std::max((int) nearby_unoccupied_agents.size(), 10);
+    
+    int total_anti_love_respect {0};
+    for (int i = 0; i < sz; i++)
+        total_anti_love_respect += 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+
+    int choice = mt() % total_anti_love_respect;
+    int i = 0;
+    while (choice > 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect))
+    {
+        choice -= 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+    }
+
+    Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+
+    // modify happiness, reduce love and respect
+    int modifier = (1 + mt() % 3); // 1 - 4
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
+    otherAgent->aStats->happiness = std::max(otherAgent->aStats->happiness - modifier, 0);
+
+    Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love - modifier, 0);
+    Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::max(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love - modifier, 0);
+
+    Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect - modifier, 0);
+    Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect = std::max(Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect - modifier, 0);
+
+    thisAgent->posX = otherAgent->posX;
+    thisAgent->posY = otherAgent->posY;
+
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
-    agentFile << "Tried to insult" << std::endl;
-    thisAgent->aStats->health -= 20;
+    agentFile << "Insulted " << otherAgent->name << std::endl;
     agentFile.close();
+
+    agentFile.open("../logs/"+otherAgent->name+".txt", std::ios::app);
+    agentFile << "Insulted by " << thisAgent->name << std::endl;
+    agentFile.close();
+
+    std::cout << "insult completed\n";
 }
+
 void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
+    // make a list of people based off respect and distance
+
+
+
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Tried to work" << std::endl;
@@ -183,10 +242,49 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
 }
 void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
+    std::cout << "hurt\n";
+    // make a list of 20 closest unoccupied people and choose randomly based off least love + respect
+    int sz = std::max((int) nearby_unoccupied_agents.size(), 20);
+    
+    int total_anti_love_respect {0};
+    for (int i = 0; i < sz; i++)
+        total_anti_love_respect += 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+
+    int choice = mt() % total_anti_love_respect;
+    int i = 0;
+    while (choice > 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect))
+    {
+        choice -= 200 - (Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].love + Agent::RelationshipMap[thisAgent->id][nearby_unoccupied_agents[i].second].respect);
+    }
+
+    Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+
+    // modify happiness, reduce love, respect + health of other
+    int modifier = (1 + mt() % 3); // 1 - 4
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
+    otherAgent->aStats->happiness = std::max(otherAgent->aStats->happiness - modifier, 0);
+
+    Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love - modifier, 0);
+    Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::max(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love - modifier, 0);
+
+    Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect = std::max(Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect - modifier, 0);
+    Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect = std::max(Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect - modifier, 0);
+
+    otherAgent->aStats->health = std::max(otherAgent->aStats->health - modifier, 0);
+
+    thisAgent->posX = otherAgent->posX;
+    thisAgent->posY = otherAgent->posY;
+
     std::ofstream agentFile;
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
-    agentFile << "Tried to hurt" << std::endl;
+    agentFile << "Hurt " << otherAgent->name << std::endl;
     agentFile.close();
+
+    agentFile.open("../logs/"+otherAgent->name+".txt", std::ios::app);
+    agentFile << "Hurt by " << thisAgent->name << std::endl;
+    agentFile.close();
+
+    std::cout << "hurt completed\n";
 }
 void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {

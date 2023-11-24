@@ -1,16 +1,67 @@
-Job created at (25, 17) with id: 2, gender: male, age: 30, health: 41, wealth: 52, happiness: 30
-and personality traits:  Openness: 46, Conscientiousness: 63, Extrovertedness: 13, Agreeableness: 27, Neuroticism: 51
-Towards Rob has Love: 37, Respect: 25
-Towards Bob has Love: 26, Respect: 20
+Job created at (58, 15) with id: 2, gender: male, age: 1, health: 56, wealth: 61, happiness: 38
+and personality traits:  Openness: 55, Conscientiousness: 44, Extrovertedness: 58, Agreeableness: 43, Neuroticism: 26
+Towards Rob has Love: 46, Respect: 21
+Towards Bob has Love: 37, Respect: 36
 Year: 1, Day: 1
-Tried to work
+Tried to party
+Idled
+Idled
 Year: 1, Day: 2
-Tried to insult
+Tried to party
+Idled
+Idled
 Year: 1, Day: 3
+Tried to party
+Idled
+Idled
 Year: 1, Day: 4
+Idled
+Idled
+Tried to party
 Year: 1, Day: 5
-Tried to insult
+Idled
+Idled
+Idled
 Year: 1, Day: 6
-Tried to work
-Tried to insult
-Died due to poor health
+Idled
+Idled
+Talked to Bob
+Year: 1, Day: 7
+Idled
+Insulted Bob
+Idled
+Year: 1, Day: 8
+Idled
+Idled
+Idled
+Year: 1, Day: 9
+Idled
+Idled
+Idled
+Year: 1, Day: 10
+Idled
+Idled
+Idled
+Year: 1, Day: 11
+Idled
+Idled
+Idled
+Year: 1, Day: 12
+Idled
+Idled
+Idled
+Year: 1, Day: 13
+Idled
+Idled
+Idled
+Year: 1, Day: 14
+Idled
+Idled
+Idled
+Year: 1, Day: 15
+Idled
+Idled
+Idled
+Year: 1, Day: 16
+Idled
+Died due to depression
