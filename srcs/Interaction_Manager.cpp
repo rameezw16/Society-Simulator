@@ -36,8 +36,8 @@ void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
         thisAgent->aTraits->extrovertedness/5, // talk - max 20% - increases with extroversion
         thisAgent->aTraits->neuroticism/10 + thisAgent->aTraits->openness/10, // insult - max 20% - increases with neuroticism and openness
         (thisAgent->aTraits->conscientiousness + std::max(50 - thisAgent->aStats->wealth, 0))/10, // work - max 15% - increases with conscientiousness and lack of money
-        thisAgent->aTraits->neuroticism/10, // hurt - max 10% - increases with neuroticism
-        thisAgent->aTraits->extrovertedness/10 + std::max(40 - thisAgent->aStats->age, 0)/4, // party - max 20% - increases with extroversion, reduces with age
+        thisAgent->aTraits->neuroticism/10 + (100 - thisAgent->relationSum.love/((int) Agent::AgentList.size()))/20, // hurt - max 15% - increases with neuroticism
+        thisAgent->aTraits->extrovertedness/10 + std::max(40 - thisAgent->aStats->age, 0)/8, // party - max 15% - increases with extroversion, reduces with age
         thisAgent->aStats->health/20 + thisAgent->aStats->happiness/20 + thisAgent->aStats->wealth/20 // reproduce - max 15% - increases with wealth, health and happiness
     };
 
@@ -290,6 +290,7 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
 
     std::cout << "work completed\n";
 }
+
 void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "hurt\n";
@@ -337,13 +338,85 @@ void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupie
 
     std::cout << "hurt completed\n";
 }
+
 void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
-    std::ofstream agentFile;
-    agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
-    agentFile << "Tried to party" << std::endl;
-    agentFile.close();
+    std::cout << "party\n";
+    // make a list of k closest unoccupied people based off extroversion - invite all - they reply randomly based on their extroversion and love for me
+    int sz = std::min((int) nearby_unoccupied_agents.size(), 1 + thisAgent->aTraits->extrovertedness/5);
+    
+    
+    std::vector<Agent*> attendingGuests {thisAgent};
+
+    for (int i = 0; i < sz; i++)
+    {
+        Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
+        if (mt() % 200 < otherAgent->aTraits->extrovertedness + Agent::RelationshipMap[otherAgent->id][thisAgent->id].love)
+            attendingGuests.push_back(otherAgent);
+    }
+
+    // printf("failing here!\n");
+    if (attendingGuests.size() < 2)
+    {
+        std::cout << "party failed";
+        int modifier = 1 + mt() % 5;
+        thisAgent->aTraits->extrovertedness = std::max(thisAgent->aTraits->extrovertedness - modifier, 0);
+        std::ofstream agentFile;
+        agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+        agentFile << "Party failed - no one attended" << attendingGuests.size() << std::endl;
+        agentFile.close();
+        return;
+    }
+
+    int tot_ext {0};
+    int tot_love {0};
+
+    for (int i = 0; i < attendingGuests.size(); i++)
+    {
+        tot_ext += attendingGuests[i]->aTraits->extrovertedness;
+        for (int j = 0; j < attendingGuests.size(); j++)
+        {
+            if (i == j) continue;
+            tot_love += Agent::RelationshipMap[attendingGuests[i]->id][attendingGuests[j]->id].love;
+        }
+    }
+
+
+    int avg_ext = tot_ext/attendingGuests.size();
+    int avg_love = tot_love/(attendingGuests.size()*attendingGuests.size() - attendingGuests.size());
+    int modifier = (1 + (mt() % 2)) * (avg_ext + avg_love)/30; // 0 - 12
+
+    // printf("failing in loop!\n");
+
+    for (int i = 0; i < attendingGuests.size(); i++)
+    {
+        attendingGuests[i]->aStats->happiness = std::min(attendingGuests[i]->aStats->happiness + modifier, 100);
+        for (int j = 0; j < attendingGuests.size(); j++)
+        {
+            if (i == j) continue;
+            Agent::RelationshipMap[attendingGuests[i]->id][attendingGuests[j]->id].love = std::min(Agent::RelationshipMap[attendingGuests[i]->id][attendingGuests[j]->id].love + modifier, 100);
+        }
+
+        if (i == 0)
+        {
+            std::ofstream agentFile;
+            agentFile.open("../logs/"+attendingGuests[i]->name+".txt", std::ios::app);
+            agentFile << "Hosted party for " << attendingGuests.size() << std::endl;
+            agentFile.close();
+        }
+        else
+        {
+            std::ofstream agentFile;
+            agentFile.open("../logs/"+attendingGuests[i]->name+".txt", std::ios::app);
+            agentFile << "Attended party by " << attendingGuests[0]->name << std::endl;
+            agentFile.close();
+        }
+    }
+
+
+    std::cout << "party completed\n";
 }
+
 void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "reproduce attempt\n";
