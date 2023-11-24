@@ -28,26 +28,21 @@ void Grid::randomly_generate() {
   for (int i = 0; i < 60; i++) {
 	for (int j = 0; j < 60; j++) {
 	  double noise = perlin_gen.get_noise(i * 10, j * 10);
-	  int selection = (int)(noise * 10) % 4;
+	  int selection = (int)(noise * 10) % 3;
 	  switch (selection) {
-	  case 0:
+	  case 1:
 		terrain[i][j] = new Water{i, j};
 		feature[i][j] = nullptr;
 		character[i][j] = nullptr;
 		break;
-	  case 1:
+	  case 0:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr; 
 		character[i][j] = nullptr;
 		break;
 	  case 2:
 		terrain[i][j] = new Dirt{i, j};
-		feature[i][j] = new Wall{i, j};
-		character[i][j] = nullptr;
-		break;
-	  case 3:
-		terrain[i][j] = new Dirt{i, j}; 
-		feature[i][j] = new Grass{i, j}; 
+		feature[i][j] = nullptr; 
 		character[i][j] = nullptr;
 		break;
 	  };
@@ -64,11 +59,13 @@ void Grid::randomly_generate() {
   Random_Walker rw4 {30,30, 60, seed * 3 + 9};
   Random_Walker rw5 {30,30, 60, seed * 3 % 2};
 
-  rw1.destructive_walk(&feature,total_iters);
-  rw2.destructive_walk(&feature,total_iters);
-  rw3.destructive_walk(&feature,total_iters);
-  rw4.destructive_walk(&feature,total_iters);
-  rw5.destructive_walk(&feature,total_iters);
+  //rw1.destructive_walk(&feature,total_iters);
+  //rw2.destructive_walk(&feature,total_iters);
+  //rw3.destructive_walk(&feature,total_iters);
+  //rw4.destructive_walk(&feature,total_iters);
+  //rw5.destructive_walk(&feature,total_iters);
+
+  rw5.creative_walk_walls(&feature,total_iters);
 
 
 

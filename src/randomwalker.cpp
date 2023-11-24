@@ -12,21 +12,7 @@ void Random_Walker::random_walk() {
   if (0 < proposed_x && proposed_x < limit) x = proposed_x;
   if (0 < proposed_y && proposed_y < limit) y = proposed_y;
 
-  // if ((set_x.find(proposed_x) == set_x.end() && proposed_x < limit &&
-  // 	   proposed_x > 0)) { // if it is a new value, go for it
-  // 	x = proposed_x;       // we currently have 0,1 and we want -1, 1
-  // 	set_x.insert(x);
-  // };
-
-  // if ((set_y.find(proposed_y) == set_y.end() && proposed_y < limit &&
-  // 	   proposed_y > 0)) { // if it is a new value, go for it
-  // 	y = proposed_y;       // we currently have 0,1 and we want -1, 1
-  // 	set_y.insert(y);
-  // };
-
-
-
-  std::cout << x << " " << y <<  " " << x_dir << " " << y_dir << "\n";
+  //std::cout << x << " " << y <<  " " << x_dir << " " << y_dir << "\n";
 };
 
 void Random_Walker::destructive_walk(Feature *(*feature)[60][60],
@@ -41,6 +27,21 @@ void Random_Walker::destructive_walk(Feature *(*feature)[60][60],
         };
   };
 };
+
+
+void Random_Walker::creative_walk_walls(Feature *(*feature)[60][60],
+									 int iterations) {
+
+  for (int i = 0; i < iterations; i++) {
+		random_walk();
+		Entity *feature_to_be_added = (*feature)[x][y];
+		(*feature)[x][y] = new Wall{x, y};
+  };
+};
+
+
+
+
 
 int Random_Walker::get_x() {
   return x;
