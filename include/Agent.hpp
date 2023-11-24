@@ -14,15 +14,20 @@ class Agent
         static int count;
         static std::map<int, Agent*> AgentList;
         static std::map<int, std::map<int, Relationship>> RelationshipMap;
+        static std::vector<std::string> fname_list;
+        static std::vector<std::string> lname_list;
 
         int id;
         std::string name;
         int age;
         Stats* aStats;
+        int posX, posY;
 
-        Agent(std::string name, std::mt19937& mt);
+        Agent(std::mt19937& mt, std::string name = "", int posX = -1, int posY = -1);
         
         void initialise_relations();
+
+        void move_agent(int posX, int posY);
 
         void display_agent_list();
         void display_relation_map();
@@ -32,4 +37,7 @@ class Agent
     private:
         Traits* aTraits;
         Relationship relationSum {0, 0};
+
+        int GRID_WIDTH {60};
+        int GRID_HEIGHT {60};
 };

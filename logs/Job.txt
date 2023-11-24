@@ -1,0 +1,4 @@
+Job created at (40, 23) with id: 2, gender: female, age: 26, health: 53, wealth: 87, happiness: 67
+and personality traits:  Openness: 54, Conscientiousness: 73, Extrovertedness: 57, Agreeableness: 37, Neuroticism: 8
+Towards Rob has Love: 53, Respect: 28
+Towards Bob has Love: 38, Respect: 25

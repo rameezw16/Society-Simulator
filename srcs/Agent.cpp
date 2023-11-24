@@ -5,17 +5,31 @@
 #include <ctime>
 #include <fstream>
 
-Agent::Agent(std::string name, std::mt19937& mt)
+Agent::Agent(std::mt19937& mt, std::string name, int posX, int posY)
 {
     this->id = count++;
-    this->name = name;
+    if (name.length())
+        this->name = name;
+    else
+        this->name = fname_list[mt()%fname_list.size()] + " " + lname_list[mt()%lname_list.size()];
+
+    if (posX != -1)
+        this->posX = posX;
+    else
+        this->posX = mt() % GRID_WIDTH;
+
+    if (posY != -1)
+        this->posY = posY;
+    else
+        this->posY = mt() % GRID_HEIGHT;
+
     this->aStats = new Stats(mt); // constructor has initialisation formulas
     this->aTraits = new Traits(mt, this->aStats); // constructor has initialisation formulas
 
     // Add details to file
     std::ofstream agentFile;
     agentFile.open("../logs/"+this->name+".txt");
-    agentFile << this->name << " created with id: " << this->id << ", gender: " << ((this->aStats->gender) ? "male" : "female") << ", age: " << this->aStats->age << ", health: " << this->aStats->health << ", wealth: " << this->aStats->wealth << ", happiness: " << this->aStats->happiness << "\n";
+    agentFile << this->name << " created at (" << this->posX << ", " << this->posY << ") with id: " << this->id << ", gender: " << ((this->aStats->gender) ? "male" : "female") << ", age: " << this->aStats->age << ", health: " << this->aStats->health << ", wealth: " << this->aStats->wealth << ", happiness: " << this->aStats->happiness << "\n";
     agentFile << "and personality traits:  Openness: " << this->aTraits->openness << ", Conscientiousness: " << this->aTraits->conscientiousness << ", Extrovertedness: " << this->aTraits->extrovertedness << ", Agreeableness: " << this->aTraits->agreeableness << ", Neuroticism: " << this->aTraits->neuroticism << std::endl;
     agentFile.close();
     
@@ -60,6 +74,16 @@ void Agent::initialise_relations()
     RelationshipMap[this->id] = this_relations;
 }
 
+void Agent::move_agent(int posX, int posY)
+{
+    this->posX = posX;
+    this->posY = posY;
+    std::ofstream agentFile;
+    agentFile.open("../logs/"+this->name+".txt", std::ios::app);
+    agentFile << "Moved to pos: (" << this->posX << ", " << this->posY << ")" << std::endl;
+    agentFile.close();
+}
+
 void Agent::display_agent_list()
 {
     for (std::pair<int, Agent*> i : AgentList)
@@ -95,3 +119,5 @@ Agent::~Agent()
 int Agent::count = 0;
 std::map<int, Agent*> Agent::AgentList;
 std::map<int, std::map<int, Relationship>> Agent::RelationshipMap;
+std::vector<std::string> Agent::fname_list = {"John", "Anna", "Mark", "Emma", "Paul", "Laura", "Alex", "Grace"};
+std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Taylor", "Jones", "Miller", "Davis", "Garcia"};

@@ -1,4 +1,0 @@
-rob created with id: 1, gender: male, age: 0, health: 79, wealth: 57, happiness: 63
-and personality traits:  Openness: 55, Conscientiousness: 41, Extrovertedness: 58, Agreeableness: 48, Neuroticism: 15
-Towards bob has Love: 35, Respect: 29
-Towards job has Love: 42, Respect: 34
