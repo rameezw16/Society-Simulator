@@ -26,7 +26,7 @@ void Grid::randomly_generate() {
 	  int selection = (int)(noise * 10) % 3;
 	  switch (selection) {
 	  case 1:
-		terrain[i][j] = new Water{i, j};
+		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr;
 		character[i][j] = nullptr;
 		break;
@@ -52,19 +52,29 @@ void Grid::randomly_generate() {
   Random_Walker random_walker {60, seed};
 
   random_walker.creative_walk_walls(30,30,&feature,500);
-  random_walker.creative_walk_fauna(30,30,&feature,500);
+  random_walker.creative_walk_walls(30,30,&feature,500);
+  random_walker.creative_walk_walls(30,30,&feature,500);
+  //random_walker.creative_walk_fauna(30,30,&feature,500);
+  random_walker.creative_walk_water(30,30,&terrain,500);
 
-  random_walker.creative_walk_walls(0,0,&feature,total_iters);
+  //random_walker.creative_walk_walls(0,0,&feature,total_iters);
   //random_walker.creative_walk_walls(60,0,&feature,total_iters);
-  random_walker.creative_walk_walls(0,60,&feature,total_iters);
+  //random_walker.creative_walk_walls(0,60,&feature,total_iters);
   //random_walker.creative_walk_walls(60,60,&feature,total_iters);
 
 
-  //random_walker.creative_walk_fauna(0,0,&feature,total_iters);
+  random_walker.creative_walk_fauna(0,0,&feature,total_iters);
   random_walker.creative_walk_fauna(60,0,&feature,total_iters);
   random_walker.creative_walk_fauna(0,60,&feature,total_iters);
   random_walker.creative_walk_fauna(60,60,&feature,total_iters);
 
+
+  random_walker.creative_walk_water(0,0,&terrain,total_iters);
+  random_walker.creative_walk_water(60,0,&terrain,total_iters);
+  random_walker.creative_walk_water(0,60,&terrain,total_iters);
+  random_walker.creative_walk_water(60,60,&terrain,total_iters);
+
+  
 
   //rw1.destructive_walk(&feature,total_iters);
   //rw2.destructive_walk(&feature,total_iters);

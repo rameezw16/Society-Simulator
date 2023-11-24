@@ -64,7 +64,17 @@ void Random_Walker::creative_walk_fauna(int x, int y,
   };
 };
 
+//2d array of pointers to entities
+void Random_Walker::creative_walk_water(int x, int y, Terrain *(*terrain)[60][60],
+						 int iterations) {
 
+  this->x = x;
+  this->y = y;
 
-
-
+  for (int i = 0; i < iterations; i++) {
+	random_walk();
+	Entity *feature_to_be_added = (*terrain)[this->x][this->y];
+	(*terrain)[this->x][this->y] = new Water{this->x, this->y};
+	std::cout << "made new class";
+  };
+};
