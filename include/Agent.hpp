@@ -29,6 +29,8 @@ class Agent
 
         void move_agent(int posX, int posY);
 
+        void new_day(int year, int day);
+
         void display_agent_list();
         void display_relation_map();
 

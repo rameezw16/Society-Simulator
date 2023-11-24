@@ -84,6 +84,14 @@ void Agent::move_agent(int posX, int posY)
     agentFile.close();
 }
 
+void Agent::new_day(int year, int day)
+{
+    std::ofstream agentFile;
+    agentFile.open("../logs/"+this->name+".txt", std::ios::app);
+    agentFile << "Year: " << year << ", Day: " << day << std::endl;
+    agentFile.close();
+}
+
 void Agent::display_agent_list()
 {
     for (std::pair<int, Agent*> i : AgentList)
