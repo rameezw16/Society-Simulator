@@ -34,6 +34,8 @@ class Agent
         void display_agent_list();
         void display_relation_map();
 
+
+        void is_dead();
         ~Agent();
 
     private:
@@ -42,4 +44,6 @@ class Agent
 
         int GRID_WIDTH {60};
         int GRID_HEIGHT {60};
+
+    friend class Interaction_Manager;
 };

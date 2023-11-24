@@ -16,4 +16,5 @@ class Relationship
         Relationship(Stats* thisStats, Traits* thisTraits, Stats* otherStats);
 
         Relationship operator +(Relationship& other);
+        Relationship operator -(Relationship& other);
 };

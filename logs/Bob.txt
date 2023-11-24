@@ -1,6 +1,11 @@
-Bob created at (14, 21) with id: 1, gender: female, age: 23, health: 69, wealth: 75, happiness: 52
-and personality traits:  Openness: 36, Conscientiousness: 74, Extrovertedness: 19, Agreeableness: 36, Neuroticism: 22
-Towards Rob has Love: 30, Respect: 30
-Moved to pos: (7, 15)
-Towards Job has Love: 44, Respect: 29
+Bob created at (46, 50) with id: 1, gender: female, age: 2, health: 69, wealth: 33, happiness: 36
+and personality traits:  Openness: 60, Conscientiousness: 29, Extrovertedness: 48, Agreeableness: 57, Neuroticism: 15
+Towards Rob has Love: 45, Respect: 33
+Towards Job has Love: 35, Respect: 32
 Year: 1, Day: 1
+Year: 1, Day: 2
+Tried to party
+Tried to work
+Year: 1, Day: 3
+Tried to work
+Died due to poverty

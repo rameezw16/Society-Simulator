@@ -113,6 +113,31 @@ void Agent::display_relation_map()
     printf("\n");
 }
 
+void Agent::is_dead()
+{
+    std::ofstream agentFile;
+    agentFile.open("../logs/"+this->name+".txt", std::ios::app);
+    if (this->aStats->health <= 0)
+    {
+        agentFile << "Died due to poor health" << std::endl;
+        agentFile.close();
+        delete this;
+    }
+    else if (this->aStats->wealth <= 0)
+    {
+        agentFile << "Died due to poverty" << std::endl;
+        agentFile.close();
+        delete this;
+    }
+    else if (this->aStats->happiness <= 0)
+    {
+        agentFile << "Died due to depression" << std::endl;
+        agentFile.close();
+        delete this;
+    }
+    if (agentFile.is_open()) agentFile.close();
+}
+
 Agent::~Agent()
 {
     // display_agent_list();
@@ -121,7 +146,13 @@ Agent::~Agent()
     delete this->aTraits;
     RelationshipMap.erase(this->id);
     AgentList.erase(this->id);
-    for (std::pair<int, Agent*> i : AgentList)  RelationshipMap[i.second->id].erase(this->id);
+    for (std::pair<int, Agent*> i : AgentList)  
+    {   
+        i.second->relationSum = i.second->relationSum - RelationshipMap[i.second->id][this->id];
+        i.second->aStats->happiness += (40 - RelationshipMap[i.second->id][this->id].love)/3; // sad to see loved one die - happy to see hated one die
+        i.second->aStats->happiness = std::max(i.second->aStats->happiness, 0);
+        RelationshipMap[i.second->id].erase(this->id);
+    }
 }
 
 int Agent::count = 0;

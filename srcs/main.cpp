@@ -10,17 +10,22 @@ int main()
 {
     Agent* tmp1 = new Agent(mt, "Rob", 33, 24);
     Agent* tmp2 = new Agent(mt, "Bob");
-    tmp2->move_agent(7, 15);
+    // tmp2->move_agent(7, 15);
     Agent* tmp3 = new Agent(mt, "Job");
 
     Interaction_Manager* Int_Manager = Interaction_Manager::getInstance();
-    Int_Manager->cycle_day();
+    Int_Manager->cycle_year();
+    // Int_Manager->interact(tmp1);
 
     // for (std::pair<int, Agent*> i : Agent::AgentList)
     // {
     //     printf("%i : %s\n", i.first, i.second->name.c_str());
     // }
-    delete tmp1;
-    delete tmp2;
-    delete tmp3;
+    std::vector<Agent*> agents;
+    for (std::pair<int, Agent*> agent : Agent::AgentList)
+        agents.push_back(agent.second);
+
+    for (Agent* agent : agents)
+        delete agent;
+    
 }

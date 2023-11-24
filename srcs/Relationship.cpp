@@ -21,3 +21,12 @@ Relationship Relationship::operator +(Relationship& other)
     // RelationshipSum.professionalism = this->professionalism + other.professionalism;
     return RelationshipSum;
 }
+
+Relationship Relationship::operator -(Relationship& other)
+{
+    Relationship RelationshipSum = {0, 0};
+    RelationshipSum.love = this->love - other.love;
+    RelationshipSum.respect = this->respect - other.respect;
+    // RelationshipSum.professionalism = this->professionalism + other.professionalism;
+    return RelationshipSum;
+}
