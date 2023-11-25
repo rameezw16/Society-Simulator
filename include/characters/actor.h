@@ -1,11 +1,11 @@
 #pragma once
 #include "../entity.h"
 
-class Actor : public Entity {
+class Agent : public Entity {
 public:
-	Actor(const int pos_x, const int pos_y, const int spritesheet_pos_x, const int spritesheet_pos_y);
+	Agent(const int pos_x, const int pos_y, const int spritesheet_pos_x, const int spritesheet_pos_y);
 
-	virtual ~Actor();
+	virtual ~Agent();
 };
 
 

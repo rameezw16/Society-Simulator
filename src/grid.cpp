@@ -29,17 +29,17 @@ void Grid::randomly_generate() {
 	  case 1:
 		terrain[i][j] = new Dirt {i, j};
 		feature[i][j] = nullptr; //new Grass {i, j};
-		actor[i][j] = nullptr;
+		agent[i][j] = nullptr;
 		break;
 	  case 0:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = new Wall {i,j}; 
-		actor[i][j] = nullptr;
+		agent[i][j] = nullptr;
 		break;
 	  case 2:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr; 
-		actor[i][j] = nullptr;
+		agent[i][j] = nullptr;
 		break;
 	  };
     };
@@ -74,7 +74,7 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(0,SIZE,&feature,total_iters);
   random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
 
-  //actor[middle][middle] = new Wolf {middle + 10, middle};
+  //agent[middle][middle] = new Wolf {middle + 10, middle};
 
 
 

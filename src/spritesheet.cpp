@@ -1,5 +1,5 @@
 #include "../include/spritesheet.hpp"
-Drawer::Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_actor) {
+Drawer::Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_agent) {
   this->width = SIZE * 10 ;
   this->height = SIZE * 10;
 
@@ -13,7 +13,7 @@ Drawer::Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_ac
 
   this->ss_terrain = IMG_LoadTexture(renderer, ss_terrain);
   this->ss_feature = IMG_LoadTexture(renderer, ss_feature);
-  this->ss_actor = IMG_LoadTexture(renderer, ss_actor);
+  this->ss_agent = IMG_LoadTexture(renderer, ss_agent);
 
 
   clip.w = 10; 
@@ -62,7 +62,7 @@ void Drawer::draw_sprite(Feature* entity, const int x, const int y) {
 };
 
 
-void Drawer::draw_sprite(Actor* entity, const int x, const int y) {
+void Drawer::draw_sprite(Agent* entity, const int x, const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -76,7 +76,7 @@ void Drawer::draw_sprite(Actor* entity, const int x, const int y) {
   position.w = 10;
   position.h = 10;
 
-  SDL_RenderCopy(renderer, ss_actor, &clip, &position);
+  SDL_RenderCopy(renderer, ss_agent, &clip, &position);
 };
 
 
@@ -89,13 +89,13 @@ void Drawer::draw_grid(Grid *grid) {
 	for (int j = 0; j < SIZE; j++) {
 	  Terrain* terrain = grid->terrain[i][j];
 	  Feature* feature = grid->feature[i][j]; 
-	  Actor* actor = grid->actor[i][j]; 
+	  Agent* agent = grid->agent[i][j]; 
 	  int draw_pos_x = i * 10;
 	  int draw_pos_y = j * 10;
 	  //Character* character = grid->character[i][j]; 
 	  if (terrain) draw_sprite(terrain, draw_pos_x, draw_pos_y);
 	  if (feature) draw_sprite(feature, draw_pos_x, draw_pos_y);
-	  if (actor) draw_sprite(actor, draw_pos_x, draw_pos_y);
+	  if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
 	}
   }
 }

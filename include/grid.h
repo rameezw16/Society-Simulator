@@ -26,7 +26,7 @@ public:
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  Actor *actor[SIZE][SIZE];   // grid of entities located on terrain
+  Agent *agent[SIZE][SIZE];   // grid of entities located on terrain
 
 private:
   Perlin perlin_gen;
