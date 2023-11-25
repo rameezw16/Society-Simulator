@@ -18,7 +18,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   std::mt19937 a (static_cast<int>(seed));
 
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 30; i++) {
 	new Agent{a};
   }
 

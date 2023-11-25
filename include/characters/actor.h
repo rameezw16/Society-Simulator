@@ -3,6 +3,7 @@
 #include "../Relationship.hpp"
 #include "../Stats.hpp"
 #include "../Traits.hpp"
+#include "../size.h"
 #include <random>
 #include <vector>
 #include <map>
@@ -48,8 +49,8 @@ class Agent : public Entity
         Traits* aTraits;
         Relationship relationSum {0, 0};
 
-        static int GRID_WIDTH;
-        static int GRID_HEIGHT;
+        static int GRID_WIDTH ;
+        static int GRID_HEIGHT ;
 
     friend class Interaction_Manager;
 };

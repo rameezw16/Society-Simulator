@@ -104,12 +104,8 @@ void Drawer::draw_grid(Grid *grid) {
 
 void Drawer::draw_agents() {
   for (std::pair<int, Agent *> agent : Agent::AgentList) {
-       draw_sprite(agent.second, agent.second->posX, agent.second->posY);
+       draw_sprite(agent.second, agent.second->posX * 10, agent.second->posY * 10);
   }
-  
 }
-
-
-
 
 void Drawer::present() {SDL_RenderPresent(renderer);};

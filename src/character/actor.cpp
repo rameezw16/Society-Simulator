@@ -181,8 +181,8 @@ std::vector<std::string> Agent::fname_list = {"John", "Anna", "Mark", "Emma", "P
 std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Taylor", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Williams", "Moore", "Jackson", "Lee", "Perez", "Young", "Allen", "Hall", "Tran", "Wright", "Scott", "Nguyen", "Mitchell", "Evans", "Carter", "Turner", "Parker", "Collins", "Edwards", "Stewart", "Flores", "Morales", "Morris", "Murphy", "Rivera", "Cook", "Fisher", "Richardson", "Simmons", "Russell", "Bryant", "Alexander", "Tucker", "Porter", "Graham"};
 
 
-int Agent::GRID_WIDTH = 60;
-int Agent::GRID_HEIGHT = 60;
+int Agent::GRID_WIDTH = SIZE;
+int Agent::GRID_HEIGHT = SIZE;
 
 
 
