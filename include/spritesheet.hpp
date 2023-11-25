@@ -15,6 +15,7 @@ public:
   ~Drawer();
 
   void draw_grid(Grid* grid);
+  void draw_agents();
   void present();
 
 private:

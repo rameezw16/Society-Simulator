@@ -29,17 +29,17 @@ void Grid::randomly_generate() {
 	  case 1:
 		terrain[i][j] = new Dirt {i, j};
 		feature[i][j] = nullptr; //new Grass {i, j};
-		agent[i][j] = nullptr;
+		//agent[i][j] = nullptr;
 		break;
 	  case 0:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = new Wall {i,j}; 
-		agent[i][j] = nullptr;
+		//agent[i][j] = nullptr;
 		break;
 	  case 2:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr; 
-		agent[i][j] = nullptr;
+		//agent[i][j] = nullptr;	// 
 		break;
 	  };
     };
