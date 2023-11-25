@@ -16,6 +16,8 @@ class Interaction_Manager
         void cycle_day();
         void cycle_year();
 
+        void summary_output();
+
     private:
         // Interaction forms
         void interact_talk(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents);
@@ -35,6 +37,15 @@ class Interaction_Manager
 
         int cur_day {0};
         int cur_year {0};
+        std::string summary_file;
+
+        int total_talk {0};
+        int total_insult {0};
+        int total_work {0};
+        int total_hurt {0};
+        int total_party {0};
+        int total_reproduce_attempts {0};
+        int total_idles {0};
 
         int DAY_CYCLES = 3;
         int YEAR_CYCLES = 365;

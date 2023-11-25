@@ -1,0 +1,22 @@
+Starting with: 30 Agents
+Starting Avg Health: 61
+Starting Avg Wealth: 58
+Starting Avg Happiness: 54
+Starting Avg Age: 19
+
+Ending with: 145 Agents
+Ending Avg Health: 91
+Ending Avg Wealth: 62
+Ending Avg Happiness: 94
+Ending Avg Age: 22
+
+Total Births: 134
+Total Deaths: 19
+Cycles: 2190
+Talk: 20821
+Insult: 12314
+Work: 9533
+Hurt: 4684
+Party: 5374
+Reproduce Attempt: 715
+Idles: 100190

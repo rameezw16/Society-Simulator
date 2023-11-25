@@ -1,0 +1,1110 @@
+Victoria Garcia created at (56, 32) with id: 31, gender: female, age: 12, health: 58, wealth: 44, happiness: 52
+and personality traits:  Openness: 50, Conscientiousness: 44, Extrovertedness: 32, Agreeableness: 51, Neuroticism: 34
+Towards Mia Carter has Love: 46, Respect: 39
+Towards Scarlett Richardson has Love: 65, Respect: 24
+Towards Olivia Rodriguez has Love: 62, Respect: 31
+Towards Christopher Allen has Love: 50, Respect: 38
+Towards Nathan Parker has Love: 72, Respect: 32
+Towards Christopher Bryant has Love: 42, Respect: 36
+Towards Evelyn Davis has Love: 59, Respect: 21
+Towards Ava Richardson has Love: 35, Respect: 25
+Towards Natalie Williams has Love: 50, Respect: 21
+Towards Mark Tran has Love: 59, Respect: 23
+Towards Andrew Garcia has Love: 50, Respect: 25
+Towards Ava Murphy has Love: 63, Respect: 36
+Towards Mia Stewart has Love: 65, Respect: 22
+Towards Grace Perez has Love: 25, Respect: 28
+Towards Victoria Nguyen has Love: 62, Respect: 21
+Towards Ethan Turner has Love: 34, Respect: 28
+Towards Brandon Collins has Love: 61, Respect: 35
+Towards Anna Jones has Love: 52, Respect: 37
+Towards Tyler Edwards has Love: 58, Respect: 26
+Towards Laura Edwards has Love: 44, Respect: 21
+Towards Ava Williams has Love: 39, Respect: 29
+Towards Mia Tran has Love: 49, Respect: 30
+Towards Logan Morris has Love: 32, Respect: 29
+Towards Benjamin Garcia has Love: 51, Respect: 21
+Towards Ethan Hernandez has Love: 55, Respect: 22
+Towards Alex Miller has Love: 52, Respect: 21
+Towards William Collins has Love: 49, Respect: 22
+Towards Laura Stewart has Love: 54, Respect: 37
+Towards Grace Russell has Love: 61, Respect: 34
+Towards Lillian Wright has Love: 43, Respect: 30
+Towards Logan Perez has Love: 43, Respect: 26
+Idled
+Year: 1, Day: 106
+Worked with Victoria Nguyen
+Idled
+Insulted Mia Tran
+Idled
+Year: 1, Day: 107
+Idled
+Idled
+Idled
+Year: 1, Day: 108
+Idled
+Idled
+Idled
+Year: 1, Day: 109
+Idled
+Towards Gabriel Jones has Love: 34, Respect: 35
+Idled
+Insulted by Grace Perez
+Idled
+Year: 1, Day: 110
+Idled
+Idled
+Idled
+Year: 1, Day: 111
+Idled
+Hurt Anna Jones
+Insulted by Ethan Hernandez
+Idled
+Year: 1, Day: 112
+Insulted by Victoria Nguyen
+Talked to Mia Carter
+Idled
+Idled
+Idled
+Year: 1, Day: 113
+Attended party by Scarlett Richardson
+Hurt by Grace Perez
+Idled
+Idled
+Idled
+Year: 1, Day: 114
+Idled
+Worked with Anna Jones
+Idled
+Year: 1, Day: 115
+Talked to Victoria Nguyen
+Idled
+Insulted by Scarlett Richardson
+Idled
+Talked to Brandon Collins
+Idled
+Year: 1, Day: 116
+Idled
+Talked to Benjamin Garcia
+Idled
+Year: 1, Day: 117
+Rejected Mia Carter
+Hurt by Christopher Allen
+Idled
+Idled
+Talked to Ethan Hernandez
+Idled
+Year: 1, Day: 118
+Talked to Brandon Collins
+Idled
+Idled
+Idled
+Year: 1, Day: 119
+Idled
+Idled
+Idled
+Year: 1, Day: 120
+Idled
+Insulted Ava Richardson
+Idled
+Year: 1, Day: 121
+Attended party by Nathan Parker
+Idled
+Talked to Ava Richardson
+Insulted Logan Perez
+Talked to Ava Richardson
+Year: 1, Day: 122
+Idled
+Talked to Andrew Garcia
+Talked to Ethan Hernandez
+Talked to Ethan Hernandez
+Idled
+Year: 1, Day: 123
+Attended party by Andrew Garcia
+Hosted party for 2
+Attended party by Ethan Hernandez
+Idled
+Idled
+Year: 1, Day: 124
+Talked to Scarlett Richardson
+Attended party by Ethan Hernandez
+Idled
+Insulted Andrew Garcia
+Year: 1, Day: 125
+Party failed - no one attended1
+Talked to Andrew Garcia
+Talked to Natalie Williams
+Towards Mia Smith has Love: 49, Respect: 29
+Year: 1, Day: 126
+Talked to Laura Stewart
+Idled
+Insulted by Andrew Garcia
+Idled
+Idled
+Year: 1, Day: 127
+Idled
+Idled
+Worked with Ethan Turner
+Talked to Lillian Wright
+Idled
+Year: 1, Day: 128
+Insulted by Lillian Wright
+Talked to Benjamin Garcia
+Talked to Nathan Parker
+Insulted Grace Perez
+Idled
+Year: 1, Day: 129
+Idled
+Idled
+Attended party by Nathan Parker
+Insulted by Grace Russell
+Insulted by Grace Perez
+Hurt Ethan Hernandez
+Year: 1, Day: 130
+Idled
+Idled
+Idled
+Year: 1, Day: 131
+Idled
+Idled
+Idled
+Year: 1, Day: 132
+Worked with Mia Stewart
+Idled
+Idled
+Year: 1, Day: 133
+Insulted Anna Jones
+Talked to Mark Tran
+Idled
+Year: 1, Day: 134
+Idled
+Worked with Victoria Nguyen
+Talked to Ethan Hernandez
+Year: 1, Day: 135
+Idled
+Idled
+Talked to Christopher Allen
+Year: 1, Day: 136
+Worked with Ava Richardson
+Attended party by Logan Perez
+Worked with Victoria Nguyen
+Worked with Mia Stewart
+Idled
+Year: 1, Day: 137
+Talked to Ava Richardson
+Insulted William Collins
+Insulted Mia Tran
+Insulted Ethan Turner
+Year: 1, Day: 138
+Idled
+Hurt by Gabriel Jones
+Worked with Scarlett Richardson
+Idled
+Idled
+Year: 1, Day: 139
+Hurt Natalie Williams
+Idled
+Idled
+Year: 1, Day: 140
+Idled
+Worked with Grace Russell
+Insulted William Collins
+Hurt by Grace Russell
+Idled
+Year: 1, Day: 141
+Idled
+Idled
+Idled
+Year: 1, Day: 142
+Attended party by Scarlett Richardson
+Idled
+Idled
+Idled
+Year: 1, Day: 143
+Idled
+Worked with Christopher Allen
+Idled
+Talked to Christopher Allen
+Idled
+Year: 1, Day: 144
+Worked with Mark Tran
+Idled
+Hurt by Laura Stewart
+Idled
+Talked to Ethan Hernandez
+Idled
+Year: 1, Day: 145
+Talked to Victoria Nguyen
+Insulted by Logan Morris
+Attended party by Olivia Rodriguez
+Idled
+Hurt Grace Perez
+Idled
+Year: 1, Day: 146
+Insulted by Andrew Garcia
+Insulted by Victoria Nguyen
+Idled
+Hosted party for 7
+Idled
+Year: 1, Day: 147
+Worked with Nathan Parker
+Idled
+Idled
+Year: 1, Day: 148
+Insulted by Logan Morris
+Talked to Alex Miller
+Worked with Ava Williams
+Idled
+Talked to Grace Russell
+Year: 1, Day: 149
+Worked with Nathan Parker
+Worked with Gabriel Jones
+Idled
+Idled
+Year: 1, Day: 150
+Idled
+Idled
+Idled
+Year: 1, Day: 151
+Insulted Victoria Nguyen
+Towards Nathan Richardson has Love: 49, Respect: 26
+Insulted Ava Williams
+Talked to Tyler Edwards
+Year: 1, Day: 152
+Idled
+Idled
+Worked with Logan Morris
+Insulted Evelyn Davis
+Year: 1, Day: 153
+Idled
+Insulted by Gabriel Jones
+Idled
+Idled
+Year: 1, Day: 154
+Talked to Nathan Parker
+Idled
+Attended party by Evelyn Davis
+Talked to Benjamin Garcia
+Idled
+Hurt by Grace Perez
+Idled
+Year: 1, Day: 155
+Towards James Tucker has Love: 60, Respect: 35
+Idled
+Talked to Olivia Rodriguez
+Insulted Grace Perez
+Hosted party for 4
+Year: 1, Day: 156
+Idled
+Talked to Natalie Williams
+Idled
+Idled
+Year: 1, Day: 157
+Idled
+Attended party by Brandon Collins
+Worked with Mia Tran
+Talked to Ava Williams
+Idled
+Year: 1, Day: 158
+Worked with Grace Perez
+Idled
+Idled
+Talked to Gabriel Jones
+Year: 1, Day: 159
+Idled
+Talked to Ethan Hernandez
+Idled
+Idled
+Year: 1, Day: 160
+Insulted by Olivia Rodriguez
+Attended party by Logan Morris
+Worked with Brandon Collins
+Idled
+Idled
+Hosted party for 3
+Year: 1, Day: 161
+Idled
+Talked to Nathan Parker
+Idled
+Insulted by Ava Richardson
+Insulted by Nathan Parker
+Attended party by Natalie Williams
+Idled
+Year: 1, Day: 162
+Hurt Lillian Wright
+Idled
+Insulted by Gabriel Jones
+Idled
+Year: 1, Day: 163
+Hosted party for 4
+Attended party by Natalie Williams
+Hurt by Ava Richardson
+Idled
+Insulted Mia Smith
+Year: 1, Day: 164
+Idled
+Talked to Lillian Wright
+Hurt by Mia Tran
+Idled
+Attended party by Victoria Nguyen
+Insulted by Lillian Wright
+Insulted Nathan Parker
+Year: 1, Day: 165
+Idled
+Towards Tyler Morales has Love: 39, Respect: 23
+Hurt Tyler Edwards
+Insulted Andrew Garcia
+Year: 1, Day: 166
+Idled
+Talked to Mia Tran
+Idled
+Year: 1, Day: 167
+Attended party by Brandon Collins
+Talked to Nathan Parker
+Idled
+Attended party by Nathan Parker
+Idled
+Insulted by Mia Stewart
+Worked with Laura Stewart
+Year: 1, Day: 168
+Insulted by Mia Tran
+Idled
+Attended party by Natalie Williams
+Hurt by Logan Morris
+Insulted by Grace Russell
+Attended party by Christopher Allen
+Insulted by Nathan Parker
+Idled
+Idled
+Year: 1, Day: 169
+Talked to Natalie Williams
+Talked to Lillian Wright
+Idled
+Attended party by Mia Smith
+Talked to William Collins
+Year: 1, Day: 170
+Talked to Mark Tran
+Insulted Ava Murphy
+Worked with Mia Smith
+Year: 1, Day: 171
+Attended party by Mia Smith
+Talked to Benjamin Garcia
+Insulted Mia Smith
+Idled
+Year: 1, Day: 172
+Idled
+Talked to Mia Smith
+Worked with Lillian Wright
+Idled
+Year: 1, Day: 173
+Insulted by Mia Tran
+Idled
+Idled
+Attended party by Brandon Collins
+Idled
+Year: 1, Day: 174
+Hurt by Nathan Parker
+Idled
+Idled
+Attended party by Victoria Nguyen
+Hurt by Nathan Parker
+Idled
+Year: 1, Day: 175
+Idled
+Talked to Gabriel Jones
+Attended party by Victoria Nguyen
+Idled
+Year: 1, Day: 176
+Idled
+Idled
+Worked with Gabriel Jones
+Attended party by Tyler Edwards
+Talked to Mark Tran
+Idled
+Year: 1, Day: 177
+Idled
+Worked with Ava Murphy
+Hosted party for 6
+Year: 1, Day: 178
+Attended party by Lillian Wright
+Worked with Christopher Allen
+Idled
+Idled
+Idled
+Year: 1, Day: 179
+Talked to Lillian Wright
+Idled
+Talked to Mia Smith
+Hurt by Natalie Williams
+Idled
+Year: 1, Day: 180
+Insulted by Laura Edwards
+Idled
+Insulted Nathan Richardson
+Attended party by Andrew Garcia
+Idled
+Year: 1, Day: 181
+Hurt Mia Carter
+Idled
+Idled
+Year: 1, Day: 182
+Insulted Andrew Garcia
+Hosted party for 7
+Idled
+Year: 1, Day: 183
+Idled
+Insulted by Christopher Bryant
+Worked with Grace Russell
+Attended party by Logan Perez
+Worked with Nathan Parker
+Year: 1, Day: 184
+Attended party by Lillian Wright
+Idled
+Talked to Nathan Parker
+Idled
+Towards Paul Rivera has Love: 45, Respect: 30
+Attended party by Mia Stewart
+Idled
+Year: 1, Day: 185
+Idled
+Insulted by Mia Tran
+Idled
+Towards Benjamin Young has Love: 48, Respect: 41
+Idled
+Year: 1, Day: 186
+Talked to Anna Jones
+Idled
+Worked with Mia Carter
+Idled
+Year: 1, Day: 187
+Idled
+Idled
+Idled
+Year: 1, Day: 188
+Talked to Mia Smith
+Idled
+Attended party by Laura Edwards
+Idled
+Year: 1, Day: 189
+Idled
+Towards Matthew Nguyen has Love: 64, Respect: 33
+Insulted by Tyler Edwards
+Insulted Mia Stewart
+Idled
+Year: 1, Day: 190
+Idled
+Idled
+Talked to Tyler Morales
+Worked with Nathan Parker
+Year: 1, Day: 191
+Idled
+Idled
+Idled
+Year: 1, Day: 192
+Talked to Logan Morris
+Idled
+Idled
+Year: 1, Day: 193
+Worked with Ava Williams
+Idled
+Attended party by Laura Stewart
+Idled
+Year: 1, Day: 194
+Insulted Tyler Edwards
+Idled
+Idled
+Year: 1, Day: 195
+Attended party by Ethan Hernandez
+Talked to Brandon Collins
+Idled
+Talked to Mia Smith
+Year: 1, Day: 196
+Idled
+Idled
+Talked to Anna Jones
+Year: 1, Day: 197
+Idled
+Talked to Mia Smith
+Idled
+Towards Grace Gonzalez has Love: 48, Respect: 38
+Talked to Mia Carter
+Idled
+Year: 1, Day: 198
+Idled
+Talked to Tyler Morales
+Hurt Nathan Parker
+Year: 1, Day: 199
+Idled
+Towards Sophia Nguyen has Love: 21, Respect: 32
+Talked to Logan Morris
+Idled
+Worked with Laura Stewart
+Idled
+Year: 1, Day: 200
+Idled
+Idled
+Idled
+Year: 1, Day: 201
+Worked with Christopher Allen
+Idled
+Idled
+Year: 1, Day: 202
+Idled
+Talked to Logan Morris
+Idled
+Idled
+Year: 1, Day: 203
+Idled
+Idled
+Hosted party for 2
+Year: 1, Day: 204
+Idled
+Idled
+Idled
+Year: 1, Day: 205
+Idled
+Insulted by Anna Jones
+Insulted by Gabriel Jones
+Idled
+Talked to Ethan Hernandez
+Idled
+Year: 1, Day: 206
+Talked to Anna Jones
+Idled
+Idled
+Year: 1, Day: 207
+Idled
+Hurt by Ava Richardson
+Insulted Benjamin Garcia
+Idled
+Year: 1, Day: 208
+Hurt by Anna Jones
+Worked with Nathan Parker
+Towards Victoria Murphy has Love: 41, Respect: 40
+Insulted Matthew Nguyen
+Insulted James Tucker
+Year: 1, Day: 209
+Hosted party for 6
+Idled
+Insulted Logan Morris
+Year: 1, Day: 210
+Attended party by Matthew Nguyen
+Idled
+Idled
+Idled
+Year: 1, Day: 211
+Idled
+Talked to Lillian Wright
+Worked with Logan Morris
+Year: 1, Day: 212
+Idled
+Idled
+Idled
+Year: 1, Day: 213
+Hosted party for 5
+Talked to Benjamin Garcia
+Talked to Christopher Bryant
+Idled
+Year: 1, Day: 214
+Idled
+Talked to Ava Williams
+Talked to Mia Tran
+Idled
+Year: 1, Day: 215
+Idled
+Idled
+Idled
+Year: 1, Day: 216
+Idled
+Hurt Logan Morris
+Idled
+Towards Gabriel Wright has Love: 55, Respect: 33
+Year: 1, Day: 217
+Idled
+Insulted by Christopher Allen
+Idled
+Talked to Christopher Allen
+Worked with Lillian Wright
+Year: 1, Day: 218
+Idled
+Insulted Gabriel Jones
+Insulted by Tyler Morales
+Insulted by Ethan Turner
+Idled
+Year: 1, Day: 219
+Idled
+Towards Christopher Jones has Love: 47, Respect: 32
+Towards Gabriel Martinez has Love: 51, Respect: 35
+Insulted Mia Smith
+Idled
+Year: 1, Day: 220
+Insulted by Ava Murphy
+Talked to Christopher Jones
+Idled
+Idled
+Talked to Lillian Wright
+Year: 1, Day: 221
+Idled
+Idled
+Idled
+Year: 1, Day: 222
+Attended party by Lillian Wright
+Idled
+Idled
+Idled
+Year: 1, Day: 223
+Idled
+Idled
+Idled
+Year: 1, Day: 224
+Idled
+Talked to Brandon Collins
+Insulted by Ava Murphy
+Talked to Mia Stewart
+Talked to Nathan Parker
+Idled
+Year: 1, Day: 225
+Hosted party for 5
+Attended party by Ava Richardson
+Idled
+Insulted Laura Stewart
+Year: 1, Day: 226
+Insulted by Logan Perez
+Talked to Nathan Richardson
+Hurt by Andrew Garcia
+Talked to Grace Russell
+Attended party by Christopher Bryant
+Talked to Mia Tran
+Idled
+Year: 1, Day: 227
+Talked to Mia Tran
+Insulted Ava Richardson
+Attended party by Matthew Nguyen
+Talked to Victoria Murphy
+Year: 1, Day: 228
+Idled
+Attended party by Tyler Edwards
+Insulted by Natalie Williams
+Talked to Gabriel Wright
+Idled
+Idled
+Year: 1, Day: 229
+Talked to Victoria Murphy
+Idled
+Idled
+Year: 1, Day: 230
+Idled
+Worked with Logan Morris
+Idled
+Year: 1, Day: 231
+Idled
+Idled
+Attended party by Tyler Morales
+Idled
+Year: 1, Day: 232
+Attended party by Brandon Collins
+Insulted Christopher Allen
+Insulted by Evelyn Davis
+Idled
+Worked with Anna Jones
+Idled
+Year: 1, Day: 233
+Attended party by Gabriel Martinez
+Worked with Matthew Nguyen
+Idled
+Idled
+Year: 1, Day: 234
+Worked with Victoria Nguyen
+Hosted party for 4
+Talked to Benjamin Young
+Year: 1, Day: 235
+Idled
+Idled
+Insulted by Gabriel Wright
+Worked with Grace Russell
+Towards Christopher Murphy has Love: 61, Respect: 31
+Year: 1, Day: 236
+Attended party by Ava Murphy
+Idled
+Attended party by Gabriel Wright
+Idled
+Attended party by Tyler Edwards
+Attended party by Mia Smith
+Idled
+Year: 1, Day: 237
+Talked to Grace Gonzalez
+Attended party by Benjamin Garcia
+Hurt Ava Richardson
+Idled
+Year: 1, Day: 238
+Insulted Victoria Murphy
+Hosted party for 4
+Idled
+Year: 1, Day: 239
+Talked to Ava Richardson
+Idled
+Idled
+Year: 1, Day: 240
+Talked to Gabriel Martinez
+Towards Nathan Garcia has Love: 42, Respect: 40
+Insulted by Grace Russell
+Talked to Nathan Garcia
+Idled
+Year: 1, Day: 241
+Insulted Ethan Hernandez
+Idled
+Idled
+Year: 1, Day: 242
+Talked to Benjamin Young
+Idled
+Idled
+Year: 1, Day: 243
+Insulted by Grace Perez
+Insulted by Christopher Allen
+Idled
+Insulted by Ava Richardson
+Idled
+Insulted Tyler Morales
+Year: 1, Day: 244
+Idled
+Talked to Laura Stewart
+Worked with Mia Carter
+Year: 1, Day: 245
+Attended party by James Tucker
+Insulted Laura Stewart
+Idled
+Insulted by Olivia Rodriguez
+Idled
+Year: 1, Day: 246
+Talked to Matthew Nguyen
+Insulted Matthew Nguyen
+Idled
+Year: 1, Day: 247
+Attended party by Gabriel Wright
+Talked to Nathan Richardson
+Hosted party for 4
+Idled
+Year: 1, Day: 248
+Idled
+Insulted Nathan Richardson
+Insulted Ethan Hernandez
+Year: 1, Day: 249
+Idled
+Talked to Logan Morris
+Talked to Ethan Hernandez
+Year: 1, Day: 250
+Talked to Grace Gonzalez
+Idled
+Attended party by Gabriel Wright
+Idled
+Idled
+Year: 1, Day: 251
+Hosted party for 8
+Attended party by Evelyn Davis
+Idled
+Idled
+Year: 1, Day: 252
+Idled
+Attended party by Brandon Collins
+Attended party by Benjamin Garcia
+Idled
+Idled
+Year: 1, Day: 253
+Idled
+Attended party by Mia Smith
+Talked to Victoria Murphy
+Idled
+Year: 1, Day: 254
+Idled
+Idled
+Talked to Mark Tran
+Attended party by Ethan Hernandez
+Idled
+Year: 1, Day: 255
+Idled
+Towards John Richardson has Love: 39, Respect: 36
+Idled
+Idled
+Year: 1, Day: 256
+Idled
+Worked with Christopher Bryant
+Talked to Gabriel Martinez
+Worked with Ethan Hernandez
+Year: 1, Day: 257
+Insulted by Grace Gonzalez
+Idled
+Hurt Mia Stewart
+Idled
+Year: 1, Day: 258
+Insulted by Tyler Morales
+Attended party by Victoria Nguyen
+Attended party by James Tucker
+Idled
+Idled
+Attended party by Mark Tran
+Attended party by Grace Gonzalez
+Hurt Ethan Turner
+Year: 1, Day: 259
+Hosted party for 8
+Insulted Olivia Rodriguez
+Insulted by Ava Williams
+Attended party by Laura Stewart
+Idled
+Year: 1, Day: 260
+Idled
+Idled
+Towards Madison Taylor has Love: 39, Respect: 35
+Idled
+Year: 1, Day: 261
+Insulted by Nathan Parker
+Idled
+Idled
+Attended party by Nathan Parker
+Insulted by Grace Gonzalez
+Insulted by Ava Murphy
+Hurt by Evelyn Davis
+Idled
+Year: 1, Day: 262
+Idled
+Idled
+Towards Andrew Gonzalez has Love: 54, Respect: 32
+Talked to Gabriel Wright
+Year: 1, Day: 263
+Idled
+Idled
+Insulted by Ava Richardson
+Worked with Nathan Parker
+Year: 1, Day: 264
+Hosted party for 5
+Hurt Grace Perez
+Worked with Christopher Murphy
+Year: 1, Day: 265
+Insulted by Ava Murphy
+Insulted by Nathan Richardson
+Attended party by Evelyn Davis
+Idled
+Talked to Anna Jones
+Attended party by Christopher Allen
+Attended party by Mia Smith
+Idled
+Year: 1, Day: 266
+Idled
+Worked with Grace Gonzalez
+Talked to Matthew Nguyen
+Idled
+Insulted Benjamin Young
+Towards Nathan Stewart has Love: 40, Respect: 27
+Year: 1, Day: 267
+Talked to Logan Perez
+Idled
+Idled
+Year: 1, Day: 268
+Idled
+Idled
+Insulted Grace Perez
+Year: 1, Day: 269
+Idled
+Insulted Benjamin Young
+Attended party by Andrew Garcia
+Idled
+Year: 1, Day: 270
+Idled
+Idled
+Towards Lily Martinez has Love: 49, Respect: 29
+Idled
+Year: 1, Day: 271
+Talked to Logan Morris
+Attended party by Ethan Hernandez
+Idled
+Attended party by Tyler Morales
+Idled
+Year: 1, Day: 272
+Idled
+Attended party by Grace Gonzalez
+Attended party by Brandon Collins
+Insulted Nathan Richardson
+Hosted party for 5
+Year: 1, Day: 273
+Worked with Olivia Rodriguez
+Insulted Andrew Garcia
+Idled
+Year: 1, Day: 274
+Idled
+Insulted Christopher Jones
+Insulted Andrew Garcia
+Year: 1, Day: 275
+Talked to Grace Perez
+Idled
+Attended party by Nathan Parker
+Attended party by Christopher Jones
+Talked to Tyler Morales
+Idled
+Attended party by Andrew Garcia
+Idled
+Year: 1, Day: 276
+Idled
+Talked to Andrew Garcia
+Idled
+Idled
+Year: 1, Day: 277
+Talked to Nathan Richardson
+Idled
+Idled
+Year: 1, Day: 278
+Idled
+Talked to Mia Stewart
+Idled
+Attended party by John Richardson
+Worked with Gabriel Martinez
+Idled
+Year: 1, Day: 279
+Talked to Anna Jones
+Idled
+Idled
+Talked to Andrew Gonzalez
+Talked to Nathan Richardson
+Hurt Ava Williams
+Year: 1, Day: 280
+Hurt by Tyler Morales
+Attended party by Mark Tran
+Talked to Lily Martinez
+Worked with Christopher Bryant
+Insulted Mia Stewart
+Year: 1, Day: 281
+Insulted by Mia Stewart
+Insulted by Evelyn Davis
+Idled
+Idled
+Idled
+Year: 1, Day: 282
+Idled
+Attended party by Christopher Murphy
+Idled
+Insulted by Laura Stewart
+Idled
+Year: 1, Day: 283
+Worked with Ava Williams
+Idled
+Towards Hannah Jones has Love: 46, Respect: 43
+Idled
+Hurt by Christopher Jones
+Talked to Matthew Nguyen
+Idled
+Year: 1, Day: 284
+Idled
+Idled
+Insulted Anna Jones
+Year: 1, Day: 285
+Talked to Grace Perez
+Idled
+Idled
+Year: 1, Day: 286
+Insulted by Andrew Gonzalez
+Idled
+Insulted Olivia Rodriguez
+Talked to Nathan Parker
+Idled
+Year: 1, Day: 287
+Idled
+Attended party by Brandon Collins
+Insulted by Grace Gonzalez
+Talked to Mia Smith
+Idled
+Year: 1, Day: 288
+Attended party by Ava Murphy
+Idled
+Idled
+Talked to Grace Russell
+Idled
+Year: 1, Day: 289
+Talked to Grace Russell
+Talked to Mia Carter
+Worked with Victoria Murphy
+Idled
+Year: 1, Day: 290
+Worked with Paul Rivera
+Insulted by Benjamin Young
+Talked to John Richardson
+Idled
+Idled
+Year: 1, Day: 291
+Insulted by Logan Morris
+Talked to Logan Perez
+Idled
+Attended party by Tyler Morales
+Idled
+Insulted by Victoria Murphy
+Hosted party for 4
+Year: 1, Day: 292
+Idled
+Insulted by Benjamin Young
+Idled
+Insulted Logan Perez
+Year: 1, Day: 293
+Idled
+Hurt Evelyn Davis
+Insulted by Paul Rivera
+Idled
+Year: 1, Day: 294
+Idled
+Attended party by Brandon Collins
+Idled
+Hurt Grace Gonzalez
+Year: 1, Day: 295
+Idled
+Idled
+Idled
+Year: 1, Day: 296
+Idled
+Idled
+Idled
+Year: 1, Day: 297
+Hosted party for 7
+Hurt by Mark Tran
+Attended party by Logan Perez
+Hurt by Benjamin Young
+Idled
+Hurt by Mia Tran
+Insulted by Olivia Rodriguez
+Attended party by Anna Jones
+Talked to Brandon Collins
+Year: 1, Day: 298
+Talked to Laura Stewart
+Towards Natalie Bryant has Love: 60, Respect: 33
+Talked to Logan Perez
+Talked to Gabriel Wright
+Year: 1, Day: 299
+Idled
+Towards Benjamin Edwards has Love: 40, Respect: 41
+Insulted Logan Perez
+Attended party by Mark Tran
+Idled
+Year: 1, Day: 300
+Attended party by Christopher Murphy
+Attended party by Ethan Hernandez
+Idled
+Attended party by Logan Perez
+Idled
+Idled
+Year: 1, Day: 301
+Idled
+Talked to Ethan Hernandez
+Attended party by Nathan Parker
+Idled
+Insulted by Grace Gonzalez
+Idled
+Year: 1, Day: 302
+Talked to Grace Russell
+Idled
+Idled
+Year: 1, Day: 303
+Insulted Grace Perez
+Idled
+Idled
+Year: 1, Day: 304
+Talked to Grace Perez
+Idled
+Insulted Andrew Garcia
+Year: 1, Day: 305
+Idled
+Died due to poverty

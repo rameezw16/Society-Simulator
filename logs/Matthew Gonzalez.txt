@@ -1,0 +1,227 @@
+Matthew Gonzalez created at (22, 58) with id: 162, gender: female, age: 16, health: 49, wealth: 64, happiness: 45
+and personality traits:  Openness: 53, Conscientiousness: 50, Extrovertedness: 25, Agreeableness: 26, Neuroticism: 26
+Towards Mia Carter has Love: 45, Respect: 31
+Towards Olivia Rodriguez has Love: 56, Respect: 19
+Towards Christopher Allen has Love: 48, Respect: 28
+Towards Nathan Parker has Love: 59, Respect: 17
+Towards Christopher Bryant has Love: 41, Respect: 32
+Towards Evelyn Davis has Love: 51, Respect: 17
+Towards Mark Tran has Love: 54, Respect: 18
+Towards Ava Murphy has Love: 51, Respect: 20
+Towards Grace Perez has Love: 36, Respect: 23
+Towards Victoria Nguyen has Love: 59, Respect: 17
+Towards Ethan Turner has Love: 26, Respect: 23
+Towards Brandon Collins has Love: 62, Respect: 29
+Towards Anna Jones has Love: 57, Respect: 31
+Towards Ava Williams has Love: 36, Respect: 20
+Towards Mia Tran has Love: 51, Respect: 24
+Towards Laura Stewart has Love: 52, Respect: 29
+Towards Grace Russell has Love: 46, Respect: 17
+Towards Lillian Wright has Love: 35, Respect: 21
+Towards Logan Perez has Love: 49, Respect: 17
+Towards Gabriel Jones has Love: 43, Respect: 32
+Towards Mia Smith has Love: 47, Respect: 19
+Towards Nathan Richardson has Love: 46, Respect: 17
+Towards James Tucker has Love: 54, Respect: 18
+Towards Tyler Morales has Love: 45, Respect: 17
+Towards Paul Rivera has Love: 51, Respect: 20
+Towards Benjamin Young has Love: 51, Respect: 32
+Towards Matthew Nguyen has Love: 62, Respect: 19
+Towards Grace Gonzalez has Love: 58, Respect: 31
+Towards Victoria Murphy has Love: 45, Respect: 31
+Towards Gabriel Wright has Love: 50, Respect: 17
+Towards Gabriel Martinez has Love: 40, Respect: 17
+Towards Christopher Murphy has Love: 67, Respect: 24
+Towards Nathan Garcia has Love: 50, Respect: 27
+Towards John Richardson has Love: 41, Respect: 23
+Towards Madison Taylor has Love: 56, Respect: 30
+Towards Andrew Gonzalez has Love: 44, Respect: 17
+Towards Lily Martinez has Love: 58, Respect: 26
+Towards Hannah Jones has Love: 52, Respect: 31
+Towards Natalie Bryant has Love: 58, Respect: 17
+Towards Benjamin Edwards has Love: 49, Respect: 28
+Towards Emily Miller has Love: 59, Respect: 21
+Towards Grace Allen has Love: 48, Respect: 18
+Towards Ethan Williams has Love: 55, Respect: 17
+Towards Emma Morris has Love: 34, Respect: 23
+Towards Madison Perez has Love: 50, Respect: 17
+Towards Christopher Davis has Love: 57, Respect: 30
+Towards Mia Martinez has Love: 66, Respect: 22
+Towards Natalie Johnson has Love: 45, Respect: 17
+Towards Victoria Mitchell has Love: 45, Respect: 31
+Towards Ethan Taylor has Love: 62, Respect: 24
+Towards Natalie Flores has Love: 58, Respect: 18
+Towards Daniel Lee has Love: 53, Respect: 17
+Towards Ethan Lopez has Love: 43, Respect: 17
+Towards Ella Edwards has Love: 68, Respect: 22
+Towards Chloe Smith has Love: 42, Respect: 19
+Towards Hannah Martinez has Love: 50, Respect: 21
+Towards Scarlett Taylor has Love: 48, Respect: 17
+Towards Ava Smith has Love: 44, Respect: 32
+Towards Hannah Richardson has Love: 45, Respect: 23
+Towards Michael Carter has Love: 41, Respect: 24
+Towards Olivia Lopez has Love: 37, Respect: 23
+Towards Mia Brown has Love: 48, Respect: 17
+Towards Daniel Parker has Love: 34, Respect: 17
+Towards Mia Graham has Love: 56, Respect: 28
+Towards Benjamin Martinez has Love: 44, Respect: 31
+Towards Natalie Morris has Love: 46, Respect: 22
+Towards Nathan Flores has Love: 54, Respect: 20
+Towards Alex Murphy has Love: 66, Respect: 21
+Towards Chloe Russell has Love: 57, Respect: 26
+Towards Addison Lopez has Love: 37, Respect: 17
+Towards Emma Perez has Love: 50, Respect: 17
+Towards Avery Miller has Love: 48, Respect: 17
+Towards Evelyn Jackson has Love: 68, Respect: 21
+Towards Ella Graham has Love: 51, Respect: 30
+Towards Gabriel Fisher has Love: 50, Respect: 30
+Towards Evelyn Richardson has Love: 50, Respect: 18
+Towards Laura Tran has Love: 39, Respect: 17
+Towards David Rodriguez has Love: 57, Respect: 17
+Towards Paul Perez has Love: 29, Respect: 23
+Towards Benjamin Porter has Love: 65, Respect: 19
+Towards Michael Garcia has Love: 66, Respect: 19
+Towards Mia Davis has Love: 45, Respect: 29
+Towards Scarlett Morris has Love: 56, Respect: 30
+Towards Lillian Miller has Love: 38, Respect: 24
+Towards Logan Allen has Love: 41, Respect: 20
+Towards Nathan Miller has Love: 32, Respect: 22
+Towards Hannah Nguyen has Love: 44, Respect: 17
+Towards Grace Simmons has Love: 63, Respect: 28
+Towards Chloe Cook has Love: 53, Respect: 22
+Towards Anna Richardson has Love: 38, Respect: 21
+Towards Daniel Graham has Love: 47, Respect: 22
+Towards Evelyn Rodriguez has Love: 47, Respect: 26
+Towards Natalie Hall has Love: 57, Respect: 22
+Towards Tyler Carter has Love: 52, Respect: 18
+Towards Andrew Stewart has Love: 54, Respect: 18
+Towards Anna Murphy has Love: 46, Respect: 32
+Towards Lillian Scott has Love: 52, Respect: 32
+Towards Emily Nguyen has Love: 36, Respect: 22
+Towards Hannah Alexander has Love: 49, Respect: 17
+Towards Olivia Richardson has Love: 64, Respect: 27
+Towards Anna Davis has Love: 65, Respect: 29
+Towards Ava Miller has Love: 49, Respect: 19
+Towards John Miller has Love: 45, Respect: 31
+Towards Scarlett Porter has Love: 47, Respect: 28
+Towards Madison Allen has Love: 51, Respect: 17
+Towards John Hall has Love: 55, Respect: 24
+Towards Benjamin Alexander has Love: 47, Respect: 23
+Towards Benjamin Gonzalez has Love: 47, Respect: 21
+Towards Andrew Rivera has Love: 46, Respect: 26
+Towards Paul Cook has Love: 41, Respect: 17
+Towards Tyler Young has Love: 66, Respect: 25
+Towards Christopher Tucker has Love: 47, Respect: 18
+Towards Natalie Perez has Love: 46, Respect: 17
+Towards Lillian Young has Love: 51, Respect: 31
+Towards Christopher Young has Love: 53, Respect: 17
+Towards Emma Richardson has Love: 51, Respect: 31
+Towards Michael Morales has Love: 51, Respect: 30
+Towards Benjamin Jackson has Love: 42, Respect: 20
+Towards Nathan Carter has Love: 41, Respect: 18
+Towards Hannah Fisher has Love: 50, Respect: 17
+Towards Samantha Carter has Love: 52, Respect: 24
+Towards Grace Graham has Love: 57, Respect: 26
+Towards Logan Wright has Love: 49, Respect: 28
+Towards Benjamin Flores has Love: 44, Respect: 18
+Towards Joseph Jackson has Love: 67, Respect: 26
+Towards Ava Young has Love: 58, Respect: 17
+Towards Chloe Jones has Love: 37, Respect: 17
+Towards Daniel Perez has Love: 47, Respect: 21
+Towards Daniel Morales has Love: 73, Respect: 25
+Towards Victoria Turner has Love: 41, Respect: 19
+Towards Mark Wright has Love: 55, Respect: 17
+Towards John Stewart has Love: 49, Respect: 22
+Towards Avery Richardson has Love: 45, Respect: 23
+Towards Gabriel Jackson has Love: 44, Respect: 18
+Towards Daniel Murphy has Love: 36, Respect: 17
+Towards Michael Lopez has Love: 31, Respect: 24
+Towards Mark Nguyen has Love: 46, Respect: 21
+Towards Ava Martinez has Love: 57, Respect: 17
+Towards Matthew Smith has Love: 26, Respect: 24
+Towards Evelyn Young has Love: 42, Respect: 23
+Towards Emma Lee has Love: 52, Respect: 24
+Towards James Porter has Love: 33, Respect: 17
+Towards Christopher Collins has Love: 31, Respect: 24
+Year: 2, Day: 349
+Hosted party for 6
+Idled
+Idled
+Year: 2, Day: 350
+Idled
+Idled
+Hurt Grace Gonzalez
+Year: 2, Day: 351
+Idled
+Idled
+Idled
+Year: 2, Day: 352
+Hurt by Natalie Morris
+Hurt Daniel Perez
+Idled
+Attended party by Daniel Murphy
+Idled
+Year: 2, Day: 353
+Idled
+Insulted Nathan Flores
+Idled
+Year: 2, Day: 354
+Idled
+Idled
+Insulted by Tyler Carter
+Idled
+Year: 2, Day: 355
+Idled
+Hosted party for 4
+Insulted by Mia Carter
+Worked with Gabriel Martinez
+Talked to Ethan Lopez
+Year: 2, Day: 356
+Idled
+Worked with Victoria Mitchell
+Idled
+Year: 2, Day: 357
+Worked with Grace Graham
+Talked to Emily Miller
+Idled
+Year: 2, Day: 358
+Idled
+Idled
+Idled
+Year: 2, Day: 359
+Idled
+Worked with Mark Tran
+Idled
+Idled
+Year: 2, Day: 360
+Idled
+Worked with Hannah Jones
+Worked with Madison Taylor
+Year: 2, Day: 361
+Idled
+Towards Mark Jackson has Love: 59, Respect: 22
+Idled
+Talked to Nathan Parker
+Idled
+Year: 2, Day: 362
+Talked to Paul Perez
+Hurt by John Hall
+Talked to Mia Brown
+Idled
+Idled
+Year: 2, Day: 363
+Attended party by Lillian Miller
+Insulted Michael Morales
+Worked with Lillian Miller
+Idled
+Idled
+Year: 2, Day: 364
+Idled
+Idled
+Idled
+Year: 2, Day: 365
+Idled
+Talked to Lily Martinez
+Idled
+Talked to Paul Perez
+Idled

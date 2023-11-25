@@ -10,6 +10,15 @@ Interaction_Manager* Interaction_Manager::getInstance()
     return instance;
 }
 
+Interaction_Manager::Interaction_Manager()
+{
+    instance = this;
+    cur_day = 1;
+    cur_year = 1;
+    this->summary_file = "_Summary";
+    this->mt = std::mt19937(static_cast<int>(std::time(0)));;
+}
+
 void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
 {
     // std::cout << thisAgent->id << std::endl;
@@ -33,12 +42,12 @@ void Interaction_Manager::interact(Agent* thisAgent, std::set<int>& occupied)
 
     std::vector<int> choice_probability 
     {
-        thisAgent->aTraits->extrovertedness/5, // talk - max 20% - increases with extroversion
-        thisAgent->aTraits->neuroticism/10 + thisAgent->aTraits->openness/10, // insult - max 20% - increases with neuroticism and openness
+        thisAgent->aTraits->extrovertedness/3, // talk - max 33% - increases with extroversion
+        thisAgent->aTraits->neuroticism/8 + thisAgent->aTraits->openness/8, // insult - max 24% - increases with neuroticism and openness
         (thisAgent->aTraits->conscientiousness + std::max(50 - thisAgent->aStats->wealth, 0))/10, // work - max 15% - increases with conscientiousness and lack of money
-        thisAgent->aTraits->neuroticism/10 + (100 - thisAgent->relationSum.love/((int) Agent::AgentList.size()))/20, // hurt - max 15% - increases with neuroticism
-        thisAgent->aTraits->extrovertedness/10 + std::max(40 - thisAgent->aStats->age, 0)/8, // party - max 15% - increases with extroversion, reduces with age
-        thisAgent->aStats->health/20 + thisAgent->aStats->happiness/20 + thisAgent->aStats->wealth/20 // reproduce - max 15% - increases with wealth, health and happiness
+        thisAgent->aTraits->neuroticism/20 + (100 - thisAgent->relationSum.love/((int) Agent::AgentList.size()))/20, // hurt - max 10% - increases with neuroticism
+        thisAgent->aTraits->extrovertedness/20 + std::max(40 - thisAgent->aStats->age, 0)/8, // party - max 10% - increases with extroversion, reduces with age
+        (thisAgent->aStats->health + thisAgent->aStats->happiness + thisAgent->aStats->wealth)/250 // reproduce - max 1% - increases with wealth, health and happiness
     };
 
     std::vector<int> choice_probability_prefix = {choice_probability[0]};
@@ -117,19 +126,27 @@ void Interaction_Manager::cycle_year()
         agent.second->grow();
 }
 
-Interaction_Manager::Interaction_Manager()
+void Interaction_Manager::summary_output()
 {
-    instance = this;
-    cur_day = 1;
-    cur_year = 1;
-    this->mt = std::mt19937(static_cast<int>(std::time(0)));;
+    std::ofstream sum_file;
+    sum_file.open("../logs/"+this->summary_file+".txt", std::ios::app);
+    sum_file << "Cycles: " << ((this->cur_year-1) * 365 + this->cur_day - 1)*3 << std::endl;
+    sum_file << "Talk: " << this->total_talk << std::endl;
+    sum_file << "Insult: " << this->total_insult << std::endl;
+    sum_file << "Work: " << this->total_work << std::endl;
+    sum_file << "Hurt: " << this->total_hurt << std::endl;
+    sum_file << "Party: " << this->total_party << std::endl;
+    sum_file << "Reproduce Attempt: " << this->total_reproduce_attempts << std::endl;
+    sum_file << "Idles: " << this->total_idles << std::endl;
 }
+
 
 Interaction_Manager* Interaction_Manager::instance {nullptr};
 
 void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "talk\n";
+    this->total_talk++;
     // make a list of 5 closest unoccupied people and choose randomly based off distance
     int sz = std::min((int) nearby_unoccupied_agents.size(), 5);
     int totalDist {0};
@@ -157,8 +174,8 @@ void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupie
 
     // increase happiness and love
     int modifier = (1 + mt() % 3); // 1 - 3
-    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + 3*modifier, 100);
-    otherAgent->aStats->happiness = std::min(otherAgent->aStats->happiness + 3*modifier, 100);
+    thisAgent->aStats->happiness = std::min(thisAgent->aStats->happiness + modifier, 100);
+    otherAgent->aStats->happiness = std::min(otherAgent->aStats->happiness + modifier, 100);
 
     Agent::RelationshipMap[thisAgent->id][otherAgent->id].love = std::min(Agent::RelationshipMap[thisAgent->id][otherAgent->id].love + modifier, 100);
     Agent::RelationshipMap[otherAgent->id][thisAgent->id].love = std::min(Agent::RelationshipMap[otherAgent->id][thisAgent->id].love + modifier, 100);
@@ -187,6 +204,7 @@ void Interaction_Manager::interact_talk(Agent* thisAgent, std::set<int>& occupie
 void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "insult\n";
+    this->total_insult++;
     // make a list of 10 closest unoccupied people and choose randomly based off least love + respect
     int sz = std::min((int) nearby_unoccupied_agents.size(), 10);
     
@@ -235,6 +253,7 @@ void Interaction_Manager::interact_insult(Agent* thisAgent, std::set<int>& occup
 void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "work\n";
+    this->total_work++;
     // make a list of 10 closest unoccupied people and choose randomly based off respect + wealth
     int sz = std::min((int) nearby_unoccupied_agents.size(), 10);
     
@@ -264,8 +283,8 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
 
     // modify wealth, respect
     int modifier = (1 + mt() % 3); // 1 - 3
-    thisAgent->aStats->wealth = std::min(thisAgent->aStats->wealth + 2*modifier, 100);
-    otherAgent->aStats->wealth = std::min(otherAgent->aStats->wealth + 2*modifier, 100);
+    thisAgent->aStats->wealth = std::min(thisAgent->aStats->wealth + modifier, 100);
+    otherAgent->aStats->wealth = std::min(otherAgent->aStats->wealth + modifier, 100);
 
     Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect = std::min(Agent::RelationshipMap[thisAgent->id][otherAgent->id].respect + modifier, 100);
     Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect = std::min(Agent::RelationshipMap[otherAgent->id][thisAgent->id].respect + modifier, 100);
@@ -294,6 +313,7 @@ void Interaction_Manager::interact_work(Agent* thisAgent, std::set<int>& occupie
 void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "hurt\n";
+    this->total_hurt++;
     // make a list of 20 closest unoccupied people and choose randomly based off least love + respect
     int sz = std::min((int) nearby_unoccupied_agents.size(), 20);
     
@@ -342,6 +362,7 @@ void Interaction_Manager::interact_hurt(Agent* thisAgent, std::set<int>& occupie
 void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "party\n";
+    this->total_party++;
     // make a list of k closest unoccupied people based off extroversion - invite all - they reply randomly based on their extroversion and love for me
     int sz = std::min((int) nearby_unoccupied_agents.size(), 1 + thisAgent->aTraits->extrovertedness/5);
     
@@ -420,6 +441,7 @@ void Interaction_Manager::interact_party(Agent* thisAgent, std::set<int>& occupi
 void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& occupied, std::vector<std::pair<int, int>>& nearby_unoccupied_agents)
 {
     std::cout << "reproduce attempt\n";
+    this->total_reproduce_attempts++;
 
     // make a list of 5 closest unoccupied agents of opposite gender double random dice roll
     int sz = 0;
@@ -456,13 +478,23 @@ void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& oc
     {
         choice -= 1 + possible_mates[i].first;
         i++;
-    }
+    } 
 
     Agent* otherAgent = Agent::AgentList[nearby_unoccupied_agents[i].second];
 
+    if (thisAgent->aStats->age > 20 && otherAgent->aStats->age >20)
+    {
+        std::cout << "reproduce failed\n";
+        std::ofstream agentFile;
+        agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
+        agentFile << "Reproduction failed - not old enough." << std::endl;
+        agentFile.close();
+        return;
+    }
+
     int otherLove = Agent::RelationshipMap[otherAgent->id][thisAgent->id].love;
     // std::cout << "issue here" << std::endl;
-    if (thisAgent->aStats->age > 30 && otherAgent->aStats->age > 30 && abs(thisAgent->aStats->age - otherAgent->aStats->age) < 30 && (mt() % 50 > 101 - otherLove))
+    if (abs(thisAgent->aStats->age - otherAgent->aStats->age) < 20 && (mt() % 20 > 101 - otherLove))
     {
         Agent* child = new Agent(mt);
         int modifier = 5 + mt() % 10;
@@ -519,23 +551,26 @@ void Interaction_Manager::interact_reproduce(Agent* thisAgent, std::set<int>& oc
 
 void Interaction_Manager::interact_idle(Agent* thisAgent)
 {
+    std::cout << "Idled" << std::endl;
+    this->total_idles++;
     std::ofstream agentFile;
-    int modifier = mt() % 6;
+    int modifier = mt() % 3;
     if (modifier == 0)
     {
-        thisAgent->aStats->wealth--;
-        thisAgent->aStats->happiness--;
+        thisAgent->aStats->wealth = std::max(thisAgent->aStats->wealth - 1, 0);
+        thisAgent->aStats->happiness = std::max(thisAgent->aStats->happiness - 1, 0);
     }
     modifier = mt() % 20;
     if (modifier == 0)
-        thisAgent->aStats->health++;
+        thisAgent->aStats->health = std::min(thisAgent->aStats->happiness + 1, 100);
+
 
     thisAgent->posX += (mt() % 11) - 5;
     thisAgent->posY += (mt() % 11) - 5;
     thisAgent->posX = std::max(thisAgent->posX, 0);
-    thisAgent->posX = std::min(thisAgent->posX, Agent::GRID_WIDTH);
+    thisAgent->posX = std::min(thisAgent->posX, Agent::GRID_WIDTH-1);
     thisAgent->posY = std::max(thisAgent->posY, 0);
-    thisAgent->posY = std::min(thisAgent->posY, Agent::GRID_HEIGHT);
+    thisAgent->posY = std::min(thisAgent->posY, Agent::GRID_HEIGHT-1);
     agentFile.open("../logs/"+thisAgent->name+".txt", std::ios::app);
     agentFile << "Idled" << std::endl;
     agentFile.close();
