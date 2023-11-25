@@ -7,6 +7,7 @@
 #include "./features/grass.h"
 #include "./features/wall.h"
 #include "./randomwalker.h"
+#include "./characters/wolf.h"
 #include "./size.h"
 #include <SDL2/SDL.h>
 
@@ -25,7 +26,7 @@ public:
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  Entity *character[SIZE][SIZE];   // grid of entities located on terrain
+  Actor *actor[SIZE][SIZE];   // grid of entities located on terrain
 
 private:
   Perlin perlin_gen;

@@ -1,5 +1,5 @@
 #include "../include/spritesheet.hpp"
-Drawer::Drawer(char const *path) {
+Drawer::Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_actor) {
   this->width = SIZE * 10 ;
   this->height = SIZE * 10;
 
@@ -11,7 +11,9 @@ Drawer::Drawer(char const *path) {
   this->texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
 										   SDL_TEXTUREACCESS_STATIC, SIZE, SIZE);
 
-  this->spritesheet_texture_1 = IMG_LoadTexture(renderer, path);
+  this->ss_terrain = IMG_LoadTexture(renderer, ss_terrain);
+  this->ss_feature = IMG_LoadTexture(renderer, ss_feature);
+  this->ss_actor = IMG_LoadTexture(renderer, ss_actor);
 
 
   // size of one sprite in pixels
@@ -25,9 +27,8 @@ Drawer::~Drawer() {
   SDL_DestroyWindow(window);
 };
 
-void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
+void Drawer::draw_sprite(Terrain* entity, const int x, const int y) {
   // get coords in pixels
-
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
 
@@ -40,20 +41,62 @@ void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
   position.w = 10;
   position.h = 10;
 
-  SDL_RenderCopy(renderer, spritesheet_texture_1, &clip, &position);
+  SDL_RenderCopy(renderer, ss_terrain, &clip, &position);
 };
+
+
+void Drawer::draw_sprite(Feature* entity, const int x, const int y) {
+  // get coords in pixels
+  clip.x = entity->get_spritesheet_pos_x() * 10;
+  clip.y = entity->get_spritesheet_pos_y() * 10;
+
+  clip.w = 10;
+  clip.h = 10;
+
+  SDL_Rect position;
+  position.x = x;
+  position.y = y;
+  position.w = 10;
+  position.h = 10;
+
+  SDL_RenderCopy(renderer, ss_feature, &clip, &position);
+};
+
+
+void Drawer::draw_sprite(Actor* entity, const int x, const int y) {
+  // get coords in pixels
+  clip.x = entity->get_spritesheet_pos_x() * 10;
+  clip.y = entity->get_spritesheet_pos_y() * 10;
+
+  clip.w = 10;
+  clip.h = 10;
+
+  SDL_Rect position;
+  position.x = x;
+  position.y = y;
+  position.w = 10;
+  position.h = 10;
+
+  SDL_RenderCopy(renderer, ss_actor, &clip, &position);
+};
+
+
+
+
+
 
 void Drawer::draw_grid(Grid *grid) {
   for (int i = 0; i < SIZE; i++) {
 	for (int j = 0; j < SIZE; j++) {
 	  Terrain* terrain = grid->terrain[i][j];
 	  Feature* feature = grid->feature[i][j]; 
+	  Actor* actor = grid->actor[i][j]; 
 	  int draw_pos_x = i * 10;
 	  int draw_pos_y = j * 10;
 	  //Character* character = grid->character[i][j]; 
 	  if (terrain) draw_sprite(terrain, draw_pos_x, draw_pos_y);
 	  if (feature) draw_sprite(feature, draw_pos_x, draw_pos_y);
-	  //if (character) draw_sprite(character, i, j);
+	  if (actor) draw_sprite(actor, draw_pos_x, draw_pos_y);
 	}
   }
 }

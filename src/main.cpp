@@ -1,14 +1,18 @@
 #include "../include/spritesheet.hpp"
 #include "../include/terrain/dirt.h"
 #include "../include/entity.h"
+#include "../include/size.h"
 #include <cstring>
 #include <iostream>
 
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
 
-  Drawer *drawer = new Drawer{"/home/hak/hw/oopProj/resources/"
-							  "Bountiful-Bits-10x10-v-3.1/Colored/Full.png"};
+  char const* ss_feature = "/home/hak/hw/oopProj/resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
+  char const* ss_actor = "/home/hak/hw/oopProj/resources/Bit-Bonanza-10x10-v-4.1/Colored/People.png";
+  char const* ss_terrain = "/home/hak/hw/oopProj/resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
+
+  Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_actor};
 
   Grid game_grid{seed};
   while (true) {

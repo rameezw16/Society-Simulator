@@ -6,6 +6,7 @@ Grid::Grid(unsigned int seed)
 	: perlin_gen(seed) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
+  //perlin_gen.add_octave(0.4, 5);
 
   randomly_generate();
 };
@@ -28,17 +29,17 @@ void Grid::randomly_generate() {
 	  case 1:
 		terrain[i][j] = new Dirt {i, j};
 		feature[i][j] = nullptr; //new Grass {i, j};
-		character[i][j] = nullptr;
+		actor[i][j] = nullptr;
 		break;
 	  case 0:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = new Wall {i,j}; 
-		character[i][j] = nullptr;
+		actor[i][j] = nullptr;
 		break;
 	  case 2:
 		terrain[i][j] = new Dirt{i, j};
 		feature[i][j] = nullptr; 
-		character[i][j] = nullptr;
+		actor[i][j] = nullptr;
 		break;
 	  };
     };
@@ -92,6 +93,8 @@ void Grid::randomly_generate() {
   //rw3.destructive_walk(&feature,total_iters);
   //rw4.destructive_walk(&feature,total_iters);
   //rw5.destructive_walk(&feature,total_iters);
+
+  actor[middle][middle] = new Wolf {middle + 10, middle};
 
 
 
