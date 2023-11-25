@@ -1,7 +1,7 @@
 #include "../include/spritesheet.hpp"
 Drawer::Drawer(char const *path) {
-  this->width = 600;
-  this->height = 600;
+  this->width = SIZE * 10 ;
+  this->height = SIZE * 10;
 
   this->window = SDL_CreateWindow("window", 0, 0, this->width, this->height, SDL_WINDOW_ALLOW_HIGHDPI);
 
@@ -9,7 +9,7 @@ Drawer::Drawer(char const *path) {
 	  window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 
   this->texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
-										   SDL_TEXTUREACCESS_STATIC, 600, 600);
+										   SDL_TEXTUREACCESS_STATIC, SIZE, SIZE);
 
   this->spritesheet_texture_1 = IMG_LoadTexture(renderer, path);
 
@@ -44,8 +44,8 @@ void Drawer::draw_sprite(Entity* entity, const int x, const int y) {
 };
 
 void Drawer::draw_grid(Grid *grid) {
-  for (int i = 0; i < 60; i++) {
-	for (int j = 0; j < 60; j++) {
+  for (int i = 0; i < SIZE; i++) {
+	for (int j = 0; j < SIZE; j++) {
 	  Terrain* terrain = grid->terrain[i][j];
 	  Feature* feature = grid->feature[i][j]; 
 	  int draw_pos_x = i * 10;

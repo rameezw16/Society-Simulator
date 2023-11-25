@@ -1,6 +1,6 @@
 #include "../include/grid.h"
 #include <iostream>
-// 60 is the internal grid representation
+// SIZE is the internal grid representation
 
 Grid::Grid(unsigned int seed)
 	: perlin_gen(seed) {
@@ -11,8 +11,8 @@ Grid::Grid(unsigned int seed)
 };
 
 Grid::~Grid() {
-  for (int i = 0; i < 60; i++) {
-	for (int j = 0; j < 60; j++) {
+  for (int i = 0; i < SIZE; i++) {
+	for (int j = 0; j < SIZE; j++) {
 	  delete terrain[i][j];
 	};
   };
@@ -20,9 +20,9 @@ Grid::~Grid() {
 
 // internal representation
 void Grid::randomly_generate() {
-  for (int i = 0; i < 60; i++) {
-	for (int j = 0; j < 60; j++) {
-	  double noise = perlin_gen.get_noise(i * 10, j * 10);
+  for (int i = 0; i < SIZE; i++) {
+	for (int j = 0; j < SIZE; j++) {
+	  double noise = perlin_gen.get_noise(i, j);
 	  int selection = (int)(noise * 10) % 3;
 	  switch (selection) {
 	  case 1:
@@ -48,7 +48,7 @@ void Grid::randomly_generate() {
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10,10) * 10);
 
-  Random_Walker random_walker {60, seed};
+  Random_Walker random_walker {SIZE, seed};
 
   //random_walker.creative_walk_walls(30,30,&feature,500);
   //random_walker.creative_walk_walls(30,30,&feature,500);
@@ -62,28 +62,28 @@ void Grid::randomly_generate() {
 
 
   //random_walker.creative_walk_walls(0,0,&feature,total_iters);
-  //random_walker.creative_walk_walls(60,0,&feature,total_iters);
-  //random_walker.creative_walk_walls(0,60,&feature,total_iters);
-  //random_walker.creative_walk_walls(60,60,&feature,total_iters);
+  //random_walker.creative_walk_walls(SIZE,0,&feature,total_iters);
+  //random_walker.creative_walk_walls(0,SIZE,&feature,total_iters);
+  //random_walker.creative_walk_walls(SIZE,SIZE,&feature,total_iters);
 
 
   //random_walker.creative_walk_fauna(0,0,&feature,total_iters);
-  //random_walker.creative_walk_fauna(60,0,&feature,total_iters);
-  //random_walker.creative_walk_fauna(0,60,&feature,total_iters);
-  //random_walker.creative_walk_fauna(60,60,&feature,total_iters);
+  //random_walker.creative_walk_fauna(SIZE,0,&feature,total_iters);
+  //random_walker.creative_walk_fauna(0,SIZE,&feature,total_iters);
+  //random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
 
   const int total_iters = 500;
 
   random_walker.creative_walk_water(0,0,&terrain,total_iters);
-  random_walker.creative_walk_water(60,0,&terrain,total_iters);
+  random_walker.creative_walk_water(SIZE,0,&terrain,total_iters);
   random_walker.creative_walk_water(30,30,&terrain,total_iters);
-  random_walker.creative_walk_water(0,60,&terrain,total_iters);
-  random_walker.creative_walk_water(60,60,&terrain,total_iters);
+  random_walker.creative_walk_water(0,SIZE,&terrain,total_iters);
+  random_walker.creative_walk_water(SIZE,SIZE,&terrain,total_iters);
 
   random_walker.creative_walk_fauna(0,0,&feature,total_iters);
-  random_walker.creative_walk_fauna(60,0,&feature,total_iters);
-  random_walker.creative_walk_fauna(0,60,&feature,total_iters);
-  random_walker.creative_walk_fauna(60,60,&feature,total_iters);
+  random_walker.creative_walk_fauna(SIZE,0,&feature,total_iters);
+  random_walker.creative_walk_fauna(0,SIZE,&feature,total_iters);
+  random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
   
 
   //rw1.destructive_walk(&feature,total_iters);

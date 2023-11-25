@@ -20,7 +20,7 @@ void Random_Walker::random_walk() {
   std::cout << x << " " << y << " " << x_dir << " " << y_dir << "\n";
 };
 
-void Random_Walker::destructive_walk(int x, int y, Feature *(*feature)[60][60],
+void Random_Walker::destructive_walk(int x, int y, Feature *(*feature)[SIZE][SIZE],
 									 int iterations) {
   this->x = x;
   this->y = y;
@@ -36,7 +36,7 @@ void Random_Walker::destructive_walk(int x, int y, Feature *(*feature)[60][60],
 };
 
 void Random_Walker::creative_walk_walls(int x, int y,
-										Feature *(*feature)[60][60],
+										Feature *(*feature)[SIZE][SIZE],
 										int iterations) {
   this->x = x;
   this->y = y;
@@ -50,7 +50,7 @@ void Random_Walker::creative_walk_walls(int x, int y,
 
 
 void Random_Walker::creative_walk_fauna(int x, int y,
-										Feature *(*feature)[60][60],
+										Feature *(*feature)[SIZE][SIZE],
 										int iterations) {
   this->x = x;
   this->y = y;
@@ -64,7 +64,7 @@ void Random_Walker::creative_walk_fauna(int x, int y,
 };
 
 //2d array of pointers to entities
-void Random_Walker::creative_walk_water(int x, int y, Terrain *(*terrain)[60][60],
+void Random_Walker::creative_walk_water(int x, int y, Terrain *(*terrain)[SIZE][SIZE],
 						 int iterations) {
 
   this->x = x;

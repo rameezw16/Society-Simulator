@@ -7,7 +7,9 @@
 #include "./features/grass.h"
 #include "./features/wall.h"
 #include "./randomwalker.h"
+#include "./size.h"
 #include <SDL2/SDL.h>
+
 
 // We will now make a grid of entities, this contains a spritesheet
 
@@ -21,9 +23,9 @@ public:
 
   //making this public just for testing
 
-  Terrain *terrain[60][60]; // grid of terrain pointers, aggregation
-  Feature *feature[60][60]; // grid of features built on terrain
-  Entity *character[60][60];   // grid of entities located on terrain
+  Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
+  Feature *feature[SIZE][SIZE]; // grid of features built on terrain
+  Entity *character[SIZE][SIZE];   // grid of entities located on terrain
 
 private:
   Perlin perlin_gen;
@@ -32,5 +34,5 @@ private:
   Perlin humidity;
   Perlin evil;
 
-  const int gridsize = 60;
+  const int gridsize = SIZE;
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "entity.h"
 #include "grid.h"
+#include "./size.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>

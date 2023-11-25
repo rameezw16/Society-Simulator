@@ -87,10 +87,10 @@ void Perlin::add_octave(const double freq, const double depth) {
   num_octaves++;
 
   SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
-  for (int y = 0; y < SIZE_X; y++) {
-    for (int x = 0; x < SIZE_Y; x++) {
-      float xCoord = xOrg + x / ((float)SIZE_X) * scale; // coarseness
-      float yCoord = yOrg + y / ((float)SIZE_Y) * scale;
+  for (int y = 0; y < SIZE; y++) {
+    for (int x = 0; x < SIZE; x++) {
+      float xCoord = xOrg + x / ((float)SIZE) * scale; // coarseness
+      float yCoord = yOrg + y / ((float)SIZE) * scale;
       float perlin = this->perlin_2d(yCoord, xCoord, freq, depth);
       this->total_noise[x][y] += perlin; // grayscale
     };
@@ -106,13 +106,13 @@ void Perlin::display(Uint32 *Pixels) {
   int yOrg = xOrg;
   int scale = 10;
   SDL_PixelFormat *pixFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
-  for (int y = 0; y < SIZE_X; y++) {
-    for (int x = 0; x < SIZE_Y; x++) {
-      // float xCoord = xOrg + x / ((float)SIZE_X) * scale; // coarseness
-      // float yCoord = yOrg + y / ((float)SIZE_Y) * scale;
+  for (int y = 0; y < SIZE; y++) {
+    for (int x = 0; x < SIZE; x++) {
+      // float xCoord = xOrg + x / ((float)SIZE) * scale; // coarseness
+      // float yCoord = yOrg + y / ((float)SIZE) * scale;
       float perlin = this->get_noise(x, y);
       SDL_Color color = pickColor(perlin);
-      Pixels[y * SIZE_X + x] =
+      Pixels[y * SIZE + x] =
           SDL_MapRGBA(pixFormat, color.r, color.g, color.b, 255); // grayscale
     };
   };
