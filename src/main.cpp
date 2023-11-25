@@ -3,6 +3,7 @@
 #include "../include/entity.h"
 #include "../include/size.h"
 #include "../include/characters/actor.h"
+#include "../include/Interaction_Manager.hpp"
 #include <cstring>
 #include <iostream>
 #include <random>
@@ -22,6 +23,10 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 	new Agent{a};
   }
 
+  Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
+
+  
+
 
   Grid game_grid{seed};
   while (true) {
@@ -33,6 +38,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 	};
 	drawer->draw_grid(&game_grid);
 	drawer->present();
+	Int_Manager->interact_all();
   };
 
   delete drawer;
