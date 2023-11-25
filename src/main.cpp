@@ -1,66 +1,67 @@
-#include "../include/spritesheet.hpp"
-#include "../include/terrain/dirt.h"
+#include "../include/Interaction_Manager.hpp"
+#include "../include/characters/actor.h"
 #include "../include/entity.h"
 #include "../include/size.h"
-#include "../include/characters/actor.h"
-#include "../include/Interaction_Manager.hpp"
+#include "../include/spritesheet.hpp"
+#include "../include/terrain/dirt.h"
 #include <cstring>
 #include <iostream>
 #include <random>
 
-#define TICK_INTERVAL    30
-
-Uint32 time_left(Uint32 next_time) {
-    Uint32 now;
-
-    now = SDL_GetTicks();
-    if(next_time <= now)
-        return 0;
-    else
-        return next_time - now;
-};
-
-
-
+const int FPS = 60;
+const int frame_delay = 1000 / FPS;
 
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
 
-  char const* ss_feature = "/home/hak/hw/oopProj/resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
-  char const* ss_agent = "/home/hak/hw/oopProj/resources/Bit-Bonanza-10x10-v-4.1/Colored/People.png";
-  char const* ss_terrain = "/home/hak/hw/oopProj/resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
+  char const *ss_feature =
+      "../resources/Bountiful-Bits-10x10-v-3.1/Colored/no-background/Full-no-bg.png";
+  char const *ss_agent =
+      "../resources/Bit-Bonanza-10x10-v-4.1/Colored/no-background/People-no-bg.png";
+  char const *ss_terrain = ss_feature;
 
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
-  std::mt19937 a (static_cast<int>(seed));
+  std::mt19937 a(static_cast<int>(seed));
 
-
-  for (int i = 0; i < 30; i++) {
-	new Agent{a};
+  for (int i = 0; i < 10; i++) {
+    new Agent{a};
   }
 
   Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
-
 
   static Uint32 next_time;
 
   Grid game_grid{seed};
 
+  Uint32 frame_start;
+  Uint32 frame_time;
 
+  int count = 0;
+  const int max_count = 30;
 
   while (true) {
-	SDL_Event e;
-	if (SDL_WaitEvent(&e)) {
-	  if (e.type == SDL_QUIT)
-		break;
-	};
+    SDL_Event e;
+    while (SDL_PollEvent(&e) != 0) {
+      if (e.type == SDL_QUIT)
+        return 0;
+    };
 
-	drawer->draw_grid(&game_grid);
-	drawer->present();
-    next_time = SDL_GetTicks() + TICK_INTERVAL;
-	Int_Manager->interact_all();
-	SDL_Delay(time_left(next_time));
-	next_time += TICK_INTERVAL;
+    frame_start = SDL_GetTicks();
 
+    drawer->draw_grid(&game_grid);
+    drawer->present();
+
+    frame_time = SDL_GetTicks() - frame_start;
+    if (count < max_count) {
+      count++;
+    }
+    else {
+      Int_Manager->interact_all();
+      count = 0;
+    }
+
+    if (frame_delay > frame_time)
+      SDL_Delay(frame_delay - frame_time);
   };
 
   delete drawer;
