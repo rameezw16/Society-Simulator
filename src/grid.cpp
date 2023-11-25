@@ -51,27 +51,14 @@ void Grid::randomly_generate() {
 
   Random_Walker random_walker {SIZE, seed};
 
-  const int middle = SIZE /2;
-
-  //random_walker.creative_walk_walls(30,30,&feature,500);
-  //random_walker.creative_walk_walls(30,30,&feature,500);
-  //random_walker.creative_walk_walls(30,30,&feature,500);
-  //random_walker.creative_walk_fauna(30,30,&feature,500);
-  //random_walker.creative_walk_water(30,30,&terrain,500);
-
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-
-
-  //random_walker.creative_walk_walls(0,0,&feature,total_iters);
-  //random_walker.creative_walk_walls(SIZE,0,&feature,total_iters);
-  //random_walker.creative_walk_walls(0,SIZE,&feature,total_iters);
-  //random_walker.creative_walk_walls(SIZE,SIZE,&feature,total_iters);
-
-
+  const int middle = SIZE/2;
 
   const int total_iters = 500;
+
+
+  random_walker.destructive_walk(middle, middle, &feature, 500);
+  random_walker.destructive_walk(middle, middle, &feature, 500);
+  random_walker.destructive_walk(middle, middle, &feature, 500);
 
   random_walker.creative_walk_fauna(middle,middle,&feature,total_iters);
   random_walker.creative_walk_water(middle,middle,&terrain,total_iters * 3);
@@ -86,15 +73,8 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(SIZE,0,&feature,total_iters);
   random_walker.creative_walk_fauna(0,SIZE,&feature,total_iters);
   random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
-  
 
-  //rw1.destructive_walk(&feature,total_iters);
-  //rw2.destructive_walk(&feature,total_iters);
-  //rw3.destructive_walk(&feature,total_iters);
-  //rw4.destructive_walk(&feature,total_iters);
-  //rw5.destructive_walk(&feature,total_iters);
-
-  actor[middle][middle] = new Wolf {middle + 10, middle};
+  //actor[middle][middle] = new Wolf {middle + 10, middle};
 
 
 

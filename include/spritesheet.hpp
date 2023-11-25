@@ -14,11 +14,7 @@ public:
   Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_actor);
   ~Drawer();
 
-  //just make this guy take in an entity type
-
   void draw_grid(Grid* grid);
-
-
   void present();
 
 private:

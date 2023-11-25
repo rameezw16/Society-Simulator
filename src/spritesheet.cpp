@@ -16,9 +16,8 @@ Drawer::Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_ac
   this->ss_actor = IMG_LoadTexture(renderer, ss_actor);
 
 
-  // size of one sprite in pixels
-  clip.w = 10; // spritesheet_image->w / col;
-  clip.h = 10; // spritesheet_image->h / row;
+  clip.w = 10; 
+  clip.h = 10;
 };
 
 Drawer::~Drawer() {
@@ -28,7 +27,7 @@ Drawer::~Drawer() {
 };
 
 void Drawer::draw_sprite(Terrain* entity, const int x, const int y) {
-  // get coords in pixels
+  //get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
 
