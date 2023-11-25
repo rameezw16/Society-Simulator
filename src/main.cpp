@@ -8,6 +8,21 @@
 #include <iostream>
 #include <random>
 
+#define TICK_INTERVAL    30
+
+Uint32 time_left(Uint32 next_time) {
+    Uint32 now;
+
+    now = SDL_GetTicks();
+    if(next_time <= now)
+        return 0;
+    else
+        return next_time - now;
+};
+
+
+
+
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
 
@@ -25,20 +40,27 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
 
-  
 
+  static Uint32 next_time;
 
   Grid game_grid{seed};
-  while (true) {
 
+
+
+  while (true) {
 	SDL_Event e;
 	if (SDL_WaitEvent(&e)) {
 	  if (e.type == SDL_QUIT)
 		break;
 	};
+
 	drawer->draw_grid(&game_grid);
 	drawer->present();
+    next_time = SDL_GetTicks() + TICK_INTERVAL;
 	Int_Manager->interact_all();
+	SDL_Delay(time_left(next_time));
+	next_time += TICK_INTERVAL;
+
   };
 
   delete drawer;
