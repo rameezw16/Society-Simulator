@@ -3,12 +3,16 @@
 // SIZE is the internal grid representation
 
 Grid::Grid(unsigned int seed)
-	: perlin_gen(seed) {
+	: perlin_gen(seed), mt(seed) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
   //perlin_gen.add_octave(0.4, 5);
 
-  randomly_generate();
+  interaction_manager = Interaction_Manager::getInstance();
+
+  perlin_generation();
+  random_walk_generation();
+  seed_people();
 };
 
 Grid::~Grid() {
@@ -20,7 +24,7 @@ Grid::~Grid() {
 };
 
 // internal representation
-void Grid::randomly_generate() {
+void Grid::perlin_generation() {
   for (int i = 0; i < SIZE; i++) {
 	for (int j = 0; j < SIZE; j++) {
 	  double noise = perlin_gen.get_noise(i, j);
@@ -46,6 +50,9 @@ void Grid::randomly_generate() {
   };
   //do random walk and break features
 
+  };
+
+void Grid::random_walk_generation() {  
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10,10) * 10);
 
@@ -54,7 +61,6 @@ void Grid::randomly_generate() {
   const int middle = SIZE/2;
 
   const int total_iters = 500;
-
 
   random_walker.destructive_walk(middle, middle, &feature, 500);
   random_walker.destructive_walk(middle, middle, &feature, 500);
@@ -74,19 +80,11 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(0,SIZE,&feature,total_iters);
   random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
 
-  //agent[middle][middle] = new Wolf {middle + 10, middle};
-
-
-
-
 };
 
+void Grid::seed_people() {
+  for (int i = 0; i < 10; i++)
+	new Agent{mt};
+};
 
-
-
-
-
-
-
-
-
+void Grid::step() { interaction_manager->interact_all(); }

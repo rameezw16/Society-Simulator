@@ -9,6 +9,8 @@
 #include "./randomwalker.h"
 #include "./characters/actor.h"
 #include "./size.h"
+#include "Interaction_Manager.hpp"
+#include <random>
 #include <SDL2/SDL.h>
 
 
@@ -19,8 +21,12 @@ public:
   Grid(unsigned int seed = 1985);
   ~Grid();
 
-  void randomly_generate();
-  void random_walk(int x, int y);
+  void perlin_generation();
+  void random_walk_generation();
+  void seed_people();
+  //void random_walk(int x, int y);
+
+  void step();
 
   //making this public just for testing
 
@@ -31,6 +37,8 @@ public:
 
 private:
   Perlin perlin_gen;
+  std::mt19937 mt; 
+  Interaction_Manager* interaction_manager;
 
   Perlin temperature;
   Perlin humidity;
