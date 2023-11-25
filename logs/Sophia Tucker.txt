@@ -1,0 +1,320 @@
+Sophia Tucker created at (3, 42) with id: 10, gender: male, age: 13, health: 48, wealth: 48, happiness: 53
+and personality traits:  Openness: 35, Conscientiousness: 38, Extrovertedness: 56, Agreeableness: 49, Neuroticism: 38
+Towards Chloe Miller has Love: 45, Respect: 32
+Towards Addison Flores has Love: 60, Respect: 29
+Towards William Moore has Love: 45, Respect: 33
+Towards Anna Bryant has Love: 40, Respect: 19
+Towards Logan Hall has Love: 38, Respect: 33
+Towards Andrew Stewart has Love: 45, Respect: 21
+Towards Daniel Collins has Love: 32, Respect: 31
+Towards Elijah Hall has Love: 58, Respect: 29
+Towards Madison Richardson has Love: 46, Respect: 28
+Towards Natalie Evans has Love: 54, Respect: 29
+Towards James Johnson has Love: 46, Respect: 19
+Towards Daniel Morales has Love: 36, Respect: 25
+Towards Joseph Brown has Love: 57, Respect: 26
+Towards Ethan Evans has Love: 34, Respect: 25
+Towards Laura Morris has Love: 42, Respect: 22
+Towards Chloe Johnson has Love: 50, Respect: 35
+Towards Sophia Evans has Love: 30, Respect: 25
+Towards Alex Cook has Love: 41, Respect: 30
+Towards Abigail Moore has Love: 29, Respect: 26
+Towards Gabriel Mitchell has Love: 28, Respect: 23
+Towards Chloe Rivera has Love: 52, Respect: 30
+Towards Evelyn Morales has Love: 50, Respect: 29
+Towards David Parker has Love: 45, Respect: 33
+Towards Tyler Gonzalez has Love: 61, Respect: 21
+Towards Nathan Fisher has Love: 58, Respect: 22
+Towards David Hall has Love: 38, Respect: 29
+Towards Abigail Bryant has Love: 42, Respect: 34
+Towards Christopher Flores has Love: 55, Respect: 23
+Towards Addison Garcia has Love: 33, Respect: 31
+Talked to David Parker
+Idled
+Attended party by Anna Bryant
+Insulted Sophia Evans
+Hosted party for 7
+Insulted by Joseph Brown
+Idled
+Talked to Abigail Moore
+Talked to Alex Cook
+Idled
+Idled
+Idled
+Idled
+Hosted party for 8
+Attended party by Joseph Brown
+Idled
+Party failed - no one attended1
+Idled
+Idled
+Idled
+Worked with Abigail Moore
+Insulted Ethan Evans
+Talked to Abigail Bryant
+Attended party by James Johnson
+Hurt by Addison Garcia
+Idled
+Idled
+Talked to Daniel Morales
+Attended party by Nathan Fisher
+Idled
+Idled
+Insulted Daniel Morales
+Idled
+Talked to Laura Morris
+Talked to Anna Bryant
+Talked to James Johnson
+Insulted by Ethan Evans
+Idled
+Talked to Chloe Rivera
+Talked to Chloe Johnson
+Talked to Sophia Evans
+Talked to Gabriel Mitchell
+Idled
+Insulted by James Johnson
+Idled
+Worked with Chloe Johnson
+Attended party by Christopher Flores
+Attended party by Chloe Rivera
+Hosted party for 2
+Talked to Chloe Miller
+Idled
+Idled
+Idled
+Attended party by Daniel Collins
+Idled
+Idled
+Hosted party for 3
+Insulted by Ethan Evans
+Insulted by Logan Hall
+Idled
+Talked to Daniel Collins
+Idled
+Hosted party for 5
+Talked to Ethan Evans
+Hurt James Johnson
+Talked to Ethan Evans
+Idled
+Insulted by Laura Morris
+Idled
+Idled
+Idled
+Idled
+Idled
+Idled
+Insulted by Logan Hall
+Idled
+Insulted Gabriel Mitchell
+Insulted James Johnson
+Attended party by Nathan Fisher
+Idled
+Insulted by Natalie Evans
+Talked to William Moore
+Idled
+Idled
+Talked to Natalie Evans
+Insulted by Alex Cook
+Talked to David Parker
+Insulted by Chloe Miller
+Idled
+Idled
+Idled
+Idled
+Idled
+Talked to William Moore
+Idled
+Talked to Evelyn Morales
+Talked to Addison Flores
+Talked to David Parker
+Hurt Chloe Johnson
+Idled
+Idled
+Idled
+Attended party by Chloe Miller
+Idled
+Attended party by Joseph Brown
+Idled
+Attended party by Elijah Hall
+Insulted by Madison Richardson
+Idled
+Idled
+Idled
+Worked with Tyler Gonzalez
+Idled
+Talked to Sophia Evans
+Attended party by Tyler Gonzalez
+Hurt Daniel Morales
+Talked to Laura Morris
+Hurt Addison Flores
+Idled
+Hosted party for 2
+Idled
+Idled
+Idled
+Insulted Abigail Bryant
+Talked to Evelyn Morales
+Attended party by Christopher Flores
+Attended party by Elijah Hall
+Attended party by Evelyn Morales
+Idled
+Idled
+Idled
+Attended party by Chloe Miller
+Party failed - no one attended1
+Worked with Anna Bryant
+Attended party by William Moore
+Idled
+Talked to David Parker
+Idled
+Talked to Abigail Moore
+Party failed - no one attended1
+Idled
+Idled
+Idled
+Idled
+Worked with David Hall
+Hurt by David Parker
+Worked with Ethan Evans
+Insulted by Ethan Evans
+Attended party by Abigail Moore
+Talked to David Parker
+Attended party by Elijah Hall
+Worked with Tyler Gonzalez
+Attended party by Elijah Hall
+Talked to David Parker
+Insulted Joseph Brown
+Idled
+Idled
+Talked to Joseph Brown
+Idled
+Idled
+Talked to Joseph Brown
+Talked to Chloe Johnson
+Hosted party for 5
+Worked with Chloe Johnson
+Idled
+Insulted Andrew Stewart
+Idled
+Attended party by Chloe Miller
+Insulted David Hall
+Idled
+Idled
+Idled
+Idled
+Insulted Laura Morris
+Towards Mia Morris has Love: 46, Respect: 33
+Talked to Chloe Johnson
+Idled
+Attended party by Andrew Stewart
+Insulted by Anna Bryant
+Insulted William Moore
+Talked to Elijah Hall
+Talked to Abigail Moore
+Idled
+Talked to James Johnson
+Talked to David Hall
+Talked to Anna Bryant
+Attended party by Sophia Evans
+Insulted by Natalie Evans
+Talked to Addison Flores
+Talked to James Johnson
+Talked to Christopher Flores
+Insulted by Gabriel Mitchell
+Talked to Addison Garcia
+Hurt Alex Cook
+Insulted by Alex Cook
+Talked to David Parker
+Idled
+Talked to Mia Morris
+Idled
+Idled
+Hurt by Natalie Evans
+Idled
+Insulted by Natalie Evans
+Idled
+Insulted Logan Hall
+Idled
+Rejected Sophia Evans
+Idled
+Attended party by Joseph Brown
+Idled
+Idled
+Hosted party for 7
+Idled
+Talked to Daniel Collins
+Idled
+Attended party by Daniel Collins
+Idled
+Idled
+Insulted by Alex Cook
+Idled
+Talked to Anna Bryant
+Idled
+Idled
+Idled
+Idled
+Talked to David Parker
+Idled
+Idled
+Talked to Nathan Fisher
+Insulted Natalie Evans
+Worked with Natalie Evans
+Talked to James Johnson
+Attended party by Evelyn Morales
+Idled
+Idled
+Idled
+Idled
+Worked with Alex Cook
+Idled
+Talked to Chloe Johnson
+Talked to Alex Cook
+Idled
+Attended party by Addison Flores
+Hurt by David Hall
+Insulted Anna Bryant
+Idled
+Idled
+Idled
+Talked to Sophia Evans
+Talked to Joseph Brown
+Talked to Mia Morris
+Talked to Mia Morris
+Idled
+Idled
+Idled
+Talked to Daniel Collins
+Idled
+Talked to Daniel Collins
+Insulted Gabriel Mitchell
+Insulted James Johnson
+Idled
+Idled
+Idled
+Towards Paul Morris has Love: 47, Respect: 31
+Attended party by Nathan Fisher
+Talked to Abigail Moore
+Attended party by Anna Bryant
+Talked to Daniel Morales
+Insulted by Addison Garcia
+Worked with Ethan Evans
+Idled
+Idled
+Talked to David Parker
+Insulted by Andrew Stewart
+Worked with William Moore
+Idled
+Idled
+Insulted by Tyler Gonzalez
+Attended party by Madison Richardson
+Idled
+Idled
+Insulted Logan Hall
+Talked to Sophia Evans
+Idled
+Idled
+Idled
+Idled
+Idled
+Talked to David Hall

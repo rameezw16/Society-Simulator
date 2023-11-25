@@ -1,0 +1,52 @@
+Paul Morris created at (88, 73) with id: 31, gender: female, age: 28, health: 60, wealth: 57, happiness: 66
+and personality traits:  Openness: 32, Conscientiousness: 64, Extrovertedness: 32, Agreeableness: 25, Neuroticism: 0
+Towards Chloe Miller has Love: 77, Respect: 29
+Towards Addison Flores has Love: 62, Respect: 27
+Towards William Moore has Love: 82, Respect: 30
+Towards Anna Bryant has Love: 51, Respect: 21
+Towards Logan Hall has Love: 76, Respect: 31
+Towards Andrew Stewart has Love: 50, Respect: 21
+Towards Daniel Collins has Love: 77, Respect: 33
+Towards Elijah Hall has Love: 63, Respect: 27
+Towards Madison Richardson has Love: 60, Respect: 27
+Towards Natalie Evans has Love: 76, Respect: 31
+Towards Sophia Tucker has Love: 54, Respect: 21
+Towards James Johnson has Love: 53, Respect: 21
+Towards Daniel Morales has Love: 75, Respect: 23
+Towards Joseph Brown has Love: 64, Respect: 28
+Towards Ethan Evans has Love: 50, Respect: 23
+Towards Laura Morris has Love: 55, Respect: 22
+Towards Chloe Johnson has Love: 69, Respect: 31
+Towards Sophia Evans has Love: 69, Respect: 22
+Towards Alex Cook has Love: 77, Respect: 27
+Towards Abigail Moore has Love: 69, Respect: 22
+Towards Gabriel Mitchell has Love: 72, Respect: 21
+Towards Chloe Rivera has Love: 73, Respect: 28
+Towards Evelyn Morales has Love: 66, Respect: 24
+Towards David Parker has Love: 66, Respect: 32
+Towards Tyler Gonzalez has Love: 42, Respect: 23
+Towards Nathan Fisher has Love: 53, Respect: 21
+Towards David Hall has Love: 80, Respect: 30
+Towards Abigail Bryant has Love: 76, Respect: 27
+Towards Christopher Flores has Love: 54, Respect: 22
+Towards Addison Garcia has Love: 67, Respect: 26
+Towards Mia Morris has Love: 78, Respect: 27
+Idled
+Idled
+Talked to Daniel Morales
+Talked to Daniel Morales
+Idled
+Idled
+Idled
+Idled
+Idled
+Idled
+Insulted James Johnson
+Talked to Tyler Gonzalez
+Idled
+Attended party by Laura Morris
+Idled
+Idled
+Idled
+Worked with William Moore
+Idled
