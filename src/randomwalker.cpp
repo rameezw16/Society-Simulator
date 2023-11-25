@@ -57,6 +57,7 @@ void Random_Walker::creative_walk_fauna(int x, int y,
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
+	//if (strcmp(typeid((*feature)[this->x][this->y]).name(), "Water")) return;
     (*feature)[this->x][this->y] = new Grass{this->x, this->y};
     std::cout << "made new class";
   };

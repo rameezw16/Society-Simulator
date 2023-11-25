@@ -21,13 +21,13 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   char const *ss_terrain = ss_feature;
 
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
-  // std::mt19937 a(static_cast<int>(seed));
+  std::mt19937 a(static_cast<int>(seed));
 
-  // for (int i = 0; i < 10; i++) {
-  //   new Agent{a};
-  // }
+  for (int i = 0; i < 10; i++) {
+    new Agent{a};
+  }
 
-  // Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
+  Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
 
   static Uint32 next_time;
 
@@ -52,15 +52,13 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     drawer->present();
 
     frame_time = SDL_GetTicks() - frame_start;
-    // if (count < max_count) {
-    //   count++;
-    // }
-    // else {
-    //   Int_Manager->interact_all();
-    //   count = 0;
-    // }
-
-	game_grid.step();
+    if (count < max_count) {
+      count++;
+    }
+    else {
+      Int_Manager->interact_all();
+      count = 0;
+    }
 
     if (frame_delay > frame_time)
       SDL_Delay(frame_delay - frame_time);

@@ -9,8 +9,6 @@
 #include "./randomwalker.h"
 #include "./characters/actor.h"
 #include "./size.h"
-#include "Interaction_Manager.hpp"
-#include <random>
 #include <SDL2/SDL.h>
 
 
@@ -21,26 +19,28 @@ public:
   Grid(unsigned int seed = 1985);
   ~Grid();
 
-  void perlin_generation();
-  void random_walk_generation();
-  void seed_people();
-  //void random_walk(int x, int y);
-
-  void step();
+  void randomly_generate();
+  void random_walk(int x, int y);
 
   //making this public just for testing
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  //Agent *agent[SIZE][SIZE];   // grid of entities located on terrain
+  Agent *agent[SIZE][SIZE];
   //Agent list in Agent class
 
 private:
-  Perlin perlin_gen;
+<<<<<<< HEAD
+  Perlin erlin_gen;
   std::mt19937 mt; 
+
   Interaction_Manager* interaction_manager;
+=======
+  Perlin perlin_gen;
+>>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
 
   Perlin temperature;
+
   Perlin humidity;
   Perlin evil;
 

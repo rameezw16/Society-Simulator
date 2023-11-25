@@ -19,7 +19,7 @@ public:
 
   int get_spritesheet_pos_x() const;
   int get_spritesheet_pos_y() const;
-  const bool walkable = true; //might want to make this static
+
 
 protected:
   int pos_x;
