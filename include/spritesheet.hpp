@@ -1,26 +1,35 @@
+#pragma once
+#include "entity.h"
+#include "terrain/terrain.h"
+#include "features/feature.h"
+#include "characters/actor.h"
+#include "grid.h"
+#include "./size.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-
-class Spritesheet {
+class Drawer {
 public:
-	Spritesheet(char const* path, SDL_Renderer* renderer);
-	~Spritesheet();
+  Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_actor);
+  ~Drawer();
 
-	void draw_sprite(const int x, const int y, SDL_Rect* position, SDL_Texture* texture); //draw the nth sprite, will use an enum to make this easier
-
+  void draw_grid(Grid* grid);
+  void present();
 
 private:
-	SDL_Rect clip;
-	SDL_Texture *texture;
-	SDL_Renderer *renderer;
-	
-	int height;
-	int width;
+  void draw_sprite(Terrain* entity, const int x, const int y); 
+  void draw_sprite(Feature* entity, const int x, const int y);
+  void draw_sprite(Actor* entity, const int x, const int y);
 
+  SDL_Rect clip;
+  SDL_Window *window;
+  SDL_Texture *ss_terrain; 
+  SDL_Texture *ss_feature; 
+  SDL_Texture *ss_actor; 
+  SDL_Texture *texture;
+  SDL_Renderer *renderer;
+
+  int height;
+  int width;
 };
-
-
-
-

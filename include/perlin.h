@@ -5,9 +5,7 @@
 #include <algorithm>
 #include <math.h>
 #include <SDL2/SDL.h>
-
-#define SIZE_X 600
-#define SIZE_Y 600
+#include "./size.h"
 
 
 //This is adapted from https://en.wikipedia.org/wiki/Perlin_noise
@@ -33,6 +31,6 @@ class Perlin {
 	std::mt19937 mt{}; //mersenne twister
 	int seed;
 
-	float total_noise[SIZE_X][SIZE_Y] {};
+	float total_noise[SIZE][SIZE] {};
 	int num_octaves {};
 };
