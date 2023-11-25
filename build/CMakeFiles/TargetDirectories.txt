@@ -1,3 +1,0 @@
-/home/musab/Documents/OOP Project/peopleSim/build/CMakeFiles/interpersonal_visualiser.dir
-/home/musab/Documents/OOP Project/peopleSim/build/CMakeFiles/edit_cache.dir
-/home/musab/Documents/OOP Project/peopleSim/build/CMakeFiles/rebuild_cache.dir

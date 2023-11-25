@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/01_hello_SDL.dir/interpersonal.cpp.o CMakeFiles/01_hello_SDL.dir/interpersonal_visualiser.cpp.o -o 01_hello_SDL  -lSDL2 

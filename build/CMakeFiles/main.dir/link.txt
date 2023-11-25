@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/main.dir/src/entity.cpp.o CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/perlin.cpp.o CMakeFiles/main.dir/src/spritesheet.cpp.o -o main  libimplementation.a -lSDL2 -lSDL2_image -lSDL2_ttf 

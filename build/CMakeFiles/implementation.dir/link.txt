@@ -1,2 +1,0 @@
-/usr/bin/ar qc libimplementation.a CMakeFiles/implementation.dir/src/entity.cpp.o CMakeFiles/implementation.dir/src/main.cpp.o CMakeFiles/implementation.dir/src/perlin.cpp.o CMakeFiles/implementation.dir/src/spritesheet.cpp.o
-/usr/bin/ranlib libimplementation.a
