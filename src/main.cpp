@@ -27,7 +27,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     new Agent{a};
   }
 
-  Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
+  //Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
 
   static Uint32 next_time;
 
@@ -56,7 +56,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
       count++;
     }
     else {
-      Int_Manager->interact_all();
+      //Int_Manager->interact_all();
       count = 0;
     }
 
