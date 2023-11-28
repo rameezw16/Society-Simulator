@@ -10,6 +10,7 @@ public:
 
   virtual ~Entity();
   virtual void interact_randomly() = 0;
+  virtual bool get_walkable() const = 0;
 
 
   void set_position(const int pos_x,

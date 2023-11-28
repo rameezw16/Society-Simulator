@@ -7,6 +7,7 @@ public:
           const int spritesheet_pos_y);
   virtual ~Feature();
   virtual void interact_randomly() override;
+  bool get_walkable() const override;
   bool walkable = false;
 
 protected:

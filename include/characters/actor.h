@@ -17,9 +17,10 @@ public:
 		const int spritesheet_pos_y = 0, std::string name = "", int posX = 30,
 		int posY = 30);
   virtual ~Agent();
+  bool get_walkable() const override;
 
   void interact_randomly() override;
-
+ 
   static int count;
   static std::map<int, Agent *> AgentList;
   static std::map<int, std::map<int, Relationship>> RelationshipMap;
