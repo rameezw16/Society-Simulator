@@ -27,8 +27,8 @@ public:
 
   //making this public just for testing
   
-  bool check_move(Agent &a, Dir direction);
-  void pathfind(Agent &a);
+  bool check_move(Agent *a, Dir direction);
+  void pathfind(Agent *a);
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
@@ -37,7 +37,7 @@ public:
 
 private:
   Perlin perlin_gen;
-  std::mt19937 a; 
+  std::mt19937 mt; 
 
   const int gridsize = SIZE;
 };

@@ -3,7 +3,7 @@
 // SIZE is the internal grid representation
 
 Grid::Grid(unsigned int seed)
-  : perlin_gen(seed), a(static_cast<int>(seed)) { //why is "a" a mersenne twister? Have fun.
+  : perlin_gen(seed), mt(static_cast<int>(seed)) { 
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
   perlin_gen.add_octave(0.9, 5);
@@ -82,25 +82,33 @@ void Grid::randomly_generate() {
 void Grid::add_people_to_grid() {
   for (int i = 0; i < 10; i ++) {
 	for (int j = 0; j < 10; j++) {
-	  agent[i][j] = new Agent{this->a,0,0,"abc",30,30};
+	  agent[i][j] = new Agent{this->mt,0,0,"abc",30,30};
 	};
   };
 };
 
 
-bool Grid::check_move(Agent &a, Dir direction) {
-  int proposed_x = a.posX + direction.get_x(); 
-  int proposed_y = a.posY + direction.get_y(); 
+bool Grid::check_move(Agent* a, Dir direction) {
+  int proposed_x = a->posX + direction.get_x(); 
+  int proposed_y = a->posY + direction.get_y(); 
 
   return (!terrain[proposed_x][proposed_y] && !feature[proposed_x][proposed_y]); //can move with to place with no terrain and features
 };
 
-void Grid::pathfind(Agent &a) {
+void Grid::pathfind(Agent *a) {
+
+  for (int i = 0; i < SIZE; ++i) {
+        for (int j = 0; j < SIZE; ++j) {
+          if (agent[i][j] != nullptr) {
+
+                Dir random_proposed{}; // empty constructor makes it generate
+                                       // randomly
+
+                random_proposed.set_x(a->posX + random_proposed.get_x());
+                random_proposed.set_y(a->posY + random_proposed.get_y());
+
+                check_move(agent[i][j], random_proposed);
+          }
+        }
+  };
 };
-
-
-
-
-
-
-
