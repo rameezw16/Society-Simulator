@@ -75,12 +75,14 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
 
   //agent[middle][middle] = new Wolf {middle + 10, middle};
-
-
-
-
 };
 
+
+
+// bool Grid::check_move(Agent &a, Dir a) {
+//   return true;
+
+// };
 
 
 

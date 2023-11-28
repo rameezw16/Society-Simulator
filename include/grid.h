@@ -9,6 +9,7 @@
 #include "./randomwalker.h"
 #include "./characters/actor.h"
 #include "./size.h"
+#include "./dir.h"
 #include <SDL2/SDL.h>
 
 
@@ -23,18 +24,16 @@ public:
   void random_walk(int x, int y);
 
   //making this public just for testing
+  
+  // bool check_move(Agent &a, Dir a); // 
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  //Agent *agent[SIZE][SIZE];   // grid of entities located on terrain
+  Agent *agent[SIZE][SIZE];   // grid of entities located on terrain
   //Agent list in Agent class
 
 private:
   Perlin perlin_gen;
-
-  Perlin temperature;
-  Perlin humidity;
-  Perlin evil;
 
   const int gridsize = SIZE;
 };
