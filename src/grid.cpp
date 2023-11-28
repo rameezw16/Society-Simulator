@@ -89,6 +89,8 @@ bool Grid::check_move(Agent *a, Dir direction) {
   bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
   bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->walkable;
 
+  if (proposed_x > SIZE || proposed_x < 0 || proposed_y > SIZE || proposed_y < 0) return false;
+
 
   return (terrain[proposed_x][proposed_y]->walkable && walkable_feature); // can move with to place with no
                                              // terrain and features

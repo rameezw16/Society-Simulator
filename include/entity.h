@@ -11,6 +11,7 @@ public:
   virtual ~Entity();
   virtual void interact_randomly() = 0;
 
+
   void set_position(const int pos_x,
 					const int pos_y); // set top left corner of the sprite
 
