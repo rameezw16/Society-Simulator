@@ -28,17 +28,17 @@ void Grid::randomly_generate() {
       case 1:
         terrain[i][j] = new Dirt{i, j};
         feature[i][j] = nullptr; // new Grass {i, j};
-        // agent[i][j] = nullptr;
+        agent[i][j] = nullptr;
         break;
       case 0:
         terrain[i][j] = new Dirt{i, j};
         feature[i][j] = new Wall{i, j};
-        // agent[i][j] = nullptr;
+        agent[i][j] = nullptr;
         break;
       case 2:
         terrain[i][j] = new Dirt{i, j};
         feature[i][j] = nullptr;
-        // agent[i][j] = nullptr;	//
+        agent[i][j] = nullptr;	//
         break;
       };
     };
@@ -84,9 +84,10 @@ void Grid::add_people_to_grid() {
 };
 
 bool Grid::check_move(Agent *a, Dir direction) {
-  int proposed_x = a->posX + direction.get_x();
-  int proposed_y = a->posY + direction.get_y();
-  bool walkable_feature = !feature[proposed_x][proposed_y] || feature[proposed_x][proposed_y]->walkable;
+  int proposed_x = direction.get_x();
+  int proposed_y = direction.get_y();
+  bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
+  bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->walkable;
 
 
   return (terrain[proposed_x][proposed_y]->walkable && walkable_feature); // can move with to place with no
@@ -114,6 +115,5 @@ void Grid::pathfind(Agent *a) {
   random_proposed.set_y(a->posY + random_proposed.get_y());
 
   bool valid = check_move(a, random_proposed);
-  if (valid)
-    a->move_agent(random_proposed.get_x(), random_proposed.get_y());
+  if (valid) {a->move_agent(random_proposed.get_x(), random_proposed.get_y());};
 };

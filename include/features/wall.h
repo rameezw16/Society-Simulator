@@ -1,5 +1,6 @@
 #pragma once
 #include "./feature.h"
+#include <string>
 
 class Wall : public Feature {
 public:
@@ -7,4 +8,5 @@ public:
 	   const int spritesheet_pos_y = 10);
   ~Wall();
   bool walkable = false;
+  std::string = "wall";
 };

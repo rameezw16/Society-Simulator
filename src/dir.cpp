@@ -4,8 +4,8 @@ Dir::Dir(int x, int y) : x(x), y(y) {};
 
 Dir::Dir(int seed) {
   srand(time(0) + seed); //extra random 
-  set_x(rand() % 3-1);
-  set_y(rand() % 3-1);
+  set_x((rand() % 3)-1);
+  set_y((rand() % 3)-1);
   
 }
 
