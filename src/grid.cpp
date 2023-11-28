@@ -92,7 +92,7 @@ bool Grid::check_move(Agent *a, Dir direction) {
   if (proposed_x > SIZE || proposed_x < 0 || proposed_y > SIZE || proposed_y < 0) return false;
 
 
-  return (terrain[proposed_x][proposed_y]->walkable && walkable_feature); // can move with to place with no
+  return (terrain[proposed_x][proposed_y]->get_walkable() && walkable_feature); // can move with to place with no
                                              // terrain and features
 };
 

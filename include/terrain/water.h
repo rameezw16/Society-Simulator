@@ -7,6 +7,9 @@ public:
 	~Water();
 
   bool get_walkable() const override;
+
+
+
   virtual void interact_randomly() override;
   bool walkable = false;
         
