@@ -15,9 +15,9 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
 
   char const *ss_feature =
-      "../resources/Bountiful-Bits-10x10-v-3.1/Colored/no-background/Full-no-bg.png";
+      "../resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
   char const *ss_agent =
-      "../resources/Bit-Bonanza-10x10-v-4.1/Colored/no-background/People-no-bg.png";
+      "../resources/Bit-Bonanza-10x10-v-4.1/Colored/People.png";
   char const *ss_terrain = ss_feature;
 
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
