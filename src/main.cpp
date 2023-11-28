@@ -23,9 +23,6 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
   std::mt19937 a(static_cast<int>(seed));
 
-  for (int i = 0; i < 10; i++) {
-    new Agent{a};
-  }
 
   //Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
 

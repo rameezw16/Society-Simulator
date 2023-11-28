@@ -3,10 +3,10 @@
 // SIZE is the internal grid representation
 
 Grid::Grid(unsigned int seed)
-	: perlin_gen(seed) {
+  : perlin_gen(seed), a(static_cast<int>(seed)) { //why is "a" a mersenne twister? Have fun.
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
-  //perlin_gen.add_octave(0.4, 5);
+  perlin_gen.add_octave(0.9, 5);
 
   randomly_generate();
 };
@@ -75,8 +75,17 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(SIZE,SIZE,&feature,total_iters);
 
   //agent[middle][middle] = new Wolf {middle + 10, middle};
+  add_people_to_grid();
 };
 
+
+void Grid::add_people_to_grid() {
+  for (int i = 0; i < 10; i ++) {
+	for (int j = 0; j < 10; j++) {
+	  agent[i][j] = new Agent{this->a,0,0,"abc",30,30};
+	};
+  };
+};
 
 
 // bool Grid::check_move(Agent &a, Dir a) {

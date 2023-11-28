@@ -26,4 +26,5 @@ protected:
   int pos_y;
   int spritesheet_pos_x;
   int spritesheet_pos_y;
+  bool walkable = true;
 };

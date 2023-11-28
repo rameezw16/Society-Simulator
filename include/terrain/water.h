@@ -7,5 +7,6 @@ public:
 	~Water();
 
 	virtual void interact_randomly() override;
+  bool walkable = false;
         
 };

@@ -11,6 +11,7 @@
 #include "./size.h"
 #include "./dir.h"
 #include <SDL2/SDL.h>
+#include <random>
 
 
 // We will now make a grid of entities, this contains a spritesheet
@@ -22,6 +23,7 @@ public:
 
   void randomly_generate();
   void random_walk(int x, int y);
+  void add_people_to_grid();
 
   //making this public just for testing
   
@@ -34,6 +36,7 @@ public:
 
 private:
   Perlin perlin_gen;
+  std::mt19937 a; 
 
   const int gridsize = SIZE;
 };
