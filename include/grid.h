@@ -28,6 +28,8 @@ public:
   //making this public just for testing
   
   bool check_move(Agent *a, Dir direction);
+
+  void step();
   void pathfind(Agent *a);
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation

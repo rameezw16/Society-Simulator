@@ -1,8 +1,9 @@
 #include <random>
+#include <ctime>
 
 class Dir {
 public:
-  Dir(); //just calling it like this will make it generate randomly
+  Dir(int seed); //just calling it like this will make it generate randomly
 
   Dir(int x, int y);
 

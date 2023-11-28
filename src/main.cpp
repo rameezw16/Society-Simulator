@@ -54,6 +54,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     }
     else {
       //Int_Manager->interact_all();
+	  game_grid.step();
       count = 0;
     }
 

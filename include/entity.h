@@ -20,11 +20,11 @@ public:
   int get_spritesheet_pos_x() const;
   int get_spritesheet_pos_y() const;
 
+  bool walkable = true;
 
 protected:
   int pos_x;
   int pos_y;
   int spritesheet_pos_x;
   int spritesheet_pos_y;
-  bool walkable = true;
 };
