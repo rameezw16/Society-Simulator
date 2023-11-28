@@ -88,12 +88,15 @@ void Grid::add_people_to_grid() {
 };
 
 
-// bool Grid::check_move(Agent &a, Dir a) {
-//   return true;
+bool Grid::check_move(Agent &a, Dir direction) {
+  int proposed_x = a.posX + direction.get_x(); 
+  int proposed_y = a.posY + direction.get_y(); 
 
-// };
+  return (!terrain[proposed_x][proposed_y] && !feature[proposed_x][proposed_y]); //can move with to place with no terrain and features
+};
 
-
+void Grid::make_move(Agent &a) {
+};
 
 
 

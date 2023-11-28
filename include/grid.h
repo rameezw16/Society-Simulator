@@ -27,7 +27,8 @@ public:
 
   //making this public just for testing
   
-  // bool check_move(Agent &a, Dir a); // 
+  bool check_move(Agent &a, Dir direction);
+  void make_move(Agent &a);
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
