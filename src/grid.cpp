@@ -95,7 +95,7 @@ bool Grid::check_move(Agent &a, Dir direction) {
   return (!terrain[proposed_x][proposed_y] && !feature[proposed_x][proposed_y]); //can move with to place with no terrain and features
 };
 
-void Grid::make_move(Agent &a) {
+void Grid::pathfind(Agent &a) {
 };
 
 

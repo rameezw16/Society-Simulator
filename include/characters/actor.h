@@ -47,6 +47,14 @@ public:
   int posX = 30, posY = 30;
 
 
+
+
+  Entity* goal_entity {nullptr};
+  int goal_x, goal_y {};
+  std::string action {};
+  
+
+
   
 
 private:
