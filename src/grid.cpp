@@ -2,15 +2,10 @@
 #include <iostream>
 // SIZE is the internal grid representation
 
-<<<<<<< HEAD
-Grid::Grid(unsigned int seed) : perlin_gen(seed), mt(seed) {
-=======
-Grid::Grid(unsigned int seed)
-	: perlin_gen(seed) {
->>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
+Grid::Grid(unsigned int seed) : perlin_gen(seed), mt(static_cast<int>(seed)) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
-  // perlin_gen.add_octave(0.4, 5);
+  //perlin_gen.add_octave(0.4, 5);
 
   randomly_generate();
 };
@@ -47,26 +42,22 @@ void Grid::randomly_generate() {
       case 2:
         terrain[i][j] = new Dirt{i, j};
         feature[i][j] = nullptr;
-        agent[i][j] = nullptr;
+        agent[i][j] = nullptr;	//
         break;
       };
     };
   };
-};
-
-<<<<<<< HEAD
-void Grid::random_walk_generation() {
+  // do random walk and break features
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
-=======
->>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
+<<<<<<< HEAD
+void Grid::random_walk_generation() {
 
   Random_Walker random_walker{SIZE, seed};
 
   const int middle = SIZE / 2;
 
   const int total_iters = 500;
-
 
   random_walker.destructive_walk(middle, middle, &feature, 500);
   random_walker.destructive_walk(middle, middle, &feature, 500);
@@ -81,46 +72,56 @@ void Grid::random_walk_generation() {
   random_walker.creative_walk_water(0, SIZE, &terrain, total_iters);
   random_walker.creative_walk_water(SIZE, SIZE, &terrain, total_iters);
 
-<<<<<<< HEAD
   random_walker.creative_walk_fauna(0, 0, &feature, total_iters);
   random_walker.creative_walk_fauna(SIZE, 0, &feature, total_iters);
   random_walker.creative_walk_fauna(0, SIZE, &feature, total_iters);
   random_walker.creative_walk_fauna(SIZE, SIZE, &feature, total_iters);
+
+  // agent[middle][middle] = new Wolf {middle + 10, middle};
+  add_people_to_grid();
 };
 
-void Grid::seed_people() {
-
-  for (int i = 0; i < 10; i++) // allocate
-    new Agent{mt};
-
-  for (std::pair<int, Agent *> iter_agent :
-       Agent::AgentList) { // put into internal representation
-    agent[iter_agent.second->posX][iter_agent.second->posY] = iter_agent.second;
+void Grid::add_people_to_grid() {
+  for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
+      agent[i][j] = new Agent{this->mt, 0, 0, "abc", 30, 30};
+    };
   };
+};
+
+bool Grid::check_move(Agent *a, Dir direction) {
+  int proposed_x = direction.get_x();
+  int proposed_y = direction.get_y();
+  bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
+  bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->walkable;
+
+  if (proposed_x > SIZE || proposed_x < 0 || proposed_y > SIZE || proposed_y < 0) return false;
+
+
+  return (terrain[proposed_x][proposed_y]->get_walkable() && walkable_feature); // can move with to place with no
+                                             // terrain and features
 };
 
 void Grid::step() {
 
-  for (int i = 0; i < SIZE; i++) {
-    for (int j = 0; j < SIZE; j++) {
-    };
-  };
-};
-=======
-  //agent[middle][middle] = new Wolf {middle + 10, middle};
-
-
-
+  for (int i = 0; i < SIZE; ++i) {
+    for (int j = 0; j < SIZE; ++j) {
+      if (agent[i][j] != nullptr) {
+		pathfind(agent[i][j]);
+      }
+    }
+  }
 
 };
 
+void Grid::pathfind(Agent *a) {
 
+  Dir random_proposed{static_cast<int>(mt())}; // empty constructor makes it generate
+                         // randomly
 
+  random_proposed.set_x(a->posX + random_proposed.get_x());
+  random_proposed.set_y(a->posY + random_proposed.get_y());
 
-
-
-
-
-
-
->>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
+  bool valid = check_move(a, random_proposed);
+  if (valid) {a->move_agent(random_proposed.get_x(), random_proposed.get_y());};
+};

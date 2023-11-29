@@ -10,6 +10,8 @@ public:
 
   virtual ~Entity();
   virtual void interact_randomly() = 0;
+  virtual bool get_walkable() const = 0;
+
 
   void set_position(const int pos_x,
 					const int pos_y); // set top left corner of the sprite
@@ -20,6 +22,7 @@ public:
   int get_spritesheet_pos_x() const;
   int get_spritesheet_pos_y() const;
 
+  bool walkable = true;
 
 protected:
   int pos_x;

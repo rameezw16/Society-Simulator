@@ -8,6 +8,8 @@ Feature::Feature(const int pos_x, const int pos_y, const int spritesheet_pos_x, 
 Feature::~Feature() = default;
 void Feature::interact_randomly() {};
 
+bool Feature::get_walkable() const { return this->walkable;};
+
 /*
 Grass::Grass(const int pos_x, const int pos_y, const int spritesheet_pos_x,
 						 const int spritesheet_pos_y)
