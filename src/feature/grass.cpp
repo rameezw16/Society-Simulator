@@ -6,7 +6,6 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level, const int f
 Grass::~Grass() = default;
 
 void Grass::step() {
-  this->grow_back();
   this->update_sprite();
 }
 
