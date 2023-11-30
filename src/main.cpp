@@ -1,5 +1,5 @@
 #include "../include/Interaction_Manager.hpp"
-#include "../include/characters/actor.h"
+#include "../include/characters/agent.h"
 #include "../include/entity.h"
 #include "../include/size.h"
 #include "../include/spritesheet.hpp"

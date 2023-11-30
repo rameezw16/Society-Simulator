@@ -7,7 +7,7 @@
 #include "./features/grass.h"
 #include "./terrain/wall.h"
 #include "./randomwalker.h"
-#include "./characters/actor.h"
+#include "./characters/agent.h"
 #include "./size.h"
 #include "./dir.h"
 #include <SDL2/SDL.h>

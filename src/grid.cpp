@@ -80,7 +80,7 @@ void Grid::randomly_generate() {
 void Grid::add_people_to_grid() {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
-      if (feature[i][j] == nullptr && (terrain[i][j]->get_type() != "water") && (mt() % 200 == 1))
+      if (feature[i][j] == nullptr && (terrain[i][j]->get_walkable() == false) && (mt() % 200 == 1))
         agent[i][j] = new Agent{this->mt, 0, 0, "abc", i, j};
     };
   };
@@ -89,13 +89,13 @@ void Grid::add_people_to_grid() {
 bool Grid::check_move(Agent *a, Dir direction) {
   int proposed_x = direction.get_x();
   int proposed_y = direction.get_y();
-  bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
-  bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->get_walkable();
-
   if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE || proposed_y <= 0) return false;
+  bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
+  bool can_walk = non_existant_feature;
+  if (!non_existant_feature) can_walk = feature[proposed_x][proposed_y]->get_walkable();
 
 
-  return (terrain[proposed_x][proposed_y]->get_walkable() && walkable_feature); // can move with to place with no
+  return (terrain[proposed_x][proposed_y]->get_walkable() && can_walk); // can move with to place with no
                                              // terrain and features
 };
 

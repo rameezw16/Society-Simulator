@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "terrain/terrain.h"
 #include "features/feature.h"
-#include "characters/actor.h"
+#include "characters/agent.h"
 #include "grid.h"
 #include "./size.h"
 #include <SDL2/SDL.h>

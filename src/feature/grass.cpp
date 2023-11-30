@@ -6,6 +6,7 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level, const int f
 Grass::~Grass() = default;
 
 void Grass::step() {
+  this->consume();
   this->update_sprite();
 }
 
@@ -16,11 +17,15 @@ void Grass::grow_back() {
 
 
 void Grass::consume() {
-  if (food_level - 1 > 0) food_level--;
+  if (food_level != 0) food_level--;
 }
 
 void Grass::update_sprite() {
   if (food_level == 0) { //barren
+    spritesheet_pos_x = 0;
+    spritesheet_pos_y = 0;
+  }
+  else if (food_level == 1) { //barren
     spritesheet_pos_x = 26;
     spritesheet_pos_y = 13;
   }

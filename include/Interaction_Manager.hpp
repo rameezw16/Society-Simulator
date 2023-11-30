@@ -1,5 +1,5 @@
 #pragma once
-#include "characters/actor.h"
+#include "characters/agent.h"
 #include <random>
 #include <ctime>
 #include <set>

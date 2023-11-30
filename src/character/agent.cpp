@@ -1,4 +1,4 @@
-#include "../../include/characters/actor.h"
+#include "../../include/characters/agent.h"
 
 
 Agent::Agent(std::mt19937& mt, const int spritesheet_pos_x, const int spritesheet_pos_y, std::string name, int posX, int posY) : Entity(posX, posY, spritesheet_pos_x, spritesheet_pos_y)
