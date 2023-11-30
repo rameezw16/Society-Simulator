@@ -25,6 +25,8 @@ void Entity::set_sprite(const int spritesheet_pos_x,
 int Entity::get_spritesheet_pos_x() const { return spritesheet_pos_x; };
 int Entity::get_spritesheet_pos_y() const { return spritesheet_pos_y; };
 
+std::string Entity::get_type() {return this->type;};
+
 //terrain
 
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <SDL2/SDL.h>
 // #include "./spritesheet.hpp"
 #define SIZE_OCCUPIED 10
@@ -11,6 +12,7 @@ public:
   virtual ~Entity();
   virtual void interact_randomly() = 0;
   virtual bool get_walkable() const = 0;
+  std::string get_type();
 
 
   void set_position(const int pos_x,
@@ -23,6 +25,7 @@ public:
   int get_spritesheet_pos_y() const;
 
   bool walkable = true;
+  std::string type = "entity";
 
 protected:
   int pos_x;

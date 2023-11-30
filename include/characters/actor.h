@@ -16,6 +16,7 @@ public:
   Agent(std::mt19937 &mt, const int spritesheet_pos_x = 0,
 		const int spritesheet_pos_y = 0, std::string name = "", int posX = 30,
 		int posY = 30);
+
   virtual ~Agent();
   bool get_walkable() const override;
 
@@ -55,6 +56,8 @@ public:
   Entity* goal_entity {nullptr};
   int goal_x, goal_y {};
   std::string action {};
+
+
   
 
 

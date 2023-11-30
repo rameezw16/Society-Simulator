@@ -9,6 +9,7 @@ public:
   //9 and 33 for darker dirt
   ~Dirt();
   void interact_randomly() override;
+  std::string type = "dirt";
 };
 
 

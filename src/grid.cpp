@@ -80,7 +80,7 @@ void Grid::randomly_generate() {
 void Grid::add_people_to_grid() {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
-      if (feature[i][j] == nullptr && (mt() % 100 == 1))
+      if (feature[i][j] == nullptr && (terrain[i][j]->get_type() != "water") && (mt() % 200 == 1))
         agent[i][j] = new Agent{this->mt, 0, 0, "abc", i, j};
     };
   };

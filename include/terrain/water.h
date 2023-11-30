@@ -12,5 +12,6 @@ public:
 
   virtual void interact_randomly() override;
   bool walkable = false;
+  std::string type = "water";
         
 };
