@@ -44,7 +44,7 @@ Agent::Agent(std::mt19937& mt, const int spritesheet_pos_x, const int spriteshee
     agentFile.close();
     
     // add relations
-    this->initialise_relations();
+    //this->initialise_relations();
 
     // store Agent in list
     AgentList[this->id] = this;

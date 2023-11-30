@@ -48,6 +48,8 @@ public:
   int posX = 30, posY = 30;
 
 
+  //Hamad's changes start here
+
 
 
   Entity* goal_entity {nullptr};

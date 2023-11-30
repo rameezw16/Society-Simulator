@@ -25,7 +25,7 @@ void Grid::randomly_generate() {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
       double noise = perlin_gen.get_noise(i, j);
-      int selection = (int)(noise * 10) % 3;
+      int selection = (int)(noise * 10) % 5;
       switch (selection) {
       case 1:
         terrain[i][j] = new Dirt{i, j, 13, 24}; //13 and 24 for bright dirt
@@ -37,7 +37,7 @@ void Grid::randomly_generate() {
         feature[i][j] = new Wall{i, j};
         agent[i][j] = nullptr;
         break;
-      case 2:
+      default:
         terrain[i][j] = new Dirt{i, j};
         feature[i][j] = nullptr;
         agent[i][j] = nullptr;	//
@@ -78,9 +78,10 @@ void Grid::randomly_generate() {
 };
 
 void Grid::add_people_to_grid() {
-  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
-      agent[i][j] = new Agent{this->mt, 0, 0, "abc", 30, 30};
+  for (int i = 0; i < SIZE; i++) {
+    for (int j = 0; j < SIZE; j++) {
+      if (feature[i][j] == nullptr && (mt() % 100 == 1))
+        agent[i][j] = new Agent{this->mt, 0, 0, "abc", i, j};
     };
   };
 };
@@ -91,7 +92,7 @@ bool Grid::check_move(Agent *a, Dir direction) {
   bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
   bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->walkable;
 
-  if (proposed_x > SIZE || proposed_x < 0 || proposed_y > SIZE || proposed_y < 0) return false;
+  if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE || proposed_y <= 0) return false;
 
 
   return (terrain[proposed_x][proposed_y]->get_walkable() && walkable_feature); // can move with to place with no
