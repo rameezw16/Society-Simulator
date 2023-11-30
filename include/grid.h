@@ -38,12 +38,6 @@ public:
   //Agent list in Agent class
 
 private:
-<<<<<<< HEAD
-  Perlin erlin_gen;
-  std::mt19937 mt; 
-
-  Interaction_Manager* interaction_manager;
-=======
   Perlin perlin_gen;
   std::mt19937 mt; 
 

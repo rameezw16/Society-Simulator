@@ -5,7 +5,7 @@
 Grid::Grid(unsigned int seed) : perlin_gen(seed), mt(static_cast<int>(seed)) {
   perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
-  //perlin_gen.add_octave(0.4, 5);
+  perlin_gen.add_octave(0.9, 5);
 
   randomly_generate();
 };
@@ -18,12 +18,8 @@ Grid::~Grid() {
   };
 };
 
-<<<<<<< HEAD
-void Grid::perlin_generation() {
-=======
 // internal representation
 void Grid::randomly_generate() {
->>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
       double noise = perlin_gen.get_noise(i, j);
@@ -50,8 +46,6 @@ void Grid::randomly_generate() {
   // do random walk and break features
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
-<<<<<<< HEAD
-void Grid::random_walk_generation() {
 
   Random_Walker random_walker{SIZE, seed};
 
