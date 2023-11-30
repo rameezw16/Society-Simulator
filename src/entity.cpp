@@ -27,6 +27,9 @@ int Entity::get_spritesheet_pos_y() const { return spritesheet_pos_y; };
 
 std::string Entity::get_type() {return this->type;};
 
+
+bool Entity::get_walkable() const {return this->walkable;};
+
 //terrain
 
 

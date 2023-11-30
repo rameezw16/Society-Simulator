@@ -18,10 +18,8 @@ public:
 		int posY = 30);
 
   virtual ~Agent();
-  bool get_walkable() const override;
 
-  void interact_randomly() override;
- 
+
   static int count;
   static std::map<int, Agent *> AgentList;
   static std::map<int, std::map<int, Relationship>> RelationshipMap;
@@ -48,6 +46,7 @@ public:
 
   int posX = 30, posY = 30;
 
+  bool walkable = false;
 
   //Hamad's changes start here
 

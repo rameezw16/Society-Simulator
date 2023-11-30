@@ -35,8 +35,8 @@ void Grid::randomly_generate() {
         agent[i][j] = nullptr;
         break;
       case 0:
-        terrain[i][j] = new Dirt{i, j};
-        feature[i][j] = new Wall{i, j};
+        terrain[i][j] = new Wall{i, j};
+        feature[i][j] = nullptr;
         agent[i][j] = nullptr;
         break;
       default:
@@ -47,33 +47,31 @@ void Grid::randomly_generate() {
       };
     };
   };
-  // do random walk and break features
 
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
-
   Random_Walker random_walker{SIZE, seed};
-
   const int middle = SIZE / 2;
-
   const int total_iters = 500;
 
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-  random_walker.destructive_walk(middle, middle, &feature, 500);
-  
-  random_walker.creative_walk_fauna(middle, middle, &feature, total_iters);
-  random_walker.creative_walk_water(middle, middle, &terrain, total_iters * 3);
+  //destroy things
+  random_walker.destructive_walk(middle, middle, &terrain, 500);
+  random_walker.destructive_walk(middle, middle, &terrain, 500);
+  random_walker.destructive_walk(middle, middle, &terrain, 500);
 
+  //add fauna
+  random_walker.creative_walk_fauna(middle, middle, &feature, total_iters);
+  random_walker.creative_walk_fauna(0, 0, &feature, total_iters);
+  random_walker.creative_walk_fauna(SIZE, 0, &feature, total_iters);
+  random_walker.creative_walk_fauna(0, SIZE, &feature, total_iters);
+  random_walker.creative_walk_fauna(SIZE, SIZE, &feature, total_iters);
+  //add water
+  random_walker.creative_walk_water(middle, middle, &terrain, total_iters * 3);
   random_walker.creative_walk_water(0, 0, &terrain, total_iters);
   random_walker.creative_walk_water(SIZE, 0, &terrain, total_iters);
   random_walker.creative_walk_water(middle, middle, &terrain, total_iters);
   random_walker.creative_walk_water(0, SIZE, &terrain, total_iters);
   random_walker.creative_walk_water(SIZE, SIZE, &terrain, total_iters);
 
-  random_walker.creative_walk_fauna(0, 0, &feature, total_iters);
-  random_walker.creative_walk_fauna(SIZE, 0, &feature, total_iters);
-  random_walker.creative_walk_fauna(0, SIZE, &feature, total_iters);
-  random_walker.creative_walk_fauna(SIZE, SIZE, &feature, total_iters);
 
   add_people_to_grid();
 };

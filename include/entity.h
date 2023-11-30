@@ -10,8 +10,7 @@ public:
 		 const int spritesheet_pos_y);
 
   virtual ~Entity();
-  virtual void interact_randomly() = 0;
-  virtual bool get_walkable() const = 0;
+  bool get_walkable() const;
   std::string get_type();
 
 

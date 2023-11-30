@@ -20,30 +20,31 @@ void Random_Walker::random_walk() {
   std::cout << x << " " << y << " " << x_dir << " " << y_dir << "\n";
 };
 
-void Random_Walker::destructive_walk(int x, int y, Feature *(*feature)[SIZE][SIZE],
+void Random_Walker::destructive_walk(int x, int y, Terrain *(*terrain)[SIZE][SIZE],
 									 int iterations) {
   this->x = x;
   this->y = y;
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-	Entity *feature_to_be_deleted = (*feature)[this->x][this->y];
-	if (feature_to_be_deleted != nullptr) {
-	  delete (*feature)[this->x][this->y];
-	  (*feature)[this->x][this->y] = nullptr;
+	Entity *terrain_to_be_deleted = (*terrain)[this->x][this->y];
+	if (terrain_to_be_deleted->type == "wall") {
+	  delete (*terrain)[this->x][this->y];
+	  (*terrain)[this->x][this->y] = nullptr;
+	  (*terrain)[this->x][this->y] = new Dirt{this->x,this->y};
 	};
   };
 };
 
 void Random_Walker::creative_walk_walls(int x, int y,
-										Feature *(*feature)[SIZE][SIZE],
+										Terrain *(*terrain)[SIZE][SIZE],
 										int iterations) {
   this->x = x;
   this->y = y;
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-    if ((*feature)[this->x][this->y])(*feature)[this->x][this->y] = new Wall{this->x, this->y};
+    if ((*terrain)[this->x][this->y])(*terrain)[this->x][this->y] = new Wall{this->x, this->y};
     std::cout << "made new class";
   };
 };

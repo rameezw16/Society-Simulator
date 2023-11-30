@@ -5,7 +5,7 @@
 #include "./terrain/water.h"
 #include "./terrain/dirt.h"
 #include "./features/grass.h"
-#include "./features/wall.h"
+#include "./terrain/wall.h"
 #include "./randomwalker.h"
 #include "./characters/actor.h"
 #include "./size.h"

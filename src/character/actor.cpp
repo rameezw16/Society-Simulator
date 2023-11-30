@@ -1,6 +1,5 @@
 #include "../../include/characters/actor.h"
 
-void Agent::interact_randomly() {};
 
 Agent::Agent(std::mt19937& mt, const int spritesheet_pos_x, const int spritesheet_pos_y, std::string name, int posX, int posY) : Entity(posX, posY, spritesheet_pos_x, spritesheet_pos_y)
 {
@@ -180,5 +179,3 @@ std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Tayl
 
 int Agent::GRID_WIDTH = SIZE;
 int Agent::GRID_HEIGHT = SIZE;
-
-bool Agent::get_walkable() const {return this->walkable;};
