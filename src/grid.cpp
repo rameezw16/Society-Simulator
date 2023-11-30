@@ -2,10 +2,12 @@
 #include <iostream>
 // SIZE is the internal grid representation
 
-Grid::Grid(unsigned int seed) : perlin_gen(seed), mt(static_cast<int>(seed)) {
+Grid::Grid(unsigned int seed) : perlin_gen(seed), food(seed), mt(static_cast<int>(seed)) {
   perlin_gen.add_octave(0.1, 5);
-  //perlin_gen.add_octave(0.1, 5);
   perlin_gen.add_octave(0.9, 5);
+
+
+  food.add_octave(0.3,5);
 
   randomly_generate();
 };
@@ -73,7 +75,6 @@ void Grid::randomly_generate() {
   random_walker.creative_walk_fauna(0, SIZE, &feature, total_iters);
   random_walker.creative_walk_fauna(SIZE, SIZE, &feature, total_iters);
 
-  // agent[middle][middle] = new Wolf {middle + 10, middle};
   add_people_to_grid();
 };
 

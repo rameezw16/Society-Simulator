@@ -58,6 +58,11 @@ public:
   std::string action {};
 
 
+  int amount_of_food;
+  int metabolism; //each step reduce by this amount
+  int vision; //size of vision
+
+
   
 
 

@@ -39,6 +39,7 @@ public:
 
 private:
   Perlin perlin_gen;
+  Perlin food;
   std::mt19937 mt; 
 
   const int gridsize = SIZE;
