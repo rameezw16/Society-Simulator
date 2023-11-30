@@ -8,6 +8,7 @@
 #include <iostream>
 #include <random>
 
+
 const int FPS = 60;
 const int frame_delay = 1000 / FPS;
 
