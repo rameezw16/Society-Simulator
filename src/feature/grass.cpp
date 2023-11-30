@@ -6,7 +6,7 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level, const int f
 Grass::~Grass() = default;
 
 void Grass::step() {
-  std::cout << "We're running grass";
+  this->grow_back();
   this->update_sprite();
 }
 
@@ -22,19 +22,27 @@ void Grass::consume() {
 
 void Grass::update_sprite() {
   if (food_level == 0) { //barren
-    spritesheet_pos_x = 23;
-    spritesheet_pos_y = 12;
-  }
-  else if (food_level < 3) { //seedling
-    spritesheet_pos_x = 23;
+    spritesheet_pos_x = 26;
     spritesheet_pos_y = 13;
   }
-  else if (food_level < 5) { //bud
-    spritesheet_pos_x = 24;
+  else if (food_level < 2) { //seedling
+    spritesheet_pos_x = 27;
+    spritesheet_pos_y = 13;
+  }
+  else if (food_level < 4) { //bud
+    spritesheet_pos_x = 28;
+    spritesheet_pos_y = 13;
+  }
+  else if (food_level < 6) { //plant
+    spritesheet_pos_x = 29;
+    spritesheet_pos_y = 13;
+  }
+  else if (food_level < 8) { //tree
+    spritesheet_pos_x = 30;
     spritesheet_pos_y = 13;
   }
   else if (food_level < 10) { //forest
-    spritesheet_pos_x = 25;
+    spritesheet_pos_x = 31;
     spritesheet_pos_y = 13;
   }
 }
