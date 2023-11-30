@@ -3,12 +3,13 @@
 // SIZE is the internal grid representation
 
 Grid::Grid(unsigned int seed) : perlin_gen(seed), mt(static_cast<int>(seed)) {
-  perlin_gen.add_octave(0.3, 5);
   perlin_gen.add_octave(0.1, 5);
+  //perlin_gen.add_octave(0.1, 5);
   perlin_gen.add_octave(0.9, 5);
 
   randomly_generate();
 };
+
 
 Grid::~Grid() {
   for (int i = 0; i < SIZE; i++) {
@@ -18,6 +19,7 @@ Grid::~Grid() {
   };
 };
 
+
 // internal representation
 void Grid::randomly_generate() {
   for (int i = 0; i < SIZE; i++) {
@@ -26,7 +28,7 @@ void Grid::randomly_generate() {
       int selection = (int)(noise * 10) % 3;
       switch (selection) {
       case 1:
-        terrain[i][j] = new Dirt{i, j};
+        terrain[i][j] = new Dirt{i, j, 13, 24}; //13 and 24 for bright dirt
         feature[i][j] = nullptr; // new Grass {i, j};
         agent[i][j] = nullptr;
         break;
@@ -56,7 +58,7 @@ void Grid::randomly_generate() {
   random_walker.destructive_walk(middle, middle, &feature, 500);
   random_walker.destructive_walk(middle, middle, &feature, 500);
   random_walker.destructive_walk(middle, middle, &feature, 500);
-
+  
   random_walker.creative_walk_fauna(middle, middle, &feature, total_iters);
   random_walker.creative_walk_water(middle, middle, &terrain, total_iters * 3);
 
