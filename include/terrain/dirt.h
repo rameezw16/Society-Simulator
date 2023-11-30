@@ -7,6 +7,8 @@ public:
   //13 and 24 for bright dirt
   //9 and 33 for darker dirt
   ~Dirt();
+  bool get_walkable() const override;
+  std::string get_type() const override;
   std::string type = "dirt";
 };
 

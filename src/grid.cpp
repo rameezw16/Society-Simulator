@@ -58,12 +58,13 @@ void Grid::randomly_generate() {
   random_walker.destructive_walk(middle, middle, &terrain, 500);
   random_walker.destructive_walk(middle, middle, &terrain, 500);
 
-  //add fauna
+  //add features
   random_walker.creative_walk_fauna(middle, middle, &feature, total_iters);
   random_walker.creative_walk_fauna(0, 0, &feature, total_iters);
   random_walker.creative_walk_fauna(SIZE, 0, &feature, total_iters);
   random_walker.creative_walk_fauna(0, SIZE, &feature, total_iters);
   random_walker.creative_walk_fauna(SIZE, SIZE, &feature, total_iters);
+
   //add water
   random_walker.creative_walk_water(middle, middle, &terrain, total_iters * 3);
   random_walker.creative_walk_water(0, 0, &terrain, total_iters);
@@ -89,7 +90,7 @@ bool Grid::check_move(Agent *a, Dir direction) {
   int proposed_x = direction.get_x();
   int proposed_y = direction.get_y();
   bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
-  bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->walkable;
+  bool walkable_feature = non_existant_feature || feature[proposed_x][proposed_y]->get_walkable();
 
   if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE || proposed_y <= 0) return false;
 
@@ -103,7 +104,11 @@ void Grid::step() {
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
       if (agent[i][j] != nullptr) {
-		pathfind(agent[i][j]);
+        pathfind(agent[i][j]);
+      }
+
+      if (feature[i][j] != nullptr) {
+        feature[i][j]->step();
       }
     }
   }

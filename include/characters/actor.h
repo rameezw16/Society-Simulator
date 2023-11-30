@@ -19,6 +19,9 @@ public:
 
   virtual ~Agent();
 
+  bool get_walkable() const ;
+  std::string get_type() const ;
+
 
   static int count;
   static std::map<int, Agent *> AgentList;

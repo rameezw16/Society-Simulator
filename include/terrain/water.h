@@ -6,6 +6,8 @@ public:
 	Water(const int pos_x, const int pos_y, const int spritesheet_pos_x = 13, const int spritesheet_pos_y = 19);
 	~Water();
 
+  bool get_walkable() const override;
+  std::string get_type() const override;
 
   bool walkable = false;
   std::string type = "water";

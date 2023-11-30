@@ -10,8 +10,6 @@ public:
 		 const int spritesheet_pos_y);
 
   virtual ~Entity();
-  bool get_walkable() const;
-  std::string get_type();
 
 
   void set_position(const int pos_x,
@@ -23,10 +21,11 @@ public:
   int get_spritesheet_pos_x() const;
   int get_spritesheet_pos_y() const;
 
-  bool walkable = true;
-  std::string type = "entity";
+
 
 protected:
+  bool walkable = true;
+  std::string type = "entity";
   int pos_x;
   int pos_y;
   int spritesheet_pos_x;

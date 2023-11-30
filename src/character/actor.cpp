@@ -179,3 +179,6 @@ std::vector<std::string> Agent::lname_list = {"Smith", "Johnson", "Brown", "Tayl
 
 int Agent::GRID_WIDTH = SIZE;
 int Agent::GRID_HEIGHT = SIZE;
+
+bool Agent::get_walkable() const {return this->walkable;};
+std::string Agent::get_type() const {return this->type;};

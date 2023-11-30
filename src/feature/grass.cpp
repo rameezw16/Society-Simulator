@@ -5,6 +5,11 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level, const int f
 	: Feature(pos_x, pos_y, spritesheet_pos_x, spritesheet_pos_y), food_level(food_level), food_capacity(food_capacity) {};
 Grass::~Grass() = default;
 
+void Grass::step() {
+  std::cout << "We're running grass";
+  this->update_sprite();
+}
+
 
 void Grass::grow_back() {
   if (food_level + 1 < food_capacity) food_level++;
@@ -20,10 +25,9 @@ void Grass::update_sprite() {
     spritesheet_pos_x = 23;
     spritesheet_pos_y = 12;
   }
-
   else if (food_level < 3) { //seedling
     spritesheet_pos_x = 23;
-    spritesheet_pos_y = 13;//13 or 12
+    spritesheet_pos_y = 13;
   }
   else if (food_level < 5) { //bud
     spritesheet_pos_x = 24;
@@ -34,3 +38,6 @@ void Grass::update_sprite() {
     spritesheet_pos_y = 13;
   }
 }
+
+bool Grass::get_walkable() const {return this->walkable;};
+std::string Grass::get_type() const {return this->type;};

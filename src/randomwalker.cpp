@@ -27,8 +27,8 @@ void Random_Walker::destructive_walk(int x, int y, Terrain *(*terrain)[SIZE][SIZ
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-	Entity *terrain_to_be_deleted = (*terrain)[this->x][this->y];
-	if (terrain_to_be_deleted->type == "wall") {
+	Terrain *terrain_to_be_deleted = (*terrain)[this->x][this->y];
+	if (terrain_to_be_deleted->get_type() == "wall") {
 	  delete (*terrain)[this->x][this->y];
 	  (*terrain)[this->x][this->y] = nullptr;
 	  (*terrain)[this->x][this->y] = new Dirt{this->x,this->y};
@@ -44,8 +44,7 @@ void Random_Walker::creative_walk_walls(int x, int y,
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-    if ((*terrain)[this->x][this->y])(*terrain)[this->x][this->y] = new Wall{this->x, this->y};
-    std::cout << "made new class";
+    if ((*terrain)[this->x][this->y]) (*terrain)[this->x][this->y] = new Wall{this->x, this->y};
   };
 };
 
@@ -57,10 +56,9 @@ void Random_Walker::creative_walk_fauna(int x, int y,
   this->y = y;
 
   for (int i = 0; i < iterations; i++) {
-	random_walk();
-	//if (strcmp(typeid((*feature)[this->x][this->y]).name(), "Water")) return;
-    (*feature)[this->x][this->y] = new Grass{this->x, this->y};
-    std::cout << "made new class";
+    random_walk();
+    if ((*feature)[this->x][this->y] == nullptr) (*feature)[this->x][this->y] = new Grass{this->x, this->y, 5, 10};
+    std::cout << "made grass";
   };
 };
 
@@ -73,8 +71,6 @@ void Random_Walker::creative_walk_water(int x, int y, Terrain *(*terrain)[SIZE][
 
   for (int i = 0; i < iterations; i++) {
 	random_walk();
-	Entity *feature_to_be_added = (*terrain)[this->x][this->y];
 	(*terrain)[this->x][this->y] = new Water{this->x, this->y};
-	std::cout << "made new class";
   };
 };
