@@ -129,7 +129,8 @@ void Grid::step() {
       }
 
       if (feature[i][j] != nullptr) {
-        std::cout << feature[i][j]->get_type() << i << " " << j << "\n";
+        if (feature[i][j]->get_type() != "grass")
+          std::cout << feature[i][j]->get_type() << i << " " << j << "\n";
         // feature[i][j]->consume();
         // feature[i][j]->step();
       }
