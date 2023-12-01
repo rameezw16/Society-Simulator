@@ -62,20 +62,22 @@ void Grid::randomly_generate() {
 void Grid::create_walls() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
   Random_Walker<Wall> wall_replace{seed, terrain, feature};
-  wall_replace.walk_terrain();
+  wall_replace.walk_terrain(SIZE, SIZE);
 };
 
 void Grid::create_water() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(20, 20) * 10);
   Random_Walker<Water> water_replace{seed, terrain, feature, 500};
-  water_replace.walk_terrain();
+  water_replace.walk_terrain(0, 0);
+  water_replace.walk_terrain(SIZE, SIZE);
 }
 
 void Grid::create_fauna() {
   // add features
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(30, 30) * 10);
   Random_Walker<Grass> grass_replace{seed, terrain, feature, 500};
-  grass_replace.walk_feature();
+  grass_replace.walk_feature(0, 0);
+  grass_replace.walk_feature(SIZE, SIZE);
 }
 
 void Grid::add_people_to_grid() {
@@ -108,15 +110,12 @@ void Grid::step() {
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
       if (agent[i][j] != nullptr) {
-        // pathfind(agent[i][j]);
+        pathfind(agent[i][j]);
       }
 
       if (feature[i][j] != nullptr) {
-        // if (feature[i][j]->get_type() != "grass") {
-        // std::cout << feature[i][j]->get_type() << i << " " << j << "\n";
-        // feature[i][j]->consume();
-        // feature[i][j]->step();
-        // }
+        feature[i][j]->consume();
+        feature[i][j]->step();
       }
     }
   }

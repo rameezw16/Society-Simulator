@@ -22,7 +22,9 @@ public:
     srand(seed);
   };
 
-  void walk_terrain() {
+  void walk_terrain(int x, int y) {
+    this->x = x;
+    this->y = y;
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
@@ -40,7 +42,9 @@ public:
     patch_holes();
   };
 
-  void walk_feature() {
+  void walk_feature(int x, int y) {
+    this->x = x;
+    this->y = y;
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
