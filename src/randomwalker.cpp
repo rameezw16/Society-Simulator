@@ -51,15 +51,13 @@ void Random_Walker::creative_walk_walls(int x, int y,
 
   for (int i = 0; i < iterations; i++) {
     random_walk();
-    if (terrain[this->x][this->y] != nullptr) {
-      delete feature[this->x][this->y];
-      feature[this->x][this->y] = nullptr;
+    delete feature[this->x][this->y];
+    feature[this->x][this->y] = nullptr;
 
-      delete terrain[this->x][this->y];
-      terrain[this->x][this->y] = nullptr;
+    delete terrain[this->x][this->y];
+    terrain[this->x][this->y] = nullptr;
 
-      terrain[this->x][this->y] = new Wall{this->x, this->y};
-    };
+    terrain[this->x][this->y] = new Wall{this->x, this->y};
   };
 };
 
@@ -79,13 +77,11 @@ void Random_Walker::creative_walk_fauna(int x, int y,
 
     // delete the terrain, and replace with dirt
     delete terrain[this->x][this->y];
-    terrain[this->x][this->y] = new Dirt{this->x, this->y};
+    terrain[this->x][this->y] = nullptr;
 
+    terrain[this->x][this->y] = nullptr;
+    // new Dirt{this->x, this->y};
     feature[this->x][this->y] = new Grass{this->x, this->y, 10, 10};
-
-    if (feature[this->x][this->y] != nullptr &&
-        feature[this->x][this->y]->get_type() != "grass")
-      std::cout << feature[this->x][this->y]->get_type();
   };
 };
 
