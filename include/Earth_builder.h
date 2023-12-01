@@ -20,11 +20,11 @@ public:
   std::unique_ptr<Grid<std::unique_ptr<Feature>>> get_features();
 
 private:
-  // Thank god you only have to see this once
-  std::unique_ptr<Grid<std::unique_ptr<Terrain>>> terrain;
+  std::unique_ptr<Grid<std::unique_ptr<Terrain>>>
+      terrain; // this contains unique ptrs
   std::unique_ptr<Grid<std::unique_ptr<Feature>>> features;
   Perlin perlin_food;
-  Perlin perlin_terrain;
+  Perlin perlin_earth;
   // Random_Walker<Terrain> walker_terrain;
   // Random_Walker<Feature> walker_feature;
   unsigned int seed;

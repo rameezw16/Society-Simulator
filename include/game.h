@@ -11,6 +11,7 @@
 #include "./terrain/terrain.h"
 #include "./terrain/wall.h"
 #include "./terrain/water.h"
+#include "Earth_builder.h"
 #include <SDL2/SDL.h>
 #include <memory>
 #include <random>
@@ -20,23 +21,12 @@ public:
   Game(unsigned int seed = 1985);
   ~Game();
 
-  void randomly_generate();
-  void create_walls();
-  void create_water();
-  void create_fauna();
-  void populate();
-
-  // making this public just for testing
-  bool check_move(Agent *a, Dir direction);
-  void step();
-  void pathfind(Agent *a);
-
 private:
-  Grid<std::unique_ptr<Terrain>> terrain;
-  Grid<std::unique_ptr<Feature>> features;
-  Grid<std::unique_ptr<Agent>> agents;
+  Grid<Terrain> terrain;
+  Grid<Feature> features;
+  Grid<Agent> agents;
 
-  Perlin perlin_gen;
+  std::mt19937 mt;
 
   const int middle = SIZE / 2;
   const int total_iters = 500;
