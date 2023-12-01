@@ -33,9 +33,9 @@ void Earth_builder::random_walk_generation() {}
 void Earth_builder::cleanup() {}
 
 std::unique_ptr<Grid<std::unique_ptr<Terrain>>> Earth_builder::get_terrain() {
-  return (this->terrain);
+  return std::move(this->terrain);
 }
 
 std::unique_ptr<Grid<std::unique_ptr<Feature>>> Earth_builder::get_features() {
-  return std::move(this->features);
+  return (this->features);
 }
