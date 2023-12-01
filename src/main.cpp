@@ -8,24 +8,22 @@
 #include <iostream>
 #include <random>
 
-
 const int FPS = 60;
 const int frame_delay = 1000 / FPS;
 
 int main(int argc, char **argv) { // takes in seed as cli argument
   unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
 
-  char const *ss_feature =
-      "../resources/Bountiful-Bits-10x10-v-3.1/Colored/Full.png";
-  char const *ss_agent =
-      "../resources/Bit-Bonanza-10x10-v-4.1/Colored/People.png";
+  char const *ss_feature = "../resources/Bountiful-Bits-10x10-v-3.1/Colored/"
+                           "no-background/Full-no-bg.png";
+  char const *ss_agent = "../resources/Bit-Bonanza-10x10-v-4.1/Colored/"
+                         "no-background/People-no-bg.png";
   char const *ss_terrain = ss_feature;
 
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
   std::mt19937 a(static_cast<int>(seed));
 
-
-  //Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
+  // Interaction_Manager *Int_Manager = Interaction_Manager::getInstance();
 
   static Uint32 next_time;
 
@@ -52,10 +50,9 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     frame_time = SDL_GetTicks() - frame_start;
     if (count < max_count) {
       count++;
-    }
-    else {
-      //Int_Manager->interact_all();
-	  game_grid.step();
+    } else {
+      // Int_Manager->interact_all();
+      game_grid.step();
       count = 0;
     }
 
