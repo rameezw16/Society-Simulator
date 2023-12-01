@@ -4,8 +4,8 @@
 Game::Game(unsigned int seed) : mt(static_cast<int>(seed)) {
   Earth_builder perlin_builder{seed};
   perlin_builder.general_generation();
-  terrain = std::move(perlin_builder.get_terrain());
-  features = perlin_builder.get_features();
+  terrain = *perlin_builder.get_terrain(); // std::move each individual pointer
+  features = *perlin_builder.get_features();
 };
 
 std::unique_ptr<Terrain> get_terrain(int i, int j);

@@ -17,8 +17,8 @@ public:
   void random_walk_generation() override;
   void cleanup() override;
 
-  std::unique_ptr<Grid<std::unique_ptr<Terrain>>> get_terrain();
-  std::unique_ptr<Grid<std::unique_ptr<Feature>>> get_features();
+  std::unique_ptr<Grid<std::unique_ptr<Terrain>>> &get_terrain();
+  std::unique_ptr<Grid<std::unique_ptr<Feature>>> &get_features();
 
 private:
   std::unique_ptr<Grid<std::unique_ptr<Terrain>>>
