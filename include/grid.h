@@ -1,18 +1,17 @@
 #pragma once
-#include "./features/feature.h"
-#include "./perlin.h"
-#include "./terrain/terrain.h"
-#include "./terrain/water.h"
-#include "./terrain/dirt.h"
-#include "./features/grass.h"
-#include "./terrain/wall.h"
-#include "./randomwalker.h"
 #include "./characters/agent.h"
-#include "./size.h"
 #include "./dir.h"
+#include "./features/feature.h"
+#include "./features/grass.h"
+#include "./perlin.h"
+#include "./randomwalker.h"
+#include "./size.h"
+#include "./terrain/dirt.h"
+#include "./terrain/terrain.h"
+#include "./terrain/wall.h"
+#include "./terrain/water.h"
 #include <SDL2/SDL.h>
 #include <random>
-
 
 // We will now make a grid of entities, this contains a spritesheet
 
@@ -22,11 +21,13 @@ public:
   ~Grid();
 
   void randomly_generate();
-  void random_walk(int x, int y);
+  void destroy();
+  void create_water();
+  void create_fauna();
   void add_people_to_grid();
 
-  //making this public just for testing
-  
+  // making this public just for testing
+
   bool check_move(Agent *a, Dir direction);
 
   void step();
@@ -34,13 +35,15 @@ public:
 
   Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  Agent *agent[SIZE][SIZE];   // grid of entities located on terrain
-  //Agent list in Agent class
+  Agent *agent[SIZE][SIZE];     // grid of entities located on terrain
+  // Agent list in Agent class
 
 private:
   Perlin perlin_gen;
   Perlin food;
-  std::mt19937 mt; 
+  std::mt19937 mt;
+  const int middle = SIZE / 2;
+  const int total_iters = 500;
 
   const int gridsize = SIZE;
 };
