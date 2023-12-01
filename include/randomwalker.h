@@ -10,28 +10,85 @@
 #include <set>
 #include <typeinfo>
 
-class Random_Walker {
-public:
-  Random_Walker(int limit, unsigned int seed);
-  void random_walk();
-  void destructive_walk(int x, int y, Terrain *(&terrain)[SIZE][SIZE],
-                        Feature *(&feature)[SIZE][SIZE],
-                        int iterations); // 2d array of pointers to entities
-  void creative_walk_fauna(int x, int y, Terrain *(&terrain)[SIZE][SIZE],
-                           Feature *(&feature)[SIZE][SIZE],
-                           int iterations); // 2d array of pointers to entities
+#define THIS_FEATURE feature[this->x][this->y]
+#define THIS_TERRAIN terrain[this->x][this->y]
 
-  void creative_walk_walls(int x, int y, Terrain *(&terrain)[SIZE][SIZE],
-                           Feature *(&feature)[SIZE][SIZE],
-                           int iterations); // 2d array of pointers to entities
-  void creative_walk_water(int x, int y, Terrain *(&terrain)[SIZE][SIZE],
-                           Feature *(&feature)[SIZE][SIZE],
-                           int iterations); // 2d array of pointers to entities
+template <typename T> class Random_Walker {
+public:
+  Random_Walker(unsigned int seed, Terrain *(&terrain)[SIZE][SIZE],
+                Feature *(&feature)[SIZE][SIZE], int iterations = 500)
+      : limit(limit), seed(seed), terrain(terrain), feature(feature),
+        iterations(iterations) {
+    srand(seed);
+  };
+
+  void walk_terrain() {
+    for (int i = 0; i < iterations; ++i) {
+      random_walk();
+
+      if (THIS_FEATURE) {
+        delete THIS_TERRAIN;
+        THIS_TERRAIN = nullptr;
+      }
+
+      if (THIS_TERRAIN) {
+        delete THIS_TERRAIN;
+        THIS_TERRAIN = nullptr;
+      }
+      THIS_TERRAIN = new T{this->x, this->y};
+    }
+    patch_holes();
+  };
+
+  void walk_feature() {
+    for (int i = 0; i < iterations; ++i) {
+      random_walk();
+
+      if (THIS_FEATURE) {
+        delete THIS_TERRAIN;
+        THIS_TERRAIN = nullptr;
+      }
+
+      if (THIS_TERRAIN) {
+        delete THIS_TERRAIN;
+        THIS_TERRAIN = nullptr;
+      }
+      THIS_FEATURE = new T{this->x, this->y};
+    }
+    patch_holes();
+  };
 
 private:
+  void random_walk() {
+    int x_dir = rand() % 3 - 1; // 0,1,2 gives -1,0,1
+    int y_dir = rand() % 3 - 1;
+
+    int proposed_x = this->x + x_dir;
+    int proposed_y = this->y + y_dir;
+
+    if (0 <= proposed_x && proposed_x <= limit)
+      x = proposed_x;
+    if (0 <= proposed_y && proposed_y <= limit)
+      y = proposed_y;
+  };
+
+  void patch_holes() {
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        if (terrain[i][j] == nullptr) {
+          terrain[i][j] = new Dirt{i, j};
+        }
+      }
+    }
+  }
   int x{SIZE / 2};
   int y{SIZE / 2}; // position
 
-  int limit;
+  Terrain *(&terrain)[SIZE][SIZE];
+  Feature *(&feature)[SIZE][SIZE];
+
+  int iterations;
+
+  int limit = SIZE;
   unsigned int seed;
 };

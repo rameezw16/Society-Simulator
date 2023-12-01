@@ -21,7 +21,7 @@ public:
   ~Grid();
 
   void randomly_generate();
-  void destroy();
+  void create_walls();
   void create_water();
   void create_fauna();
   void add_people_to_grid();
@@ -37,6 +37,7 @@ public:
   Feature *feature[SIZE][SIZE]; // grid of features built on terrain
   Agent *agent[SIZE][SIZE];     // grid of entities located on terrain
   // Agent list in Agent class
+  //
 
 private:
   Perlin perlin_gen;
