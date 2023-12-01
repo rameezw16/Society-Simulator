@@ -44,6 +44,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
     frame_start = SDL_GetTicks();
 
+    drawer->flush();
     drawer->draw_grid(&game_grid);
     drawer->present();
 

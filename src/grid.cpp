@@ -62,24 +62,24 @@ void Grid::randomly_generate() {
 void Grid::destroy() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
   Random_Walker destructive_walker{SIZE, seed};
-  destructive_walker.destructive_walk(middle, middle, &terrain, &feature, 500);
-  destructive_walker.destructive_walk(middle, middle, &terrain, &feature, 500);
-  destructive_walker.destructive_walk(middle, middle, &terrain, &feature, 500);
+  destructive_walker.destructive_walk(middle, middle, terrain, feature, 500);
+  destructive_walker.destructive_walk(middle, middle, terrain, feature, 500);
+  destructive_walker.destructive_walk(middle, middle, terrain, feature, 500);
 };
 
 void Grid::create_water() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(20, 20) * 10);
   Random_Walker creative_water{SIZE, seed};
-  creative_water.creative_walk_water(middle, middle, &terrain, &feature,
+  creative_water.creative_walk_water(middle, middle, terrain, feature,
                                      total_iters * 3);
-  creative_water.creative_walk_water(5, 5, &terrain, &feature, total_iters);
-  creative_water.creative_walk_water(SIZE - 5, 5, &terrain, &feature,
+  creative_water.creative_walk_water(5, 5, terrain, feature, total_iters);
+  creative_water.creative_walk_water(SIZE - 5, 5, terrain, feature,
                                      total_iters);
-  creative_water.creative_walk_water(middle, middle, &terrain, &feature,
+  creative_water.creative_walk_water(middle, middle, terrain, feature,
                                      total_iters);
-  creative_water.creative_walk_water(5, SIZE - 5, &terrain, &feature,
+  creative_water.creative_walk_water(5, SIZE - 5, terrain, feature,
                                      total_iters);
-  creative_water.creative_walk_water(SIZE - 5, SIZE - 5, &terrain, &feature,
+  creative_water.creative_walk_water(SIZE - 5, SIZE - 5, terrain, feature,
                                      total_iters);
 }
 
@@ -87,13 +87,12 @@ void Grid::create_fauna() {
   // add features
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(30, 30) * 10);
   Random_Walker creative_fauna{SIZE, seed};
-  creative_fauna.creative_walk_fauna(middle, middle, &terrain, &feature,
+  creative_fauna.creative_walk_fauna(middle, middle, terrain, feature,
                                      total_iters);
-  creative_fauna.creative_walk_fauna(0, 0, &terrain, &feature, total_iters);
-  creative_fauna.creative_walk_fauna(SIZE, 0, &terrain, &feature, total_iters);
-  creative_fauna.creative_walk_fauna(0, SIZE, &terrain, &feature, total_iters);
-  creative_fauna.creative_walk_fauna(SIZE, SIZE, &terrain, &feature,
-                                     total_iters);
+  creative_fauna.creative_walk_fauna(0, 0, terrain, feature, total_iters);
+  creative_fauna.creative_walk_fauna(SIZE, 0, terrain, feature, total_iters);
+  creative_fauna.creative_walk_fauna(0, SIZE, terrain, feature, total_iters);
+  creative_fauna.creative_walk_fauna(SIZE, SIZE, terrain, feature, total_iters);
 }
 
 void Grid::add_people_to_grid() {
@@ -131,8 +130,8 @@ void Grid::step() {
 
       if (feature[i][j] != nullptr) {
         std::cout << feature[i][j]->get_type() << i << " " << j << "\n";
-        feature[i][j]->consume();
-        feature[i][j]->step();
+        // feature[i][j]->consume();
+        // feature[i][j]->step();
       }
     }
   }
