@@ -22,9 +22,9 @@ public:
   ~Game();
 
 private:
-  Grid<Terrain> terrain;
-  Grid<Feature> features;
-  Grid<Agent> agents;
+  Grid<std::unique_ptr<Terrain>> terrain;
+  Grid<std::unique_ptr<Feature>> features;
+  Grid<std::unique_ptr<Agent>> agents;
 
   std::mt19937 mt;
 
