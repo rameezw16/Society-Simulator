@@ -3,6 +3,7 @@
 #include "characters/agent.h"
 #include "entity.h"
 #include "features/feature.h"
+#include "game.h"
 #include "grid.h"
 #include "terrain/terrain.h"
 #include <SDL2/SDL.h>
@@ -14,15 +15,17 @@ public:
   Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_agent);
   ~Drawer();
 
-  void draw_grid(Grid *grid);
+  void draw_game(Game &h);
   void draw_agents();
   void present();
   void flush();
 
 private:
-  void draw_sprite(Terrain *entity, const int x, const int y);
-  void draw_sprite(Feature *entity, const int x, const int y);
-  void draw_sprite(Agent *entity, const int x, const int y);
+  std::unique_ptr<Terrain> draw_sprite(std::unique_ptr<Terrain> entity,
+                                       const int x, const int y);
+  std::unique_ptr<Feature> draw_sprite(Feature *entity, const int x,
+                                       const int y);
+  std::unique_ptr<Agent> draw_sprite(Agent *entity, const int x, const int y);
 
   SDL_Rect clip;
   SDL_Window *window;
