@@ -23,9 +23,10 @@ public:
 private:
   std::unique_ptr<Terrain> draw_sprite(std::unique_ptr<Terrain> entity,
                                        const int x, const int y);
-  std::unique_ptr<Feature> draw_sprite(Feature *entity, const int x,
-                                       const int y);
-  std::unique_ptr<Agent> draw_sprite(Agent *entity, const int x, const int y);
+  std::unique_ptr<Feature> draw_sprite(std::unique_ptr<Feature> entity,
+                                       const int x, const int y);
+  std::unique_ptr<Agent> draw_sprite(std::unique_ptr<Agent> entity, const int x,
+                                     const int y);
 
   SDL_Rect clip;
   SDL_Window *window;

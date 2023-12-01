@@ -12,6 +12,7 @@ class Earth_builder : public Builder {
 public:
   Earth_builder(unsigned int seed = 1985);
   ~Earth_builder();
+  void reset();
   void general_generation() override;
   void random_walk_generation() override;
   void cleanup() override;

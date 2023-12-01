@@ -27,7 +27,8 @@ Drawer::~Drawer() {
   SDL_DestroyWindow(window);
 };
 
-void Drawer::draw_sprite(Terrain *entity, const int x, const int y) {
+std::unique_ptr<Terrain> Drawer::draw_sprite(std::unique_ptr<Terrain> entity,
+                                             const int x, const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -44,7 +45,8 @@ void Drawer::draw_sprite(Terrain *entity, const int x, const int y) {
   SDL_RenderCopy(renderer, ss_terrain, &clip, &position);
 };
 
-void Drawer::draw_sprite(Feature *entity, const int x, const int y) {
+std::unique_ptr<Feature> Drawer::draw_sprite(std::unique_ptr<Feature> entity,
+                                             const int x, const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -61,7 +63,8 @@ void Drawer::draw_sprite(Feature *entity, const int x, const int y) {
   SDL_RenderCopy(renderer, ss_feature, &clip, &position);
 };
 
-void Drawer::draw_sprite(Agent *entity, const int x, const int y) {
+std::unique_ptr<Agent> Drawer::draw_sprite(std::unique_ptr<Agent> entity,
+                                           const int x, const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -78,15 +81,15 @@ void Drawer::draw_sprite(Agent *entity, const int x, const int y) {
   SDL_RenderCopy(renderer, ss_agent, &clip, &position);
 };
 
-void Drawer::draw_grid(Grid *grid) {
+void Drawer::draw_game(Game &game) {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
-      Terrain *terrain = grid->terrain[i][j];
-      Feature *feature = grid->feature[i][j];
-      // Agent* agent = grid->agent[i][j];
+      // Terrain *terrain = game->terrain[i][j];
+      // Feature *feature = game->feature[i][j];
+      //  Agent* agent = game->agent[i][j];
       int draw_pos_x = i * 10;
       int draw_pos_y = j * 10;
-      // Character* character = grid->character[i][j];
+      // Character* character = game->character[i][j];
       if (terrain)
         draw_sprite(terrain, draw_pos_x, draw_pos_y);
       if (feature)

@@ -4,7 +4,14 @@ Earth_builder::Earth_builder(unsigned int seed)
     : seed(seed), perlin_food(seed * 2), perlin_earth(seed) {
   perlin_food.add_octave(0.3, 5);
   perlin_earth.add_octave(0.6, 5);
+  this->reset();
 };
+
+void Earth_builder::reset() {
+  this->terrain = std::make_unique<Grid<std::unique_ptr<Terrain>>>();
+  this->features = std::make_unique<Grid<std::unique_ptr<Feature>>>();
+}
+
 Earth_builder::~Earth_builder() = default;
 
 void Earth_builder::general_generation() {
@@ -26,7 +33,7 @@ void Earth_builder::random_walk_generation() {}
 void Earth_builder::cleanup() {}
 
 std::unique_ptr<Grid<std::unique_ptr<Terrain>>> Earth_builder::get_terrain() {
-  return std::move(this->terrain);
+  return (this->terrain);
 }
 
 std::unique_ptr<Grid<std::unique_ptr<Feature>>> Earth_builder::get_features() {

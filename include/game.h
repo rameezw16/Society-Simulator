@@ -21,6 +21,10 @@ public:
   Game(unsigned int seed = 1985);
   ~Game();
 
+  std::unique_ptr<Terrain> get_terrain(int i, int j);
+  std::unique_ptr<Feature> get_feature(int i, int j);
+  std::unique_ptr<Agent> get_agents(int i, int j);
+
 private:
   Grid<std::unique_ptr<Terrain>> terrain;
   Grid<std::unique_ptr<Feature>> features;
