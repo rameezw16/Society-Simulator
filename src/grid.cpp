@@ -62,14 +62,15 @@ void Grid::randomly_generate() {
 void Grid::create_walls() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
   Random_Walker<Wall> wall_replace{seed, terrain, feature};
-  wall_replace.walk_terrain(SIZE, SIZE);
+  wall_replace.walk_terrain(SIZE - 3, SIZE - 3);
+  wall_replace.walk_terrain(0, 0);
 };
 
 void Grid::create_water() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(20, 20) * 10);
   Random_Walker<Water> water_replace{seed, terrain, feature, 500};
   water_replace.walk_terrain(0, 0);
-  water_replace.walk_terrain(SIZE, SIZE);
+  water_replace.walk_terrain(SIZE - 3, SIZE - 3);
 }
 
 void Grid::create_fauna() {
@@ -77,7 +78,7 @@ void Grid::create_fauna() {
   unsigned int seed = (unsigned int)(perlin_gen.get_noise(30, 30) * 10);
   Random_Walker<Grass> grass_replace{seed, terrain, feature, 500};
   grass_replace.walk_feature(0, 0);
-  grass_replace.walk_feature(SIZE, SIZE);
+  grass_replace.walk_feature(SIZE - 3, SIZE - 3);
 }
 
 void Grid::add_people_to_grid() {
@@ -114,6 +115,7 @@ void Grid::step() {
       }
 
       if (feature[i][j] != nullptr) {
+        std::cout << feature[i][j]->get_type() << "\n";
         feature[i][j]->consume();
         feature[i][j]->step();
       }

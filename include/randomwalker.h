@@ -37,6 +37,7 @@ public:
         delete THIS_TERRAIN;
         THIS_TERRAIN = nullptr;
       }
+
       THIS_TERRAIN = new T{this->x, this->y};
     }
     patch_holes();
@@ -57,6 +58,7 @@ public:
         delete THIS_TERRAIN;
         THIS_TERRAIN = nullptr;
       }
+
       THIS_FEATURE = new T{this->x, this->y};
     }
     patch_holes();
@@ -67,24 +69,30 @@ private:
     int x_dir = rand() % 3 - 1; // 0,1,2 gives -1,0,1
     int y_dir = rand() % 3 - 1;
 
+    if (0 > x || x >= limit)
+      x -= 1;
+    if (0 > y || y >= limit)
+      y -= 1;
+
     int proposed_x = this->x + x_dir;
     int proposed_y = this->y + y_dir;
 
-    if (0 <= proposed_x && proposed_x <= limit)
+    if (0 <= proposed_x && proposed_x < limit)
       x = proposed_x;
-    if (0 <= proposed_y && proposed_y <= limit)
+    if (0 <= proposed_y && proposed_y < limit)
       y = proposed_y;
   };
 
   void patch_holes() {
-    for (int i = 0; i < SIZE; ++i) {
-      for (int j = 0; j < SIZE; ++j) {
+    for (int i = 0; i < limit; ++i) {
+      for (int j = 0; j < limit; ++j) {
         if (terrain[i][j] == nullptr) {
           terrain[i][j] = new Dirt{i, j};
         }
       }
     }
   }
+
   int x{SIZE / 2};
   int y{SIZE / 2}; // position
 
@@ -93,6 +101,6 @@ private:
 
   int iterations;
 
-  int limit = SIZE;
+  int limit = SIZE - 3;
   unsigned int seed;
 };
