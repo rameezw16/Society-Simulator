@@ -20,9 +20,18 @@ public:
         // grid[i][j] = nullptr;
       }
     }
-  }
+  };
 
-  T get(int i, int j) {
+  // move semantics
+  Grid(Grid &&other) {
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        grid.set(i, j, std::move(other->get(i, j)));
+      }
+    }
+  };
+
+  T &get(int i, int j) {
     if (0 < i && i < gridsize && 0 < j && j < gridsize)
       return (grid[i][j]);
   }
