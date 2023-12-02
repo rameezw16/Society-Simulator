@@ -7,6 +7,10 @@
 #include "terrain/terrain.h"
 #include <memory>
 
+using std::unique_ptr;
+using pointer_terrain = unique_ptr<Terrain>;
+using pointer_feature = unique_ptr<Feature>;
+
 class Earth_builder : public Builder {
 
 public:
@@ -17,13 +21,12 @@ public:
   void random_walk_generation() override;
   void cleanup() override;
 
-  std::unique_ptr<Grid<std::unique_ptr<Terrain>>> &get_terrain();
-  std::unique_ptr<Grid<std::unique_ptr<Feature>>> &get_features();
+  unique_ptr<Grid<unique_ptr<Terrain>>> &get_terrain();
+  unique_ptr<Grid<unique_ptr<Feature>>> &get_features();
 
 private:
-  std::unique_ptr<Grid<std::unique_ptr<Terrain>>>
-      terrain; // this contains unique ptrs
-  std::unique_ptr<Grid<std::unique_ptr<Feature>>> features;
+  unique_ptr<Grid<pointer_terrain>> terrain; // this contains unique ptrs
+  unique_ptr<Grid<pointer_feature>> features;
   Perlin perlin_food;
   Perlin perlin_earth;
   // Random_Walker<Terrain> walker_terrain;
