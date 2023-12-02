@@ -15,18 +15,18 @@ public:
   Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_agent);
   ~Drawer();
 
-  void draw_game(Game &h);
+  void draw_game(const Game &game);
   void draw_agents();
   void present();
   void flush();
 
 private:
-  std::unique_ptr<Terrain> draw_sprite(std::unique_ptr<Terrain> entity,
+  std::unique_ptr<Terrain> draw_sprite(const std::unique_ptr<Terrain> entity,
                                        const int x, const int y);
-  std::unique_ptr<Feature> draw_sprite(std::unique_ptr<Feature> entity,
+  std::unique_ptr<Feature> draw_sprite(const std::unique_ptr<Feature> entity,
                                        const int x, const int y);
-  std::unique_ptr<Agent> draw_sprite(std::unique_ptr<Agent> entity, const int x,
-                                     const int y);
+  std::unique_ptr<Agent> draw_sprite(const std::unique_ptr<Agent> entity,
+                                     const int x, const int y);
 
   SDL_Rect clip;
   SDL_Window *window;

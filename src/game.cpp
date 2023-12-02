@@ -9,13 +9,20 @@ Game::Game(unsigned int seed) : mt(static_cast<int>(seed)) {
   features = std::move(perlin_builder.get_features());
 };
 
-pointer_terrain &Game::get_terrain(int i, int j) {
+pointer_terrain &Game::get_terrain(int i, int j) const {
   return (terrain->get(i, j));
 }
-std::unique_ptr<Feature> &Game::get_feature(int i, int j) {
+
+pointer_feature &Game::get_feature(int i, int j) const {
   return (features->get(i, j));
 }
-std::unique_ptr<Agent> get_agents(int i, int j);
+
+void Game::set_terrain(int i, int j, pointer_terrain &val) {
+  terrain->set(i, j, val);
+}
+void Game::set_feature(int i, int j, pointer_feature &val) {
+  features->set(i, j, val);
+}
 
 Game::~Game(){};
 

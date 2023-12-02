@@ -81,19 +81,25 @@ std::unique_ptr<Agent> Drawer::draw_sprite(std::unique_ptr<Agent> entity,
   SDL_RenderCopy(renderer, ss_agent, &clip, &position);
 };
 
-void Drawer::draw_game(Game &game) {
+void Drawer::draw_game(const Game &game) {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
       // Terrain *terrain = game->terrain[i][j];
       // Feature *feature = game->feature[i][j];
       //  Agent* agent = game->agent[i][j];
+
+      pointer_terrain terrain_pointer = std::move(game.get_terrain(i, j));
+      pointer_feature feature_pointer = std::move(game.get_feature(i, j));
+
       int draw_pos_x = i * 10;
       int draw_pos_y = j * 10;
       // Character* character = game->character[i][j];
-      if (terrain)
-        draw_sprite(terrain, draw_pos_x, draw_pos_y);
-      if (feature)
-        draw_sprite(feature, draw_pos_x, draw_pos_y);
+      if (terrain_pointer)
+        terrain_pointer =
+            draw_sprite(std::move(terrain_pointer), draw_pos_x, draw_pos_y);
+      if (terrain_pointer)
+        feature_pointer =
+            draw_sprite(std::move(feature_pointer), draw_pos_x, draw_pos_y);
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
     }
   }
