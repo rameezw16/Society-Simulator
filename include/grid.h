@@ -30,7 +30,7 @@ public:
   void set(int i, int j,
            T &pointer_to_entity) { // takes in reference
     if (0 < i && i < gridsize && 0 < j && j < gridsize)
-      grid[i][j] = pointer_to_entity;
+      grid[i][j] = std::move(pointer_to_entity);
   }
 
 private:

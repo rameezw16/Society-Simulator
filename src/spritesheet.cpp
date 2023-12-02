@@ -27,8 +27,8 @@ Drawer::~Drawer() {
   SDL_DestroyWindow(window);
 };
 
-std::unique_ptr<Terrain> Drawer::draw_sprite(std::unique_ptr<Terrain> entity,
-                                             const int x, const int y) {
+void Drawer::draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
+                         const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -45,8 +45,8 @@ std::unique_ptr<Terrain> Drawer::draw_sprite(std::unique_ptr<Terrain> entity,
   SDL_RenderCopy(renderer, ss_terrain, &clip, &position);
 };
 
-std::unique_ptr<Feature> Drawer::draw_sprite(std::unique_ptr<Feature> entity,
-                                             const int x, const int y) {
+void Drawer::draw_sprite(const std::unique_ptr<Feature> &entity, const int x,
+                         const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -63,8 +63,8 @@ std::unique_ptr<Feature> Drawer::draw_sprite(std::unique_ptr<Feature> entity,
   SDL_RenderCopy(renderer, ss_feature, &clip, &position);
 };
 
-std::unique_ptr<Agent> Drawer::draw_sprite(std::unique_ptr<Agent> entity,
-                                           const int x, const int y) {
+void Drawer::draw_sprite(const std::unique_ptr<Agent> &entity, const int x,
+                         const int y) {
   // get coords in pixels
   clip.x = entity->get_spritesheet_pos_x() * 10;
   clip.y = entity->get_spritesheet_pos_y() * 10;
@@ -95,14 +95,10 @@ void Drawer::draw_game(Game &game) {
       int draw_pos_y = j * 10;
       // Character* character = game->character[i][j];
       if (terrain_pointer)
-        terrain_pointer =
-            draw_sprite(std::move(terrain_pointer), draw_pos_x, draw_pos_y);
+        draw_sprite(terrain_pointer, draw_pos_x, draw_pos_y);
       if (terrain_pointer)
-        feature_pointer =
-            draw_sprite(std::move(feature_pointer), draw_pos_x, draw_pos_y);
+        draw_sprite(feature_pointer, draw_pos_x, draw_pos_y);
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
-      game.set_terrain(i, j, terrain_pointer);
-      game.set_feature(i, j, feature_pointer);
     }
   }
   draw_agents();

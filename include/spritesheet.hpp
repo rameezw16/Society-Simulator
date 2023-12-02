@@ -21,12 +21,12 @@ public:
   void flush();
 
 private:
-  std::unique_ptr<Terrain> draw_sprite(const std::unique_ptr<Terrain> entity,
-                                       const int x, const int y);
-  std::unique_ptr<Feature> draw_sprite(const std::unique_ptr<Feature> entity,
-                                       const int x, const int y);
-  std::unique_ptr<Agent> draw_sprite(const std::unique_ptr<Agent> entity,
-                                     const int x, const int y);
+  void draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
+                   const int y);
+  void draw_sprite(const std::unique_ptr<Feature> &entity, const int x,
+                   const int y);
+  void draw_sprite(const std::unique_ptr<Agent> &entity, const int x,
+                   const int y);
 
   SDL_Rect clip;
   SDL_Window *window;
