@@ -19,15 +19,30 @@ void Earth_builder::general_generation() {
 
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
-      int level = static_cast<int>(perlin_food.get_noise(i, j)) % 10;
+      int level = static_cast<int>(perlin_food.get_noise(i, j) * 100) % 10;
 
       pointer_feature fauna_at_point;
-      fauna_at_point = make_unique<Grass>(Grass{i, j, level});
+      fauna_at_point = make_unique<Grass>(i, j, level);
       features->set(i, j, fauna_at_point);
     }
   }
 
-  // TODO Add terrain generation
+  for (int i = 0; i < SIZE; ++i) {
+    for (int j = 0; j < SIZE; ++j) {
+      int seed = static_cast<int>(perlin_earth.get_noise(i, j) * 100);
+
+      pointer_terrain terrain_at_point;
+      if (seed < 20) {
+        terrain_at_point = make_unique<Water>(i, j);
+      } else if (seed < 60) {
+        terrain_at_point = make_unique<Dirt>(i, j);
+      } else if (seed < 100) {
+        terrain_at_point = make_unique<Wall>(i, j);
+      }
+
+      terrain->set(i, j, terrain_at_point);
+    }
+  }
 }
 
 void Earth_builder::random_walk_generation() {}

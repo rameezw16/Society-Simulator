@@ -43,10 +43,14 @@ int main(int argc, char **argv) { // takes in seed as cli argument
       auto f = std::move(features->get(i, j));
       if (f)
         std::cout << f->get_type();
+      auto t = std::move(terrain->get(i, j));
+      if (t)
+        std::cout << t->get_type();
     };
+    std::cout << "\n";
   }
 
-  // drawer->draw_sprite(terrain->get(1, 1), 1, 1);
+  // drawer->draw_sprite(features->get(1, 1), 1, 1);
 
   Uint32 frame_start;
   Uint32 frame_time;
