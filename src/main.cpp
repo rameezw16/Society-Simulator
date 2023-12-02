@@ -27,7 +27,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   static Uint32 next_time;
 
-  Grid game_grid{seed};
+  Game game{seed};
 
   Uint32 frame_start;
   Uint32 frame_time;
@@ -45,7 +45,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
     frame_start = SDL_GetTicks();
 
     drawer->flush();
-    drawer->draw_grid(&game_grid);
+    drawer->draw_game(game);
     drawer->present();
 
     frame_time = SDL_GetTicks() - frame_start;
@@ -53,7 +53,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
       count++;
     } else {
       // Int_Manager->interact_all();
-      game_grid.step();
+      // game_grid.step();
       count = 0;
     }
 
