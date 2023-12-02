@@ -22,12 +22,12 @@ public:
   void random_walk_generation() override;
   void cleanup() override;
 
-  unique_ptr<Grid<unique_ptr<Terrain>>> &get_terrain();
-  unique_ptr<Grid<unique_ptr<Feature>>> &get_features();
+  unique_ptr<Grid<Terrain>> &get_terrain();
+  unique_ptr<Grid<Feature>> &get_features();
 
 private:
-  unique_ptr<Grid<pointer_terrain>> terrain; // this contains unique ptrs
-  unique_ptr<Grid<pointer_feature>> features;
+  unique_ptr<Grid<Terrain>> terrain; // this contains unique ptrs
+  unique_ptr<Grid<Feature>> features;
   Perlin perlin_food;
   Perlin perlin_earth;
   // Random_Walker<Terrain> walker_terrain;

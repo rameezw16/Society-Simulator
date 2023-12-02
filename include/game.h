@@ -30,8 +30,8 @@ public:
   unique_ptr<Agent> &get_agents(int i, int j) const;
 
 private:
-  unique_ptr<Grid<pointer_terrain>> terrain;
-  unique_ptr<Grid<pointer_feature>> features;
+  unique_ptr<Grid<Terrain>> terrain;
+  unique_ptr<Grid<Feature>> features;
 
   unique_ptr<Grid<unique_ptr<Agent>>> agents; // TODO need to implement
 

@@ -8,8 +8,8 @@ Earth_builder::Earth_builder(unsigned int seed)
 };
 
 void Earth_builder::reset() {
-  this->terrain = make_unique<Grid<pointer_terrain>>();
-  this->features = make_unique<Grid<pointer_feature>>();
+  this->terrain = make_unique<Grid<Terrain>>();
+  this->features = make_unique<Grid<Feature>>();
 }
 
 Earth_builder::~Earth_builder() = default;
@@ -26,16 +26,18 @@ void Earth_builder::general_generation() {
       features->set(i, j, fauna_at_point);
     }
   }
+
+  // TODO Add terrain generation
 }
 
 void Earth_builder::random_walk_generation() {}
 
 void Earth_builder::cleanup() {}
 
-unique_ptr<Grid<pointer_terrain>> &Earth_builder::get_terrain() {
+unique_ptr<Grid<Terrain>> &Earth_builder::get_terrain() {
   return (this->terrain);
 }
 
-unique_ptr<Grid<pointer_feature>> &Earth_builder::get_features() {
+unique_ptr<Grid<Feature>> &Earth_builder::get_features() {
   return (this->features);
 }

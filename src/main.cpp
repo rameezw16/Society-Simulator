@@ -29,9 +29,10 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   // Game game{seed};
   // Grid<pointer_terrain> grid;
+
   Earth_builder earth;
-  unique_ptr<Grid<pointer_feature>> features;
-  unique_ptr<Grid<pointer_terrain>> terrain;
+  unique_ptr<Grid<Feature>> features;
+  unique_ptr<Grid<Terrain>> terrain;
   earth.general_generation();
   // this is in "game" now
   features = std::move(earth.get_features());
@@ -39,9 +40,10 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
-      features->get(i, j);
+      auto f = std::move(features->get(i, j));
+      if (f)
+        std::cout << f->get_type();
     };
-    std::cout << "\n";
   }
 
   // drawer->draw_sprite(terrain->get(1, 1), 1, 1);
