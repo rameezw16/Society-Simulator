@@ -7,6 +7,7 @@
 #include "terrain/terrain.h"
 #include <memory>
 
+using std::make_unique;
 using std::unique_ptr;
 using pointer_terrain = unique_ptr<Terrain>;
 using pointer_feature = unique_ptr<Feature>;

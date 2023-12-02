@@ -8,8 +8,8 @@ Earth_builder::Earth_builder(unsigned int seed)
 };
 
 void Earth_builder::reset() {
-  this->terrain = std::make_unique<Grid<std::unique_ptr<Terrain>>>();
-  this->features = std::make_unique<Grid<std::unique_ptr<Feature>>>();
+  this->terrain = make_unique<Grid<pointer_terrain>>();
+  this->features = make_unique<Grid<pointer_feature>>();
 }
 
 Earth_builder::~Earth_builder() = default;
@@ -21,8 +21,8 @@ void Earth_builder::general_generation() {
     for (int j = 0; j < SIZE; ++j) {
       int level = static_cast<int>(perlin_food.get_noise(i, j)) % 10;
 
-      std::unique_ptr<Feature> fauna_at_point;
-      fauna_at_point = std::make_unique<Grass>(Grass{i, j, level});
+      pointer_feature fauna_at_point;
+      fauna_at_point = make_unique<Grass>(Grass{i, j, level});
       features->set(i, j, fauna_at_point);
     }
   }
@@ -32,10 +32,10 @@ void Earth_builder::random_walk_generation() {}
 
 void Earth_builder::cleanup() {}
 
-std::unique_ptr<Grid<std::unique_ptr<Terrain>>> &Earth_builder::get_terrain() {
+unique_ptr<Grid<pointer_terrain>> &Earth_builder::get_terrain() {
   return (this->terrain);
 }
 
-std::unique_ptr<Grid<std::unique_ptr<Feature>>> &Earth_builder::get_features() {
+unique_ptr<Grid<pointer_feature>> &Earth_builder::get_features() {
   return (this->features);
 }
