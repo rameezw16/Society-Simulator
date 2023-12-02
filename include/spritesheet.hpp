@@ -15,7 +15,7 @@ public:
   Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_agent);
   ~Drawer();
 
-  void draw_game(const Game &game);
+  void draw_game(Game &game);
   void draw_agents();
   void present();
   void flush();

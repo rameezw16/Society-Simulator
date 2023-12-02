@@ -81,7 +81,7 @@ std::unique_ptr<Agent> Drawer::draw_sprite(std::unique_ptr<Agent> entity,
   SDL_RenderCopy(renderer, ss_agent, &clip, &position);
 };
 
-void Drawer::draw_game(const Game &game) {
+void Drawer::draw_game(Game &game) {
   for (int i = 0; i < SIZE; i++) {
     for (int j = 0; j < SIZE; j++) {
       // Terrain *terrain = game->terrain[i][j];
@@ -101,6 +101,8 @@ void Drawer::draw_game(const Game &game) {
         feature_pointer =
             draw_sprite(std::move(feature_pointer), draw_pos_x, draw_pos_y);
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
+      game.set_terrain(i, j, terrain_pointer);
+      game.set_feature(i, j, feature_pointer);
     }
   }
   draw_agents();
@@ -108,7 +110,8 @@ void Drawer::draw_game(const Game &game) {
 
 void Drawer::draw_agents() {
   for (std::pair<int, Agent *> agent : Agent::AgentList) {
-    draw_sprite(agent.second, agent.second->posX * 10, agent.second->posY * 10);
+    // draw_sprite(agent.second, agent.second->posX * 10, agent.second->posY *
+    // 10);
   }
 }
 
