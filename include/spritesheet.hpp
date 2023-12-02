@@ -16,11 +16,10 @@ public:
   ~Drawer();
 
   void draw_game(Game &game);
-  void draw_agents();
   void present();
   void flush();
-
-private:
+  // TODO make private
+  void draw_agents();
   void draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
                    const int y);
   void draw_sprite(const std::unique_ptr<Feature> &entity, const int x,
@@ -28,6 +27,7 @@ private:
   void draw_sprite(const std::unique_ptr<Agent> &entity, const int x,
                    const int y);
 
+private:
   SDL_Rect clip;
   SDL_Window *window;
   SDL_Texture *ss_terrain;

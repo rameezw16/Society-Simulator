@@ -99,6 +99,8 @@ void Drawer::draw_game(Game &game) {
       if (terrain_pointer)
         draw_sprite(feature_pointer, draw_pos_x, draw_pos_y);
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
+      game.set_terrain(i, j, terrain_pointer);
+      game.set_feature(i, j, feature_pointer);
     }
   }
   draw_agents();

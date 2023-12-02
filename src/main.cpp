@@ -27,7 +27,24 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   static Uint32 next_time;
 
-  Game game{seed};
+  // Game game{seed};
+  // Grid<pointer_terrain> grid;
+  Earth_builder earth;
+  unique_ptr<Grid<pointer_feature>> features;
+  unique_ptr<Grid<pointer_terrain>> terrain;
+  earth.general_generation();
+  // this is in "game" now
+  features = std::move(earth.get_features());
+  terrain = std::move(earth.get_terrain());
+
+  for (int i = 0; i < SIZE; ++i) {
+    for (int j = 0; j < SIZE; ++j) {
+      features->get(i, j);
+    };
+    std::cout << "\n";
+  }
+
+  // drawer->draw_sprite(terrain->get(1, 1), 1, 1);
 
   Uint32 frame_start;
   Uint32 frame_time;
@@ -44,8 +61,8 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
     frame_start = SDL_GetTicks();
 
-    drawer->flush();
-    drawer->draw_game(game);
+    // drawer->flush();
+    // drawer->draw_game(game);
     drawer->present();
 
     frame_time = SDL_GetTicks() - frame_start;

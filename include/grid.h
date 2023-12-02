@@ -23,8 +23,8 @@ public:
   };
 
   T &get(int i, int j) {
-    if (0 < i && i < gridsize && 0 < j && j < gridsize)
-      return (grid[i][j]);
+    // if (0 < i && i < gridsize && 0 < j && j < gridsize)
+    return (grid[i][j]);
   }
 
   void set(int i, int j,
