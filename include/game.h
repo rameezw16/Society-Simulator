@@ -30,7 +30,7 @@ private:
   unique_ptr<Grid<pointer_terrain>> terrain;
   unique_ptr<Grid<pointer_feature>> features;
 
-  Grid<unique_ptr<Agent>> agents;
+  unique_ptr<Grid<unique_ptr<Agent>>> agents;
 
   std::mt19937 mt;
 
