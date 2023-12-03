@@ -49,14 +49,14 @@ void Earth_builder::general_generation() {
 
 void Earth_builder::random_walk_generation() {
   Random_Walker<Water> water_walker{seed, terrain, features, 10};
-  Random_Walker<Grass> grass_walker{seed, terrain, features, 10};
-
-  // water_walker.walk_terrain(0, 0);
-  // terrain = std::move(water_walker.get_terrain());
-  // features = std::move(water_walker.get_features());
-  grass_walker.walk_feature(0, 0);
+  water_walker.walk_terrain(0, 0);
   terrain = std::move(water_walker.get_terrain());
   features = std::move(water_walker.get_features());
+
+  Random_Walker<Grass> grass_walker{seed, terrain, features, 10};
+  grass_walker.walk_feature(0, 0);
+  terrain = std::move(grass_walker.get_terrain());
+  features = std::move(grass_walker.get_features());
 }
 
 void Earth_builder::cleanup() {}
