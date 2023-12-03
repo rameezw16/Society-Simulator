@@ -31,6 +31,18 @@ public:
     grid[i_index][j_index] = std::move(pointer_to_entity);
   };
 
+  void update() {
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        int i_index = i % SIZE;
+        int j_index = j % SIZE;
+
+        grid[i_index][j_index]->step();
+        grid[i_index][j_index]->consume();
+      }
+    }
+  }
+
 private:
   std::unique_ptr<T> grid[SIZE][SIZE]; // grid of terrain pointers, aggregation
   const int gridsize = SIZE;

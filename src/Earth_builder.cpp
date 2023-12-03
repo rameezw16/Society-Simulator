@@ -19,11 +19,12 @@ void Earth_builder::general_generation() {
 
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
-      int level = static_cast<int>(perlin_food.get_noise(i, j) * 100) % 10;
+      int level = static_cast<int>(perlin_food.get_noise(i, j) * 100);
 
       pointer_feature fauna_at_point;
       fauna_at_point = make_unique<Grass>(i, j, level);
       features->set(i, j, fauna_at_point);
+      // std::cout << level << " ";
     }
   }
 
@@ -48,12 +49,12 @@ void Earth_builder::general_generation() {
 }
 
 void Earth_builder::random_walk_generation() {
-  Random_Walker<Water> water_walker{seed, terrain, features, 10};
+  Random_Walker<Water> water_walker{seed, terrain, features, 100};
   water_walker.walk_terrain(0, 0);
   terrain = std::move(water_walker.get_terrain());
   features = std::move(water_walker.get_features());
 
-  Random_Walker<Grass> grass_walker{seed, terrain, features, 10};
+  Random_Walker<Grass> grass_walker{seed, terrain, features, 100};
   grass_walker.walk_feature(0, 0);
   terrain = std::move(grass_walker.get_terrain());
   features = std::move(grass_walker.get_features());

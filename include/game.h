@@ -28,6 +28,7 @@ public:
   void set_feature(int i, int j, pointer_feature &val);
 
   unique_ptr<Agent> &get_agents(int i, int j) const;
+  void step();
 
 private:
   unique_ptr<Grid<Terrain>> terrain;

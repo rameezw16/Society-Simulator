@@ -1,27 +1,25 @@
 #pragma once
-#include "../entity.h"
 #include "../Relationship.hpp"
 #include "../Stats.hpp"
 #include "../Traits.hpp"
+#include "../entity.h"
 #include "../size.h"
-#include <random>
-#include <vector>
-#include <map>
-#include <string>
 #include <fstream>
+#include <map>
+#include <random>
+#include <string>
+#include <vector>
 
-class Agent : public Entity 
-{
+class Agent : public Entity {
 public:
   Agent(std::mt19937 &mt, const int spritesheet_pos_x = 0,
-		const int spritesheet_pos_y = 0, std::string name = "", int posX = 30,
-		int posY = 30);
+        const int spritesheet_pos_y = 0, std::string name = "", int posX = 30,
+        int posY = 30);
 
   virtual ~Agent();
 
-  bool get_walkable() const ;
-  std::string get_type() const ;
-
+  bool get_walkable() const;
+  std::string get_type() const;
 
   static int count;
   static std::map<int, Agent *> AgentList;
@@ -51,34 +49,26 @@ public:
 
   bool walkable = false;
 
-  //Hamad's changes start here
+  // Hamad's changes start here
 
+  void step() override;
+  void consume() override;
+  void grow_back() override;
 
-
-  Entity* goal_entity {nullptr};
-  int goal_x, goal_y {};
-  std::string action {};
-
+  Entity *goal_entity{nullptr};
+  int goal_x, goal_y{};
+  std::string action{};
 
   int amount_of_food;
-  int metabolism; //each step reduce by this amount
-  int vision; //size of vision
-
-
-  
-
-
-  
+  int metabolism; // each step reduce by this amount
+  int vision;     // size of vision
 
 private:
-  Traits* aTraits;
-  Relationship relationSum {0, 0};
+  Traits *aTraits;
+  Relationship relationSum{0, 0};
 
-  static int GRID_WIDTH ;
-  static int GRID_HEIGHT ;
+  static int GRID_WIDTH;
+  static int GRID_HEIGHT;
 
   friend class Interaction_Manager;
 };
-
-
-

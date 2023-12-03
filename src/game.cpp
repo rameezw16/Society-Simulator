@@ -27,55 +27,6 @@ void Game::set_feature(int i, int j, pointer_feature &val) {
 
 Game::~Game(){};
 
-// internal representation
-// void Game::randomly_generate() {
-//   for (int i = 0; i < SIZE; i++) {
-//     for (int j = 0; j < SIZE; j++) {
-//       double noise = perlin_gen.get_noise(i, j);
-//       int selection = (int)(noise * 10) % 5;
-//       switch (selection) {
-//       case 1:
-//         terrain[i][j] = new Dirt{i, j, 13, 24}; // 13 and 24 for bright dirt
-//         feature[i][j] = nullptr;                // new Grass {i, j};
-//         agent[i][j] = nullptr;
-//         break;
-//       case 0:
-//         terrain[i][j] = new Wall{i, j};
-//         feature[i][j] = nullptr;
-//         agent[i][j] = nullptr;
-//         break;
-//       default:
-//         terrain[i][j] = new Dirt{i, j};
-//         feature[i][j] = nullptr;
-//         agent[i][j] = nullptr; //
-//         break;
-//       };
-//     };
-//   };
-// };
-
-// void Game::create_walls() {
-//   unsigned int seed = (unsigned int)(perlin_gen.get_noise(10, 10) * 10);
-//   Random_Walker<Wall> wall_replace{seed, terrain, feature};
-//   wall_replace.walk_terrain(SIZE - 3, SIZE - 3);
-//   wall_replace.walk_terrain(0, 0);
-// };
-
-// void Game::create_water() {
-//   unsigned int seed = (unsigned int)(perlin_gen.get_noise(20, 20) * 10);
-//   Random_Walker<Water> water_replace{seed, terrain, feature, 500};
-//   water_replace.walk_terrain(0, 0);
-//   water_replace.walk_terrain(SIZE - 3, SIZE - 3);
-// }
-
-// void Game::create_fauna() {
-//   // add features
-//   unsigned int seed = (unsigned int)(perlin_gen.get_noise(30, 30) * 10);
-//   Random_Walker<Grass> grass_replace{seed, terrain, feature, 500};
-//   grass_replace.walk_feature(0, 0);
-//   grass_replace.walk_feature(SIZE - 3, SIZE - 3);
-// }
-
 // void Game::add_people_to_grid() {
 //   for (int i = 0; i < SIZE; i++) {
 //     for (int j = 0; j < SIZE; j++) {
@@ -103,21 +54,17 @@ Game::~Game(){};
 //                      // terrain and features
 // };
 
-// void Game::step() {
-//   for (int i = 0; i < SIZE; ++i) {
-//     for (int j = 0; j < SIZE; ++j) {
-//       if (agent[i][j] != nullptr) {
-//         pathfind(agent[i][j]);
-//       }
+void Game::step() {
+  for (int i = 0; i < SIZE; ++i) {
+    for (int j = 0; j < SIZE; ++j) {
+      // if (agent[i][j] != nullptr) {
+      //   pathfind(agent[i][j]);
+      // }
 
-//       if (feature[i][j] != nullptr) {
-//         std::cout << feature[i][j]->get_type() << "\n";
-//         feature[i][j]->consume();
-//         feature[i][j]->step();
-//       }
-//     }
-//   }
-// };
+      this->features->update();
+    }
+  }
+};
 
 // void Game::pathfind(Agent *a) {
 

@@ -7,8 +7,10 @@ public:
           const int spritesheet_pos_y);
 
   virtual ~Terrain();
-  // virtual bool get_walkable() const = 0;
-  // virtual std::string get_type() const = 0;
+  void step() override;
+  void consume() override;
+  void grow_back() override;
+
 protected:
   bool walkable = true;
   std::string type = "terrain";
