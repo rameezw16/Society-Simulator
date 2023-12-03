@@ -30,7 +30,7 @@ public:
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
-      feature->reset(this->x, this->y);
+      // feature->reset(this->x, this->y);
       terrain->reset(this->x, this->y);
       std::unique_ptr<Terrain> new_terrain =
           std::make_unique<T>(this->x, this->y);
@@ -46,7 +46,7 @@ public:
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
-      feature->reset(this->x, this->y);
+      // feature->reset(this->x, this->y);
       terrain->reset(this->x, this->y);
       std::unique_ptr<Feature> new_feature =
           std::make_unique<T>(this->x, this->y);

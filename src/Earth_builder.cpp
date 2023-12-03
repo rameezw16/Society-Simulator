@@ -48,7 +48,7 @@ void Earth_builder::general_generation() {
 }
 
 void Earth_builder::random_walk_generation() {
-  Random_Walker<Water> water_walker{seed, terrain, features, 10};
+  Random_Walker<Water> water_walker{seed, terrain, features, 500};
   water_walker.walk_terrain(10, 10);
 
   terrain = std::move(water_walker.get_terrain());
