@@ -38,6 +38,8 @@ void Earth_builder::general_generation() {
         terrain_at_point = make_unique<Dirt>(i, j);
       } else if (seed < 100) {
         terrain_at_point = make_unique<Wall>(i, j);
+      } else {
+        terrain_at_point = make_unique<Water>(i, j);
       }
 
       terrain->set(i, j, terrain_at_point);
