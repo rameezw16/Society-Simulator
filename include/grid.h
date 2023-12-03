@@ -24,13 +24,13 @@ public:
 
   std::unique_ptr<T> &get(int i, int j) {
     // TODO if (0 < i && i < gridsize && 0 < j && j < gridsize)
-    return (grid[i][j]);
+    return (grid[i % SIZE][j % SIZE]);
   }
 
   void set(int i, int j,
            std::unique_ptr<T> &pointer_to_entity) { // takes in reference
     if (0 <= i && i <= gridsize && 0 <= j && j <= gridsize)
-      grid[i][j] = std::move(pointer_to_entity);
+      grid[i % 100][j % 100] = std::move(pointer_to_entity);
   }
 
 private:
