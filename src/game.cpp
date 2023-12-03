@@ -2,11 +2,12 @@
 // SIZE is the internal grid representation
 
 Game::Game(unsigned int seed) : mt(static_cast<int>(seed)) {
-  Earth_builder perlin_builder{seed};
-  perlin_builder.general_generation();
+  Earth_builder generator{seed};
+  generator.general_generation();
+  generator.random_walk_generation();
 
-  terrain = std::move(perlin_builder.get_terrain());
-  features = std::move(perlin_builder.get_features());
+  terrain = std::move(generator.get_terrain());
+  features = std::move(generator.get_features());
 };
 
 pointer_terrain &Game::get_terrain(int i, int j) const {
