@@ -7,7 +7,7 @@ public:
   Grid() {
     for (int i = 0; i < SIZE; ++i) {
       for (int j = 0; j < SIZE; ++j) {
-        // grid[i][j] = nullptr;
+        grid[i][j] = std::unique_ptr<T>();
       }
     }
   };
@@ -26,10 +26,10 @@ public:
 
   void set(int i, int j,
            std::unique_ptr<T> &pointer_to_entity) { // takes in reference
-    grid[i % 100][j % 100] = std::move(pointer_to_entity);
-  }
-
-  void reset(int i, int j) { grid[i % 100][j % 100].reset(nullptr); }
+    int i_index = i % SIZE;
+    int j_index = j % SIZE;
+    grid[i_index][j_index] = std::move(pointer_to_entity);
+  };
 
 private:
   std::unique_ptr<T> grid[SIZE][SIZE]; // grid of terrain pointers, aggregation

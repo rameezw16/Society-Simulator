@@ -18,11 +18,11 @@ public:
       : limit(limit), seed(seed), iterations(iterations) {
     srand(seed);
     this->terrain = std::move(terrain);
-    this->feature = std::move(feature);
+    this->features = std::move(feature);
   };
 
   std::unique_ptr<Grid<Terrain>> &get_terrain() { return (this->terrain); };
-  std::unique_ptr<Grid<Feature>> &get_features() { return (this->feature); };
+  std::unique_ptr<Grid<Feature>> &get_features() { return (this->features); };
 
   void walk_terrain(int x, int y) {
     this->x = x;
@@ -30,14 +30,11 @@ public:
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
-      // feature->reset(this->x, this->y);
-      terrain->reset(this->x, this->y);
       std::unique_ptr<Terrain> new_terrain =
           std::make_unique<T>(this->x, this->y);
 
       terrain->set(this->x, this->y, new_terrain);
     }
-    patch_holes();
   };
 
   void walk_feature(int x, int y) {
@@ -46,14 +43,14 @@ public:
     for (int i = 0; i < iterations; ++i) {
       random_walk();
 
-      // feature->reset(this->x, this->y);
-      terrain->reset(this->x, this->y);
       std::unique_ptr<Feature> new_feature =
           std::make_unique<T>(this->x, this->y);
+      // std::unique_ptr<Terrain> new_dirt =
+      //     std::make_unique<Dirt>(this->x, this->y);
 
-      feature->set(this->x, this->y, new_feature);
+      features->set(this->x, this->y, new_feature);
+      // terrain->set(this->x, this->y, new_dirt);
     }
-    patch_holes();
   };
 
 private:
@@ -68,8 +65,8 @@ private:
 
     int proposed_x = this->x + x_dir;
     int proposed_y = this->y + y_dir;
-    x = proposed_x;
-    y = proposed_y;
+    x = abs(proposed_x);
+    y = abs(proposed_y);
 
     // if (0 <= proposed_x && proposed_x < limit)
     //   x = proposed_x;
@@ -84,6 +81,11 @@ private:
           std::unique_ptr<Terrain> new_dirt = std::make_unique<Dirt>(i, j);
           terrain->set(i, j, new_dirt);
         }
+        if (features->get(i, j) == nullptr) {
+          std::unique_ptr<Feature> new_grass =
+              std::make_unique<Grass>(i, j, 1, 1);
+          features->set(i, j, new_grass);
+        }
       }
     }
   }
@@ -92,7 +94,7 @@ private:
   int y{SIZE / 2}; // position
 
   std::unique_ptr<Grid<Terrain>> terrain;
-  std::unique_ptr<Grid<Feature>> feature;
+  std::unique_ptr<Grid<Feature>> features;
 
   int iterations;
 

@@ -19,8 +19,8 @@ public:
 
   void set_sprite(const int spritesheet_pos_x, const int spritesheet_pos_y);
 
-  int get_spritesheet_pos_x() const;
-  int get_spritesheet_pos_y() const;
+  virtual int get_spritesheet_pos_x() const;
+  virtual int get_spritesheet_pos_y() const;
 
 protected:
   bool walkable = true;

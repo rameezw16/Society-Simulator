@@ -8,6 +8,7 @@ public:
         const int spritesheet_pos_y = 1);
 
   ~Grass();
+
   void step() override;
   bool get_walkable() const override;
   std::string get_type() const override;
@@ -16,8 +17,8 @@ private:
   bool walkable = false;
   void grow_back() override; // will grow back the level of food
   void consume() override;   // will reduce the amount of food (due to
-                           // consumption)
-  void update_sprite(); // will update the sprite based on food_level
+                             // consumption)
+  void update_sprite();      // will update the sprite based on food_level
   bool natural;
   int food_level;
   int food_capacity;
