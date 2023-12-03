@@ -83,7 +83,7 @@ private:
         }
         if (features->get(i, j) == nullptr) {
           std::unique_ptr<Feature> new_grass =
-              std::make_unique<Grass>(i, j, 1, 1);
+              std::make_unique<Grass>(i, j, 100, 100);
           features->set(i, j, new_grass);
         }
       }

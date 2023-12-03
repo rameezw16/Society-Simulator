@@ -22,7 +22,7 @@ void Earth_builder::general_generation() {
       int level = static_cast<int>(perlin_food.get_noise(i, j) * 100);
 
       pointer_feature fauna_at_point;
-      fauna_at_point = make_unique<Grass>(i, j, level);
+      fauna_at_point = make_unique<Grass>(i, j, level, 100);
       features->set(i, j, fauna_at_point);
       // std::cout << level << " ";
     }
@@ -49,13 +49,30 @@ void Earth_builder::general_generation() {
 }
 
 void Earth_builder::random_walk_generation() {
-  Random_Walker<Water> water_walker{seed, terrain, features, 100};
+  Random_Walker<Water> water_walker{seed, terrain, features, 500};
   water_walker.walk_terrain(0, 0);
+  water_walker.walk_terrain(10, SIZE);
+  water_walker.walk_terrain(SIZE / 2, SIZE / 2);
+  water_walker.walk_terrain(10, SIZE);
+  water_walker.walk_terrain(10, SIZE);
   terrain = std::move(water_walker.get_terrain());
   features = std::move(water_walker.get_features());
 
-  Random_Walker<Grass> grass_walker{seed, terrain, features, 100};
+  Random_Walker<Wall> wall_walker{seed, terrain, features, 500};
+  wall_walker.walk_terrain(0, 0);
+  wall_walker.walk_terrain(SIZE, SIZE);
+  wall_walker.walk_terrain(50, 50);
+  wall_walker.walk_terrain(10, 10);
+  wall_walker.walk_terrain(SIZE, 0);
+  terrain = std::move(wall_walker.get_terrain());
+  features = std::move(wall_walker.get_features());
+
+  Random_Walker<Grass> grass_walker{seed, terrain, features, 500};
   grass_walker.walk_feature(0, 0);
+  grass_walker.walk_feature(SIZE, SIZE);
+  grass_walker.walk_feature(50, 50);
+  grass_walker.walk_feature(10, 10);
+  grass_walker.walk_feature(SIZE, 0);
   terrain = std::move(grass_walker.get_terrain());
   features = std::move(grass_walker.get_features());
 }

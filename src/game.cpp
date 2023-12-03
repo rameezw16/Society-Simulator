@@ -55,13 +55,12 @@ Game::~Game(){};
 // };
 
 void Game::step() {
+  this->features->update();
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
       // if (agent[i][j] != nullptr) {
       //   pathfind(agent[i][j]);
       // }
-
-      this->features->update();
     }
   }
 };

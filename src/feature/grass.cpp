@@ -4,9 +4,9 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
              const int food_capacity, const int spritesheet_pos_x,
              const int spritesheet_pos_y)
     : Feature(pos_x, pos_y, spritesheet_pos_x, spritesheet_pos_y),
-      food_level(std::max(food_level, food_capacity)),
+      food_level(std::min(food_level, food_capacity)),
       food_capacity(food_capacity) {
-  this->step();
+  this->update_sprite();
 };
 Grass::~Grass() = default;
 

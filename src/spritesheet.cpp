@@ -96,7 +96,7 @@ void Drawer::draw_game(Game &game) {
       // Character* character = game->character[i][j];
       if (terrain_pointer)
         draw_sprite(terrain_pointer, draw_pos_x, draw_pos_y);
-      if (terrain_pointer)
+      if (feature_pointer && terrain_pointer->get_type() == "dirt")
         draw_sprite(feature_pointer, draw_pos_x, draw_pos_y);
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
       game.set_terrain(i, j, terrain_pointer);

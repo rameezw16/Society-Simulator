@@ -5,6 +5,7 @@
 #include "perlin.h"
 #include "randomwalker.h"
 #include "terrain/terrain.h"
+#include "terrain/wall.h"
 #include <memory>
 
 using std::make_unique;
