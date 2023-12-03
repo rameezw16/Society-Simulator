@@ -29,6 +29,8 @@ public:
     grid[i % 100][j % 100] = std::move(pointer_to_entity);
   }
 
+  void reset(int i, int j) { grid[i % 100][j % 100].reset(nullptr); }
+
 private:
   std::unique_ptr<T> grid[SIZE][SIZE]; // grid of terrain pointers, aggregation
   const int gridsize = SIZE;

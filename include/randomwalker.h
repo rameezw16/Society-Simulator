@@ -22,24 +22,18 @@ public:
   };
 
   std::unique_ptr<Grid<Terrain>> &get_terrain() { return (this->terrain); };
-  std::unique_ptr<Grid<Terrain>> &get_feature() { return (this->feature); };
+  std::unique_ptr<Grid<Feature>> &get_features() { return (this->feature); };
 
   void walk_terrain(int x, int y) {
     this->x = x;
     this->y = y;
     for (int i = 0; i < iterations; ++i) {
       random_walk();
-      std::unique_ptr<T> current_feature = feature->get(this->x, this->y);
-      std::unique_ptr<T> current_terrain = terrain->get(this->x, this->y);
 
-      if (current_feature) {
-        feature->set(this->x, this->y, nullptr);
-      }
-
-      if (current_terrain) {
-        terrain->set(this->x, this->y, nullptr);
-      }
-      std::unique_ptr<T> new_terrain = std::make_unique<T>(this->x, this->y);
+      feature->reset(this->x, this->y);
+      terrain->reset(this->x, this->y);
+      std::unique_ptr<Terrain> new_terrain =
+          std::make_unique<T>(this->x, this->y);
 
       terrain->set(this->x, this->y, new_terrain);
     }
@@ -51,17 +45,11 @@ public:
     this->y = y;
     for (int i = 0; i < iterations; ++i) {
       random_walk();
-      std::unique_ptr<T> current_feature = feature->get(this->x, this->y);
-      std::unique_ptr<T> current_terrain = terrain->get(this->x, this->y);
 
-      if (current_feature) {
-        feature->set(this->x, this->y, nullptr);
-      }
-
-      if (current_terrain) {
-        terrain->set(this->x, this->y, nullptr);
-      }
-      std::unique_ptr<T> new_feature = std::make_unique<T>(this->x, this->y);
+      feature->reset(this->x, this->y);
+      terrain->reset(this->x, this->y);
+      std::unique_ptr<Feature> new_feature =
+          std::make_unique<T>(this->x, this->y);
 
       feature->set(this->x, this->y, new_feature);
     }
