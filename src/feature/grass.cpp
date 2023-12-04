@@ -13,6 +13,11 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
 Grass::~Grass() = default;
 
 void Grass::step() {
+  if (timer != 0) {
+    timer--;
+    return;
+  }
+
   if (grow)
     this->grow_back();
   else
@@ -22,23 +27,20 @@ void Grass::step() {
 
   this->update_sprite();
 
-  if (timer != 0) {
-    timer--;
-    return;
-  }
-
-  if (food_level == food_capacity) {
+  if (food_level >= food_capacity) {
     grow = 0; // stop growing
     timer = 10;
-  } else if (food_level == 0) {
+  } else if (food_level <= 0) {
     grow = 1; // start growing
     timer = 10;
   }
 }
 
-void Grass::grow_back() { food_level = std::min(food_level + 1, 100); }
+void Grass::grow_back() {
+  food_level = std::min(food_level + 10, food_capacity);
+}
 
-void Grass::consume() { food_level = std::max(food_level - 1, 0); }
+void Grass::consume() { food_level = std::max(food_level - 10, 0); }
 
 void Grass::update_sprite() {
   if (food_level == 0) {
