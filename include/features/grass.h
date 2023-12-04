@@ -22,5 +22,6 @@ private:
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  bool grow = false;
+  static bool grow;
+  static int timer;
 };

@@ -1,5 +1,8 @@
 #include "../../include/features/grass.h"
 
+bool Grass::grow{false};
+int Grass::timer{10};
+
 Grass::Grass(const int pos_x, const int pos_y, const int food_level,
              const int food_capacity, const int spritesheet_pos_x,
              const int spritesheet_pos_y)
@@ -7,35 +10,43 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
       food_level(std::min(food_level, food_capacity)),
       food_capacity(food_capacity) {
   this->update_sprite();
-  grow = false;
 };
 Grass::~Grass() = default;
 
 void Grass::step() {
-  this->update_sprite();
-  this->consume();
+  if (grow)
+    this->grow_back();
+  else
+    this->consume();
+  std::cout << food_capacity << "\n";
 
-  // if (grow)
-  //   this->grow_back();
-  // else
-  //   this->consume();
+  this->update_sprite();
 }
 
 void Grass::grow_back() {
-  if (food_level < food_capacity)
+  if (timer == 0 && food_level < food_capacity) {
     food_level++;
+    timer = 10;
+  } else {
+    grow = 0; // stop growing
+    timer--;
+  }
 }
 
 void Grass::consume() {
-  if (food_level > 0)
+  if (timer == 0 && food_level > 0) {
     food_level--;
+    timer = 10;
+  } else {
+    grow = 1; // start growing
+    timer--;
+  }
 }
 
 void Grass::update_sprite() {
   if (food_level == 0) {
     spritesheet_pos_x = 0;
     spritesheet_pos_y = 0;
-    grow = ~grow;
   } else if (food_level < 10) { // barren
     spritesheet_pos_x = 26;
     spritesheet_pos_y = 13;
@@ -51,10 +62,9 @@ void Grass::update_sprite() {
   } else if (food_level < 80) { // tree
     spritesheet_pos_x = 30;
     spritesheet_pos_y = 13;
-  } else if (food_level < 100) { // forest
+  } else if (food_level < 99) { // forest
     spritesheet_pos_x = 31;
     spritesheet_pos_y = 13;
-    grow = ~grow;
   }
 }
 
