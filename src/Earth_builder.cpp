@@ -4,12 +4,14 @@ Earth_builder::Earth_builder(unsigned int seed)
     : seed(seed), perlin_food(seed * 2), perlin_earth(seed) {
   perlin_food.add_octave(0.3, 5);
   perlin_earth.add_octave(0.6, 5);
+  this->mt = std::mt19937(seed);
   this->reset();
 };
 
 void Earth_builder::reset() {
   this->terrain = make_unique<Grid<Terrain>>();
   this->features = make_unique<Grid<Feature>>();
+  this->agents = make_unique<Grid<Agent>>();
 }
 
 Earth_builder::~Earth_builder() = default;
@@ -77,6 +79,24 @@ void Earth_builder::random_walk_generation() {
   features = std::move(grass_walker.get_features());
 }
 
+void Earth_builder::add_people_to_grid() {
+  int count = 0;
+  for (int i = 0; i < SIZE; i++) {
+    for (int j = 0; j < SIZE; j++) {
+      if ((terrain->get(i, j)->get_walkable() == true)
+      && (this->mt() % 20 == 0))
+        {
+          count++;
+          // std::unique_ptr<Terrain> new_terr = std::make_unique<Dirt>(i, j);
+          // terrain->set(i, j, new_terr);
+          std::unique_ptr<Agent> new_agent = std::make_unique<Agent>(this->mt, 0, 0, "abc", i, j);
+          agents->set(i, j, new_agent);
+        }
+    };
+  };
+  printf("%i people deployed\n", count);
+};
+
 void Earth_builder::cleanup() {}
 
 unique_ptr<Grid<Terrain>> &Earth_builder::get_terrain() {
@@ -85,4 +105,8 @@ unique_ptr<Grid<Terrain>> &Earth_builder::get_terrain() {
 
 unique_ptr<Grid<Feature>> &Earth_builder::get_features() {
   return (this->features);
+}
+
+unique_ptr<Grid<Agent>> &Earth_builder::get_agents() {
+  return (this->agents);
 }

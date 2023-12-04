@@ -5,9 +5,11 @@ Game::Game(unsigned int seed) : mt(static_cast<int>(seed)) {
   Earth_builder generator{seed};
   generator.general_generation();
   generator.random_walk_generation();
+  generator.add_people_to_grid();
 
   terrain = std::move(generator.get_terrain());
   features = std::move(generator.get_features());
+  
 };
 
 pointer_terrain &Game::get_terrain(int i, int j) const {
@@ -16,6 +18,10 @@ pointer_terrain &Game::get_terrain(int i, int j) const {
 
 pointer_feature &Game::get_feature(int i, int j) const {
   return (features->get(i, j));
+}
+
+pointer_agent &Game::get_agents(int i, int j) const {
+  return (agents->get(i, j));
 }
 
 void Game::set_terrain(int i, int j, pointer_terrain &val) {
@@ -30,10 +36,10 @@ Game::~Game(){};
 // void Game::add_people_to_grid() {
 //   for (int i = 0; i < SIZE; i++) {
 //     for (int j = 0; j < SIZE; j++) {
-//       if (feature[i][j] == nullptr && (terrain[i][j]->get_walkable() == true)
+//       if (get_feature(i, j) == nullptr && (get_terrain(i, j)->get_walkable() == true)
 //       &&
 //           (mt() % 200 == 1))
-//         agent[i][j] = new Agent{this->mt, 0, 0, "abc", i, j};
+//           new Agent{this->mt, 0, 0, "abc", i, j};
 //     };
 //   };
 // };
