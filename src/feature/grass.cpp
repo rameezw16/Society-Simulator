@@ -1,5 +1,18 @@
 #include "../../include/features/grass.h"
 
+int Grass::timer = 10;
+bool Grass::grow = false;
+
+void Grass::step_season() {
+  if (timer != 0) {
+    timer--;
+    return;
+  } else {
+    grow = ~grow;
+    timer = 10;
+  }
+}
+
 Grass::Grass(const int pos_x, const int pos_y, const int food_level,
              const int food_capacity, const int spritesheet_pos_x,
              const int spritesheet_pos_y)
@@ -7,13 +20,13 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
       food_level(std::min(food_level, food_capacity)),
       food_capacity(food_capacity) {
   this->update_sprite();
-  grow = false;
-  timer = 10;
+  // grow = false;
+  // timer = 10;
 };
 Grass::~Grass() = default;
 
 void Grass::step() {
-
+  // step_season();
   if (grow)
     this->grow_back();
   else
@@ -22,18 +35,18 @@ void Grass::step() {
             << "\n";
 
   this->update_sprite();
-  if (timer != 0) {
-    timer--;
-    return;
-  }
+  // if (timer != 0) {
+  //   timer--;
+  //   return;
+  // }
 
-  if (food_level >= food_capacity) {
-    grow = 0; // stop growing
-    timer = 5;
-  } else if (food_level <= 0) {
-    grow = 1; // start growing
-    timer = 5;
-  }
+  // if (food_level >= food_capacity) {
+  //   grow = 0; // stop growing
+  //   timer = 5;
+  // } else if (food_level <= 0) {
+  //   grow = 1; // start growing
+  //   timer = 5;
+  // }
 }
 
 void Grass::grow_back() {

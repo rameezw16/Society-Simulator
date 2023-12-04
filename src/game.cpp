@@ -56,6 +56,7 @@ Game::~Game(){};
 
 void Game::step() {
   this->features->update();
+  Grass::step_season();
   for (int i = 0; i < SIZE; ++i) {
     for (int j = 0; j < SIZE; ++j) {
       // if (agent[i][j] != nullptr) {

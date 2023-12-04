@@ -12,6 +12,7 @@ public:
   void step() override;
   bool get_walkable() const override;
   std::string get_type() const override;
+  static void step_season();
 
 private:
   bool walkable = false;
@@ -22,6 +23,6 @@ private:
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  bool grow = false;
-  int timer = 10;
+  static bool grow;
+  static int timer;
 };
