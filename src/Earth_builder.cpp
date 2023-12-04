@@ -1,10 +1,10 @@
 #include "../include/Earth_builder.h"
 
-Earth_builder::Earth_builder(unsigned int seed)
+Earth_builder::Earth_builder( std::mt19937& mt, unsigned int seed)
     : seed(seed), perlin_food(seed * 2), perlin_earth(seed) {
   perlin_food.add_octave(0.3, 5);
   perlin_earth.add_octave(0.6, 5);
-  this->mt = std::mt19937(seed);
+  this->mt = mt;
   this->reset();
 };
 

@@ -27,6 +27,7 @@ public:
 
   void set_terrain(int i, int j, pointer_terrain &val);
   void set_feature(int i, int j, pointer_feature &val);
+  void set_agents(int i, int j, pointer_agent &val);
 
   void add_people_to_grid();
 
@@ -35,7 +36,6 @@ public:
 private:
   unique_ptr<Grid<Terrain>> terrain;
   unique_ptr<Grid<Feature>> features;
-
   unique_ptr<Grid<Agent>> agents; // TODO need to implement
 
   std::mt19937 mt;

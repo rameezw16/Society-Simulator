@@ -78,6 +78,8 @@ void Drawer::draw_sprite(const std::unique_ptr<Agent> &entity, const int x,
   position.w = 10;
   position.h = 10;
 
+  // printf("Agent at: %i, %i", position.x, position.y);
+
   SDL_RenderCopy(renderer, ss_agent, &clip, &position);
 };
 
@@ -105,7 +107,7 @@ void Drawer::draw_game(Game &game) {
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
       game.set_terrain(i, j, terrain_pointer);
       game.set_feature(i, j, feature_pointer);
-      // game.set_agents(i, j, agent_pointer); // TODO
+      game.set_agents(i, j, agent_pointer);
     }
   }
   // draw_agents();

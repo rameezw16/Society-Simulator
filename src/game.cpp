@@ -2,13 +2,14 @@
 // SIZE is the internal grid representation
 
 Game::Game(unsigned int seed) : mt(static_cast<int>(seed)) {
-  Earth_builder generator{seed};
+  Earth_builder generator{mt, seed};
   generator.general_generation();
   generator.random_walk_generation();
   generator.add_people_to_grid();
 
   terrain = std::move(generator.get_terrain());
   features = std::move(generator.get_features());
+  agents = std::move(generator.get_agents());
   
 };
 
@@ -29,6 +30,9 @@ void Game::set_terrain(int i, int j, pointer_terrain &val) {
 }
 void Game::set_feature(int i, int j, pointer_feature &val) {
   features->set(i, j, val);
+}
+void Game::set_agents(int i, int j, pointer_agent &val) {
+  agents->set(i, j, val);
 }
 
 Game::~Game(){};

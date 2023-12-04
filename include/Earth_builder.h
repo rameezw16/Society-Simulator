@@ -19,7 +19,7 @@ using pointer_agent = unique_ptr<Agent>;
 class Earth_builder : public Builder {
 
 public:
-  Earth_builder(unsigned int seed = 1985);
+  Earth_builder(std::mt19937& mt, unsigned int seed = 1985);
   ~Earth_builder();
   void reset();
   void general_generation() override;
