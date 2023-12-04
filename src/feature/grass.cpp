@@ -8,7 +8,7 @@ void Grass::step_season() {
     timer--;
     return;
   } else {
-    grow = ~grow;
+    grow = grow ? 0 : 1; // have to do this for some rason
     timer = 10;
   }
 }
@@ -26,7 +26,6 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
 Grass::~Grass() = default;
 
 void Grass::step() {
-  // step_season();
   if (grow)
     this->grow_back();
   else
@@ -35,18 +34,6 @@ void Grass::step() {
             << "\n";
 
   this->update_sprite();
-  // if (timer != 0) {
-  //   timer--;
-  //   return;
-  // }
-
-  // if (food_level >= food_capacity) {
-  //   grow = 0; // stop growing
-  //   timer = 5;
-  // } else if (food_level <= 0) {
-  //   grow = 1; // start growing
-  //   timer = 5;
-  // }
 }
 
 void Grass::grow_back() {
@@ -56,7 +43,10 @@ void Grass::grow_back() {
 void Grass::consume() { food_level = std::max(food_level - 3, 0); }
 
 void Grass::update_sprite() {
-  if (food_level < 10) { // barren
+  if (food_level == 0) { // nothing
+    spritesheet_pos_x = 0;
+    spritesheet_pos_y = 0;
+  } else if (food_level < 10) { // bud
     spritesheet_pos_x = 26;
     spritesheet_pos_y = 13;
   } else if (food_level < 20) { // seedling (switched w previous)
