@@ -37,10 +37,10 @@ void Grass::step() {
 }
 
 void Grass::grow_back() {
-  food_level = std::min(food_level + 10, food_capacity);
+  food_level = std::min(food_level + 3, food_capacity);
 }
 
-void Grass::consume() { food_level = std::max(food_level - 10, 0); }
+void Grass::consume() { food_level = std::max(food_level - 3, 0); }
 
 void Grass::update_sprite() {
   if (food_level == 0) {

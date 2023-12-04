@@ -22,7 +22,7 @@ void Earth_builder::general_generation() {
       int level = static_cast<int>(perlin_food.get_noise(i, j) * 100);
 
       pointer_feature fauna_at_point;
-      fauna_at_point = make_unique<Grass>(i, j, level, 100);
+      fauna_at_point = make_unique<Grass>(i, j, level, level);
       features->set(i, j, fauna_at_point);
       // std::cout << level << " ";
     }
