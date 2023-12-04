@@ -38,7 +38,7 @@ public:
         int j_index = j % SIZE;
 
         grid[i_index][j_index]->step();
-        grid[i_index][j_index]->consume();
+        // grid[i_index][j_index]->consume();
       }
     }
   }
