@@ -17,35 +17,28 @@ void Grass::step() {
     this->grow_back();
   else
     this->consume();
+  std::cout << food_level << " " << food_capacity << " " << grow << " " << timer
+            << "\n";
 
   this->update_sprite();
-}
 
-void Grass::grow_back() {
   if (timer != 0) {
     timer--;
     return;
   }
-  if (food_level < food_capacity) {
-    food_level++;
-  } else {
+
+  if (food_level == food_capacity) {
     grow = 0; // stop growing
     timer = 10;
-  }
-}
-
-void Grass::consume() {
-  if (timer != 0) {
-    timer--;
-    return;
-  }
-  if (food_level > 0) {
-    food_level--;
-  } else {
+  } else if (food_level == 0) {
     grow = 1; // start growing
     timer = 10;
   }
 }
+
+void Grass::grow_back() { food_level = std::min(++food_level, food_capacity); }
+
+void Grass::consume() { food_level = std::max(--food_level, 0); }
 
 void Grass::update_sprite() {
   if (food_level == 0) {
