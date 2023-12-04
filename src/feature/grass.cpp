@@ -1,8 +1,5 @@
 #include "../../include/features/grass.h"
 
-bool Grass::grow{false};
-int Grass::timer{10};
-
 Grass::Grass(const int pos_x, const int pos_y, const int food_level,
              const int food_capacity, const int spritesheet_pos_x,
              const int spritesheet_pos_y)
@@ -10,6 +7,8 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
       food_level(std::min(food_level, food_capacity)),
       food_capacity(food_capacity) {
   this->update_sprite();
+  grow = false;
+  timer = 10;
 };
 Grass::~Grass() = default;
 
@@ -18,28 +17,33 @@ void Grass::step() {
     this->grow_back();
   else
     this->consume();
-  std::cout << food_capacity << "\n";
 
   this->update_sprite();
 }
 
 void Grass::grow_back() {
-  if (timer == 0 && food_level < food_capacity) {
+  if (timer != 0) {
+    timer--;
+    return;
+  }
+  if (food_level < food_capacity) {
     food_level++;
-    timer = 10;
   } else {
     grow = 0; // stop growing
-    timer--;
+    timer = 10;
   }
 }
 
 void Grass::consume() {
-  if (timer == 0 && food_level > 0) {
+  if (timer != 0) {
+    timer--;
+    return;
+  }
+  if (food_level > 0) {
     food_level--;
-    timer = 10;
   } else {
     grow = 1; // start growing
-    timer--;
+    timer = 10;
   }
 }
 
