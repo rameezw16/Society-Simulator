@@ -13,10 +13,6 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
 Grass::~Grass() = default;
 
 void Grass::step() {
-  if (timer != 0) {
-    timer--;
-    return;
-  }
 
   if (grow)
     this->grow_back();
@@ -26,6 +22,10 @@ void Grass::step() {
             << "\n";
 
   this->update_sprite();
+  if (timer != 0) {
+    timer--;
+    return;
+  }
 
   if (food_level >= food_capacity) {
     grow = 0; // stop growing
@@ -43,25 +43,16 @@ void Grass::grow_back() {
 void Grass::consume() { food_level = std::max(food_level - 3, 0); }
 
 void Grass::update_sprite() {
-  if (food_level == 0) {
-    spritesheet_pos_x = 0;
-    spritesheet_pos_y = 0;
-  } else if (food_level < 10) { // barren
+  if (food_level < 10) { // barren
     spritesheet_pos_x = 26;
     spritesheet_pos_y = 13;
-  } else if (food_level < 20) { // bud
-    spritesheet_pos_x = 28;
-    spritesheet_pos_y = 13;
-  } else if (food_level < 40) { // seedling (switched w previous)
+  } else if (food_level < 20) { // seedling (switched w previous)
     spritesheet_pos_x = 27;
     spritesheet_pos_y = 13;
-  } else if (food_level < 60) { // plant
-    spritesheet_pos_x = 29;
-    spritesheet_pos_y = 13;
-  } else if (food_level < 80) { // tree
+  } else if (food_level < 40) { // tree
     spritesheet_pos_x = 30;
     spritesheet_pos_y = 13;
-  } else if (food_level < 99) { // forest
+  } else if (food_level < 60) { // forest
     spritesheet_pos_x = 31;
     spritesheet_pos_y = 13;
   }
