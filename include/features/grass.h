@@ -19,8 +19,8 @@ private:
   void consume() override;   // will reduce the amount of food (due to
                              // consumption)
   void update_sprite();      // will update the sprite based on food_level
-  bool natural;
   int food_level;
   int food_capacity;
   std::string type = "grass";
+  bool grow = false;
 };
