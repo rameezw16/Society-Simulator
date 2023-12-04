@@ -29,10 +29,10 @@ void Grass::step() {
 
   if (food_level >= food_capacity) {
     grow = 0; // stop growing
-    timer = 10;
+    timer = 5;
   } else if (food_level <= 0) {
     grow = 1; // start growing
-    timer = 10;
+    timer = 5;
   }
 }
 
