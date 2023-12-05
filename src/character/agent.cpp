@@ -227,7 +227,21 @@ void Agent::step(){};
 
 void Agent::consume()
 {
-  this->aStats->health = std::min(this->aStats->health + 5, 100);
+  if (this->aStats->health > 80)
+    reproduction_factor = std::min(reproduction_factor + 3, 100);
+  else
+    this->aStats->health = std::min(this->aStats->health + 5, 100);
+}
+
+bool Agent::attempt_reproduce()
+{
+  if (reproduction_factor == 100)
+  {
+    reproduction_factor = 0;
+    this->aStats->health = std::max(this->aStats->health - 30, 0);
+    return true;
+  }
+  return false;
 }
 
 void Agent::decay()

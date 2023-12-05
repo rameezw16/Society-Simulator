@@ -31,7 +31,8 @@ public:
   std::string name = "";
   int age;
   Stats *aStats;
-  int visionRange = 2;
+  int vision_range = 2;
+  int reproduction_factor = 0;
 
   void initialise_relations();
 
@@ -57,6 +58,8 @@ public:
   void consume() override;
   void decay() override;
   void grow_back() override;
+
+  bool attempt_reproduce();
 
   Entity *goal_entity{nullptr};
   int goal_x, goal_y{};
