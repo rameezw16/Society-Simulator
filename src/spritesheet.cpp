@@ -92,7 +92,7 @@ void Drawer::draw_game(Game &game) {
 
       pointer_terrain terrain_pointer = std::move(game.get_terrain(i, j));
       pointer_feature feature_pointer = std::move(game.get_feature(i, j));
-      pointer_agent agent_pointer = std::move(game.get_agents(i, j));
+      pointer_agent agent_pointer = std::move(game.get_agent(i, j));
 
       int draw_pos_x = i * 10;
       int draw_pos_y = j * 10;
@@ -107,7 +107,7 @@ void Drawer::draw_game(Game &game) {
       // if (agent) draw_sprite(agent, draw_pos_x, draw_pos_y);
       game.set_terrain(i, j, terrain_pointer);
       game.set_feature(i, j, feature_pointer);
-      game.set_agents(i, j, agent_pointer);
+      game.set_agent(i, j, agent_pointer);
     }
   }
   // draw_agents();

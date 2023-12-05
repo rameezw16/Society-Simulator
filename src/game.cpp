@@ -21,7 +21,7 @@ pointer_feature &Game::get_feature(int i, int j) const {
   return (features->get(i, j));
 }
 
-pointer_agent &Game::get_agents(int i, int j) const {
+pointer_agent &Game::get_agent(int i, int j) const {
   return (agents->get(i, j));
 }
 
@@ -31,7 +31,7 @@ void Game::set_terrain(int i, int j, pointer_terrain &val) {
 void Game::set_feature(int i, int j, pointer_feature &val) {
   features->set(i, j, val);
 }
-void Game::set_agents(int i, int j, pointer_agent &val) {
+void Game::set_agent(int i, int j, pointer_agent &val) {
   agents->set(i, j, val);
 }
 
@@ -48,42 +48,60 @@ Game::~Game(){};
 //   };
 // };
 
-// bool Game::check_move(Agent *a, Dir direction) {
-//   int proposed_x = direction.get_x();
-//   int proposed_y = direction.get_y();
-//   if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE ||
-//       proposed_y <= 0)
-//     return false;
-//   bool non_existant_feature = (feature[proposed_x][proposed_y] == nullptr);
-//   bool can_walk = non_existant_feature;
-//   if (!non_existant_feature)
-//     can_walk = feature[proposed_x][proposed_y]->get_walkable();
-
-//   return (terrain[proposed_x][proposed_y]->get_walkable() &&
-//           can_walk); // can move with to place with no
-//                      // terrain and features
-// };
-
-void Game::step() {
-  this->features->update();
-  Grass::step_season();
-  for (int i = 0; i < SIZE; ++i) {
-    for (int j = 0; j < SIZE; ++j) {
-      // if (agent[i][j] != nullptr) {
-      //   pathfind(agent[i][j]);
-      // }
-    }
+bool Game::check_move(Dir direction) {
+  int proposed_x = direction.get_x();
+  int proposed_y = direction.get_y();
+  if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE ||
+      proposed_y <= 0)
+    return false;
+  printf("valid coords\n");
+  bool non_existant_feature = (features->get(proposed_x, proposed_y) == nullptr);
+  bool can_walk = non_existant_feature;
+  if (!non_existant_feature)
+  {
+    can_walk = features->get(proposed_x, proposed_y)->get_walkable();
+    printf("feature walk status: %i\n", can_walk);
   }
+
+
+  return (terrain->get(proposed_x, proposed_y)->get_walkable() &&
+          can_walk); // can move with to place with no
+                     // terrain and features
 };
 
-// void Game::pathfind(Agent *a) {
+void Game::step() {
+  this->features->update(); // update all grass
+  Grass::step_season(); // update overall season
+  for (std::pair<int, Agent*> agent : Agent::AgentList)
+  {
+    int i = agent.second->posX;
+    int j = agent.second->posY;
+    pointer_feature terr = std::move(get_feature(i, j));
+    terr->consume();
+    set_feature(i, j, terr);
+    pathfind(get_agent(i, j));
+  }
+  // for (int i = 0; i < SIZE; ++i) {
+  //   for (int j = 0; j < SIZE; ++j) {
+  //     if (get_agent(i, j) != nullptr) {
+  //       unique_ptr<Grass> t;
+  //       set_agent(i, j, pathfind(get_agent(i, j)));
+  //     }
+  //   }
+  // }
+};
 
-//   Dir random_proposed{static_cast<int>(mt())};
-//   random_proposed.set_x(a->posX + random_proposed.get_x());
-//   random_proposed.set_y(a->posY + random_proposed.get_y());
+void Game::pathfind(pointer_agent& agent) 
+{
 
-//   bool valid = check_move(a, random_proposed);
-//   if (valid) {
-//     a->move_agent(random_proposed.get_x(), random_proposed.get_y());
-//   };
-// };
+  Dir random_proposed{static_cast<int>(mt())};
+  random_proposed.set_x(agent->posX + random_proposed.get_x());
+  random_proposed.set_y(agent->posY + random_proposed.get_y());
+
+  bool valid = check_move(random_proposed);
+  if (valid) {
+    agent->move_agent(random_proposed.get_x(), random_proposed.get_y());
+  };
+
+  set_agent(agent->posX, agent->posY, agent);
+};

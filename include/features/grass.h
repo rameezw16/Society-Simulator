@@ -15,7 +15,7 @@ public:
   static void step_season();
 
 private:
-  bool walkable = false;
+  bool walkable = true;
   void grow_back() override; // will grow back the level of food
   void consume() override;   // will reduce the amount of food (due to
                              // consumption)

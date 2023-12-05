@@ -1,6 +1,6 @@
 #include "../../include/features/grass.h"
 
-int Grass::timer = 10;
+int Grass::timer = 20;
 bool Grass::grow = false;
 
 void Grass::step_season() {
@@ -9,7 +9,7 @@ void Grass::step_season() {
     return;
   } else {
     grow = grow ? 0 : 1; // have to do this for some rason
-    timer = 10;
+    timer = 20;
   }
 }
 
@@ -28,8 +28,8 @@ Grass::~Grass() = default;
 void Grass::step() {
   if (grow)
     this->grow_back();
-  else
-    this->consume();
+  // else
+    // this->consume();
   std::cout << food_level << " " << food_capacity << " " << grow << " " << timer
             << "\n";
 
@@ -40,7 +40,7 @@ void Grass::grow_back() {
   food_level = std::min(food_level + 3, food_capacity);
 }
 
-void Grass::consume() { food_level = std::max(food_level - 3, 0); }
+void Grass::consume() { food_level = std::max(food_level - 50, 0); }
 
 void Grass::update_sprite() {
   if (food_level == 0) { // nothing
