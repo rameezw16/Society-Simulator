@@ -20,8 +20,6 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
       food_level(std::min(food_level, food_capacity)),
       food_capacity(food_capacity) {
   this->update_sprite();
-  // grow = false;
-  // timer = 10;
 };
 Grass::~Grass() = default;
 
@@ -30,8 +28,9 @@ void Grass::step() {
     this->grow_back();
   else if (season == 2)
     this->decay();
-  std::cout << food_level << " " << food_capacity << " " << season << " " << timer
-            << "\n";
+
+  std::cout << food_level << " " << food_capacity << " " << season << " "
+            << timer << "\n";
 
   this->update_sprite();
 }
