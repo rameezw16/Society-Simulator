@@ -52,7 +52,7 @@ bool Game::check_move(Dir direction) {
   int proposed_x = direction.get_x();
   int proposed_y = direction.get_y();
   if (proposed_x >= SIZE || proposed_x <= 0 || proposed_y >= SIZE ||
-      proposed_y <= 0)
+      proposed_y <= 0 || agents->get(proposed_x, proposed_y))
     return false;
   // printf("valid coords\n");
   bool non_existant_feature = (features->get(proposed_x, proposed_y) == nullptr);
@@ -79,7 +79,15 @@ void Game::step() {
     int i = agent.second->posX;
     int j = agent.second->posY;
     pointer_feature feat = std::move(get_feature(i, j));
-    feat->consume();
+    // if (features->get())
+    if (feat->get_level() > 10)
+      feat->consume();
+    else
+    {
+      pointer_agent& a = get_agent(i, j);
+      a.reset();
+    }
+      // delete agents->get(i, j);
     set_feature(i, j, feat);
   }
   // for (int i = 0; i < SIZE; ++i) {
@@ -114,6 +122,8 @@ void Game::pathfind(pointer_agent& agent)
         kernel[i][j] = -1;
       else if (!terrain->get(proposed_x, proposed_y)->get_walkable())
         kernel[i][j] = -2;
+      else if (agents->get(proposed_x, proposed_y))
+        kernel[i][j] = -3;
       else
       {
         kernel[i][j] = features->get(proposed_x, proposed_y)->get_level();

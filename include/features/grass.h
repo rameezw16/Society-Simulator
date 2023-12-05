@@ -19,12 +19,13 @@ public:
 private:
   bool walkable = true;
   void grow_back() override; // will grow back the level of food
+  void decay() override;     // natural decay due to season
   void consume() override;   // will reduce the amount of food (due to
                              // consumption)
   void update_sprite();      // will update the sprite based on food_level
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  static bool grow;
+  static int season;
   static int timer;
 };
