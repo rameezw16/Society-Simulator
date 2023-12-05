@@ -31,6 +31,7 @@ public:
   std::string name = "";
   int age;
   Stats *aStats;
+  int visionRange = 2;
 
   void initialise_relations();
 

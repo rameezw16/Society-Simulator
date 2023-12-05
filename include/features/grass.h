@@ -11,8 +11,10 @@ public:
 
   void step() override;
   bool get_walkable() const override;
+  int get_level() const override; // get vegetation level
   std::string get_type() const override;
   static void step_season();
+  
 
 private:
   bool walkable = true;

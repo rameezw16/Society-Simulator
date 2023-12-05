@@ -37,10 +37,10 @@ void Grass::step() {
 }
 
 void Grass::grow_back() {
-  food_level = std::min(food_level + 3, food_capacity);
+  food_level = std::min(food_level + 5, food_capacity);
 }
 
-void Grass::consume() { food_level = std::max(food_level - 50, 0); }
+void Grass::consume() { food_level = std::max(food_level - 20, 0); }
 
 void Grass::update_sprite() {
   if (food_level == 0) { // nothing
@@ -62,4 +62,5 @@ void Grass::update_sprite() {
 }
 
 bool Grass::get_walkable() const { return this->walkable; };
+int Grass::get_level() const { return this->food_level; };
 std::string Grass::get_type() const { return this->type; };
