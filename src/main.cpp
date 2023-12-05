@@ -56,7 +56,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   Uint32 frame_time;
 
   int count = 0;
-  const int max_count = 30;
+  const int max_count = 3;
 
   while (true) {
     SDL_Event e;

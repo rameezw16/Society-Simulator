@@ -81,11 +81,20 @@ void Game::step() {
     pointer_feature feat = std::move(get_feature(i, j));
     // if (features->get())
     if (feat->get_level() > 10)
+    {
       feat->consume();
+      agents->get(i, j)->consume();
+      printf("agent health: %i happ: %i, wealth: %i\n", agents->get(i, j)->aStats->health, agents->get(i, j)->aStats->happiness, agents->get(i, j)->aStats->wealth);
+    }
     else
     {
-      pointer_agent& a = get_agent(i, j);
-      a.reset();
+      // agents->get(i, j)->
+      agents->get(i, j)->decay();
+      if (agents->get(i, j)->is_dead())
+      {
+        pointer_agent& a = get_agent(i, j);
+        a.reset(); 
+      }
     }
       // delete agents->get(i, j);
     set_feature(i, j, feat);

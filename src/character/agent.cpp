@@ -133,24 +133,48 @@ void Agent::display_relation_map() {
   printf("\n");
 }
 
-void Agent::is_dead() {
+// void Agent::is_dead() {
+//   std::ofstream agentFile;
+//   agentFile.open("../logs/" + this->name + ".txt", std::ios::app);
+//   if (this->aStats->health <= 0) {
+//     agentFile << "Died due to poor health" << std::endl;
+//     agentFile.close();
+//     delete this;
+//   } else if (this->aStats->wealth <= 0) {
+//     agentFile << "Died due to poverty" << std::endl;
+//     agentFile.close();
+//     delete this;
+//   } else if (this->aStats->happiness <= 0) {
+//     agentFile << "Died due to depression" << std::endl;
+//     agentFile.close();
+//     delete this;
+//   }
+//   if (agentFile.is_open())
+//     agentFile.close();
+// }
+
+bool Agent::is_dead() {
   std::ofstream agentFile;
   agentFile.open("../logs/" + this->name + ".txt", std::ios::app);
   if (this->aStats->health <= 0) {
     agentFile << "Died due to poor health" << std::endl;
     agentFile.close();
-    delete this;
+    return true;
+
   } else if (this->aStats->wealth <= 0) {
     agentFile << "Died due to poverty" << std::endl;
     agentFile.close();
-    delete this;
+    return true;
+
   } else if (this->aStats->happiness <= 0) {
     agentFile << "Died due to depression" << std::endl;
     agentFile.close();
-    delete this;
+    return true;
   }
+
   if (agentFile.is_open())
     agentFile.close();
+  return false;
 }
 
 Agent::~Agent() {
@@ -163,9 +187,9 @@ Agent::~Agent() {
   for (std::pair<int, Agent *> i : AgentList) {
     i.second->relationSum =
         i.second->relationSum - RelationshipMap[i.second->id][this->id];
-    i.second->aStats->happiness +=
+    i.second->aStats->happiness = std::min(i.second->aStats->happiness +
         (40 - RelationshipMap[i.second->id][this->id].love) /
-        3; // sad to see loved one die - happy to see hated one die
+        3, 100); // sad to see loved one die - happy to see hated one die
     i.second->aStats->happiness = std::max(i.second->aStats->happiness, 0);
     RelationshipMap[i.second->id].erase(this->id);
   }
@@ -200,5 +224,15 @@ bool Agent::get_walkable() const { return this->walkable; };
 std::string Agent::get_type() const { return this->type; };
 
 void Agent::step(){};
-void Agent::consume(){};
+
+void Agent::consume()
+{
+  this->aStats->health = std::min(this->aStats->health + 5, 100);
+}
+
+void Agent::decay()
+{
+  this->aStats->health = std::max(this->aStats->health - 10, 0);
+}
+
 void Agent::grow_back(){};

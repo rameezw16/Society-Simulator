@@ -44,7 +44,8 @@ public:
   void display_agent_list();
   void display_relation_map();
 
-  void is_dead();
+  // void is_dead();
+  bool is_dead();
 
   int posX = 30, posY = 30;
 
@@ -54,6 +55,7 @@ public:
 
   void step() override;
   void consume() override;
+  void decay() override;
   void grow_back() override;
 
   Entity *goal_entity{nullptr};
