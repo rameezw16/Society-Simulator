@@ -23,6 +23,7 @@ public:
   virtual int get_spritesheet_pos_y() const;
   virtual void step() = 0;
   virtual void consume() = 0;
+  virtual void decay();
   virtual void grow_back() = 0;
 
 protected:

@@ -4,7 +4,7 @@ Relationship::Relationship(int l, int r) : love{l}, respect{r} {}
 
 Relationship::Relationship(Stats* thisStats, Traits* thisTraits, Stats* otherStats)
 {
-    // love more if similar in age + if other is happy + if other is wealthy + if I am extroverted + if I am agreeable + if other is of opposite gender - if other I am neurotic
+    // love more if similar in age + if other is happy + if other is wealthy + if I am extroverted + if I am agreeable + if other is of opposite gender - if I am neurotic
     this->love = std::max((20 - abs(thisStats->age - otherStats->age)), 0) + otherStats->happiness/5 + otherStats->wealth/5 + thisTraits->extrovertedness/10 + thisTraits->agreeableness/10 + 10*(thisStats->gender ^ otherStats->gender) + std::max(10 - thisTraits->neuroticism, 0);
     
     // respect if other is older + if other is wealthier + if I am conscientious + if I am agreeable

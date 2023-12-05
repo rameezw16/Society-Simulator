@@ -17,7 +17,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   char const *ss_feature = "../resources/Bountiful-Bits-10x10-v-3.1/Colored/"
                            "no-background/Full-no-bg.png";
   char const *ss_agent = "../resources/Bit-Bonanza-10x10-v-4.1/Colored/"
-                         "no-background/People-no-bg.png";
+                         "People.png";
   char const *ss_terrain = ss_feature;
 
   Drawer *drawer = new Drawer{ss_terrain, ss_feature, ss_agent};
@@ -56,7 +56,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   Uint32 frame_time;
 
   int count = 0;
-  const int max_count = 30;
+  const int max_count = 3;
 
   while (true) {
     SDL_Event e;

@@ -11,18 +11,21 @@ public:
 
   void step() override;
   bool get_walkable() const override;
+  int get_level() const override; // get vegetation level
   std::string get_type() const override;
   static void step_season();
+  
 
 private:
-  bool walkable = false;
+  bool walkable = true;
   void grow_back() override; // will grow back the level of food
+  void decay() override;     // natural decay due to season
   void consume() override;   // will reduce the amount of food (due to
                              // consumption)
   void update_sprite();      // will update the sprite based on food_level
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  static bool grow;
+  static int season;
   static int timer;
 };

@@ -23,18 +23,23 @@ public:
 
   pointer_terrain &get_terrain(int i, int j) const;
   pointer_feature &get_feature(int i, int j) const;
+  unique_ptr<Agent> &get_agent(int i, int j) const;
 
   void set_terrain(int i, int j, pointer_terrain &val);
   void set_feature(int i, int j, pointer_feature &val);
+  void set_agent(int i, int j, pointer_agent &val);
 
-  unique_ptr<Agent> &get_agents(int i, int j) const;
+  void add_people_to_grid();
+
   void step();
+
+  void pathfind(pointer_agent& agent);
+  bool check_move(Dir direction);
 
 private:
   unique_ptr<Grid<Terrain>> terrain;
   unique_ptr<Grid<Feature>> features;
-
-  unique_ptr<Grid<unique_ptr<Agent>>> agents; // TODO need to implement
+  unique_ptr<Grid<Agent>> agents;
 
   std::mt19937 mt;
 
