@@ -9,6 +9,10 @@ public:
   bool get_walkable() const override;
   std::string get_type() const override;
 
+  void step() override;
+  void consume() override;
+  void grow_back() override;
+
   bool walkable = false;
   std::string type = "water";
         

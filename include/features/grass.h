@@ -13,7 +13,6 @@ public:
   bool get_walkable() const override;
   int get_level() const override; // get vegetation level
   std::string get_type() const override;
-  static void step_season();
   
 
 private:
@@ -26,6 +25,4 @@ private:
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  static int season;
-  static int timer;
 };

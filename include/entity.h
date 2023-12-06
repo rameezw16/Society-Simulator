@@ -21,6 +21,11 @@ public:
 
   virtual int get_spritesheet_pos_x() const;
   virtual int get_spritesheet_pos_y() const;
+
+  static void step_season();
+  static int season;
+  static int timer;
+  
   virtual void step() = 0;
   virtual void consume() = 0;
   virtual void decay();
