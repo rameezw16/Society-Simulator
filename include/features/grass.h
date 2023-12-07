@@ -25,6 +25,4 @@ private:
   int food_level;
   int food_capacity;
   std::string type = "grass";
-  static int season;
-  static int timer;
 };

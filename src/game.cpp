@@ -70,8 +70,9 @@ bool Game::check_move(Dir direction) {
 };
 
 void Game::step() {
+  this->terrain->update(); // update all water
   this->features->update(); // update all grass
-  Grass::step_season(); // update overall season
+  Entity::step_season(); // update overall season
   std::vector<Agent*> myAgents;
   
   for (std::pair<int, Agent*> agent : Agent::AgentList)
@@ -143,7 +144,9 @@ void Game::pathfind(pointer_agent& agent) // check my vision range for greatest 
       proposed_y < 0)
         kernel[i][j] = -1;
       else if (!terrain->get(proposed_x, proposed_y)->get_walkable())
+      {
         kernel[i][j] = -2;
+      }
       else if (agents->get(proposed_x, proposed_y))
         kernel[i][j] = -3;
       else

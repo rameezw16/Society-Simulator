@@ -1,18 +1,5 @@
 #include "../../include/features/grass.h"
 
-int Grass::timer = 15;
-int Grass::season = 0;
-
-void Grass::step_season() {
-  if (timer != 0) {
-    timer--;
-    return;
-  } else {
-    season = (season + 1) % 4; // have to do this for some rason
-    timer = 15;
-  }
-}
-
 Grass::Grass(const int pos_x, const int pos_y, const int food_level,
              const int food_capacity, const int spritesheet_pos_x,
              const int spritesheet_pos_y)
@@ -28,9 +15,9 @@ void Grass::step() {
     this->grow_back();
   else if (season == 2)
     this->decay();
-
-  std::cout << food_level << " " << food_capacity << " " << season << " "
-            << timer << "\n";
+  // std::cout << food_level << " " << food_capacity << " " << season << " " <<
+  // timer
+  // << "\n";
 
   this->update_sprite();
 }

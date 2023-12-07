@@ -1,5 +1,18 @@
 #include "../include/entity.h"
 
+int Entity::timer = 15;
+int Entity::season = 0;
+
+void Entity::step_season() {
+  if (timer != 0) {
+    timer--;
+    return;
+  } else {
+    season = (season + 1) % 4; // have to do this for some rason
+    timer = 15;
+  }
+}
+
 // entity
 Entity::Entity(const int pos_x, const int pos_y, const int spritesheet_pos_x,
                const int spritesheet_pos_y)
