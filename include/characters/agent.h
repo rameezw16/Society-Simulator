@@ -32,11 +32,14 @@ public:
   int age;
   Stats *aStats;
   int vision_range = 2;
+  int social_circle = 7;
   int reproduction_factor = 0;
 
   void initialise_relations();
 
   void move_agent(int posX, int posY);
+
+  int get_social_factor(int avg_love);
 
   void new_day(int year, int day);
 

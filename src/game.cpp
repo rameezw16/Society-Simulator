@@ -90,7 +90,7 @@ void Game::grow_water()
           }
           // printf("test\n");
         }
-        if (((this->mt() % 8) + 1) < count_water_neighbours) // at least 3 water neighbours
+        if (((this->mt() % 8) + 1) < count_water_neighbours) // at least 2 water neighbours
         {
           // printf("something isnt working\n");
           // printf("water neighbours: %i\n", count_water_neighbours);
@@ -124,7 +124,7 @@ void Game::shrink_water()
           }
         }
         // printf("dirt neighbours: %i\n", count_dirt_neighbours);
-        if (((this->mt() % 8) + 1) < count_dirt_neighbours)
+        if (((this->mt() % 8) + 1) < count_dirt_neighbours) // at least 2 dirt neighbour
         {
           // printf("dirt neighbours: %i\n", count_dirt_neighbours);
           pointer_terrain new_dirt = std::make_unique<Dirt>(i, j);
@@ -222,18 +222,62 @@ void Game::pathfind(pointer_agent& agent) // check my vision range for greatest 
         kernel[i][j] = -3;
       else
       {
-        kernel[i][j] = features->get(proposed_x, proposed_y)->get_level();
         int modifier = mt() % 10;
+        kernel[i][j] = features->get(proposed_x, proposed_y)->get_level() + modifier;
         // printf("feature level: %i\n", kernel[i][j]);
-        if (kernel[i][j] + modifier > max_l)
+        if (kernel[i][j] > max_l)
         {
-          max_i = proposed_x;
-          max_j = proposed_y;
-          max_l = kernel[i][j] + modifier;
+          max_i = a_i - agent->vision_range + i;
+          max_j = a_j - agent->vision_range + j;
+          max_l = kernel[i][j];
         }
+
       }
     }
   }
+
+  printf("max before love: %i\n", max_l);
+
+  int social_kernel_size = (2*agent->social_circle+1)/(2*agent->vision_range+1);
+  for (int i = 0; i < 2*agent->vision_range+1; ++i)
+  {
+    for (int j = 0; j < 2*agent->vision_range+1; ++j)
+    {
+      int love_val = 0;
+      int agent_count = 0;
+      for (int a = 0; a < social_kernel_size; ++a)
+      {
+        for (int b = 0; b < social_kernel_size; ++b)
+        {
+          int check_x = a_i - agent->social_circle + i*social_kernel_size + a;
+          int check_y = a_j - agent->social_circle + j*social_kernel_size + b;
+          if (check_x >= SIZE || check_x < 0 || check_y > SIZE ||
+      check_y < 0)
+            continue;
+          if (check_x == a_i && check_y == a_j)
+            continue;
+          if (agents->get(check_x, check_y))
+          {
+            love_val += Agent::RelationshipMap[agent->id][agents->get(check_x, check_y)->id].love;
+            ++agent_count;
+          }
+        }
+      }
+      int avg_love = (love_val/(agent_count + 1));
+      printf("avg love: %i\n", avg_love)
+      kernel[i][j] = std::max(1, kernel[i][j] + agent->get_social_factor(avg_love));
+      if (kernel[i][j] > max_l)
+      {
+        max_i = a_i - agent->vision_range + i;
+        max_j = a_j - agent->vision_range + j;
+        max_l = kernel[i][j];
+      }
+    }
+  }
+
+  printf("max after love: %i\n", max_l);
+
+
   // Dir random_proposed{static_cast<int>(mt())};
   // random_proposed.set_x(agent->posX + random_proposed.get_x());
   // random_proposed.set_y(agent->posY + random_proposed.get_y());

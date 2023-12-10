@@ -52,7 +52,7 @@ Agent::Agent(std::mt19937 &mt, const int spritesheet_pos_x,
   agentFile.close();
 
   // add relations
-  // this->initialise_relations();
+  this->initialise_relations();
 
   // store Agent in list
   AgentList[this->id] = this;
@@ -152,6 +152,11 @@ void Agent::display_relation_map() {
 //   if (agentFile.is_open())
 //     agentFile.close();
 // }
+
+int Agent::get_social_factor(int avg_love)
+{
+  return ((avg_love - 20)  * (aTraits->extrovertedness - 30)) / 30;
+}
 
 bool Agent::is_dead() {
   std::ofstream agentFile;
