@@ -1,15 +1,26 @@
 #include "../include/entity.h"
+#include "../include/characters/agent.h"
 
 int Entity::timer = 15;
 int Entity::season = 0;
+int Entity::year = 0;
 
 void Entity::step_season() {
   if (timer != 0) {
     timer--;
     return;
   } else {
-    season = (season + 1) % 4; // have to do this for some rason
+    if (season == 3) 
+      ++year;
+
+    season = (season + 1) % 4; // have to do this for some reason
     timer = 15;
+
+    FILE* data_txt = NULL;
+    data_txt = fopen("../logs/data.txt", "a");
+
+    fprintf(data_txt, "%i %i\n", year*4 + season, (int) Agent::AgentList.size());
+    fclose((data_txt));
   }
 }
 

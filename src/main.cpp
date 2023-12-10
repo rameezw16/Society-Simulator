@@ -6,7 +6,14 @@
 #include "../include/terrain/dirt.h"
 #include <cstring>
 #include <iostream>
+#include <cstdio>
+#include <cstdlib>
 #include <random>
+#include <boost/tuple/tuple.hpp>
+#include <boost/foreach.hpp>
+
+#define GNUPLOT_DEPRECATE_WARN
+#include "../gnuplot-iostream/gnuplot-iostream.h"
 
 const int FPS = 60;
 const int frame_delay = 1000 / FPS;
@@ -52,6 +59,26 @@ int main(int argc, char **argv) { // takes in seed as cli argument
 
   // drawer->draw_sprite(features->get(1, 1), 1, 1);
 
+  // Graph Manager
+  Gnuplot GNUpipe;
+  FILE* data_txt = NULL;
+  data_txt = fopen("../logs/data.txt", "w");
+  fprintf(data_txt, "0 0\n");
+  fclose(data_txt);
+  // FILE* GNUpipe = popen("${GNUPLOT_EXECUTABLE}", "w");
+
+  // if (GNUpipe == nullptr)
+  // {
+  //   printf("??\n");
+  //   // std::cerr << "Error opening Gnuplot pipe" << std::endl;
+  //   // exit(EXIT_FAILURE);
+  // }
+
+  GNUpipe << "set term qt persist\n";
+  GNUpipe << "set title \"Population vs Season\" \n";
+  GNUpipe << "set xlabel \"Season Number\" \n";
+  GNUpipe << "set ylabel \"Population Size\" \n";
+
   Uint32 frame_start;
   Uint32 frame_time;
 
@@ -59,6 +86,8 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   const int max_count = 3;
 
   while (true) {
+    GNUpipe << "plot '../logs/data.txt' using 1:2 with lines lw 8 title 'Population vs Season'\n";
+
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
       if (e.type == SDL_QUIT)

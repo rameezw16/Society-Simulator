@@ -25,6 +25,7 @@ public:
   static void step_season();
   static int season;
   static int timer;
+  static int year;
   
   virtual void step() = 0;
   virtual void consume() = 0;
