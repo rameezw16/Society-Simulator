@@ -82,7 +82,7 @@ void Game::grow_water()
         {
           for (int yOff = -1; yOff <= 1; ++yOff)
           {
-            if (i+xOff >= 0 && i + xOff < SIZE && j+xOff >= 0 && j+xOff < SIZE
+            if (i+xOff >= 0 && i + xOff < SIZE && j+yOff >= 0 && j+yOff < SIZE && this->terrain->get(i+xOff, j+yOff)
             && this->terrain->get(i+xOff, j+yOff)->get_type() == "water")
             {
               ++count_water_neighbours;
@@ -116,7 +116,7 @@ void Game::shrink_water()
           for (int yOff = -1; yOff <= 1; ++yOff)
           {
             // printf("neighbouring type: %s\n", this->terrain->get(i, j)->get_type().c_str());
-            if (i+xOff >= 0 && i + xOff < SIZE && j+xOff >= 0 && j+xOff < SIZE
+            if (i+xOff >= 0 && i + xOff < SIZE && j+yOff >= 0 && j+yOff < SIZE
             && this->terrain->get(i+xOff, j+yOff)->get_type() == "dirt")
             {
               ++count_dirt_neighbours;
@@ -236,7 +236,7 @@ void Game::pathfind(pointer_agent& agent) // check my vision range for greatest 
     }
   }
 
-  printf("max before love: %i\n", max_l);
+  // printf("max before love: %i\n", max_l);
 
   int social_kernel_size = (2*agent->social_circle+1)/(2*agent->vision_range+1);
   for (int i = 0; i < 2*agent->vision_range+1; ++i)
@@ -264,7 +264,7 @@ void Game::pathfind(pointer_agent& agent) // check my vision range for greatest 
         }
       }
       int avg_love = (love_val/(agent_count + 1));
-      printf("avg love: %i\n", avg_love)
+      // printf("avg love: %i\n", avg_love);
       kernel[i][j] = std::max(1, kernel[i][j] + agent->get_social_factor(avg_love));
       if (kernel[i][j] > max_l)
       {
@@ -275,7 +275,7 @@ void Game::pathfind(pointer_agent& agent) // check my vision range for greatest 
     }
   }
 
-  printf("max after love: %i\n", max_l);
+  // printf("max after love: %i\n", max_l);
 
 
   // Dir random_proposed{static_cast<int>(mt())};

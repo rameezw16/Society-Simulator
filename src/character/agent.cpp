@@ -155,7 +155,7 @@ void Agent::display_relation_map() {
 
 int Agent::get_social_factor(int avg_love)
 {
-  return ((avg_love - 20)  * (aTraits->extrovertedness - 30)) / 30;
+  return ((avg_love - 20)  * (aTraits->extrovertedness - 30)) / 10;
 }
 
 bool Agent::is_dead() {

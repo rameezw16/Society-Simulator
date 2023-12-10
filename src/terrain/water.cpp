@@ -21,9 +21,9 @@ void Water::step() {
 
 void Water::grow_back() 
 {
-	printf("Water trying to flood!\n");
+	// printf("Water trying to flood!\n");
 }
 
 void Water::consume() {
-	printf("Water trying dry!\n");
+	// printf("Water trying dry!\n");
 }
