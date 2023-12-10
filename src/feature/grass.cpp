@@ -11,9 +11,9 @@ Grass::Grass(const int pos_x, const int pos_y, const int food_level,
 Grass::~Grass() = default;
 
 void Grass::step() {
-  if (season == 0)
+  if (season == Harvest)
     this->grow_back();
-  else if (season == 2)
+  else if (season == Famine)
     this->decay();
   // std::cout << food_level << " " << food_capacity << " " << season << " " <<
   // timer

@@ -2,7 +2,7 @@
 #include "../include/characters/agent.h"
 
 int Entity::timer = 15;
-int Entity::season = 0;
+Seasons Entity::season = Harvest;
 int Entity::year = 0;
 
 void Entity::step_season() {
@@ -10,10 +10,10 @@ void Entity::step_season() {
     timer--;
     return;
   } else {
-    if (season == 3) 
+    if (season == Monsoon) 
       ++year;
 
-    season = (season + 1) % 4; // have to do this for some reason
+    season = (Seasons) ((season + 1) % 4); // have to do this for some reason
     timer = 15;
 
     FILE* data_txt = NULL;

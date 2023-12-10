@@ -4,6 +4,8 @@
 // #include "./spritesheet.hpp"
 #define SIZE_OCCUPIED 10
 
+enum Seasons {Harvest, Drought, Famine, Monsoon};
+
 class Entity {
 public:
   Entity(const int pos_x, const int pos_y, const int spritesheet_pos_x,
@@ -23,7 +25,7 @@ public:
   virtual int get_spritesheet_pos_y() const;
 
   static void step_season();
-  static int season;
+  static Seasons season;
   static int timer;
   static int year;
   
