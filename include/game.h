@@ -31,6 +31,9 @@ public:
 
   void add_people_to_grid();
 
+  void grow_water();
+  void shrink_water();
+
   void step();
 
   void pathfind(pointer_agent& agent);

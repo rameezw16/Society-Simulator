@@ -69,8 +69,79 @@ bool Game::check_move(Dir direction) {
                      // terrain and features
 };
 
+void Game::grow_water()
+{
+  for (int i = 0; i < SIZE; ++i)
+  {
+    for (int j = 0; j < SIZE; ++j)
+    {
+      if (this->terrain->get(i, j)->get_type() == "dirt")
+      {
+        int count_water_neighbours {0};
+        for (int xOff = -1; xOff <= 1; ++xOff)
+        {
+          for (int yOff = -1; yOff <= 1; ++yOff)
+          {
+            if (i+xOff >= 0 && i + xOff < SIZE && j+xOff >= 0 && j+xOff < SIZE
+            && this->terrain->get(i+xOff, j+yOff)->get_type() == "water")
+            {
+              ++count_water_neighbours;
+            }
+          }
+          // printf("test\n");
+        }
+        if (((this->mt() % 8) + 1) < count_water_neighbours) // at least 3 water neighbours
+        {
+          // printf("something isnt working\n");
+          // printf("water neighbours: %i\n", count_water_neighbours);
+          pointer_terrain new_water = std::make_unique<Water>(i, j);
+          terrain->set(i, j, new_water);
+        }
+      }
+    }
+  }
+}
+
+void Game::shrink_water()
+{
+  for (int i = 0; i < SIZE; ++i)
+  {
+    for (int j = 0; j < SIZE; ++j)
+    {
+      if (this->terrain->get(i, j)->get_type() == "water")
+      {
+        int count_dirt_neighbours {0};
+        for (int xOff = -1; xOff <= 1; ++xOff)
+        {
+          for (int yOff = -1; yOff <= 1; ++yOff)
+          {
+            // printf("neighbouring type: %s\n", this->terrain->get(i, j)->get_type().c_str());
+            if (i+xOff >= 0 && i + xOff < SIZE && j+xOff >= 0 && j+xOff < SIZE
+            && this->terrain->get(i+xOff, j+yOff)->get_type() == "dirt")
+            {
+              ++count_dirt_neighbours;
+            }
+          }
+        }
+        // printf("dirt neighbours: %i\n", count_dirt_neighbours);
+        if (((this->mt() % 8) + 1) < count_dirt_neighbours)
+        {
+          // printf("dirt neighbours: %i\n", count_dirt_neighbours);
+          pointer_terrain new_dirt = std::make_unique<Dirt>(i, j);
+          terrain->set(i, j, new_dirt);
+
+        }
+      }
+    }
+  }
+}
+
 void Game::step() {
-  this->terrain->update(); // update all water
+  // this->terrain->update(); // update all water
+  if (Entity::season == Monsoon)
+    grow_water();
+  else if (Entity::season == Drought)
+    shrink_water();
   this->features->update(); // update all grass
   Entity::step_season(); // update overall season
   std::vector<Agent*> myAgents;
