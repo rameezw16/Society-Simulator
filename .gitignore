@@ -7,3 +7,4 @@
 /src/.main.cpp.~undo-tree~
 /src/.perlin.cpp.~undo-tree~
 /resources/
+/logs/*.txt
