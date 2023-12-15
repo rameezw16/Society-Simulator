@@ -1,383 +1,352 @@
-abc created at (75, 11) with id: 423, gender: male, age: 31, health: 50, wealth: 87, happiness: 48
-and personality traits:  Openness: 35, Conscientiousness: 65, Extrovertedness: 43, Agreeableness: 25, Neuroticism: 48
-Towards abc has Love: 43, Respect: 22
-Towards abc has Love: 59, Respect: 32
-Towards abc has Love: 26, Respect: 23
-Towards abc has Love: 33, Respect: 29
-Towards abc has Love: 25, Respect: 21
-Towards abc has Love: 43, Respect: 37
-Towards abc has Love: 55, Respect: 23
-Towards abc has Love: 55, Respect: 29
-Towards abc has Love: 49, Respect: 23
-Towards abc has Love: 43, Respect: 29
-Towards abc has Love: 43, Respect: 22
-Towards abc has Love: 47, Respect: 33
-Towards abc has Love: 47, Respect: 23
-Towards abc has Love: 41, Respect: 32
-Towards abc has Love: 46, Respect: 22
-Towards abc has Love: 56, Respect: 25
-Towards abc has Love: 64, Respect: 26
-Towards abc has Love: 55, Respect: 25
-Towards abc has Love: 60, Respect: 23
-Towards abc has Love: 51, Respect: 25
-Towards abc has Love: 63, Respect: 21
-Towards abc has Love: 59, Respect: 25
-Towards abc has Love: 29, Respect: 21
-Towards abc has Love: 44, Respect: 34
-Towards abc has Love: 55, Respect: 23
-Towards abc has Love: 53, Respect: 29
-Towards abc has Love: 55, Respect: 21
-Towards abc has Love: 58, Respect: 28
-Towards abc has Love: 54, Respect: 22
-Towards abc has Love: 46, Respect: 29
-Towards abc has Love: 18, Respect: 21
-Towards abc has Love: 34, Respect: 37
-Towards abc has Love: 37, Respect: 22
-Towards abc has Love: 49, Respect: 33
-Towards abc has Love: 51, Respect: 23
-Towards abc has Love: 43, Respect: 27
-Towards abc has Love: 54, Respect: 21
-Towards abc has Love: 57, Respect: 23
-Towards abc has Love: 52, Respect: 23
-Towards abc has Love: 41, Respect: 21
-Towards abc has Love: 62, Respect: 22
-Towards abc has Love: 56, Respect: 30
-Towards abc has Love: 56, Respect: 22
-Towards abc has Love: 57, Respect: 28
-Towards abc has Love: 36, Respect: 21
-Towards abc has Love: 51, Respect: 31
-Towards abc has Love: 23, Respect: 21
-Towards abc has Love: 44, Respect: 39
-Towards abc has Love: 53, Respect: 23
-Towards abc has Love: 41, Respect: 25
-Towards abc has Love: 51, Respect: 22
-Towards abc has Love: 48, Respect: 25
-Towards abc has Love: 19, Respect: 21
-Towards abc has Love: 33, Respect: 37
-Towards abc has Love: 54, Respect: 22
-Towards abc has Love: 56, Respect: 34
-Towards abc has Love: 52, Respect: 23
-Towards abc has Love: 55, Respect: 32
-Towards abc has Love: 18, Respect: 21
-Towards abc has Love: 33, Respect: 37
-Towards abc has Love: 31, Respect: 22
-Towards abc has Love: 50, Respect: 37
-Towards abc has Love: 25, Respect: 21
-Towards abc has Love: 44, Respect: 37
-Towards abc has Love: 32, Respect: 21
-Towards abc has Love: 43, Respect: 31
-Towards abc has Love: 63, Respect: 23
-Towards abc has Love: 54, Respect: 22
-Towards abc has Love: 25, Respect: 21
-Towards abc has Love: 44, Respect: 38
-Towards abc has Love: 22, Respect: 21
-Towards abc has Love: 36, Respect: 35
-Towards abc has Love: 58, Respect: 22
-Towards abc has Love: 57, Respect: 24
-Towards abc has Love: 42, Respect: 24
+abc created at (63, 54) with id: 600, gender: male, age: 25, health: 51, wealth: 69, happiness: 62
+and personality traits:  Openness: 48, Conscientiousness: 54, Extrovertedness: 56, Agreeableness: 44, Neuroticism: 30
+Towards abc has Love: 61, Respect: 24
 Towards abc has Love: 48, Respect: 23
-Towards abc has Love: 46, Respect: 23
-Towards abc has Love: 56, Respect: 33
-Towards abc has Love: 64, Respect: 24
-Towards abc has Love: 59, Respect: 25
-Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 48, Respect: 31
-Towards abc has Love: 53, Respect: 23
-Towards abc has Love: 43, Respect: 24
-Towards abc has Love: 52, Respect: 21
-Towards abc has Love: 60, Respect: 29
-Towards abc has Love: 59, Respect: 27
-Towards abc has Love: 56, Respect: 25
-Towards abc has Love: 57, Respect: 25
-Towards abc has Love: 45, Respect: 25
-Towards abc has Love: 58, Respect: 23
-Towards abc has Love: 54, Respect: 28
-Towards abc has Love: 53, Respect: 21
-Towards abc has Love: 61, Respect: 27
-Towards abc has Love: 57, Respect: 23
-Towards abc has Love: 52, Respect: 29
-Towards abc has Love: 21, Respect: 21
-Towards abc has Love: 35, Respect: 35
-Towards abc has Love: 24, Respect: 23
-Towards abc has Love: 33, Respect: 29
-Towards abc has Love: 51, Respect: 23
-Towards abc has Love: 42, Respect: 25
-Towards abc has Love: 63, Respect: 23
-Towards abc has Love: 50, Respect: 23
-Towards abc has Love: 49, Respect: 23
-Towards abc has Love: 46, Respect: 25
-Towards abc has Love: 30, Respect: 21
-Towards abc has Love: 42, Respect: 28
-Towards abc has Love: 30, Respect: 21
-Towards abc has Love: 42, Respect: 30
-Towards abc has Love: 44, Respect: 24
-Towards abc has Love: 50, Respect: 23
-Towards abc has Love: 17, Respect: 21
-Towards abc has Love: 35, Respect: 34
-Towards abc has Love: 40, Respect: 22
-Towards abc has Love: 50, Respect: 29
-Towards abc has Love: 56, Respect: 25
-Towards abc has Love: 44, Respect: 23
-Towards abc has Love: 23, Respect: 23
-Towards abc has Love: 35, Respect: 29
-Towards abc has Love: 54, Respect: 23
-Towards abc has Love: 55, Respect: 31
-Towards abc has Love: 58, Respect: 23
-Towards abc has Love: 52, Respect: 31
-Towards abc has Love: 15, Respect: 21
-Towards abc has Love: 34, Respect: 38
-Towards abc has Love: 59, Respect: 22
-Towards abc has Love: 57, Respect: 24
-Towards abc has Love: 45, Respect: 22
-Towards abc has Love: 60, Respect: 30
-Towards abc has Love: 62, Respect: 23
-Towards abc has Love: 49, Respect: 23
-Towards abc has Love: 21, Respect: 21
-Towards abc has Love: 32, Respect: 29
-Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 52, Respect: 33
-Towards abc has Love: 64, Respect: 24
-Towards abc has Love: 50, Respect: 22
-Towards abc has Love: 26, Respect: 21
-Towards abc has Love: 42, Respect: 33
-Towards abc has Love: 58, Respect: 24
-Towards abc has Love: 61, Respect: 26
-Towards abc has Love: 52, Respect: 24
-Towards abc has Love: 49, Respect: 24
-Towards abc has Love: 61, Respect: 23
-Towards abc has Love: 53, Respect: 26
-Towards abc has Love: 62, Respect: 22
-Towards abc has Love: 58, Respect: 21
-Towards abc has Love: 48, Respect: 22
-Towards abc has Love: 47, Respect: 29
-Towards abc has Love: 40, Respect: 21
-Towards abc has Love: 50, Respect: 31
-Towards abc has Love: 53, Respect: 21
-Towards abc has Love: 59, Respect: 30
-Towards abc has Love: 18, Respect: 21
-Towards abc has Love: 35, Respect: 39
-Towards abc has Love: 43, Respect: 21
-Towards abc has Love: 59, Respect: 31
-Towards abc has Love: 44, Respect: 23
-Towards abc has Love: 45, Respect: 31
-Towards abc has Love: 19, Respect: 21
-Towards abc has Love: 35, Respect: 37
-Towards abc has Love: 60, Respect: 23
-Towards abc has Love: 51, Respect: 24
-Towards abc has Love: 36, Respect: 21
-Towards abc has Love: 52, Respect: 27
-Towards abc has Love: 38, Respect: 21
-Towards abc has Love: 52, Respect: 28
-Towards abc has Love: 22, Respect: 21
-Towards abc has Love: 38, Respect: 32
-Towards abc has Love: 58, Respect: 27
-Towards abc has Love: 44, Respect: 24
-Towards abc has Love: 12, Respect: 21
-Towards abc has Love: 34, Respect: 42
-Towards abc has Love: 32, Respect: 21
-Towards abc has Love: 46, Respect: 28
-Towards abc has Love: 23, Respect: 21
-Towards abc has Love: 45, Respect: 42
-Towards abc has Love: 28, Respect: 21
-Towards abc has Love: 44, Respect: 36
-Towards abc has Love: 59, Respect: 23
-Towards abc has Love: 57, Respect: 28
-Towards abc has Love: 46, Respect: 21
-Towards abc has Love: 57, Respect: 27
-Towards abc has Love: 36, Respect: 22
-Towards abc has Love: 45, Respect: 26
-Towards abc has Love: 32, Respect: 21
-Towards abc has Love: 54, Respect: 33
-Towards abc has Love: 43, Respect: 22
-Towards abc has Love: 48, Respect: 35
-Towards abc has Love: 43, Respect: 21
-Towards abc has Love: 55, Respect: 30
-Towards abc has Love: 19, Respect: 21
-Towards abc has Love: 37, Respect: 39
-Towards abc has Love: 55, Respect: 22
-Towards abc has Love: 47, Respect: 25
-Towards abc has Love: 70, Respect: 25
+Towards abc has Love: 63, Respect: 30
+Towards abc has Love: 48, Respect: 24
+Towards abc has Love: 49, Respect: 25
+Towards abc has Love: 48, Respect: 24
+Towards abc has Love: 30, Respect: 25
+Towards abc has Love: 33, Respect: 31
 Towards abc has Love: 59, Respect: 26
-Towards abc has Love: 53, Respect: 21
-Towards abc has Love: 52, Respect: 37
-Towards abc has Love: 24, Respect: 21
-Towards abc has Love: 37, Respect: 45
-Towards abc has Love: 49, Respect: 21
-Towards abc has Love: 50, Respect: 31
-Towards abc has Love: 56, Respect: 21
-Towards abc has Love: 53, Respect: 29
-Towards abc has Love: 50, Respect: 21
-Towards abc has Love: 46, Respect: 36
-Towards abc has Love: 74, Respect: 24
-Towards abc has Love: 60, Respect: 26
-Towards abc has Love: 56, Respect: 23
-Towards abc has Love: 53, Respect: 29
-Towards abc has Love: 62, Respect: 23
-Towards abc has Love: 60, Respect: 24
-Towards abc has Love: 30, Respect: 21
-Towards abc has Love: 42, Respect: 39
-Towards abc has Love: 31, Respect: 21
-Towards abc has Love: 35, Respect: 38
-Towards abc has Love: 50, Respect: 24
-Towards abc has Love: 45, Respect: 29
-Towards abc has Love: 35, Respect: 21
-Towards abc has Love: 38, Respect: 32
-Towards abc has Love: 48, Respect: 23
-Towards abc has Love: 44, Respect: 28
-Towards abc has Love: 20, Respect: 21
-Towards abc has Love: 38, Respect: 38
-Towards abc has Love: 68, Respect: 21
-Towards abc has Love: 59, Respect: 27
-Towards abc has Love: 23, Respect: 21
-Towards abc has Love: 34, Respect: 41
-Towards abc has Love: 35, Respect: 21
-Towards abc has Love: 36, Respect: 39
-Towards abc has Love: 47, Respect: 21
-Towards abc has Love: 51, Respect: 34
-Towards abc has Love: 30, Respect: 21
-Towards abc has Love: 45, Respect: 36
-Towards abc has Love: 58, Respect: 23
-Towards abc has Love: 50, Respect: 29
-Towards abc has Love: 32, Respect: 21
-Towards abc has Love: 35, Respect: 33
-Towards abc has Love: 63, Respect: 25
-Towards abc has Love: 54, Respect: 27
-Towards abc has Love: 47, Respect: 21
-Towards abc has Love: 53, Respect: 29
-Towards abc has Love: 51, Respect: 22
-Towards abc has Love: 49, Respect: 32
-Towards abc has Love: 40, Respect: 25
-Towards abc has Love: 35, Respect: 30
-Towards abc has Love: 53, Respect: 21
-Towards abc has Love: 50, Respect: 26
-Towards abc has Love: 47, Respect: 21
-Towards abc has Love: 53, Respect: 35
-Towards abc has Love: 54, Respect: 25
-Towards abc has Love: 61, Respect: 27
-Towards abc has Love: 39, Respect: 24
-Towards abc has Love: 38, Respect: 30
-Towards abc has Love: 41, Respect: 21
-Towards abc has Love: 45, Respect: 30
-Towards abc has Love: 57, Respect: 25
+Towards abc has Love: 44, Respect: 20
+Towards abc has Love: 65, Respect: 26
+Towards abc has Love: 51, Respect: 21
+Towards abc has Love: 58, Respect: 25
+Towards abc has Love: 46, Respect: 21
+Towards abc has Love: 67, Respect: 31
+Towards abc has Love: 49, Respect: 25
+Towards abc has Love: 58, Respect: 24
+Towards abc has Love: 48, Respect: 25
+Towards abc has Love: 36, Respect: 21
+Towards abc has Love: 41, Respect: 29
+Towards abc has Love: 58, Respect: 26
+Towards abc has Love: 44, Respect: 25
+Towards abc has Love: 61, Respect: 29
+Towards abc has Love: 48, Respect: 21
+Towards abc has Love: 63, Respect: 27
 Towards abc has Love: 49, Respect: 26
-Towards abc has Love: 31, Respect: 21
-Towards abc has Love: 34, Respect: 33
-Towards abc has Love: 43, Respect: 21
-Towards abc has Love: 50, Respect: 35
-Towards abc has Love: 57, Respect: 21
-Towards abc has Love: 53, Respect: 31
-Towards abc has Love: 52, Respect: 23
+Towards abc has Love: 50, Respect: 29
+Towards abc has Love: 52, Respect: 22
+Towards abc has Love: 38, Respect: 24
+Towards abc has Love: 42, Respect: 28
+Towards abc has Love: 60, Respect: 24
+Towards abc has Love: 49, Respect: 26
+Towards abc has Love: 58, Respect: 23
+Towards abc has Love: 52, Respect: 29
+Towards abc has Love: 40, Respect: 26
+Towards abc has Love: 42, Respect: 27
+Towards abc has Love: 41, Respect: 25
+Towards abc has Love: 37, Respect: 32
+Towards abc has Love: 45, Respect: 24
+Towards abc has Love: 40, Respect: 27
+Towards abc has Love: 51, Respect: 26
+Towards abc has Love: 54, Respect: 20
+Towards abc has Love: 53, Respect: 27
+Towards abc has Love: 40, Respect: 25
+Towards abc has Love: 65, Respect: 29
+Towards abc has Love: 49, Respect: 25
+Towards abc has Love: 60, Respect: 23
+Towards abc has Love: 51, Respect: 27
+Towards abc has Love: 42, Respect: 25
+Towards abc has Love: 37, Respect: 26
+Towards abc has Love: 33, Respect: 25
+Towards abc has Love: 33, Respect: 29
+Towards abc has Love: 62, Respect: 25
+Towards abc has Love: 59, Respect: 23
+Towards abc has Love: 50, Respect: 25
+Towards abc has Love: 41, Respect: 28
+Towards abc has Love: 54, Respect: 21
+Towards abc has Love: 58, Respect: 26
+Towards abc has Love: 28, Respect: 28
+Towards abc has Love: 33, Respect: 28
+Towards abc has Love: 45, Respect: 24
+Towards abc has Love: 46, Respect: 21
+Towards abc has Love: 61, Respect: 25
+Towards abc has Love: 52, Respect: 25
+Towards abc has Love: 62, Respect: 28
+Towards abc has Love: 48, Respect: 26
+Towards abc has Love: 25, Respect: 21
+Towards abc has Love: 34, Respect: 36
+Towards abc has Love: 65, Respect: 32
+Towards abc has Love: 49, Respect: 25
+Towards abc has Love: 38, Respect: 25
+Towards abc has Love: 47, Respect: 25
+Towards abc has Love: 65, Respect: 26
+Towards abc has Love: 59, Respect: 21
+Towards abc has Love: 63, Respect: 23
+Towards abc has Love: 58, Respect: 25
+Towards abc has Love: 38, Respect: 25
+Towards abc has Love: 43, Respect: 25
+Towards abc has Love: 27, Respect: 21
+Towards abc has Love: 44, Respect: 32
+Towards abc has Love: 56, Respect: 25
+Towards abc has Love: 45, Respect: 23
+Towards abc has Love: 62, Respect: 27
+Towards abc has Love: 55, Respect: 26
+Towards abc has Love: 57, Respect: 27
+Towards abc has Love: 61, Respect: 23
+Towards abc has Love: 26, Respect: 24
+Towards abc has Love: 32, Respect: 25
+Towards abc has Love: 45, Respect: 21
+Towards abc has Love: 56, Respect: 22
+Towards abc has Love: 56, Respect: 28
+Towards abc has Love: 60, Respect: 21
+Towards abc has Love: 44, Respect: 21
+Towards abc has Love: 56, Respect: 30
+Towards abc has Love: 45, Respect: 25
+Towards abc has Love: 51, Respect: 22
+Towards abc has Love: 34, Respect: 24
+Towards abc has Love: 44, Respect: 29
+Towards abc has Love: 47, Respect: 22
+Towards abc has Love: 55, Respect: 21
+Towards abc has Love: 41, Respect: 22
+Towards abc has Love: 51, Respect: 29
+Towards abc has Love: 54, Respect: 25
+Towards abc has Love: 46, Respect: 28
+Towards abc has Love: 51, Respect: 22
+Towards abc has Love: 44, Respect: 26
+Towards abc has Love: 49, Respect: 22
+Towards abc has Love: 54, Respect: 25
+Towards abc has Love: 36, Respect: 21
+Towards abc has Love: 44, Respect: 30
+Towards abc has Love: 35, Respect: 21
+Towards abc has Love: 49, Respect: 32
+Towards abc has Love: 42, Respect: 23
+Towards abc has Love: 51, Respect: 28
+Towards abc has Love: 58, Respect: 25
+Towards abc has Love: 46, Respect: 24
+Towards abc has Love: 55, Respect: 29
+Towards abc has Love: 42, Respect: 26
+Towards abc has Love: 35, Respect: 21
+Towards abc has Love: 57, Respect: 33
+Towards abc has Love: 65, Respect: 29
+Towards abc has Love: 48, Respect: 25
+Towards abc has Love: 43, Respect: 24
+Towards abc has Love: 53, Respect: 24
+Towards abc has Love: 39, Respect: 24
+Towards abc has Love: 46, Respect: 27
+Towards abc has Love: 55, Respect: 27
+Towards abc has Love: 60, Respect: 24
+Towards abc has Love: 52, Respect: 25
+Towards abc has Love: 59, Respect: 20
+Towards abc has Love: 55, Respect: 25
+Towards abc has Love: 46, Respect: 27
+Towards abc has Love: 28, Respect: 25
+Towards abc has Love: 38, Respect: 25
+Towards abc has Love: 45, Respect: 23
+Towards abc has Love: 44, Respect: 28
+Towards abc has Love: 42, Respect: 24
 Towards abc has Love: 52, Respect: 28
 Towards abc has Love: 35, Respect: 21
-Towards abc has Love: 43, Respect: 31
-Towards abc has Love: 57, Respect: 24
-Towards abc has Love: 55, Respect: 27
-Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 49, Respect: 42
-Towards abc has Love: 56, Respect: 21
-Towards abc has Love: 61, Respect: 25
-Towards abc has Love: 26, Respect: 21
-Towards abc has Love: 43, Respect: 40
-Towards abc has Love: 41, Respect: 21
-Towards abc has Love: 54, Respect: 33
-Towards abc has Love: 41, Respect: 21
-Towards abc has Love: 54, Respect: 33
-Towards abc has Love: 30, Respect: 21
-Towards abc has Love: 35, Respect: 38
-Towards abc has Love: 32, Respect: 21
-Towards abc has Love: 42, Respect: 32
-Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 43, Respect: 41
-Towards abc has Love: 57, Respect: 24
-Towards abc has Love: 55, Respect: 25
-Towards abc has Love: 44, Respect: 21
-Towards abc has Love: 54, Respect: 30
-Towards abc has Love: 34, Respect: 21
-Towards abc has Love: 46, Respect: 40
-Towards abc has Love: 54, Respect: 21
-Towards abc has Love: 54, Respect: 28
-Towards abc has Love: 52, Respect: 23
-Towards abc has Love: 51, Respect: 23
-Towards abc has Love: 60, Respect: 25
-Towards abc has Love: 52, Respect: 27
-Towards abc has Love: 42, Respect: 21
-Towards abc has Love: 43, Respect: 32
-Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 43, Respect: 36
-Towards abc has Love: 49, Respect: 21
-Towards abc has Love: 58, Respect: 29
-Towards abc has Love: 48, Respect: 23
-Towards abc has Love: 48, Respect: 34
+Towards abc has Love: 44, Respect: 34
+Towards abc has Love: 46, Respect: 22
+Towards abc has Love: 57, Respect: 29
+Towards abc has Love: 34, Respect: 25
+Towards abc has Love: 43, Respect: 28
 Towards abc has Love: 45, Respect: 21
-Towards abc has Love: 49, Respect: 29
-Towards abc has Love: 24, Respect: 21
-Towards abc has Love: 35, Respect: 42
+Towards abc has Love: 45, Respect: 27
+Towards abc has Love: 28, Respect: 21
+Towards abc has Love: 40, Respect: 30
+Towards abc has Love: 42, Respect: 21
+Towards abc has Love: 55, Respect: 26
+Towards abc has Love: 48, Respect: 24
+Towards abc has Love: 45, Respect: 26
+Towards abc has Love: 51, Respect: 24
+Towards abc has Love: 53, Respect: 28
+Towards abc has Love: 27, Respect: 21
+Towards abc has Love: 42, Respect: 30
 Towards abc has Love: 33, Respect: 21
-Towards abc has Love: 45, Respect: 36
-Towards abc has Love: 46, Respect: 23
-Towards abc has Love: 57, Respect: 31
+Towards abc has Love: 44, Respect: 29
+Towards abc has Love: 56, Respect: 31
+Towards abc has Love: 41, Respect: 26
+Towards abc has Love: 41, Respect: 28
+Towards abc has Love: 34, Respect: 27
+Towards abc has Love: 47, Respect: 24
+Towards abc has Love: 51, Respect: 25
+Towards abc has Love: 44, Respect: 22
+Towards abc has Love: 59, Respect: 32
+Towards abc has Love: 65, Respect: 27
+Towards abc has Love: 49, Respect: 21
+Towards abc has Love: 29, Respect: 22
+Towards abc has Love: 36, Respect: 30
+Towards abc has Love: 48, Respect: 24
+Towards abc has Love: 45, Respect: 24
+Towards abc has Love: 35, Respect: 26
+Towards abc has Love: 37, Respect: 29
+Towards abc has Love: 42, Respect: 21
+Towards abc has Love: 57, Respect: 32
+Towards abc has Love: 44, Respect: 28
+Towards abc has Love: 44, Respect: 27
+Towards abc has Love: 52, Respect: 28
+Towards abc has Love: 51, Respect: 22
+Towards abc has Love: 48, Respect: 26
+Towards abc has Love: 37, Respect: 24
+Towards abc has Love: 33, Respect: 21
+Towards abc has Love: 32, Respect: 28
 Towards abc has Love: 38, Respect: 21
-Towards abc has Love: 43, Respect: 35
-Moved to pos: (91, 81)
-Moved to pos: (90, 76)
-Moved to pos: (90, 32)
-Moved to pos: (85, 16)
-Moved to pos: (91, 39)
-Moved to pos: (35, 7)
-Moved to pos: (13, 23)
-Moved to pos: (98, 50)
-Moved to pos: (99, 29)
-Moved to pos: (38, 10)
-Moved to pos: (84, 17)
-Moved to pos: (17, 27)
-Moved to pos: (63, 18)
-Moved to pos: (48, 7)
+Towards abc has Love: 43, Respect: 34
+Towards abc has Love: 48, Respect: 21
+Towards abc has Love: 53, Respect: 23
+Towards abc has Love: 55, Respect: 22
+Towards abc has Love: 50, Respect: 26
+Moved to pos: (70, 19)
+Moved to pos: (39, 33)
+Moved to pos: (66, 78)
+Moved to pos: (63, 72)
+Moved to pos: (84, 11)
+Moved to pos: (71, 0)
+Moved to pos: (71, 4)
+Moved to pos: (8, 78)
+Moved to pos: (45, 29)
+Moved to pos: (22, 83)
+Moved to pos: (14, 24)
+Moved to pos: (2, 53)
+Moved to pos: (26, 96)
+Moved to pos: (67, 63)
+Moved to pos: (4, 71)
+Moved to pos: (94, 61)
+Moved to pos: (67, 61)
+Moved to pos: (62, 11)
+Moved to pos: (80, 37)
+Moved to pos: (71, 20)
+Moved to pos: (26, 25)
+Moved to pos: (26, 98)
+Moved to pos: (51, 27)
+Moved to pos: (66, 93)
+Moved to pos: (71, 9)
+Moved to pos: (9, 71)
+Moved to pos: (12, 59)
+Moved to pos: (71, 66)
+Moved to pos: (26, 91)
+Moved to pos: (24, 45)
+Moved to pos: (69, 9)
+Moved to pos: (64, 57)
+Moved to pos: (70, 7)
+Moved to pos: (54, 77)
+Moved to pos: (4, 65)
+Moved to pos: (67, 65)
+Moved to pos: (85, 57)
+Moved to pos: (52, 55)
+Moved to pos: (7, 71)
+Moved to pos: (19, 84)
+Moved to pos: (74, 3)
+Moved to pos: (97, 88)
+Moved to pos: (23, 85)
+Moved to pos: (38, 13)
+Moved to pos: (97, 74)
+Moved to pos: (38, 16)
+Moved to pos: (39, 13)
+Moved to pos: (85, 72)
+Moved to pos: (65, 56)
+Moved to pos: (84, 38)
+Moved to pos: (2, 68)
+Moved to pos: (16, 36)
+Moved to pos: (29, 26)
+Moved to pos: (27, 96)
+Moved to pos: (77, 6)
+Moved to pos: (17, 40)
+Moved to pos: (49, 27)
+Moved to pos: (47, 33)
+Moved to pos: (78, 4)
+Moved to pos: (94, 62)
+Moved to pos: (73, 7)
+Moved to pos: (72, 4)
+Moved to pos: (1, 67)
+Moved to pos: (2, 44)
+Moved to pos: (22, 38)
+Moved to pos: (7, 43)
+Moved to pos: (5, 71)
+Moved to pos: (29, 90)
+Moved to pos: (2, 45)
+Moved to pos: (65, 6)
+Moved to pos: (16, 40)
+Moved to pos: (45, 12)
+Moved to pos: (2, 29)
+Moved to pos: (50, 28)
+Moved to pos: (63, 7)
+Moved to pos: (64, 79)
+Moved to pos: (88, 67)
+Moved to pos: (57, 31)
+Moved to pos: (46, 14)
+Moved to pos: (63, 64)
+Moved to pos: (38, 15)
+Moved to pos: (71, 61)
+Moved to pos: (83, 76)
+Moved to pos: (39, 20)
+Moved to pos: (56, 90)
+Moved to pos: (48, 94)
+Moved to pos: (29, 83)
+Moved to pos: (27, 25)
+Moved to pos: (97, 73)
+Moved to pos: (61, 53)
+Moved to pos: (69, 20)
+Died due to depression
+Moved to pos: (39, 34)
+Moved to pos: (65, 77)
+Moved to pos: (64, 73)
+Moved to pos: (83, 12)
+Moved to pos: (71, 1)
+Moved to pos: (70, 5)
+Moved to pos: (8, 77)
+Moved to pos: (45, 30)
+Moved to pos: (23, 82)
+Moved to pos: (15, 25)
+Died due to depression
+Moved to pos: (3, 52)
+Moved to pos: (27, 97)
+Moved to pos: (66, 62)
+Died due to depression
+Moved to pos: (95, 62)
+Moved to pos: (66, 60)
+Moved to pos: (62, 10)
+Moved to pos: (80, 36)
+Moved to pos: (71, 19)
+Moved to pos: (25, 26)
+Moved to pos: (26, 97)
+Moved to pos: (50, 26)
+Moved to pos: (67, 93)
+Moved to pos: (70, 9)
+Moved to pos: (10, 72)
+Moved to pos: (12, 58)
+Moved to pos: (70, 66)
+Moved to pos: (25, 92)
+Moved to pos: (25, 44)
+Moved to pos: (68, 10)
+Moved to pos: (63, 57)
 Moved to pos: (69, 7)
-Moved to pos: (70, 57)
-Moved to pos: (20, 24)
-Moved to pos: (74, 8)
-Moved to pos: (33, 83)
-Moved to pos: (20, 21)
-Moved to pos: (36, 83)
-Moved to pos: (60, 10)
-Moved to pos: (74, 12)
-Moved to pos: (68, 79)
-Moved to pos: (26, 3)
-Moved to pos: (34, 84)
-Moved to pos: (52, 57)
-Moved to pos: (71, 77)
-Moved to pos: (89, 30)
-Moved to pos: (96, 48)
-Moved to pos: (30, 88)
-Moved to pos: (19, 22)
-Moved to pos: (77, 65)
-Moved to pos: (71, 72)
-Moved to pos: (19, 23)
-Moved to pos: (47, 3)
-Moved to pos: (41, 24)
-Moved to pos: (43, 1)
-Moved to pos: (60, 78)
-Moved to pos: (73, 79)
-Moved to pos: (85, 15)
-Moved to pos: (80, 16)
-Moved to pos: (59, 17)
-Moved to pos: (80, 10)
-Moved to pos: (75, 65)
-Moved to pos: (72, 60)
-Moved to pos: (91, 80)
-Moved to pos: (20, 62)
-Moved to pos: (29, 79)
+Moved to pos: (54, 78)
+Moved to pos: (4, 66)
+Moved to pos: (68, 65)
+Moved to pos: (52, 54)
+Moved to pos: (6, 71)
+Moved to pos: (66, 63)
+Died due to poor health
+Moved to pos: (20, 83)
+Moved to pos: (73, 2)
+Moved to pos: (97, 89)
+Died due to depression
+Moved to pos: (24, 84)
+Died due to depression
+Moved to pos: (26, 27)
+Died due to depression
+Moved to pos: (98, 73)
 Moved to pos: (38, 17)
-Moved to pos: (58, 75)
-Moved to pos: (88, 15)
-Moved to pos: (81, 13)
-Moved to pos: (39, 27)
-Moved to pos: (72, 79)
-Moved to pos: (32, 36)
-Moved to pos: (68, 83)
-Moved to pos: (93, 4)
-Moved to pos: (39, 12)
-Moved to pos: (59, 13)
-Moved to pos: (87, 17)
-Moved to pos: (21, 44)
-Moved to pos: (19, 52)
+Moved to pos: (40, 12)
+Died due to depression
+Moved to pos: (84, 71)
+Moved to pos: (66, 55)
+Moved to pos: (83, 39)
+Moved to pos: (2, 69)
+Moved to pos: (17, 36)
+Moved to pos: (78, 7)
+Moved to pos: (56, 33)
+Moved to pos: (16, 41)
+Died due to depression
+Moved to pos: (46, 32)
+Moved to pos: (77, 4)
+Moved to pos: (95, 61)
+Moved to pos: (74, 7)
+Moved to pos: (72, 3)
+Moved to pos: (6, 69)
+Moved to pos: (64, 54)
