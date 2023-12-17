@@ -1,0 +1,451 @@
+
+@startuml
+
+abstract class Entity {
++Entity(int, int, int, int)
+
++{abstract} ~Entity()
+
++{abstract}get_walkable() = 0 : bool
++{abstract}get_type() = 0 : string
+
++set_position(int, int) : void
++set_sprite(int, int) : void
+
++{abstract}get_spritesheet_pos_x() : int
++{abstract}get_spritesheet_pos_y() : int
+
++{static} step_season() : void
++{static} Season season
++{static} int timer
++{static} int year
+
++{abstract} step = 0 : void
++{abstract} consume = 0 : void
++{abstract} decay = 0 : void
++{abstract} grow_back = 0 : void
+
+#bool walkable
+#string type
+#int pos_x
+#int pos_y
+#int spritesheet_pos_x
+#int spritesheet_pos_y
+
+}
+
+Terrain --|> Entity
+
+Drawer -- Entity : draws
+
+abstract class Terrain {
++Terrain(int, int, int, int)
++{abstract} ~Terrain()
++step() : void
++consume() : void
++grow_back() : void
+
+#bool walkable
+#string type
+}
+
+class Dirt {
++Dirt(int, int, int, int)
++~Dirt()
++get_walkable() : bool
++get_type() : string
++string type
+}
+
+Dirt -up..|> Terrain
+
+class Wall {
++Wall(int, int, int, int)
++~Wall()
++get_walkable() : bool
++get_type() : string
++bool walkable
++string type
+}
+
+Wall -up..|> Terrain
+
+class Water {
++Water(int, int, int, int)
++~Water()
++get_walkable() : bool
++get_type() : string
+
++step() : void
++consume() : void
++grow_back() : void
+
+
++bool walkable
++string type
+}
+
+Water -up..|> Terrain
+
+
+abstract class Feature {
++Feature(int, int, int, int)
++{abstract} ~Feature()
++{abstract} get_level() = 0  : int
+
++bool walkable
++string type
+
+}
+
+Feature -up--|> Entity
+
+class Grass {
++Grass(int, int, int, int, int, int)
++~Grass()
+
++step()
++get_walkable() : bool
++get_level() : int
++get_type() : string
++{static} step_season() : void
+
+-bool walkable
+-grow_back() : void
+-decay() : void
+-consume() : void
+
+-update_sprite() : void
+-int food_level
+-int food_capacity
+-string type
+
+}
+
+Grass ..|> Feature
+
+class Agent {
++Agent(mt19937, int, int, string, int, int)
++~Agent()
++get_walkable() : bool
++get_type() : string
++{static} int count
++{static} std::map<int, Agent *> AgentList
++{static} std::map<int, std::map<int, Relationship>> AgentList
++{static} std::vector<std::string> fname_list;
++{static} std::vector<std::string> lname_list;
+
++int id
++string name
++int age
++Stats* aStats
++int vision_range
++int social_circle
++int reproduction_factor
+
++initialise_relaitons() : void
++move_agent(int, int) : void
++get_social_factor(int) : int
+
++new_day(int, int) : void
++grow() : void
++display_agent_list() : void
++display_relation_map() : void
++is_dead() : bool
+
++int posX
++int posY
+
++step() : void
++consume() : void
++decay() : void
++grow_back() : void
+
++attempt_reproduce() : void
++Entity* goal_entity{nullptr}
++int goal_x
++int goal_y
++string action
+
++int amount_of_food
++int metabolism
++int vision
+
+-Traits* aTraits
+-Relationship relationSum
+-{static} int GRID_WIDTH
+-{static} int GRID_HEIGHT
+}
+
+class Relationship {
++int love
++int respect
++Relationship(int, int)
++Relationship(Stats*, Traits*, Stats* )
+
++operator +(Relationship&) : Relationship
++operator -(Relationship&) : Relationship
+}
+
+class Traits {
++openness : int
++conscientiousness : int
++extrovertedness : int
++agreeableness : int
++neuroticism : int
+}
+
+enum GenderTypes {
+male
+female
+}
+
+Stats *-- GenderTypes
+
+class Stats {
++GenderTypes gender
++int age
++int health
++int wealth
++int happiness
++Stats(mt19937)
++operator / (int) : Stats
+}
+
+class Interaction_Manager {
++{static} getInstance : Interaction_Manager*
++interact(Agent*, std::set<int>&) : void
++interact_all : void
+
++cycle_day : void
++cycle_year : void
++summary_output : void
+
+-interact_talk(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_insult(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_work(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_hurt(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_party(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_reproduce(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+-interact_idle(Agent* , std::set<int>&, std::vector<std::pair<int, int>>&)
+
+-{static} Interaction_Manager* instance
+-Interaction_Manager(Interaction_Manager&) = delete
+-operator =(Interaction_Manager&) = delete
+-int cur_day
+-int cur_year
+-int total_talk
+-int total_insult
+-int total_work
+-int total_hurt
+-int total_party
+-int total_reproduce_attempts
+-int total_idles
+
+-int DAY_CYCLES
+-int YEAR_CYCLES
+
+-mt19937 mt
+
+}
+
+Entity <|---up Agent
+Agent "1" *-- Stats
+Relationship "1" *-- Agent
+Traits "1" *-- Agent
+Interaction_Manager --> Agent : Friend
+
+class Grid<Typename T> {
++Grid()
++~Grid()
++get(int, int) : std::unique_ptr<T>&
++set(int, int, std::unique_ptr<T>&) : void
+
++update() : void
+
+-std::unique_ptr<T> grid[SIZE][SIZE]
+-const int gridsize
+
+}
+
+Grid <|.. "T -> Terrain" terrain
+
+Grid <|.. "T -> Feature" features
+
+Grid <|.. "T -> Agent" agents
+
+abstract class Builder {
++~Builder()
++{abstract} general_generation() = 0: void
++{abstract} random_walk_generation() = 0: void
++{abstract} add_people_to_grid() = 0: void
++{abstract} cleanup() = 0: void
+}
+
+class Earth_builder {
++Earth_builder(mt19937&, unsigned int)
++~Earth_builder()
++reset() : void
++general_generation() : void
++random_walk_generation : void
++add_people_to_grid() :  void
++cleanup() : void
++get_terrain() : unique_ptr<Grid<Terrain>>&
++get_features() : unique_ptr<Grid<Terrain>>&
++get_agents() : unique_ptr<Grid<Terrain>>&
+
+-unique_ptr<Grid<Terrain>> terrain
+-unique_ptr<Grid<Feature>> features
+-unique_ptr<Grid<Agent>> agents
+
+-Perlin perlin_food
+-Perlin perlin_earth
+-mt19937 mt
+
+-unsigned int seed
+
+}
+
+
+
+Builder <|-- Earth_builder
+
+terrain "1" *-- "1" Game
+features "1" *-- "1" Game
+agents "1" *-- "1" Game
+
+terrain "1" *-- "SIZE" Terrain
+features "1" *-- "SIZE" Feature
+agents "1" *-- "SIZE" Agent
+
+terrain "1" o-- Earth_builder
+features "1" o-- Earth_builder
+agents "1" o-- Earth_builder
+
+class Game {
++Game(unsigned int)
++~Game()
+
++get_terrain(int, int) : unique_ptr<Terrain>
++get_feature(int, int) : unique_ptr<Feature>
++get_agent(int, int) : unique_ptr<Agent>
+
++set_terrain(int, int, unique_ptr<Terrain>&) : void
++set_feature(int, int, unique_ptr<Feature>&) : void
++set_agent(int, int, unique_ptr<Agent>&) : void
+
++add_people_to_grid() : void
+
++grow_water() : void
++shrink_water() : void
+
++step() : void
+
++pathfind(unique_ptr<Agent>&) : void
++check_move(Dir) : bool
+
+-unique_ptr<Grid<Terrain>> terrain;
+-unique_ptr<Grid<Feature>> features;
+-unique_ptr<Grid<Agent>> agents;
+
+-mt19937 mt
+
+-const int middle
+-const int total_iters
+-const int gridsize
+}
+
+
+class Dir {
++Dir(int)
++Dir(int, int)
++get_x() : int
++get_y() : int
+
++set_x(int) : void
++set_y(int) : void
+
+-int x
+-int x
+}
+
+Dir -- Game : is used for pathfinding
+
+class Drawer {
++Drawer(char const*, char const*, char const*)
++~Drawer()
++draw_game(Game&) : void
++present() : void
++flush() : void
++draw_agents() : void
++draw_sprite(const std::unique_ptr<Terrain>&, const int, const int)
++draw_sprite(const std::unique_ptr<Feature>&, const int, const int)
++draw_sprite(const std::unique_ptr<Agent>&, const int, const int)
+
+-SDL_Rect clip
+-SDL_Window* window
+-SDL_Texture* ss_terrain
+-SDL_Texture* ss_feature
+-SDL_Texture* ss_agent
+-SDL_Texture* texture
+-SDL_REnderer* renderer
+
+-int height
+-int width
+}
+
+class Random_Walker<Typename T> {
++Random_Walker(unsigned int, std::unique_ptr<Grid<Terrain>>&, std::unique_ptr<Grid<Feature>>&, int)
++get_terrain() : std::unique_ptr<Grid<Terrain>>
++get_features() : std::unique_ptr<Grid<Feature>>
+
++walk_terrain(int, int) : void
++walk_feature(int, int) : void
+
+-random_walk() : void
+-patch_holes() : void
+-int x
+-int y
+
+-std::unique_ptr<Grid<Terrain>> terrain
+-std::unique_ptr<Grid<Feature>> features
+}
+
+Random_Walker <|.. "T -> water" water_walker
+Random_Walker <|.. "T -> wall" wall_walker
+Random_Walker <|.. "T -> grass" grass_walker
+
+water_walker "1" o-- Earth_builder
+wall_walker "1" o-- Earth_builder
+grass_walker "1" o-- Earth_builder
+
+Random_Walker "1" o-- features
+Random_Walker "1" o-- terrain
+
+class Perlin {
++Perlin(unsigned int)
++add_octave(const double, const double) : void
++get_noise(const int, const int) : double
++display(Uint32*) : void
+
+-std::vector<int> permutation
+-block_noise(const int, const int) : int
+-lerp(const double, const double, const double) : double
+-smooth_lerp(const double, const double, const double) : double
+-noise_2d(const double, const double) : double
+-perlin_2d(const double, const double) : double
+
+-mt19937 mt
+-int seed
+
+-float total_noise[SIZE][SIZE]
+-int num_octaves
+
+}
+
+Earth_builder "1" *-- Perlin
+
+
+
+
+@enduml
