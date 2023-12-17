@@ -19,8 +19,8 @@ const int FPS = 60;
 const int frame_delay = 1000 / FPS;
 
 int main(int argc, char **argv) { // takes in seed as cli argument
-  unsigned int seed = (argc - 1) ? std::stoi(argv[1]) : 1985;
-  bool plot = (argc - 2) ? std::stoi(argv[2]) : 0;
+  unsigned int seed = (argc - 1 >= 1) ? std::stoi(argv[1]) : 1985;
+  bool plot = (argc - 1 == 2) ? std::stoi(argv[2]) : false;
 
   char const *ss_feature = "../resources/Bountiful-Bits-10x10-v-3.1/Colored/"
                            "no-background/Full-no-bg.png";
@@ -92,6 +92,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
       count = 0;
     }
 
+    // maintain 60 fps
     if (frame_delay > frame_time)
       SDL_Delay(frame_delay - frame_time);
   };
