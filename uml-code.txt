@@ -1,6 +1,15 @@
 
 @startuml
 
+enum Season {
+Harvest
+Drought
+Famine
+Monsoon
+}
+
+Season --* Entity
+
 abstract class Entity {
 +Entity(int, int, int, int)
 
