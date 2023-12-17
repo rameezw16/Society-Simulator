@@ -4,6 +4,8 @@
 ## Deliverables
 The UML file is available as uml.png. Note that only the signature of the methods is given. This is to avoid clutter, as the names are available in the respective .h files.
 
+Further, since templates instantiate into classes in C++, we've added each instance of a template as a seperate class in the UML diagram. This makes the diagram a little confusing, but still not too difficult to follow.
+
 The UML diagram was generated using the https://www.plantuml.com/ web server. The code was available at uml-code.txt.
 
 This is a little explanation of our project and the code. Our project is a creative, procedurally generated, approach to the classic sheep-grass simulation extended with randomly generated terrain and season simulation. 
