@@ -66,6 +66,7 @@ int main(int argc, char **argv) { // takes in seed as cli argument
   int count = 0;
   const int max_count = 3;
 
+  drawer->play_audio();
   while (true) {
     if (plot && success) {
       GNUpipe << "plot '../logs/data.txt' using 1:2 with lines lw 8 title "

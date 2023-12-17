@@ -19,13 +19,29 @@ Drawer::Drawer(char const *ss_terrain, char const *ss_feature,
 
   clip.w = 10;
   clip.h = 10;
+
+  // add audio
+  SDL_Init(SDL_INIT_AUDIO);
+  bool succ =
+      SDL_LoadWAV("../resources/murmur.wav", &wavSpec, &wavBuffer, &wavLength);
+  deviceID = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
+  SDL_PauseAudioDevice(deviceID, 0);
 };
 
 Drawer::~Drawer() {
   SDL_DestroyRenderer(renderer);
   SDL_DestroyTexture(texture);
   SDL_DestroyWindow(window);
+
+  SDL_CloseAudioDevice(deviceID);
+  SDL_FreeWAV(wavBuffer);
+  SDL_Quit();
 };
+
+void Drawer::play_audio() {
+  int succ = SDL_QueueAudio(deviceID, wavBuffer, wavLength);
+  std::cout << succ;
+}
 
 void Drawer::draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
                          const int y) {
@@ -119,6 +135,8 @@ void Drawer::draw_agents() {
     // 10);
   }
 }
+
+void play_audio() {}
 
 void Drawer::present() { SDL_RenderPresent(renderer); };
 

@@ -24,6 +24,8 @@ public:
   void present();
   void flush();
   void draw_agents();
+
+  void play_audio();
   void draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
                    const int y);
   void draw_sprite(const std::unique_ptr<Feature> &entity, const int x,
@@ -39,6 +41,11 @@ private:
   SDL_Texture *ss_agent;
   SDL_Texture *texture;
   SDL_Renderer *renderer;
+
+  SDL_AudioSpec wavSpec;
+  SDL_AudioDeviceID deviceID;
+  Uint32 wavLength;
+  Uint8 *wavBuffer;
 
   int height;
   int width;
