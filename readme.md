@@ -10,6 +10,8 @@ The UML diagram was generated using the https://www.plantuml.com/ web server. Th
 
 This is a little explanation of our project and the code. Our project is a creative, procedurally generated, approach to the classic sheep-grass simulation extended with randomly generated terrain and season simulation. 
 
+The code is available on the master, and Rameez's contribution is on the movement-learning branch.
+
 ## Explanation of code
 
 Maximum vegetation levels, dirt, water bodies, people, are all completely randomly generated based on the seed. People have personalities (corresponding to the Big 5 traits in psychology) which are also randomly generated. Seasons come and go based on a set timer, and "seasons" within human population are observed. The cycle observed is as follows. 
