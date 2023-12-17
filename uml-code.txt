@@ -386,10 +386,12 @@ class Drawer {
 +draw_game(Game&) : void
 +present() : void
 +flush() : void
++play_audio : void
 +draw_agents() : void
 +draw_sprite(const std::unique_ptr<Terrain>&, const int, const int)
 +draw_sprite(const std::unique_ptr<Feature>&, const int, const int)
 +draw_sprite(const std::unique_ptr<Agent>&, const int, const int)
+
 
 -SDL_Rect clip
 -SDL_Window* window
@@ -397,7 +399,11 @@ class Drawer {
 -SDL_Texture* ss_feature
 -SDL_Texture* ss_agent
 -SDL_Texture* texture
--SDL_REnderer* renderer
+-SDL_Renderer* renderer
+-SDL_AudioSpec wavSpec
+-SDL_AudioDeviceID deviceID
+-Uint32 wavLength
+-Uint8 *wavBuffer
 
 -int height
 -int width
