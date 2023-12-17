@@ -2,6 +2,8 @@
 
 The UML file is available as uml.png. Note that only the signature of the methods is given. This is to avoid clutter, as the names are available in the respective .h files.
 
+The UML diagram was generated using the https://www.plantuml.com/ web server. The code was available at uml-code.txt.
+
 This is a little explanation of our project and the code. Our project is a creative, procedurally generated, approach to the classic sheep-grass simulation, as well as an extension with terrain and seasons. 
 
 Maximum vegetation levels, dirt, water bodies, people, are all completely randomly generated based on the seed. People have personalities (corresponding to the Big 5 traits in psychology) which are also randomly generated. Seasons come and go based on a set timer, and "seasons" within human population are observed. The cycle observed is as follows. 
