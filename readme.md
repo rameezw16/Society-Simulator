@@ -1,6 +1,6 @@
 # Guide
 
-The UML file is available as uml.png. 
+The UML file is available as uml.png. Note that only the signature of the methods is given. This is to avoid clutter, as the names are available in the respective .h files.
 
 This is a little explanation of our project and the code. Our project is a creative, procedurally generated, approach to the classic sheep-grass simulation, as well as an extension with terrain and seasons. 
 
