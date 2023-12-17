@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "../include/grid.h"
 #include <iostream>
 // SIZE is the internal grid representation
@@ -124,3 +125,5 @@ void Grid::step() {
 
 
 >>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
+=======
+>>>>>>> report

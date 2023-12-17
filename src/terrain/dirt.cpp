@@ -5,4 +5,6 @@ Dirt::Dirt(const int pos_x, const int pos_y, const int spritesheet_pos_x,
 	: Terrain(pos_x, pos_y, spritesheet_pos_x, spritesheet_pos_y){};
 Dirt::~Dirt() = default;
 
-void Dirt::interact_randomly() {};
+
+bool Dirt::get_walkable() const {return this->walkable;};
+std::string Dirt::get_type() const {return this->type;};

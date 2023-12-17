@@ -99,5 +99,6 @@ int main_2()
     clearDirectory("../logs");
 
     run(30, 2, mt);
+    return 0;
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "actor.h"
+#include "agent.h"
 
 class Wolf : public Agent { //making a class so we can extend functionality later
 public:

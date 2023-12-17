@@ -1,48 +1,49 @@
 #pragma once
-#include "./features/feature.h"
-#include "./perlin.h"
-#include "./terrain/terrain.h"
-#include "./terrain/water.h"
-#include "./terrain/dirt.h"
-#include "./features/grass.h"
-#include "./features/wall.h"
-#include "./randomwalker.h"
-#include "./characters/actor.h"
 #include "./size.h"
-#include <SDL2/SDL.h>
+#include <memory>
 
-
-// We will now make a grid of entities, this contains a spritesheet
-
-class Grid {
+template <typename T> class Grid {
 public:
-  Grid(unsigned int seed = 1985);
-  ~Grid();
+  Grid() {
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        grid[i][j] = std::unique_ptr<T>();
+      }
+    }
+  };
 
-  void randomly_generate();
-  void random_walk(int x, int y);
+  ~Grid() {
+    // unique ptr should take care of this
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        // delete grid[i][j];
+        // grid[i][j] = nullptr;
+      }
+    }
+  };
 
-  //making this public just for testing
+  std::unique_ptr<T> &get(int i, int j) { return (grid[i % SIZE][j % SIZE]); }
 
-  Terrain *terrain[SIZE][SIZE]; // grid of terrain pointers, aggregation
-  Feature *feature[SIZE][SIZE]; // grid of features built on terrain
-  Agent *agent[SIZE][SIZE];
-  //Agent list in Agent class
+  void set(int i, int j,
+           std::unique_ptr<T> &pointer_to_entity) { // takes in reference
+    int i_index = i % SIZE;
+    int j_index = j % SIZE;
+    grid[i_index][j_index] = std::move(pointer_to_entity);
+  };
+
+  void update() {
+    for (int i = 0; i < SIZE; ++i) {
+      for (int j = 0; j < SIZE; ++j) {
+        int i_index = i % SIZE;
+        int j_index = j % SIZE;
+
+        grid[i_index][j_index]->step();
+        // grid[i_index][j_index]->consume();
+      }
+    }
+  }
 
 private:
-<<<<<<< HEAD
-  Perlin erlin_gen;
-  std::mt19937 mt; 
-
-  Interaction_Manager* interaction_manager;
-=======
-  Perlin perlin_gen;
->>>>>>> parent of 8a893ed (Made the interaction manager part of the grid, added walkable param)
-
-  Perlin temperature;
-
-  Perlin humidity;
-  Perlin evil;
-
+  std::unique_ptr<T> grid[SIZE][SIZE]; // grid of terrain pointers, aggregation
   const int gridsize = SIZE;
 };

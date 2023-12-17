@@ -4,17 +4,16 @@
 
 #include <random>
 
-class Relationship
-{
-    public:
-        int love;
-        int respect;
-        // int professionalism; (not required)
+class Relationship {
+public:
+  int love;
+  int respect;
+  // int professionalism; (not required)
 
-        Relationship(int l = 0, int r = 0);
+  Relationship(int l = 0, int r = 0);
 
-        Relationship(Stats* thisStats, Traits* thisTraits, Stats* otherStats);
+  Relationship(Stats *thisStats, Traits *thisTraits, Stats *otherStats);
 
-        Relationship operator +(Relationship& other);
-        Relationship operator -(Relationship& other);
+  Relationship operator+(Relationship &other);
+  Relationship operator-(Relationship &other);
 };

@@ -3,8 +3,8 @@
 /.predator_prey.cpp.~undo-tree~
 /build/
 /.translator.cpp.~undo-tree~
-/resources/
 /include/.perlin.h.~undo-tree~
 /src/.main.cpp.~undo-tree~
 /src/.perlin.cpp.~undo-tree~
-/logs/
+/resources/
+/logs/*.txt
