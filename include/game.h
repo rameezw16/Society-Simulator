@@ -16,6 +16,11 @@
 #include <memory>
 #include <random>
 
+// This manages the entire gamestate. pointer_terrain, pointer_feature, etc. are
+// defined in Earth_builder.h. It has a unique_ptr to a grid of
+// unique_ptr<Terrain/Feature>, which it gets from Earth_builder. Seasons and
+// pathfinding are managed here.
+
 class Game {
 public:
   Game(unsigned int seed = 1985);
@@ -36,7 +41,7 @@ public:
 
   void step();
 
-  void pathfind(pointer_agent& agent);
+  void pathfind(pointer_agent &agent);
   bool check_move(Dir direction);
 
 private:

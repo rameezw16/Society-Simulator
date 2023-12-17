@@ -10,6 +10,11 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
+// This is where we draw sprites. The drawer class takes as input paths to the
+// spritesheets. Each agent has its own spritesheet. Each entity carries with it
+// spritesheet coordinates, which this class will display. This is a facade for
+// our SDL class.
+
 class Drawer {
 public:
   Drawer(char const *ss_terrain, char const *ss_feature, char const *ss_agent);
@@ -18,7 +23,6 @@ public:
   void draw_game(Game &game);
   void present();
   void flush();
-  // TODO make private
   void draw_agents();
   void draw_sprite(const std::unique_ptr<Terrain> &entity, const int x,
                    const int y);

@@ -11,6 +11,6 @@ public:
   // 0 and 0 for darkest dirt
   ~Dirt();
   bool get_walkable() const override;
-  std::string get_type() const override;
+  std::string get_type() const override; // TODO make these private
   std::string type = "dirt";
 };

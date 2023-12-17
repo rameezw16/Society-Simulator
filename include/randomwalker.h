@@ -11,6 +11,14 @@
 #include <set>
 #include <typeinfo>
 
+// This is a template which takes in the "type" of walk it should conduct. For
+// instance, if I am doing a dirt walk, then I will walk randomly, and wherever
+// I step I will replace the area with dirt. We do have to exercise discipline,
+// and use a terrain walk when we want a walk on terrain and a feature walk when
+// we want a walk on features. Knowing what we know now, we probably would have
+// done some kind of template inheritence, and have two different templates, one
+// for features and one for terrain.
+
 template <typename T> class Random_Walker {
 public:
   Random_Walker(unsigned int seed, std::unique_ptr<Grid<Terrain>> &terrain,
