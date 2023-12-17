@@ -29,7 +29,7 @@ This is an interesting conclusion.
 Comments are given in the .h files of the major features.
 
 ## Usage
-- First build the game, if the CMakeLists is out of date, then run "cmake .." from the build folder, otherwise run either "cmake --build build" from the root of the project or "make" from within the build folder.
+- First build the game, if the Makefile is out of date, then run "cmake .." from the build folder, otherwise run either "cmake --build build" from the root of the project or "make" from within the build folder.
 - The program accepts a seed. Observe how the terrain is completely different at different values, and the placement of the people too. 
 - Terminate the program by sending SIGINT to the terminal, or by closing the window
 
