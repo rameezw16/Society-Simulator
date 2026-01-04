@@ -54,5 +54,3 @@ We had a lot of fun working on the project, and really learned a lot. About team
 
 
 Unfortunately due to other projects and deadlines, the code is a little messy at places, but is fully functional and safe. We hope you'll understand.
-
-Thank you for an interesting class. We hope to have you again as our professor, in better health next time.
